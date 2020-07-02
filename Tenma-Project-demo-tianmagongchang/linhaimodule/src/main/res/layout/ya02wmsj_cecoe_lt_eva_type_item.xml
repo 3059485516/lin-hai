@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/yl_margin_l"
+    android:paddingTop="@dimen/yl_margin_l"
+    android:paddingRight="@dimen/yl_margin_l">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_left"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/ya02wmsj_cecoe_icon_level" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/yl_margin_l"
+            android:layout_toLeftOf="@+id/iv_arrow"
+            android:layout_toRightOf="@+id/iv_left"
+            android:layout_weight="1"
+            android:text="核心礼堂建筑面积不少于200平方米，设置国旗、24字社会主义核心价值观及当代浙江人共同价值观，配有舞台、灯光音响等设施，新建礼堂内部无立柱"
+            android:textColor="#000000"
+            android:textSize="@dimen/yl_text_size_16" />
+
+        <ImageView
+            android:id="@+id/iv_arrow"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/yl_margin_l"
+            android:scaleType="centerInside" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:background="@color/yl_devide_line" />
+</LinearLayout>

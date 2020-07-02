@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="yl_app_name">临海新时代</string>
+    <string name="yl_main_app_name">临海新时代</string>
+    <string name="yl_transition_name">makeSceneTransitionAnimation</string>
+
+    <!--Hint-->
+    <string name="yl_h_phone">请输入手机号码</string>
+    <string name="yl_h_password">请输入密码</string>
+    <string name="yl_h_password_old">原密码(6&#8211;16位数字或字母)</string>
+    <string name="yl_h_password_new">新密码(6&#8211;16位数字或字母)</string>
+    <string name="yl_h_password_confirm">确认密码(6&#8211;16位数字或字母)</string>
+    <string name="yl_h_ver_code">请输入验证码</string>
+    <string name="yl_t_ver_code_is_empty">请输入验证码</string>
+    <string name="yl_t_ver_code_format_error">验证码格式错误</string>
+
+    <!--Toast-->
+    <string name="yl_t_name_is_empty">请输入手机号码</string>
+    <string name="yl_t_phone_is_empty">请输入手机号码</string>
+    <string name="yl_t_phone_format_error">请输入正确的手机号</string>
+    <string name="yl_h_password_tips">密码必须是至少6个字符，而且同时包含字母和数字。</string>
+    <string name="yl_t_password_is_empty">请输入密码</string>
+    <string name="yl_t_password_old_is_empty">请输入原密码</string>
+    <string name="yl_t_password_new_is_empty">请输入新密码</string>
+    <string name="yl_t_password_new_format_error">新密码格式错误</string>
+    <string name="yl_t_password_confirm_is_empty">请输入确认密码</string>
+    <string name="yl_t_password_differ">新密码和确认密码不一致</string>
+    <string name="yl_t_password_new_old_equal">新密码和原密码不能相同</string>
+
+    <string name="yl_t_change_psw_success">重设修改成功,请重新登录</string>
+
+    <string name="yl_t_per_camera">获取相机权限失败</string>
+    <string name="yl_t_per_location">获取定位权限失败</string>
+    <string name="yl_t_per_external">获取储存权限失败</string>
+    <string name="yl_t_per_record">获取录音权限失败</string>
+    <string name="yl_elect_patrol_map">电子巡查轨迹</string>
+    <string name="yl_elect_patrol_process">电子巡查过程</string>
+
+    <!-- Error View -->
+    <string name="yl_error_view_no_data">暂无内容</string>
+    <string name="yl_error_view_loading">加载中…</string>
+    <string name="yl_error_view_load_error_click_to_refresh">内容加载失败\r\n点击重新加载</string>
+    <string name="yl_error_view_network_error_click_to_refresh">没有可用的网络</string>
+</resources>

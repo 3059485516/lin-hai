@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/yl_margin_s"
+    android:background="@color/yl_white"
+    app:cardCornerRadius="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView
+            android:id="@+id/iv_image"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ya02wmsj_cecoe_placeholder"
+            app:height_width="1.3" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_image"
+            android:layout_marginLeft="@dimen/yl_margin_xl"
+            android:layout_marginRight="@dimen/yl_margin_xl"
+            android:lineSpacingMultiplier="1.2"
+            android:padding="@dimen/yl_margin_s"
+            android:textColor="@color/yl_main_black"
+            android:textSize="@dimen/yl_text_size_16" />
+
+        <TextView
+            android:id="@+id/tv_browse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_title"
+            android:layout_alignLeft="@+id/tv_title"
+            android:layout_marginTop="@dimen/yl_margin_xl"
+            android:layout_marginRight="@dimen/yl_margin_xl"
+            android:layout_marginBottom="@dimen/yl_margin_s"
+            android:textColor="@color/yl_gray"
+            android:textSize="@dimen/yl_text_size_14"
+            android:visibility="invisible"
+            tools:text="1234" />
+
+        <TextView
+            android:id="@+id/tv_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_browse"
+            android:layout_marginRight="@dimen/yl_margin_xl"
+            android:layout_toRightOf="@+id/tv_browse"
+            android:textColor="@color/yl_gray"
+            android:textSize="@dimen/yl_text_size_14"
+            android:visibility="invisible"
+            tools:text="1234" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/tv_title"
+            android:layout_alignBottom="@+id/tv_browse"
+            android:layout_marginLeft="@dimen/yl_margin_xl"
+            android:textColor="@color/yl_gray"
+            android:textSize="@dimen/yl_text_size_14"
+            tools:text="2019-03-06" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

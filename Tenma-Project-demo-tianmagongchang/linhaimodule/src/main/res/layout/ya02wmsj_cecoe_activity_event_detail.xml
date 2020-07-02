@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yl_white"
+    android:orientation="vertical"
+    android:overScrollMode="never"
+    android:padding="@dimen/yl_margin_xl"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ya02wmsj_cecoe_bg_order"
+            app:text_left="标题" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_s"
+            android:text="描述："
+            android:textColor="#4c4c4c"
+            android:textSize="@dimen/yl_text_size_14" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_bg_order"
+            android:lines="5"
+            android:padding="@dimen/yl_margin_s"
+            android:textColor="#666666"
+            android:textSize="@dimen/yl_text_size_14" />
+
+        <TextView
+            android:id="@+id/tv_reason_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_s"
+            android:text="驳回理由："
+            android:textColor="#4c4c4c"
+            android:textSize="@dimen/yl_text_size_14"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_bg_order"
+            android:lines="5"
+            android:padding="@dimen/yl_margin_s"
+            android:textColor="#666666"
+            android:textSize="@dimen/yl_text_size_14"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_l"
+            android:text="处理流程："
+            android:textColor="#4c4c4c"
+            android:textSize="@dimen/yl_text_size_14" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_process"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView>

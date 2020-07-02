@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="46dp"
+    android:layout_gravity="bottom"
+    android:background="@color/white"
+    android:clickable="true"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="#d4d4d4" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_comment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/yl_space_10"
+            android:layout_marginTop="@dimen/yl_space_6"
+            android:layout_marginRight="@dimen/yl_space_10"
+            android:layout_marginBottom="@dimen/yl_space_6"
+            android:layout_weight="1"
+            android:background="@drawable/ya02wmsj_cecoe_bg_text_comment"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:src="@mipmap/ya02wmsj_cecoe_ic_comment_40" />
+
+            <TextView
+                android:id="@+id/tv_comment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:hint="发表评论"
+                android:paddingLeft="@dimen/yl_space_16" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/ib_commentNum"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ya02wmsj_cecoe_ic_material_ripple"
+            android:padding="@dimen/yl_space_8"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ya02wmsj_cecoe_icon_article_comment"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/ib_like"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ya02wmsj_cecoe_ic_material_ripple"
+            android:padding="@dimen/yl_space_8"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ya02wmsj_cecoe_good" />
+
+        <ImageButton
+            android:id="@+id/ib_collect"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ya02wmsj_cecoe_ic_material_ripple"
+            android:padding="@dimen/yl_space_8"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ya02wmsj_cecoe_collect" />
+
+        <ImageButton
+            android:id="@+id/ib_share"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/yl_space_8"
+            android:background="@drawable/ya02wmsj_cecoe_ic_material_ripple"
+            android:padding="@dimen/yl_space_8"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ya02wmsj_cecoe_icon_circle_share" />
+
+    </LinearLayout>
+</LinearLayout>

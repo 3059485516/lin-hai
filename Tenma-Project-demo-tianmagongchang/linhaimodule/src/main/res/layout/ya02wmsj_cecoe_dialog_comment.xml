@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F0F1F2"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et_comment"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="@dimen/yl_space_15"
+        android:layout_marginTop="@dimen/yl_space_15"
+        android:layout_marginRight="@dimen/yl_space_15"
+        android:background="@drawable/ya02wmsj_cecoe_acm_inputbox"
+        android:gravity="top"
+        android:hint="评论内容"
+        android:padding="@dimen/yl_space_10"
+        android:textColor="@color/yl_main_black" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/yl_space_15"
+        android:layout_marginRight="@dimen/yl_space_15"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_cancelComment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/yl_space_10"
+                android:background="@drawable/ya02wmsj_cecoe_textview_border_black_gray"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@color/white"
+                android:textSize="@dimen/yl_text_size_16" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_submitComment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/yl_space_10"
+                android:background="@drawable/ya02wmsj_cecoe_textview_border_light_gray"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="@color/white"
+                android:textSize="@dimen/yl_text_size_16" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/yl_white"
+    android:padding="@dimen/yl_margin_l">
+
+    <TextView
+        android:id="@+id/tv_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:background="@drawable/ya02wmsj_cecoe_bg_text_top"
+        android:text="置顶"
+        android:textColor="@color/yl_white"
+        android:textSize="@dimen/yl_text_size_14" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_top"
+        android:layout_toRightOf="@+id/tv_top"
+        android:maxLines="2"
+        android:textColor="#4C4C4C"
+        android:textSize="@dimen/yl_text_size_17"
+        tools:text="临海杯全市剪纸大赛即将开幕" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_alignLeft="@+id/tv_top"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:textColor="#999999"
+        android:textSize="@dimen/yl_text_size_13"
+        tools:text="2017-10-10  12:00:00开始" />
+</RelativeLayout>

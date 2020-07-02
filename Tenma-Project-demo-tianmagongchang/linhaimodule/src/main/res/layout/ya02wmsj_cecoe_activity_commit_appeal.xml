@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yl_white"
+    android:orientation="vertical"
+    android:padding="@dimen/yl_margin_xl">
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+        android:id="@+id/et_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/yl_margin_xl"
+        android:background="@drawable/ya02wmsj_cecoe_bg_order"
+        app:e_text_left="标题"
+        app:text_gravity="right" />
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+        android:id="@+id/tv_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/yl_margin_xl"
+        android:background="@drawable/ya02wmsj_cecoe_bg_order"
+        app:arrow_show="true"
+        app:text_left="诉求分类" />
+
+    <EditText
+        android:id="@+id/et_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/yl_margin_xl"
+        android:background="@drawable/ya02wmsj_cecoe_bg_order"
+        android:gravity="top"
+        android:hint="描述"
+        android:lines="5"
+        android:maxLines="5"
+        android:padding="@dimen/yl_margin_s"
+        android:textSize="@dimen/yl_text_size_14" />
+
+    <Button
+        android:id="@+id/btn_commit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ya02wmsj_cecoe_selector_btn_bg"
+        android:letterSpacing="0.3"
+        android:text="提交诉求"
+        android:textColor="@color/yl_white" />
+</LinearLayout>

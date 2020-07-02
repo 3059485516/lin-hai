@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tenma.ventures.navigation">
+
+    <application>
+        <activity
+            android:name=".TopNavigationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BottomNavigationActivity"
+            android:configChanges="screenSize|orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <!-- 搜索 -->
+        <activity
+            android:name=".SearchActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <receiver android:name=".LocalReceiver">
+            <intent-filter>
+                <action android:name="com.nyl.orderlybroadcast.AnotherBroadcastReceiver" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".Aliicontest"></activity>
+    </application>
+
+</manifest>

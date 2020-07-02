@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>IconFont</title>
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="iconfont.css">
+</head>
+<body>
+    <div class="main markdown">
+        <h1>IconFont 图标</h1>
+        <ul class="icon_lists clear">
+            
+                <li>
+                <i class="icon iconfont icon-dianshiju"></i>
+                    <div class="name">电视剧</div>
+                    <div class="fontclass">.icon-dianshiju</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-zhibo"></i>
+                    <div class="name">直播</div>
+                    <div class="fontclass">.icon-zhibo</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-comiisfabaoliao"></i>
+                    <div class="name">爆料</div>
+                    <div class="fontclass">.icon-comiisfabaoliao</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-license"></i>
+                    <div class="name">license</div>
+                    <div class="fontclass">.icon-license</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-yonghuming"></i>
+                    <div class="name">用户</div>
+                    <div class="fontclass">.icon-yonghuming</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-faxian"></i>
+                    <div class="name">发现</div>
+                    <div class="fontclass">.icon-faxian</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-wangluochuanbo"></i>
+                    <div class="name">网络传播</div>
+                    <div class="fontclass">.icon-wangluochuanbo</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-zhuye"></i>
+                    <div class="name">主页</div>
+                    <div class="fontclass">.icon-zhuye</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-jianlizuhe"></i>
+                    <div class="name">建立组合</div>
+                    <div class="fontclass">.icon-jianlizuhe</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-xinwen"></i>
+                    <div class="name">新闻</div>
+                    <div class="fontclass">.icon-xinwen</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-zhuanti"></i>
+                    <div class="name">专题</div>
+                    <div class="fontclass">.icon-zhuanti</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-yes"></i>
+                    <div class="name">对勾 </div>
+                    <div class="fontclass">.icon-yes</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-shanchu"></i>
+                    <div class="name">删 除</div>
+                    <div class="fontclass">.icon-shanchu</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-guangbo"></i>
+                    <div class="name">广播</div>
+                    <div class="fontclass">.icon-guangbo</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-zhuantidingzhi"></i>
+                    <div class="name">专题定制</div>
+                    <div class="fontclass">.icon-zhuantidingzhi</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-combinedshape"></i>
+                    <div class="name">专题</div>
+                    <div class="fontclass">.icon-combinedshape</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-bukanguangbo"></i>
+                    <div class="name">不看广播</div>
+                    <div class="fontclass">.icon-bukanguangbo</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-zhibobofangshexiangjitianxianxianxing"></i>
+                    <div class="name">直播 播放 摄像机 天线 线性</div>
+                    <div class="fontclass">.icon-zhibobofangshexiangjitianxianxianxing</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-tupianshangchuan1"></i>
+                    <div class="name">330*330图片上传</div>
+                    <div class="fontclass">.icon-tupianshangchuan1</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-jiantou-copy"></i>
+                    <div class="name">箭头</div>
+                    <div class="fontclass">.icon-jiantou-copy</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-jiantou-copy1"></i>
+                    <div class="name">箭头</div>
+                    <div class="fontclass">.icon-jiantou-copy1</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont icon-edit-copy-copy"></i>
+                    <div class="name">编辑</div>
+                    <div class="fontclass">.icon-edit-copy-copy</div>
+                </li>
+            
+        </ul>
+
+        <h2 id="font-class-">font-class引用</h2>
+        <hr>
+
+        <p>font-class是unicode使用方式的一种变种，主要是解决unicode书写不直观，语意不明确的问题。</p>
+        <p>与unicode使用方式相比，具有如下特点：</p>
+        <ul>
+        <li>兼容性良好，支持ie8+，及所有现代浏览器。</li>
+        <li>相比于unicode语意明确，书写更直观。可以很容易分辨这个icon是什么。</li>
+        <li>因为使用class来定义图标，所以当要替换图标时，只需要修改class里面的unicode引用。</li>
+        <li>不过因为本质上还是使用的字体，所以多色图标还是不支持的。</li>
+        </ul>
+        <p>使用步骤如下：</p>
+        <h3 id="-fontclass-">第一步：引入项目下面生成的fontclass代码：</h3>
+
+
+        <pre><code class="lang-js hljs javascript"><span class="hljs-comment">&lt;link rel="stylesheet" type="text/css" href="./iconfont.css"&gt;</span></code></pre>
+        <h3 id="-">第二步：挑选相应图标并获取类名，应用于页面：</h3>
+        <pre><code class="lang-css hljs">&lt;<span class="hljs-selector-tag">i</span> <span class="hljs-selector-tag">class</span>="<span class="hljs-selector-tag">iconfont</span> <span class="hljs-selector-tag">icon-xxx</span>"&gt;&lt;/<span class="hljs-selector-tag">i</span>&gt;</code></pre>
+        <blockquote>
+        <p>"iconfont"是你项目下的font-family。可以通过编辑项目查看，默认是"iconfont"。</p>
+        </blockquote>
+    </div>
+</body>
+</html>

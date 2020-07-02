@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="@dimen/yl_margin_xl">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="106dp"
+        android:layout_height="76dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/yl_margin_xl"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ya02wmsj_cecoe_placeholder" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:ellipsize="end"
+        android:lines="2"
+        android:maxLines="2"
+        android:textColor="#4c4c4c"
+        android:textSize="@dimen/yl_text_size_16" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_alignLeft="@+id/tv_title"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#999999"
+        android:textSize="@dimen/yl_text_size_13" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_name"
+        android:layout_alignLeft="@+id/tv_name"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="状态未知"
+        android:textColor="#999999"
+        android:textSize="@dimen/yl_text_size_13" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_status"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/tv_status"
+        android:ellipsize="end"
+        android:gravity="right"
+        android:singleLine="true"
+        android:text="2019-08-15"
+        android:textColor="#999999"
+        android:textSize="@dimen/yl_text_size_13" />
+</RelativeLayout>

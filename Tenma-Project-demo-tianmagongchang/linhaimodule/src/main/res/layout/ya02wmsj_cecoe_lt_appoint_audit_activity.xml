@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/yl_margin_l">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="申请金清镇夏良村文化礼堂讲堂"
+                android:textColor="#000000"
+                android:textSize="@dimen/yl_text_size_18"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_top_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/yl_margin_l"
+                android:layout_marginBottom="@dimen/yl_margin_l"
+                android:text="2020-03-21 10:24"
+                android:textColor="@color/yl_text_light" />
+
+            <include layout="@layout/ya02wmsj_cecoe_divider_view" />
+
+            <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+                android:id="@+id/tv_resource"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/yl_margin_xl"
+                app:text_left="申请资源"
+                app:text_right="讲堂" />
+
+            <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+                android:id="@+id/tv_unit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/yl_margin_xl"
+                app:text_left="举办人"
+                app:text_right="讲堂" />
+
+            <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/yl_margin_xl"
+                app:text_left="联系人"
+                app:text_right="讲堂" />
+
+            <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+                android:id="@+id/tv_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/yl_margin_xl"
+                app:text_left="联系方式"
+                app:text_right="讲堂" />
+
+            <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+                android:id="@+id/tv_s_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/yl_margin_xl"
+                app:text_left="开始时间"
+                app:text_right="讲堂" />
+
+            <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+                android:id="@+id/tv_e_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/yl_margin_xl"
+                android:layout_marginBottom="@dimen/yl_margin_xl"
+                app:text_left="截止时间"
+                app:text_right="讲堂" />
+
+            <include layout="@layout/ya02wmsj_cecoe_divider_view" />
+
+            <TextView
+                android:id="@+id/tv_reason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/yl_margin_xl"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/tv_refuse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/yl_margin_xl"
+                android:textColor="@color/yl_theme_color" />
+        </LinearLayout>
+
+    </com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView>
+
+    <include layout="@layout/ya02wmsj_cecoe_divider_view" />
+
+    <LinearLayout
+        android:id="@+id/wrap_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/yl_margin_l"
+        android:paddingTop="@dimen/yl_margin_s"
+        android:paddingRight="@dimen/yl_margin_l"
+        android:paddingBottom="@dimen/yl_margin_s">
+
+        <Button
+            android:id="@+id/btn_refuse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/yl_margin_s"
+            android:layout_weight="1"
+            android:background="@drawable/ya02wmsj_cecoe_bg_btn_commit"
+            android:letterSpacing="1.5"
+            android:text="驳回"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_agree"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/yl_margin_s"
+            android:layout_weight="1"
+            android:background="@drawable/ya02wmsj_cecoe_bg_btn_agree"
+            android:letterSpacing="1.5"
+            android:text="通过"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</LinearLayout>

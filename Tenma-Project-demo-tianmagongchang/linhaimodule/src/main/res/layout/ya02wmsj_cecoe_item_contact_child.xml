@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_head"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginLeft="@dimen/yl_margin_m"
+        android:layout_marginTop="@dimen/yl_margin_m"
+        android:src="@mipmap/ya02wmsj_cecoe_head" />
+
+    <TextView
+        android:id="@+id/tv_friend_name"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginLeft="@dimen/yl_margin_m"
+        android:layout_marginTop="@dimen/yl_margin_m"
+        android:layout_toRightOf="@id/iv_head"
+        android:gravity="center_vertical"
+        android:text="杨世豪"
+        android:textColor="@color/yl_main_black"
+        android:textSize="@dimen/yl_text_l" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/iv_head"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="@dimen/yl_margin_m"
+        android:background="@color/yl_devide_line" />
+
+</RelativeLayout>

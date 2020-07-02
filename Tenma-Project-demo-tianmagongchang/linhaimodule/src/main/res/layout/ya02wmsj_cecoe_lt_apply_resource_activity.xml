@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yl_graybg">
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+        android:id="@+id/et_unit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/yl_margin_l"
+        android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+        app:e_hint="请输入举办单位或者个人姓名"
+        app:e_text_left="举办人"
+        app:text_gravity="right" />
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_unit"
+        android:layout_marginLeft="@dimen/yl_margin_l"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:layout_marginBottom="@dimen/yl_margin_l"
+        android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+        app:e_hint="请输入联系人"
+        app:e_text_left="联系人"
+        app:text_gravity="right" />
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_name"
+        android:layout_marginLeft="@dimen/yl_margin_l"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:layout_marginBottom="@dimen/yl_margin_l"
+        android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+        app:e_hint="请输入联系电话"
+        app:e_text_left="联系电话"
+        app:text_gravity="right" />
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+        android:id="@+id/tv_start_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_phone"
+        android:layout_marginLeft="@dimen/yl_margin_l"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:layout_marginBottom="@dimen/yl_margin_l"
+        android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+        app:arrow_show="true"
+        app:text_left="开始时间" />
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+        android:id="@+id/tv_end_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_start_time"
+        android:layout_marginLeft="@dimen/yl_margin_l"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:layout_marginBottom="@dimen/yl_margin_l"
+        android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+        app:arrow_show="true"
+        app:text_left="结束时间" />
+
+    <EditText
+        android:id="@+id/et_reason"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_end_time"
+        android:layout_marginLeft="@dimen/yl_margin_l"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:layout_marginBottom="@dimen/yl_margin_l"
+        android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+        android:gravity="top"
+        android:hint="输入活动说明"
+        android:lines="5"
+        android:maxLines="7"
+        android:padding="@dimen/yl_margin_s"
+        android:textSize="@dimen/yl_text_size_14" />
+
+    <Button
+        android:id="@+id/btn_apply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="@dimen/yl_margin_xl"
+        android:background="@drawable/ya02wmsj_cecoe_bg_btn_commit"
+        android:text="提交"
+        android:textColor="@color/white"
+        android:textSize="@dimen/yl_text_size_16" />
+</RelativeLayout>

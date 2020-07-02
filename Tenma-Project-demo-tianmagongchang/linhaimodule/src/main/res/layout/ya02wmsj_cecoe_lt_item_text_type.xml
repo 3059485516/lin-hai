@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/yl_white"
+    android:padding="@dimen/yl_margin_s">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="万鹿同行·追梦临海 | 杜桥镇文化礼堂带你感受不一样的暑期体验"
+        android:textColor="@color/yl_text_dark"
+        android:textSize="@dimen/yl_text_size_15" />
+
+    <TextView
+        android:id="@+id/tv_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="@dimen/yl_margin_s"
+        android:maxLines="1"
+        android:text="动态信息"
+        android:textColor="@color/yl_text_light"
+        android:textSize="@dimen/yl_text_size_13" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_type"
+        android:layout_alignParentRight="true"
+        android:maxLines="1"
+        android:text="2019-09-11 09:38:56"
+        android:textColor="@color/yl_text_light"
+        android:textSize="@dimen/yl_text_size_13" />
+</RelativeLayout>

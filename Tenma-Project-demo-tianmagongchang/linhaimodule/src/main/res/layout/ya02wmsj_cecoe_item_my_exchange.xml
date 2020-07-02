@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/yl_margin_l"
+    android:layout_marginTop="@dimen/yl_margin_l"
+    android:layout_marginRight="@dimen/yl_margin_l"
+    android:background="@drawable/ya02wmsj_cecoe_bg_comment">
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="120dp"
+        android:layout_height="130dp"
+        android:layout_marginLeft="@dimen/yl_margin_l"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:layout_marginBottom="@dimen/yl_margin_l"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ya02wmsj_cecoe_placeholder"
+        app:height_width="1.1" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iv_icon"
+        android:layout_marginLeft="@dimen/yl_margin_l"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:ellipsize="end"
+        android:lines="2"
+        android:text=""
+        android:textColor="@color/yl_text_dark"
+        android:textSize="@dimen/yl_text_size_16" />
+
+    <TextView
+        android:id="@+id/tv_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_alignLeft="@+id/tv_title"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:text=""
+        android:textColor="@color/grey_text"
+        android:textSize="@dimen/yl_text_size_15" />
+
+    <TextView
+        android:id="@+id/tv_coins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_title"
+        android:layout_alignBottom="@+id/iv_icon"
+        android:text=""
+        android:textColor="@color/theme_color"
+        android:textSize="@dimen/yl_text_size_17" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/tv_title"
+        android:layout_alignBottom="@+id/tv_coins"
+        android:layout_toRightOf="@+id/tv_coins"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="2018-11-25"
+        android:textColor="@color/grey_text"
+        android:textSize="@dimen/yl_text_size_15"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/tv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/tv_title"
+        android:layout_alignBottom="@+id/tv_coins"
+        android:drawableLeft="@mipmap/ya02wmsj_cecoe_back"
+        android:drawablePadding="@dimen/yl_margin_s"
+        android:text="退还"
+        android:textColor="@color/grey_text"
+        android:textSize="@dimen/yl_text_size_15"
+        android:visibility="invisible" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/iv_icon"
+        android:background="@color/yl_graybg" />
+
+    <TextView
+        android:id="@+id/tv_addr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider"
+        android:layout_marginLeft="@dimen/yl_margin_l"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:ellipsize="middle"
+        android:lines="2"
+        android:textColor="@color/grey_text" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_addr"
+        android:layout_marginLeft="@dimen/yl_margin_l"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:layout_marginBottom="@dimen/yl_margin_l"
+        android:ellipsize="middle"
+        android:textColor="@color/grey_text" />
+</RelativeLayout>

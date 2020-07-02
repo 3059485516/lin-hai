@@ -1,0 +1,52 @@
+﻿{
+  "content": [
+    {
+      "key": "ct_1",
+      "native": true,
+      "androidSrc": "com.tenma.ventures.usercenter.UserCenterNewFragment",
+      "iosSrc": "",
+      "wwwFolderIos": "",
+      "wwwFolderAndroid": "",
+      "title": "个人",
+      "image": "item0",
+      "selectedImage": "item0_s",
+      "isInterceptScroll": false,
+      "isNeedTitleBar": false
+    },
+    {
+      "key": "ct_2",
+      "native": true,
+      "androidSrc": "com.tenma.ventures.navigation.SecondFragment",
+      "iosSrc": "",
+      "wwwFolderIos": "",
+      "wwwFolderAndroid": "",
+      "title": "二级页面",
+      "image": "item1",
+      "selectedImage": "item1_s",
+      "isInterceptScroll": false,
+      "isNeedTitleBar": true
+    },
+    {
+      "key": "ct_3",
+      "native": true,
+      "androidSrc": "com.ya02wmsj_cecoe.linhaimodule.mvp.fragment.FragmentMain",
+      "iosSrc": "",
+      "wwwFolderIos": "",
+      "wwwFolderAndroid": "",
+      "title": "测试页面",
+      "image": "item2",
+      "selectedImage": "item2_s",
+      "isInterceptScroll": false,
+      "isNeedTitleBar": false
+    }
+  ],
+  "config": {
+    "themeColor": "2277cc",
+    "titleTextColor": "ffffff",
+    "nightThemeColor": "94626b",
+    "contentColor": "464646",
+    "backgroundColor": "ffffff",
+    "launchImageIos": "http://39.107.74.188/images/xwzx.png",
+    "launchImageAndroid": "http://dlh.360tianma.com/uploads/qidong.png"
+  }
+}

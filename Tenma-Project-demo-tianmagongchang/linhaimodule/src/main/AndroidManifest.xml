@@ -1,0 +1,404 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.ya02wmsj_cecoe.linhaimodule">
+
+    <uses-sdk tools:overrideLibrary="com.huawei.android.hms.base,com.huawei.android.hms.push" />
+
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 控制呼吸灯，振动器等，用于新消息提醒 -->
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 外置存储存取权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- 拨打电话 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <!-- 多媒体相关 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- 如果需要实时音视频通话模块，下面的权限也是必须的。否则，可以不加 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <application
+        android:hardwareAccelerated="true"
+        android:networkSecurityConfig="@xml/ya02wmsj_cecoe_network_security_config">
+
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1107399735" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <activity
+            android:name=".mvp.activity.TestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.NodeContentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.IdeologyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.ActivityCulture"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.NetworkActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.AppraiseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.ActionRecruitActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.ActionDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.VolunteerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.BindPhoneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.OrganizeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.OrganizeDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.TextContentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.SportActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.VenueDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.QuestionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.TheoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.AppealActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.SelectVolunteerOrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.OrderDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.BindRegionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.AppraiseListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.AppraiseWebContentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.TheoryMoreActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.AppealCommitActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.CategorySelectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.AppealHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.EventDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.OrganizeTreeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.OrganizationDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.OrganizationSubActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.SearchOrganizeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.OrderHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.OrganizeMapActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.WorthModifyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.AppealManagerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.PublishAppraiseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.MyRequestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.SelectRegionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.WishSmallActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.WishListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.WishDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.MyWishActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.WebBridgeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.RankingListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.DoVolunteerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.OrginazeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.EduActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.EduCheckActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.ShowCivilizeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.SmartTechActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.ZhiyuanhuiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LiTangActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.CloudClassActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.DiscussDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.TalentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.PreviewImageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.NetPersonActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.SocialCollectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.OrginazeDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LiveListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LiveActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".mvp.activity.ActionDetailBetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.PublishOpinionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.ServiceListInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.ServiceInfoDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtResourceAppointActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtMyAppointActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.OrderBetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.OrderBetSubActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtChooseLtActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtShowActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtExponentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtAppointManageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtAddressActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtChooseLtResourceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtApplyResourceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.FinishWishActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtAppointAuditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtContentDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtAdvanceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtChooseLtActivity2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtContentPublishActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtWatcherActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtEvaluationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtEvaluationPublishActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtEvaTypeListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.ApperaceScoreActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.WebActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtMyAdvanceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtImActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.DiscoverActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.VideoPreviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.SelectVideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtMyPublishActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.ZhkxActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.KjcgDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.KjxqDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.ZjkActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.FullScreenVideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.ZjkZjDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.ExchangeFuliActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.MyExchangeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LtFullScreenVideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.ZhiyuanhuiMyListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.NetPersonBetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.LiveRecordListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.ZhkxBetActivity"
+            android:screenOrientation="portrait" />
+    </application>
+</manifest>

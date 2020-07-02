@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yl_white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/lay_bottom"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/yl_margin_xl">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="#333333"
+                android:textSize="@dimen/yl_text_size_17"
+                tools:text="图书馆阅读节志愿者招募" />
+
+            <TextView
+                android:id="@+id/tv_source"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/yl_margin_xl"
+                android:textColor="#999999"
+                android:textSize="@dimen/yl_text_size_14"
+                tools:text="大洋街道党支部" />
+        </LinearLayout>
+
+        <include layout="@layout/ya02wmsj_cecoe_divider_view" />
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/yl_margin_l"
+            android:layout_marginTop="@dimen/yl_margin_s"
+            android:layout_marginRight="@dimen/yl_margin_l"
+            android:layout_weight="1" />
+
+        <include layout="@layout/ya02wmsj_cecoe_divider_view" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/yl_margin_l">
+
+            <TextView
+                android:id="@+id/tv_name_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:singleLine="true"
+                android:textColor="#999999"
+                android:textSize="@dimen/yl_text_size_14"
+                tools:text="刘老师 15708795648" />
+
+            <TextView
+                android:id="@+id/tv_area_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/yl_margin_l"
+                android:ellipsize="middle"
+                android:gravity="right"
+                android:singleLine="true"
+                android:textColor="#999999"
+                android:textSize="@dimen/yl_text_size_14"
+                tools:text="2019-05-08 14:00:00 双石铺镇" />
+        </LinearLayout>
+
+        <include layout="@layout/ya02wmsj_cecoe_divider_view" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/btn_apply"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/yl_margin_xl"
+            android:layout_marginTop="@dimen/yl_margin_l"
+            android:layout_marginRight="@dimen/yl_margin_xl"
+            android:layout_marginBottom="@dimen/yl_margin_l"
+            android:background="@drawable/ya02wmsj_cecoe_bg_btn_commit"
+            android:letterSpacing="1.5"
+            android:text="点单"
+            android:textColor="@color/yl_white"
+            android:textSize="@dimen/yl_text_size_15" />
+    </LinearLayout>
+</RelativeLayout>

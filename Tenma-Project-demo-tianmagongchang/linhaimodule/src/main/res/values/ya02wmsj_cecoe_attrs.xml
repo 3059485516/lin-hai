@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="YLClearEditView">
+        <attr name="text_size" format="dimension" />
+        <attr name="text_color" format="color" />
+        <attr name="hint" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="YLClearEditViewSingle">
+        <attr name="s_text_size" format="dimension" />
+        <attr name="s_text_color" format="color" />
+        <attr name="s_hint" format="string" />
+        <attr name="s_max_length" format="integer" />
+        <attr name="s_focus_icon" format="reference" />
+        <attr name="s_blur_icon" format="reference" />
+        <attr name="s_focus_bg" format="reference" />
+        <attr name="s_blur_bg" format="reference" />
+        <attr name="s_input_type">
+            <enum name="text" value="1" />
+            <enum name="number" value="2" />
+            <enum name="password" value="128" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="YLTextViewGroup">
+        <attr name="text_left" format="string" />
+        <attr name="text_right" format="string" />
+        <attr name="text_color_left" format="color" />
+        <attr name="text_color_right" format="color" />
+        <attr name="text_right_single_line" format="boolean" />
+        <attr name="img_left" format="reference" />
+        <attr name="arrow_show" format="boolean" />
+        <attr name="btn_show" format="boolean" />
+        <attr name="btn_switch" format="boolean" />
+        <attr name="required" format="boolean" />
+        <attr name="text_right_gravity">
+            <enum name="left" value="3" />
+            <enum name="right" value="5" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="YLEditTextGroup">
+        <attr name="e_text_left" format="string" />
+        <attr name="e_text_right" format="string" />
+        <attr name="e_hint" format="string" />
+        <attr name="e_required" format="boolean" />
+        <attr name="iv_left_src" format="reference" />
+        <attr name="text_gravity">
+            <enum name="left" value="3" />
+            <enum name="right" value="5" />
+        </attr>
+        <attr name="edit_input_style">
+            <enum name="number" value="2" />
+            <enum name="decimal" value="8192" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="RatioRelativityLayout">
+        <attr name="ratio" format="float" />
+        <attr name="widthPercent" format="float" />
+    </declare-styleable>
+
+
+    <declare-styleable name="RatioImageView">
+        <attr name="height_width" format="float" />
+    </declare-styleable>
+
+    <!--垂直滚动公告-->
+    <declare-styleable name="MarqueeViewStyle">
+        <attr name="mvInterval" format="integer|reference" />
+        <attr name="mvAnimDuration" format="integer|reference" />
+        <attr name="mvTextSizeTop" format="dimension|reference" />
+        <attr name="mvTextSizeBottom" format="dimension|reference" />
+        <attr name="mvTextColorTop" format="color|reference" />
+        <attr name="mvTextColorBottom" format="color|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="MainTabView">
+        <attr name="tab_selected" format="boolean" />
+        <attr name="tab_text" format="string" />
+        <attr name="tab_icon" format="reference" />
+        <attr name="tab_bind_fragment" format="string" />
+    </declare-styleable>
+    <declare-styleable name="IconView">
+        <attr name="name" format="string" />
+        <attr name="tagId" format="string" />
+        <attr name="label" format="reference" />
+        <attr name="icon" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="MainMenuView">
+        <attr name="text_top" format="string" />
+        <attr name="text_bottom" format="string" />
+        <attr name="menu_icon" format="reference" />
+    </declare-styleable>
+
+
+    <declare-styleable name="ToolbarLayout">
+        <attr name="tb_show_back" format="boolean" />
+        <attr name="tb_title_text" format="string" />
+        <attr name="tb_menu_text" format="string" />
+        <attr name="tb_menu_icon" format="reference" />
+    </declare-styleable>
+
+    <!-- 圆形进度条 -->
+    <declare-styleable name="YLCircleProgressBar">
+        <attr name="antiAlias" />
+        <attr name="startAngle" />
+        <attr name="sweepAngle" />
+        <attr name="animTime" />
+        <attr name="maxValue" />
+        <attr name="value" />
+        <attr name="precision" />
+        <attr name="valueSize" />
+        <attr name="valueColor" />
+        <attr name="textOffsetPercentInRadius" />
+        <!-- 绘制内容相应的提示语 -->
+        <attr name="hint" />
+        <attr name="hintSize" />
+        <attr name="hintColor" />
+        <!-- 绘制内容的单位 -->
+        <attr name="unit" />
+        <attr name="unitSize" />
+        <attr name="unitColor" />
+        <!-- 圆弧宽度 -->
+        <attr name="arcWidth" />
+        <attr name="arcColors" />
+        <!-- 背景圆弧颜色 -->
+        <attr name="bgArcColor" />
+        <!-- 背景圆弧宽度 -->
+        <attr name="bgArcWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="AVLoadingIndicatorView">
+        <attr name="minWidth" format="dimension" />
+        <attr name="maxWidth" format="dimension" />
+        <attr name="minHeight" format="dimension" />
+        <attr name="maxHeight" format="dimension" />
+        <attr name="indicatorName" format="string" />
+        <attr name="indicatorColor" format="color" />
+    </declare-styleable>
+</resources>

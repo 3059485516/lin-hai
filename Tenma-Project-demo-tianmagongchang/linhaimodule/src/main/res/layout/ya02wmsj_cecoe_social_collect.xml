@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yl_graybg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/yl_margin_l">
+
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+            android:id="@+id/et_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            app:e_text_left="标题" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            app:e_text_left="姓名" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            app:e_text_left="联系电话" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            app:e_text_left="邮箱" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_country"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            app:arrow_show="true"
+            app:text_left="市区" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_town"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            app:arrow_show="true"
+            app:text_left="镇区/街道" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_village"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            app:arrow_show="true"
+            app:text_left="村/社区" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+            android:id="@+id/et_detail_addr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            app:e_text_left="详细地址" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            app:arrow_show="true"
+            app:text_left="公开"
+            app:text_right="是" />
+
+        <EditText
+            android:id="@+id/et_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_l"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            android:gravity="start|top"
+            android:hint="内容"
+            android:maxLines="5"
+            android:minLines="3"
+            android:padding="@dimen/yl_margin_s"
+            android:textSize="@dimen/yl_text_size_14" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_commit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_bg_btn_commit"
+            android:text="提交"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView>

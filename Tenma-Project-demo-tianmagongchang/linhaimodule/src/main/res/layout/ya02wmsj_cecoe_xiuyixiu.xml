@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yl_graybg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/view_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/yl_margin_l">
+
+            <RadioGroup
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/tv_village"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/yl_margin_l"
+                    android:layout_weight="1"
+                    android:background="@drawable/ya02wmsj_cecoe_bg_textbtn"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/yl_margin_ss"
+                    android:paddingBottom="@dimen/yl_margin_ss"
+                    android:text="社区"
+                    android:textColor="@color/ya02wmsj_cecoe_tab_text_color" />
+
+                <RadioButton
+                    android:id="@+id/tv_town"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/yl_margin_l"
+                    android:layout_weight="1"
+                    android:background="@drawable/ya02wmsj_cecoe_bg_textbtn"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/yl_margin_ss"
+                    android:paddingBottom="@dimen/yl_margin_ss"
+                    android:text="镇街"
+                    android:textColor="@color/ya02wmsj_cecoe_tab_text_color" />
+
+                <RadioButton
+                    android:id="@+id/tv_country"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/yl_margin_l"
+                    android:layout_weight="1"
+                    android:background="@drawable/ya02wmsj_cecoe_bg_textbtn"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/yl_margin_ss"
+                    android:paddingBottom="@dimen/yl_margin_ss"
+                    android:text="全市"
+                    android:textColor="@color/ya02wmsj_cecoe_tab_text_color" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>
+

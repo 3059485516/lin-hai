@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yl_white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/yl_margin_xl"
+            android:layout_weight="1"
+            android:background="@drawable/ya02wmsj_cecoe_bg_order"
+            android:drawableLeft="@mipmap/ya02wmsj_cecoe_location"
+            android:drawableRight="@mipmap/ya02wmsj_cecoe_search"
+            android:hint="点击搜索"
+            android:padding="@dimen/yl_margin_s"
+            android:textSize="@dimen/yl_text_size_14" />
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="60dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_selector_btn_bg"
+            android:text="搜索"
+            android:textColor="@color/yl_white"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <include layout="@layout/ya02wmsj_cecoe_divider_view" />
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</LinearLayout>

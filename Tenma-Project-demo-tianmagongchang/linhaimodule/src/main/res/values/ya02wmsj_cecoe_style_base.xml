@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--改变系统TabLayout字体-->
+    <style name="YLTabLayoutTextStyle">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="YLAppTitleText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/yl_white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="YLAppTitleMenu">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLength">4</item>
+        <item name="android:minWidth">@dimen/yl_title_height</item>
+        <item name="android:padding">@dimen/yl_margin_l</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/yl_white</item>
+        <item name="android:textSize">@dimen/yl_text_m</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="YLAppTitleIcon">
+        <item name="android:layout_width">@dimen/yl_title_height</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="YLAppTitleBack">
+        <item name="android:id">@id/yl_iv_back</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:src">@mipmap/ya02wmsj_cecoe_app_back</item>
+        <item name="android:layout_width">@dimen/yl_app_title_height</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <!-- 按钮-->
+    <style name="YLButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:background">@drawable/ya02wmsj_cecoe_selector_btn_bg</item>
+        <item name="android:textColor">@color/yl_white</item>
+        <item name="android:textSize">@dimen/yl_text_xl</item>
+    </style>
+
+
+    <!-- 加载滚动条样式 -->
+    <style name="YLloading">
+        <item name="android:indeterminate">true</item>
+        <item name="android:indeterminateDrawable">@drawable/ya02wmsj_cecoe_progressloading</item>
+        <item name="android:indeterminateDuration">1000</item>
+        <item name="android:indeterminateOnly">true</item>
+    </style>
+
+    <style name="YLBaseCardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/yl_white</item>
+        <item name="cardCornerRadius">5dp</item>
+    </style>
+
+    <style name="YLMainCardView" parent="YLBaseCardView">
+        <item name="android:layout_marginLeft">@dimen/yl_margin_l</item>
+        <item name="android:layout_marginRight">@dimen/yl_margin_l</item>
+    </style>
+
+    <style name="dialog_common" parent="@style/Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@drawable/ya02wmsj_cecoe_dialog_background</item>
+    </style>
+
+    <style name="dialog_pinterest_text">
+        <item name="android:textSize">@dimen/yl_text_regular_primary_size</item>
+        <item name="android:textColor">@color/yl_text_dark</item>
+        <item name="android:maxLines">5</item>
+        <item name="android:lineSpacingMultiplier">1.15</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="dialog_bottom" parent="@style/dialog_common">
+        <item name="android:windowBackground">@drawable/ya02wmsj_cecoe_dialog_bottom_background
+        </item>
+        <item name="android:windowAnimationStyle">@style/dialog_animation</item>
+    </style>
+
+    <style name="BottomDialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 浮于Activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- Dialog以外的区域模糊效果 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- Dialog进入及退出动画 -->
+        <item name="android:windowAnimationStyle">@style/dialog_animation</item>
+    </style>
+
+    <style name="dialog_animation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/ya02wmsj_cecoe_dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/ya02wmsj_cecoe_dialog_exit</item>
+    </style>
+
+    <!--改变系统TabLayout字体-->
+    <style name="TabLayoutTextStyle">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="AVLoadingIndicatorView">
+        <item name="minWidth">48dip</item>
+        <item name="maxWidth">48dip</item>
+        <item name="minHeight">48dip</item>
+        <item name="maxHeight">48dip</item>
+        <item name="indicatorName">BallSpinFadeLoaderIndicator</item>
+    </style>
+</resources>

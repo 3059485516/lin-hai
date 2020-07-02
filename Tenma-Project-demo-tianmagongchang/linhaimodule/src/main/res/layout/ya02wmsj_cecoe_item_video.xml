@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.luck.picture.lib.widget.SquareRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="1px">
+
+    <ImageView
+        android:id="@+id/iv_thumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/tv_duration"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ya02wmsj_cecoe_selector_video_item_bg"
+        android:gravity="right|bottom"
+        android:paddingBottom="@dimen/yl_margin_ss"
+        android:paddingRight="@dimen/yl_margin_s"
+        android:textColor="@color/white"
+        android:textSize="@dimen/yl_text_s" />
+</com.luck.picture.lib.widget.SquareRelativeLayout>
+

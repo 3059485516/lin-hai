@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.amap.api.maps2d.MapView
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/et_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/yl_margin_xl"
+        android:background="@drawable/ya02wmsj_cecoe_bg_search"
+        android:drawableLeft="@mipmap/ya02wmsj_cecoe_location"
+        android:drawableRight="@mipmap/ya02wmsj_cecoe_search"
+        android:hint="在此输入关键词搜索"
+        android:textSize="@dimen/yl_text_size_14" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/ya02wmsj_cecoe_map_bottom"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/yl_margin_l"
+            android:text="临海市陈应新村文化礼堂"
+            android:textColor="#333333"
+            android:textSize="@dimen/yl_text_size_17" />
+
+        <include layout="@layout/ya02wmsj_cecoe_divider_view" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:arrow_show="false"
+            app:text_left="地址" />
+
+        <include layout="@layout/ya02wmsj_cecoe_divider_view" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_man"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:arrow_show="false"
+            app:text_left="人员" />
+
+        <include layout="@layout/ya02wmsj_cecoe_divider_view" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:arrow_show="false"
+            app:text_left="电话" />
+
+        <include layout="@layout/ya02wmsj_cecoe_divider_view" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:arrow_show="false"
+            app:text_left="人数" />
+    </LinearLayout>
+</FrameLayout>

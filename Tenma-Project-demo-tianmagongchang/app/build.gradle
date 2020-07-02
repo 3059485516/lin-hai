@@ -1,0 +1,141 @@
+apply plugin: 'com.android.application'
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.tenma.ventures.linhai"
+//        applicationId "com.tenma.ventures.tianmagongchang"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+        manifestPlaceholders = [
+                // JPUSH
+                JPUSH_APPKEY      : properties.getProperty("jpush.appkey"),
+                JPUSH_CHANNEL     : properties.getProperty("jpush.channel"),
+                // 友盟
+                UMENG_APPKEY      : properties.getProperty("umeng.appkey"),
+                UMENG_CHANNEL     : properties.getProperty("umeng.channel"),
+                // ShareSdk
+                SHARESDK_APPKEY   : properties.getProperty("sharesdk.appkey"),
+                SHARESDK_APPSECRET: properties.getProperty("sharesdk.appsecret"),
+                //高德
+                GAODE_APPKEY      : properties.getProperty("gaodedk.appkey"),
+        ]
+
+        ndk {
+            abiFilters 'armeabi', 'armeabi-v7a', 'armeabi64-v8a', 'mips', 'mips64', 'x86', 'x86_64'
+        }
+
+        sourceSets {
+            main {
+                assets.srcDirs = ['assets']
+            }
+        }
+    }
+    signingConfigs {
+        debug {
+            keyAlias 'XLGC'
+            keyPassword 'yl123456'
+            storeFile file('xlgc.jks')
+            storePassword 'yl123456'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+        release {
+            keyAlias 'XLGC'
+            keyPassword 'yl123456'
+            storeFile file('xlgc.jks')
+            storePassword 'yl123456'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+
+    dexOptions {
+        javaMaxHeapSize "2048M"
+        jumboMode true
+        //  incremental false
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false;
+    }
+    tasks.whenTaskAdded { task ->
+        if (task.name.contains('AndroidTest')) {
+            task.enabled = false
+        }
+    }
+    afterEvaluate {
+        tasks.matching {
+            it.name.startsWith('dex')
+        }.each { dx ->
+            if (dx.additionalParameters == null) {
+                dx.additionalParameters = []
+            }
+            dx.additionalParameters += '--multi-dex' // enable multidex
+
+            // optional
+            // dx.additionalParameters += "--main-dex-list=$projectDir/<filename>".toString() // enable the main-dex-list
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    subprojects {
+        project.configurations.all {
+            resolutionStrategy.eachDependency { details ->
+                if (details.requested.group == 'com.contrarywind') {
+                    details.useVersion "4.1.6"
+                }
+            }
+        }
+    }
+}
+repositories {
+    flatDir {
+        dirs "libs"
+        //  dirs project(':tm_discover').file('libs')
+    }
+}
+
+
+def plugin_versionName = '1.0.50'
+def tm_core_versionName = properties.getProperty("tmCore.versionName")
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    // 通用组件
+    compile project(path: ':tm_navigation')
+    implementation project(path: ':linhaimodule')
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.tenma.ventures:tm_share_ss:1.0.40' //分享组件
+    implementation 'com.tianma.ventures:tm_own_find:1.0.25'    //发现组件，显示二级页面
+    implementation "com.tenma.ventures:tm_core:1.1.24"     //核心库
+//    implementation 'com.tianma.ventures:tm_userCenter_2nd:1.1.2'   //个人中心
+    implementation 'com.tianma.ventures:tm_user_center:1.1.5'
+//    implementation 'com.tianma.ventures:tm_user_center:1.0.3'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+
+}

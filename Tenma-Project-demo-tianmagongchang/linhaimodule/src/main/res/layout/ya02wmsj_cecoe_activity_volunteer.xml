@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yl_white"
+    android:orientation="vertical">
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/yl_margin_xl"
+        android:layout_marginTop="@dimen/yl_margin_xl"
+        android:layout_marginRight="@dimen/yl_margin_xl"
+        android:background="@drawable/ya02wmsj_cecoe_bg_order"
+        app:e_text_left="姓名"
+        app:text_gravity="right" />
+
+    <EditText
+        android:id="@+id/et_address"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="@dimen/yl_margin_xl"
+        android:background="@drawable/ya02wmsj_cecoe_bg_input_text"
+        android:gravity="top"
+        android:hint="请输入地址"
+        android:padding="@dimen/yl_margin_s"
+        android:textSize="@dimen/yl_text_size_13" />
+
+    <EditText
+        android:id="@+id/et_intro"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="@dimen/yl_margin_xl"
+        android:background="@drawable/ya02wmsj_cecoe_bg_input_text"
+        android:gravity="top"
+        android:hint="请输入简介"
+        android:padding="@dimen/yl_margin_s"
+        android:textSize="@dimen/yl_text_size_13" />
+</LinearLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/yl_white"
+    android:padding="@dimen/yl_margin_xl">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#4c4c4c"
+        android:textSize="@dimen/yl_text_size_15"
+        tools:text="最多跑一次”政策宣讲" />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginTop="@dimen/yl_margin_s"
+        android:textColor="#666666"
+        android:textSize="@dimen/yl_text_size_13"
+        tools:text="最多跑一次”政策宣讲 1、开展“最多跑一次”政策宣讲及理论培训（5人）" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_desc"
+        android:layout_alignRight="@+id/tv_desc"
+        android:layout_marginTop="@dimen/yl_margin_s"
+        android:textColor="#999999"
+        android:textSize="@dimen/yl_text_size_13"
+        tools:text="2019-07-10 08:43:44" />
+
+    <TextView
+        android:id="@+id/tv_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_desc"
+        android:layout_alignTop="@+id/tv_time"
+        android:textColor="#999999"
+        android:textSize="@dimen/yl_text_size_13"
+        tools:text="类型：服务" />
+</RelativeLayout>

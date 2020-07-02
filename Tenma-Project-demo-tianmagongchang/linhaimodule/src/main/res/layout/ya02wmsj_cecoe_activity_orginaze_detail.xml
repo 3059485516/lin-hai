@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yl_graybg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/yl_margin_l">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:src="@mipmap/ya02wmsj_cecoe_head" />
+
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_l"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            app:arrow_show="false"
+            app:text_left="组织名称" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_l"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            app:arrow_show="false"
+            app:text_left="公益时长" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_points"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_l"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            app:arrow_show="false"
+            app:text_left="公益积分" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_l"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            app:arrow_show="false"
+            app:text_left="组织人数" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_rank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_l"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            android:visibility="gone"
+            app:arrow_show="false"
+            app:text_left="组织排名" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_l"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            app:arrow_show="false"
+            app:text_left="组织地址" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_join"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_l"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            app:arrow_show="false"
+            app:text_left="加入机构" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_l"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            app:arrow_show="false"
+            app:text_left="主机构" />
+
+        <Button
+            android:id="@+id/btn_join"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/yl_margin_l"
+            android:background="@drawable/ya02wmsj_cecoe_bg_btn_commit"
+            android:text="加入组织"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView>

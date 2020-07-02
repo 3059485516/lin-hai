@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/yl_white"
+    android:padding="@dimen/yl_margin_xl">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/iv_arrow"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#4c4c4c"
+        android:textSize="@dimen/yl_text_size_17" />
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_name"
+        android:layout_alignLeft="@+id/tv_name"
+        android:layout_alignRight="@+id/tv_name"
+        android:layout_marginTop="@dimen/yl_margin_s"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#999999"
+        android:textSize="@dimen/yl_text_size_13" />
+
+    <ImageView
+        android:id="@+id/iv_arrow"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/ya02wmsj_cecoe_ic_right_arrow" />
+</RelativeLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yl_graywhite">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/ya02wmsj_cecoe_bg_main" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.ToolbarLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/yl_app_title_height"
+            android:paddingTop="@dimen/yl_margin_l"
+            app:tb_show_back="false"
+            app:tb_title_text="文化礼堂" />
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView
+                android:id="@+id/scroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.CardView style="@style/YLMainCardView">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <com.youth.banner.Banner
+                                android:id="@+id/banner"
+                                android:layout_width="match_parent"
+                                android:layout_height="160dp"
+                                app:image_scale_type="center_crop"
+                                app:indicator_drawable_selected="@color/yl_theme_color"
+                                app:indicator_drawable_unselected="@color/yl_white" />
+
+                            <android.support.v4.view.ViewPager
+                                android:id="@+id/vp_node"
+                                android:layout_width="match_parent"
+                                android:layout_height="105dp" />
+
+                            <LinearLayout
+                                android:id="@+id/wrap_indication"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="@dimen/yl_margin_s"
+                                android:layout_marginBottom="@dimen/yl_margin_l"
+                                android:orientation="horizontal">
+
+                                <View
+                                    android:id="@+id/indicatior1"
+                                    android:layout_width="20dp"
+                                    android:layout_height="2dp"
+                                    android:layout_marginRight="@dimen/yl_margin_l"
+                                    android:background="@color/yl_theme_color" />
+
+                                <View
+                                    android:id="@+id/indicatior2"
+                                    android:layout_width="20dp"
+                                    android:layout_height="2dp"
+                                    android:background="@color/yl_gray" />
+                            </LinearLayout>
+
+                            <!--<android.support.v7.widget.RecyclerView-->
+                            <!--android:id="@+id/rv_node"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content" />-->
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_mark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/yl_margin_l"
+                        android:layout_marginTop="@dimen/yl_margin_l"
+                        android:layout_marginRight="@dimen/yl_margin_l"
+                        android:layout_marginBottom="@dimen/yl_margin_l"
+                        android:background="@color/yl_graybg"
+                        android:nestedScrollingEnabled="false" />
+
+                </LinearLayout>
+            </com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView>
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </LinearLayout>
+</FrameLayout>

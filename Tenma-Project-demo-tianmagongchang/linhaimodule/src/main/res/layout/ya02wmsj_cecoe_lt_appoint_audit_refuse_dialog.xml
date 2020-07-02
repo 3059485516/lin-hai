@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/yl_margin_xl"
+    android:layout_marginRight="@dimen/yl_margin_xl"
+    android:background="@drawable/ya02wmsj_cecoe_bg_comment">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/yl_margin_l"
+        android:text="驳回理由"
+        android:textColor="@color/yl_text_dark"
+        android:textSize="@dimen/yl_text_size_18"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:padding="@dimen/yl_margin_l"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ya02wmsj_cecoe_close" />
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_margin="@dimen/yl_margin_l"
+        android:background="@drawable/ya02wmsj_cecoe_bg_input_text"
+        android:gravity="top"
+        android:hint="请输入驳回理由"
+        android:lines="5"
+        android:maxLines="7"
+        android:padding="@dimen/yl_margin_s"
+        android:textSize="@dimen/yl_text_size_14" />
+
+    <Button
+        android:id="@+id/btn_commit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_content"
+        android:layout_marginLeft="@dimen/yl_margin_xl"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:layout_marginRight="@dimen/yl_margin_xl"
+        android:layout_marginBottom="@dimen/yl_margin_l"
+        android:background="@drawable/ya02wmsj_cecoe_bg_btn_commit"
+        android:text="提交"
+        android:textColor="@color/white" />
+</RelativeLayout>

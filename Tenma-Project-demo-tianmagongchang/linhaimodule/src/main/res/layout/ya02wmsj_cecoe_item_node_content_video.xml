@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/yl_white"
+    android:orientation="vertical"
+    android:padding="@dimen/yl_space_10">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/yl_margin_l"
+        android:lineSpacingMultiplier="1.2"
+        android:maxLines="2"
+        android:textColor="@color/yl_text_dark"
+        android:textSize="@dimen/yl_text_size_18"
+        tools:text="阿婆和工牌和改革和【阿济格" />
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.CoverVideo
+        android:id="@+id/video_item_player"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginLeft="@dimen/yl_margin_xl"
+        android:layout_marginRight="@dimen/yl_margin_xl" />
+</RelativeLayout>

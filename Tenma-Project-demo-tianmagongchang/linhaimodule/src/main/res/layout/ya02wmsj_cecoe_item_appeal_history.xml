@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/yl_white"
+    android:padding="@dimen/yl_margin_xl">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#4c4c4c"
+        android:textSize="@dimen/yl_text_size_16"
+        tools:text="宣讲文明文化" />
+
+    <TextView
+        android:id="@+id/tv_region"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#666666"
+        android:textSize="@dimen/yl_text_size_14"
+        tools:text="临海市古城街道文化社区" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_region"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:layout_toLeftOf="@+id/tv_time"
+        android:textColor="#999999"
+        android:textSize="@dimen/yl_text_size_13"
+        tools:text="待受理" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_status"
+        android:layout_alignParentRight="true"
+        android:textColor="#999999"
+        android:textSize="@dimen/yl_text_size_13"
+        tools:text="2019-07-30 14:40:12" />
+
+    <TextView
+        android:id="@+id/tv_reason"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_status"
+        android:layout_marginTop="@dimen/yl_margin_s"
+        android:textColor="@color/yl_blue"
+        android:textSize="@dimen/yl_text_size_13"
+        android:visibility="gone"
+        tools:text="rsndm" />
+</RelativeLayout>

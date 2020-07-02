@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">TMNavigation</string>
+    <string name="icon1">&#xe604;</string>
+    <string name="icon2">&#xe64e;</string>
+    <string name="icon3">&#xe663;</string>
+    <string name="icon4">&#xe659;</string>
+    <string name="icon5">&#xe601;</string>
+    <string name="icon6">&#xe7fa;</string>
+    <string name="icon7">&#xe62c;</string>
+    <string name="icon8">&#xe658;</string>
+    <string name="icon9">&#xe83f;</string>
+    <string name="icon10">&#xe722;</string>
+    <string name="icon11">&#xe619;</string>
+    <string name="icon12">&#xe621;</string>
+    <string name="icon13">&#xe600;</string>
+    <string name="icon14">&#xe610;</string>
+    <string name="icon15">&#xe63e;</string>
+    <string name="icon16">&#xe60a;</string>
+    <string name="icon17">&#xe60b;</string>
+    <string name="icon18">&#xe8c9;</string>
+    <string name="icon19">&#xe670;</string>
+    <string name="icon20">&#xe8cb;</string>
+    <string name="icon21">&#xe8cc;</string>
+    <string name="icon22">&#xe8ce;</string>
+</resources>

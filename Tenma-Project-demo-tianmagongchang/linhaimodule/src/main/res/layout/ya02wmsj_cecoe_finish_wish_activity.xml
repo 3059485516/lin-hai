@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/yl_margin_l"
+        android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+        android:gravity="top"
+        android:hint="总结"
+        android:lines="5"
+        android:maxLines="7"
+        android:padding="@dimen/yl_margin_s"
+        android:textSize="@dimen/yl_text_size_14" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_pic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_commit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="@dimen/yl_margin_xl"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/ya02wmsj_cecoe_bg_btn_commit"
+        android:text="提交"
+        android:textColor="@color/white" />
+</LinearLayout>

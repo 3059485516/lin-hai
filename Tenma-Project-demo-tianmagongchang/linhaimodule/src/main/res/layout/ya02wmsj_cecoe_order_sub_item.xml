@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/yl_margin_l"
+    android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/yl_margin_l">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ya02wmsj_cecoe_ic_meeting_2" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/yl_margin_l"
+        android:text="志愿服务"
+        android:textColor="#000000"
+        android:textSize="@dimen/yl_text_size_15" />
+</LinearLayout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yl_white"
+    android:overScrollMode="never"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/yl_margin_xl">
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_bg_order"
+            app:arrow_show="false"
+            app:text_left="队伍名称" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_tel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_bg_order"
+            app:arrow_show="false"
+            app:text_left="联系电话" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_unit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_bg_order"
+            app:arrow_show="false"
+            app:text_left="责任单位" />
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_people"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_bg_order"
+            app:arrow_show="false"
+            app:text_left="责任人" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_l"
+            android:text="地址："
+            android:textColor="#4c4c4c"
+            android:textSize="@dimen/yl_text_size_15" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:textColor="#666666"
+            android:textSize="@dimen/yl_text_size_14"
+            tools:text="奥炮火我女哦啊快四点了纳斯达克就卡斯达拉斯肯德基打开" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_l"
+            android:text="队伍简介："
+            android:textColor="#4c4c4c"
+            android:textSize="@dimen/yl_text_size_15" />
+
+        <TextView
+            android:id="@+id/tv_intro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:textColor="#666666"
+            android:textSize="@dimen/yl_text_size_14"
+            tools:text="奥炮火我女哦啊快四点了纳斯达克就卡斯达拉斯肯德基打开" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_l"
+            android:text="服务列表："
+            android:textColor="#4c4c4c"
+            android:textSize="@dimen/yl_text_size_15" />
+
+        <include layout="@layout/ya02wmsj_cecoe_divider_view" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl" />
+
+        <EditText
+            android:id="@+id/et_intro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_bg_order"
+            android:gravity="top"
+            android:hint="在此输入个人简介"
+            android:lines="8"
+            android:maxLines="8"
+            android:padding="@dimen/yl_margin_s"
+            android:textSize="@dimen/yl_text_size_15"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_apply"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_selector_btn_bg"
+            android:letterSpacing="0.5"
+            android:text="申请加入队伍"
+            android:textColor="@color/yl_white"
+            android:textSize="@dimen/yl_text_size_15" />
+    </LinearLayout>
+</com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView>

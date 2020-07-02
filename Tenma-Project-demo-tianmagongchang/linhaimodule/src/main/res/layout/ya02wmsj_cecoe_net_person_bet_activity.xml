@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView
+        android:id="@+id/iv_zixun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/yl_margin_l"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ya02wmsj_cecoe_bg_zixun"
+        app:height_width="0.345" />
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView
+        android:id="@+id/iv_shouji"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/yl_margin_l"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:layout_marginBottom="@dimen/yl_margin_l"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ya02wmsj_cecoe_bg_collect"
+        app:height_width="0.345" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_node"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" />
+</LinearLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/yl_margin_l"
+    android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+    android:padding="@dimen/yl_margin_l">
+
+
+    <ImageView
+        android:id="@+id/iv_head"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/ya02wmsj_cecoe_head" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/yl_margin_l"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:layout_toLeftOf="@+id/tv_reply"
+        android:layout_toRightOf="@+id/iv_head"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/yl_text_dark"
+        tools:text="马化腾" />
+
+    <TextView
+        android:id="@+id/tv_reply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_name"
+        android:layout_alignParentRight="true"
+        android:drawableLeft="@mipmap/ya02wmsj_cecoe_reply"
+        android:drawablePadding="2px"
+        android:text="回复"
+        android:textColor="@color/yl_text_dark" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_name"
+        android:layout_alignBottom="@+id/iv_head"
+        android:textColor="@color/yl_text_light"
+        android:textSize="@dimen/yl_text_size_13"
+        tools:text="2020-03-05 15:01:56" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_head"
+        android:layout_marginTop="@dimen/yl_margin_l" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_pic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_content"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:visibility="gone" />
+</RelativeLayout>

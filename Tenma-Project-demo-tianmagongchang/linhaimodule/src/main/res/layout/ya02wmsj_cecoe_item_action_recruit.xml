@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/yl_margin_xl">
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginBottom="@dimen/yl_margin_l"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ya02wmsj_cecoe_no_data"
+        app:height_width="0.3" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_icon"
+        android:layout_alignLeft="@+id/iv_icon"
+        android:layout_marginRight="30dp"
+        android:layout_toLeftOf="@+id/tv_status"
+        android:ellipsize="end"
+        android:lines="2"
+        android:maxLines="2"
+        android:textColor="#4c4c4c"
+        android:textSize="@dimen/yl_text_size_16"
+        tools:text="汇聚起学雷锋志愿服务的青 春力量" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_icon"
+        android:layout_alignRight="@+id/iv_icon"
+        android:textColor="#02BD50"
+        android:textSize="@dimen/yl_text_size_16"
+        tools:text="正在招募" />
+
+    <TextView
+        android:id="@+id/tv_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_status"
+        android:layout_alignRight="@+id/tv_status"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:textColor="#999999"
+        android:textSize="@dimen/yl_text_size_13"
+        tools:text="报名人数：100" />
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_alignLeft="@+id/tv_title"
+        android:layout_marginTop="@dimen/yl_margin_xl"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:layout_toLeftOf="@+id/tv_time"
+        android:ellipsize="middle"
+        android:singleLine="true"
+        android:textColor="#999999"
+        android:textSize="@dimen/yl_text_size_13"
+        tools:text="地址：临海市大洋街道" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_address"
+        android:layout_alignRight="@+id/tv_count"
+        android:textColor="#999999"
+        android:textSize="@dimen/yl_text_size_13"
+        tools:text="2019/5/18-2019/6/18" />
+</RelativeLayout>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_arrow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ya02wmsj_cecoe_arrow_3" />
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_arrow"
+        android:layout_marginLeft="@dimen/yl_margin_l"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:layout_marginBottom="@dimen/yl_margin_l"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ya02wmsj_cecoe_placeholder"
+        app:height_width="1.1" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iv_icon"
+        android:layout_marginLeft="@dimen/yl_margin_l"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="阿婆说建国后普惠暗示屁啊就是淀粉拼接爱惠浦搜大家好跑介绍的破解好久吧"
+        android:textColor="@color/yl_text_dark"
+        android:textSize="@dimen/yl_text_size_17" />
+
+    <TextView
+        android:id="@+id/tv_addr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_alignLeft="@+id/tv_title"
+        android:layout_alignRight="@+id/tv_title"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:ellipsize="middle"
+        android:maxLines="2"
+        android:textColor="@color/grey_text" />
+
+    <TextView
+        android:id="@+id/tv_coins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_addr"
+        android:layout_alignBottom="@+id/iv_icon"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:text="3000益币"
+        android:textColor="@color/theme_color"
+        android:textSize="@dimen/yl_text_size_18" />
+
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/iv_icon"
+        android:background="@color/yl_graybg" />
+
+    <TextView
+        android:id="@+id/tv_exchange_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider1"
+        android:layout_alignLeft="@+id/iv_icon"
+        android:layout_marginTop="@dimen/yl_margin_xl"
+        android:layout_marginBottom="@dimen/yl_margin_xl"
+        android:text="兑换数量"
+        android:textColor="@color/yl_text_dark"
+        android:textSize="@dimen/yl_text_size_18" />
+
+    <TextView
+        android:id="@+id/tv_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_exchange_count"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:background="@drawable/ya02wmsj_cecoe_shape_rect_red"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:text="+"
+        android:textColor="@color/white"
+        android:textSize="@dimen/yl_text_size_16"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_add"
+        android:layout_marginLeft="@dimen/yl_margin_l"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:layout_toLeftOf="@+id/tv_add"
+        android:text="1"
+        android:textColor="#000000"
+        android:textSize="@dimen/yl_text_size_17" />
+
+    <TextView
+        android:id="@+id/tv_remove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_exchange_count"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:layout_toLeftOf="@+id/tv_count"
+        android:background="@drawable/ya02wmsj_cecoe_shape_rect_red"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:text="-"
+        android:textColor="@color/white"
+        android:textSize="@dimen/yl_text_size_16"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/tv_exchange_count"
+        android:background="@color/yl_graybg" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@+id/divider2"
+        android:layout_marginTop="50dp"
+        android:background="@color/yl_graybg" />
+
+    <LinearLayout
+        android:id="@+id/wrap_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider3"
+        android:background="@color/white"
+        android:gravity="center_vertical|right"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="合计：3000益币"
+            android:textSize="@dimen/yl_text_size_17" />
+
+        <TextView
+            android:id="@+id/tv_exchange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/yl_margin_xl"
+            android:layout_marginTop="@dimen/yl_margin_l"
+            android:layout_marginRight="@dimen/yl_margin_xl"
+            android:layout_marginBottom="@dimen/yl_margin_l"
+            android:background="@drawable/ya02wmsj_cecoe_bg_btn_commit"
+            android:paddingLeft="@dimen/yl_margin_xl"
+            android:paddingTop="@dimen/yl_margin_l"
+            android:paddingRight="@dimen/yl_margin_xl"
+            android:paddingBottom="@dimen/yl_margin_l"
+            android:text="立即兑换"
+            android:textColor="@color/white"
+            android:textSize="@dimen/yl_text_size_17" />
+    </LinearLayout>
+</RelativeLayout>

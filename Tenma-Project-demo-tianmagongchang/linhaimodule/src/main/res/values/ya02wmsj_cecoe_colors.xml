@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="yl_colorPrimary">@color/yl_theme_color</color>
+    <color name="yl_colorPrimaryDark">@color/yl_theme_color</color>
+    <color name="yl_colorAccent">@color/yl_theme_color</color>
+    <color name="yl_theme_press_color">#F4321D</color>
+    <color name="yl_theme_color">#fff12510</color>
+    <color name="yl_radio_button_color">@color/yl_main_black</color>
+    <color name="yl_blue">#1B82D1</color>
+    <color name="yl_dark_blue">#303F9F</color>
+    <color name="yl_gray">#AAA</color>
+    <color name="yl_dark_gray">#444</color>
+    <color name="yl_graywhite">#F5F5F5</color>
+    <color name="yl_graybg">#F2F2F2</color>
+    <color name="yl_devide_line">#e7e7e7</color>
+    <color name="yl_white">#FFF</color>
+    <color name="yl_transparent">#00000000</color>
+    <color name="yl_shadow">#88000000</color>
+    <color name="yl_white_2">#FFF0F0F0</color>
+    <color name="yl_white_3">#FFF9F9F9</color>
+    <color name="yl_left">#444</color>
+    <color name="yl_right">#888</color>
+    <color name="yl_gray_4">#eaeaea</color>
+    <color name="yl_main_black">#585858</color>
+    <color name="yl_colorWhite7e7e7">#7e7e7e</color>
+    <color name="yl_colorWhiteF6F6F6">#f6f6f6</color>
+    <color name="yl_colorWhiteF5F5F5">#F5F5F5</color>
+
+    <color name="yl_main_gray">#949494</color>
+    <color name="yl_main_green">#68C14D</color>
+    <color name="yl_green_4DC0A4">#4DC0A4</color>
+    <color name="yl_green_light">#ff99cc00</color>
+    <color name="yl_black_alpha_48">#30000000</color>+
+    <color name="yl_trans">#00000000</color>
+    <color name="yl_text_dark">#af000000</color>
+    <color name="yl_text_light">#3f000000</color>
+    <color name="yl_light_gray">#1a000000</color>
+    <color name="yl_ui_dialog_divider">#DADADA</color>
+    <color name="yl_lightest_gray">#0a000000</color>
+    <color name="yl_bg_touch">@color/yl_lightest_gray</color>
+    <color name="yl_ui_dialog_list_text">#5E5E5E</color>
+    <color name="yl_day_infoTextColor">#999999</color>
+    <color name="yl_red">#D43D3D</color>
+    <color name="yl_commonred">#F05F4C</color>
+    <color name="yl_pink">#FF8FB0</color>
+    <color name="yl_pool_blue">#6cc1ee</color>
+    <color name="yl_orange">#ff8800</color>
+    <color name="yl_lit_blue">#5A6D97</color>
+
+    <color name="yl_end_patrol">#A48ABF</color>
+
+    <color name="yl_color_grey_999999">#999999</color>
+
+    <color name="yl_color_grid_map_1">#3363ACF5</color>
+    <color name="yl_color_grid_map_2">#337BC759</color>
+    <color name="yl_color_grid_map_3">#3393D9D5</color>
+    <color name="yl_color_grid_map_4">#33F4766B</color>
+    <color name="yl_color_grid_map_5">#3391D4D0</color>
+    <color name="yl_color_grid_map_6">#33DFA2F5</color>
+    <color name="yl_color_grid_map_7">#33EAF78A</color>
+    <color name="yl_color_grid_map_8">#33828AE1</color>
+    <color name="yl_color_grid_map_9">#33F5E538</color>
+    <color name="yl_color_grid_map_10">#3392D6AE</color>
+    <color name="yl_color_grid_map_11">#33A6D4F5</color>
+</resources>

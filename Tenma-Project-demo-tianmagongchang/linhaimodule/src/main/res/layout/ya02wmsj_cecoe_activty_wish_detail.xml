@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yl_white"
+    android:overScrollMode="never"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView
+            android:id="@+id/iv_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ya02wmsj_cecoe_placeholder"
+            app:height_width="0.4" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/yl_margin_xl"
+            android:textColor="#4c4c4c"
+            android:textSize="@dimen/yl_text_size_18"
+            tools:text="需赞助大米和油" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/yl_margin_xl"
+            android:layout_marginRight="@dimen/yl_margin_xl"
+            android:layout_marginBottom="@dimen/yl_margin_l"
+            android:gravity="right"
+            android:textColor="#4c4c4c"
+            android:textSize="@dimen/yl_text_size_16" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="2dp"
+            android:layout_marginLeft="@dimen/yl_margin_xl"
+            android:background="@color/yl_theme_color" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/yl_margin_xl"
+            android:textColor="#999999"
+            android:textSize="@dimen/yl_text_size_16"
+            tools:text="阮积森：年龄90岁，家住中心街20-3号，年老体 弱,无劳动能力，希望受到赞助。" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/yl_margin_xl"
+            android:layout_marginRight="@dimen/yl_margin_xl"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:drawableLeft="@mipmap/ya02wmsj_cecoe_clock"
+            android:drawablePadding="@dimen/yl_margin_s"
+            android:text="状态"
+            android:textColor="#4c4c4c"
+            android:textSize="@dimen/yl_text_size_15" />
+
+        <include layout="@layout/ya02wmsj_cecoe_divider_view" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_process"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/yl_margin_xl"
+            android:layout_marginBottom="@dimen/yl_margin_l" />
+
+        <LinearLayout
+            android:id="@+id/view_apply_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/yl_margin_xl"
+                android:layout_marginRight="@dimen/yl_margin_xl"
+                android:layout_marginBottom="@dimen/yl_margin_xl"
+                android:drawableLeft="@mipmap/ya02wmsj_cecoe_people"
+                android:drawablePadding="@dimen/yl_margin_s"
+                android:text="认领人信息"
+                android:textColor="#4c4c4c"
+                android:textSize="@dimen/yl_text_size_15" />
+
+            <include layout="@layout/ya02wmsj_cecoe_divider_view" />
+
+            <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+                android:id="@+id/tv_apply_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/yl_margin_xl"
+                android:layout_marginRight="@dimen/yl_margin_xl"
+                app:e_text_left="认领人:"
+                app:text_gravity="right" />
+
+            <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+                android:id="@+id/tv_apply_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/yl_margin_xl"
+                android:layout_marginRight="@dimen/yl_margin_xl"
+                app:e_text_left="联系电话:"
+                app:edit_input_style="number"
+                app:text_gravity="right" />
+
+            <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+                android:id="@+id/tv_apply_addr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/yl_margin_xl"
+                android:layout_marginRight="@dimen/yl_margin_xl"
+                app:e_text_left="地址:"
+                app:text_gravity="right" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_apply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/yl_margin_xl"
+            android:background="@drawable/ya02wmsj_cecoe_selector_btn_bg"
+            android:letterSpacing="0.3"
+            android:text="认领心愿"
+            android:textColor="@color/yl_white" />
+
+    </LinearLayout>
+</com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView>

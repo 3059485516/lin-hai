@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yl_white"
+    android:orientation="vertical">
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+        android:id="@+id/et_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/yl_margin_xl"
+        android:background="@drawable/ya02wmsj_cecoe_bg_order"
+        app:e_text_left="标题"
+        app:text_gravity="right" />
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+        android:id="@+id/tv_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/yl_margin_xl"
+        android:layout_marginRight="@dimen/yl_margin_xl"
+        android:layout_marginBottom="@dimen/yl_margin_xl"
+        android:background="@drawable/ya02wmsj_cecoe_bg_order"
+        android:visibility="gone"
+        app:arrow_show="true"
+        app:text_left="视频"
+        app:text_right="爆料10秒~15分钟的视频" />
+
+    <EditText
+        android:id="@+id/et_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/yl_margin_xl"
+        android:layout_marginRight="@dimen/yl_margin_xl"
+        android:layout_marginBottom="@dimen/yl_margin_xl"
+        android:background="@drawable/ya02wmsj_cecoe_bg_order"
+        android:gravity="top"
+        android:hint="简介"
+        android:lines="5"
+        android:maxLines="5"
+        android:padding="@dimen/yl_margin_s"
+        android:textSize="@dimen/yl_text_size_14" />
+
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/yl_margin_xl"
+        android:layout_marginRight="@dimen/yl_margin_xl"
+        android:layout_marginBottom="@dimen/yl_margin_xl"
+        android:background="@drawable/ya02wmsj_cecoe_bg_order"
+        android:orientation="vertical"
+        android:padding="@dimen/yl_margin_xl">
+
+        <ImageView
+            android:id="@+id/iv_add_video"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginBottom="@dimen/yl_margin_xl"
+            android:src="@mipmap/ya02wmsj_cecoe_add_media" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="爆料必须含有10秒~15分钟的视频"
+            android:textColor="#4c4c4c"
+            android:textSize="@dimen/yl_text_size_15" />
+    </LinearLayout>-->
+
+    <Button
+        android:id="@+id/btn_commit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/yl_margin_xl"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="@dimen/yl_margin_xl"
+        android:background="@drawable/ya02wmsj_cecoe_selector_btn_bg"
+        android:letterSpacing="0.3"
+        android:text="提交爆料"
+        android:textColor="@color/yl_white"
+        android:textSize="@dimen/yl_text_size_15" />
+</LinearLayout>

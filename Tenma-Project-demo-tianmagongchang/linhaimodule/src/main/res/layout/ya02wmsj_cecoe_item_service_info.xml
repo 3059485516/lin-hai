@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/yl_margin_l"
+    android:layout_marginTop="@dimen/yl_margin_l"
+    android:layout_marginRight="@dimen/yl_margin_l"
+    android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+    android:padding="@dimen/yl_margin_l">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/tv_distance"
+        android:ellipsize="end"
+        android:lines="2"
+        android:text="小王律师事务所"
+        android:textColor="@color/yl_text_dark"
+        android:textSize="@dimen/yl_text_size_17" />
+
+    <TextView
+        android:id="@+id/tv_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:drawableLeft="@mipmap/ya02wmsj_cecoe_location"
+        android:drawablePadding="@dimen/yl_margin_s"
+        tools:text="距离当前：2公里" />
+
+    <TextView
+        android:id="@+id/tv_addr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_name"
+        android:ellipsize="middle"
+        android:singleLine="true"
+        android:text="浙江省台州市临海市古城街道叶下线" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_addr"
+        android:layout_marginTop="@dimen/yl_margin_s"
+        android:text="每周六下午2点到5点"
+        android:textColor="@color/yl_text_light"
+        android:textSize="@dimen/yl_text_size_13" />
+</RelativeLayout>

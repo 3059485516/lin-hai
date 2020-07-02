@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/yl_margin_l"
+    android:layout_marginTop="@dimen/yl_margin_l"
+    android:layout_marginRight="@dimen/yl_margin_l"
+    android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+    android:paddingLeft="@dimen/yl_margin_l"
+    android:paddingTop="@dimen/yl_margin_xl"
+    android:paddingRight="@dimen/yl_margin_l"
+    android:paddingBottom="@dimen/yl_margin_xl">
+
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/yl_theme_color"
+        android:padding="@dimen/yl_margin_ss"
+        android:text="驳回"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/yl_margin_l"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:layout_toLeftOf="@+id/tv_points"
+        android:layout_toRightOf="@+id/tv_status"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="开展志愿活动服务"
+        android:textColor="#000000"
+        android:textSize="@dimen/yl_text_size_16" />
+
+    <TextView
+        android:id="@+id/tv_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="10分"
+        android:textColor="@color/yl_theme_color"
+        android:textSize="@dimen/yl_text_size_18" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:text="2020-03-24 10:48:56"
+        android:textColor="@color/yl_text_light"
+        android:textSize="@dimen/yl_text_size_13" />
+
+    <LinearLayout
+        android:id="@+id/wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_time"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:background="@drawable/ya02wmsj_cecoe_bg_input_text"
+        android:orientation="vertical"
+        android:padding="@dimen/yl_margin_l">
+
+        <cn.carbs.android.expandabletextview.library.ExpandableTextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:etv_EllipsisHint="展开"
+            app:etv_ToExpandHintColor="@color/yl_theme_color"
+            app:etv_ToShrinkHint="收起"
+            app:etv_ToShrinkHintColor="@color/yl_theme_color" />
+
+        <LinearLayout
+            android:id="@+id/wrap_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/yl_margin_l"
+            android:orientation="horizontal">
+
+            <com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView
+                android:id="@+id/iv_pic_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/yl_margin_l"
+                android:layout_marginRight="@dimen/yl_margin_s"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"
+                app:height_width="1" />
+
+            <com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView
+                android:id="@+id/iv_pic_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/yl_margin_s"
+                android:layout_marginRight="@dimen/yl_margin_s"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"
+                app:height_width="1" />
+
+            <com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView
+                android:id="@+id/iv_pic_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/yl_margin_s"
+                android:layout_marginRight="@dimen/yl_margin_l"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"
+                app:height_width="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_refuse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wrap_content"
+        android:layout_marginTop="@dimen/yl_margin_xl"
+        android:gravity="center_horizontal"
+        android:textColor="@color/yl_theme_color" />
+</RelativeLayout>

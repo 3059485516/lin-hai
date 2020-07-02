@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="main_bg">#fe350e</color>
+    <!-- 天马框架 -->
+    <color name="main_background">#fff5f5f6</color>
+    <color name="white">#ffffffff</color>
+    <color name="color5b9fc4">#ff5b9fc4</color>
+    <color name="color99ffffff">#99ffffff</color>
+</resources>

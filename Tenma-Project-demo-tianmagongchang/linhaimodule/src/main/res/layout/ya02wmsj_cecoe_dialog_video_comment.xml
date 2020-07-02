@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ya02wmsj_cecoe_bg_discuss_dialog"
+    android:orientation="vertical"
+    android:padding="@dimen/yl_margin_l">
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="@dimen/yl_margin_s"
+        android:padding="@dimen/yl_margin_s"
+        android:src="@mipmap/ya02wmsj_cecoe_close" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/iv_close"
+        android:background="#bfbfbf" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_comment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:layout_marginBottom="@dimen/yl_margin_l"
+        android:background="@drawable/ya02wmsj_cecoe_bg_input_text"
+        android:gravity="top|start"
+        android:hint="发表评论"
+        android:maxLines="5"
+        android:minLines="3"
+        android:padding="@dimen/yl_margin_s"
+        android:textSize="@dimen/yl_text_size_15" />
+
+    <TextView
+        android:id="@+id/tv_commit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/yl_margin_l"
+        android:background="@drawable/ya02wmsj_cecoe_bg_btn_commit"
+        android:gravity="center"
+        android:paddingTop="@dimen/yl_margin_m"
+        android:paddingBottom="@dimen/yl_margin_m"
+        android:text="提交"
+        android:textColor="@color/white"
+        android:textSize="@dimen/yl_text_size_15" />
+</LinearLayout>

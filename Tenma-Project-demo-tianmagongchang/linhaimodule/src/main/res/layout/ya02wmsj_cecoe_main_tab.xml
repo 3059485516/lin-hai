@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_icon"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/ya02wmsj_cecoe_tab_text_color"
+        android:textSize="12sp" />
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.DragPointView
+        android:id="@+id/tv_red_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-6dp"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:gravity="center"
+        android:padding="2dp"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:visibility="invisible" />
+</RelativeLayout>

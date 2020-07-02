@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/yl_white"
+    android:padding="@dimen/yl_margin_xl">
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="106dp"
+        android:layout_height="76dp"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/ya02wmsj_cecoe_placeholder"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iv_icon"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="@dimen/yl_margin_l"
+        android:layout_toLeftOf="@+id/iv_icon"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#4c4c4c"
+        android:textSize="@dimen/yl_text_size_16"
+        tools:text="临海市体育场" />
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_name"
+        android:layout_alignRight="@+id/tv_name"
+        android:layout_alignBottom="@+id/iv_icon"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="#999999"
+        android:textSize="@dimen/yl_text_size_13"
+        tools:text="临海市军体路6号" />
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_address"
+        android:layout_below="@+id/tv_name"
+        android:layout_alignLeft="@+id/tv_name"
+        android:layout_alignRight="@+id/tv_name"
+        android:layout_marginTop="@dimen/yl_margin_xl"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#999999"
+        android:textSize="@dimen/yl_text_size_13"
+        tools:text="电话：(0576)85321700" />
+</RelativeLayout>

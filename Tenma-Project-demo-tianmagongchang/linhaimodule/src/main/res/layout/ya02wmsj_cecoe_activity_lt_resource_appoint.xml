@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yl_graybg"
+    android:orientation="vertical"
+    android:padding="@dimen/yl_margin_l">
+
+
+    <LinearLayout
+        android:id="@+id/wrap1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:layout_marginBottom="@dimen/yl_margin_xl"
+        android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/yl_margin_l">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ya02wmsj_cecoe_lt_1" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/yl_margin_l"
+            android:layout_marginRight="@dimen/yl_margin_l"
+            android:layout_weight="1"
+            android:text="文化点单"
+            android:textColor="#000000"
+            android:textSize="@dimen/yl_text_size_17" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ya02wmsj_cecoe_ic_right_arrow" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wrap2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/yl_margin_xl"
+        android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/yl_margin_l">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ya02wmsj_cecoe_lt_2" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/yl_margin_l"
+            android:layout_marginRight="@dimen/yl_margin_l"
+            android:layout_weight="1"
+            android:text="礼堂资源"
+            android:textColor="#000000"
+            android:textSize="@dimen/yl_text_size_17" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ya02wmsj_cecoe_ic_right_arrow" />
+    </LinearLayout>
+</LinearLayout>

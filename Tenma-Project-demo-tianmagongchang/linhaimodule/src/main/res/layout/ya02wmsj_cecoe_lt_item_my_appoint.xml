@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/yl_margin_l"
+    android:layout_marginTop="@dimen/yl_margin_l"
+    android:layout_marginRight="@dimen/yl_margin_l"
+    android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+    android:padding="@dimen/yl_margin_l">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/tv_status"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="金清镇夏良村文化礼堂"
+        android:textColor="#000000"
+        android:textSize="@dimen/yl_text_size_16"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="待审核"
+        android:textColor="@color/yl_gray"
+        android:textSize="@dimen/yl_text_size_15"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_name"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="使用时间：2020-03-19 10:00 ~ 2020-03-19 13:00"
+        android:textColor="@color/yl_text_dark" />
+
+    <TextView
+        android:id="@+id/tv_apply_reason"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_time"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:text="申请理由：利用文化礼堂中午空余时间请全村人吃饭，务必别来。"
+        android:textColor="@color/yl_text_dark" />
+
+    <LinearLayout
+        android:id="@+id/wrap_refuse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_apply_reason"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/yl_graybg" />
+
+        <TextView
+            android:id="@+id/tv_refuse_reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_time"
+            android:layout_marginTop="@dimen/yl_margin_l"
+            android:text="驳回理由：不让来还申请什么"
+            android:textColor="@color/yl_theme_color" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ya02wmsj_cecoe_dialog_list_cell_single_choice"
+    android:descendantFocusability="blocksDescendants">
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/yl_global_dialog_padding"
+            android:layout_marginRight="@dimen/yl_global_dialog_padding"
+            android:layout_toLeftOf="@+id/rb_select"
+            android:text="This is item"
+            android:textColor="@color/yl_ui_dialog_list_text"
+            android:textSize="16dip" />
+
+        <RadioButton
+            android:id="@+id/rb_select"
+            android:layout_width="20dip"
+            android:layout_height="20dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/yl_global_dialog_padding"
+            android:clickable="false"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/list_divider"
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_below="@id/content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/yl_global_dialog_padding"
+        android:layout_marginRight="@dimen/yl_global_dialog_padding"
+        android:background="#cccccc"
+        android:visibility="visible" />
+
+</RelativeLayout>

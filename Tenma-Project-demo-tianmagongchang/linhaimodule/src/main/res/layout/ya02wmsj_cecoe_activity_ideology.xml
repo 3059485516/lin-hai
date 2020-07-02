@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yl_graywhite"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                style="@style/YLMainCardView"
+                android:layout_marginTop="@dimen/yl_margin_l">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_node"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                style="@style/YLMainCardView"
+                android:layout_marginTop="@dimen/yl_margin_l"
+                android:layout_marginBottom="@dimen/yl_margin_l">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/yl_margin_l"
+                        android:text="理论资讯"
+                        android:textColor="#4C4C4C"
+                        android:textSize="@dimen/yl_text_size_15" />
+
+                    <include layout="@layout/ya02wmsj_cecoe_divider_view" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/yl_margin_l"
+                        android:nestedScrollingEnabled="false" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView>
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>

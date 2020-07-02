@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_style1"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <ImageView
+            android:id="@+id/iv_arrow"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/yl_margin_m"
+            android:src="@drawable/ya02wmsj_cecoe_ic_chevron_right_24dp" />
+
+        <TextView
+            android:id="@+id/tv_group_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/yl_margin_s"
+            android:layout_toRightOf="@id/iv_arrow"
+            android:gravity="center_vertical"
+            android:textColor="@color/yl_main_black"
+            android:textSize="@dimen/yl_text_l"
+            tools:text="我的好友" />
+
+        <TextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="24dp"
+            tools:text="15" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_style2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_head"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="@dimen/yl_margin_m"
+            android:layout_marginTop="@dimen/yl_margin_m"
+            android:src="@mipmap/ya02wmsj_cecoe_head" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginLeft="@dimen/yl_margin_m"
+            android:layout_marginTop="@dimen/yl_margin_m"
+            android:layout_toRightOf="@id/iv_head"
+            android:gravity="center_vertical"
+            android:textColor="@color/yl_main_black"
+            android:textSize="@dimen/yl_text_l"
+            tools:text="杨世豪" />
+
+        <TextView
+            android:id="@+id/tv_red_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/yl_margin_m"
+            android:layout_toRightOf="@+id/tv_name"
+            android:background="@drawable/ya02wmsj_cecoe_shape_rect_red"
+            android:gravity="center"
+            android:minHeight="16dp"
+            android:minWidth="16dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/yl_text_ss"
+            android:visibility="gone"
+            tools:text="9" />
+
+
+
+        <TextView
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/iv_head"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="@dimen/yl_margin_m"
+            android:background="@color/yl_devide_line" />
+
+    </RelativeLayout>
+
+</LinearLayout>

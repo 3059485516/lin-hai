@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yl_graybg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/yl_margin_l">
+
+
+        <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+            android:id="@+id/tv_lt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            app:arrow_show="true"
+            app:text_left="选择礼堂" />
+
+        <EditText
+            android:id="@+id/et_advance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/yl_margin_l"
+            android:background="@drawable/ya02wmsj_cecoe_bg_comment"
+            android:gravity="top"
+            android:hint="输入您的建议"
+            android:lines="5"
+            android:maxLines="7"
+            android:padding="@dimen/yl_margin_s"
+            android:textSize="@dimen/yl_text_size_14" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/yl_margin_l" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_commit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="@dimen/yl_margin_l"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="@dimen/yl_margin_l"
+            android:background="@drawable/ya02wmsj_cecoe_bg_btn_commit"
+            android:letterSpacing="1.5"
+            android:text="提交"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</LinearLayout>

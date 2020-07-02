@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="yl_statusbarutil_fake_status_bar_view" type="id" />
+    <item name="yl_statusbarutil_translucent_view" type="id" />
+    <item name="BaseQuickAdapter_viewholder_support" type="id" />
+    <item name="BaseQuickAdapter_swiping_support" type="id" />
+    <item name="BaseQuickAdapter_dragging_support" type="id" />
+
+    <item name="yl_tv_title" type="id" />
+    <item name="yl_tv_right" type="id" />
+    <item name="yl_iv_back" type="id" />
+    <item name="yl_tag_group" type="id" />
+</resources>

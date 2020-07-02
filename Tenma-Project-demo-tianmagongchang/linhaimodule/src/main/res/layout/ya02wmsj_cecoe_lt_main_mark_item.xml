@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_mark"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/yl_margin_l"
+        android:layout_marginLeft="@dimen/yl_margin_l"
+        android:background="@drawable/ya02wmsj_cecoe_bg_textbtn"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:paddingLeft="@dimen/yl_margin_l"
+        android:paddingTop="@dimen/yl_margin_s"
+        android:paddingRight="@dimen/yl_margin_l"
+        android:paddingBottom="@dimen/yl_margin_s"
+        android:singleLine="true"
+        android:text="乡村历史"
+        android:textColor="@color/ya02wmsj_cecoe_tab_text_color" />
+</LinearLayout>
