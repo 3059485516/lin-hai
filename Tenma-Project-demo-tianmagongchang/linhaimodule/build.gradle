@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 //apply plugin: 'com.jakewharton.butterknife'
 
 apply plugin: 'com.github.dcendents.android-maven'//this
-group = 'com.github.Sylvanasss'//this
+group = 'com.github.3059485516'//this
 
 
 android {
@@ -60,7 +60,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //天马相关--------------------------------------
-    implementation "com.tenma.ventures:tm_core:1.1.21"
+    implementation "com.tenma.ventures:tm_core:1.2.23"
     implementation 'com.tianma.ventures:tm_user_center:1.1.5'
 //    implementation 'com.tenma.ventures:tm_share_ss:1.2.12'
     implementation "com.android.support:cardview-v7:27.1.0"
