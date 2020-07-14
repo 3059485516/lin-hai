@@ -136,10 +136,10 @@
                 android:layout_marginRight="@dimen/yl_margin_l"
                 android:overScrollMode="never" />
         </LinearLayout>
+
     </com.ya02wmsj_cecoe.linhaimodule.widget.RecyclerScrollView>
 
     <include
         android:id="@+id/lay_bottom"
         layout="@layout/ya02wmsj_cecoe_layout_comment_bar" />
-
 </LinearLayout>

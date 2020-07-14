@@ -303,12 +303,13 @@ public class TextContentActivity extends BaseWebViewActivity<TextContentContract
             mTvLastContent.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(mContext, TextContentActivity.class);
+                    /*Intent intent = new Intent(mContext, TextContentActivity.class);
                     intent.putExtra(Constant.KEY_STRING_1, nodeContent.getPrev().getId());
                     intent.putExtra(Constant.KEY_STRING_2, mRegionCode);
                     intent.putExtra(Constant.KEY_STRING_3, mNodeId);
                     gotoActivity(intent);
-                    finish();
+                    finish();*/
+                    gotoLastContent(nodeContent);
                 }
             });
         }
@@ -318,12 +319,13 @@ public class TextContentActivity extends BaseWebViewActivity<TextContentContract
             mTvNextContent.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(mContext, TextContentActivity.class);
+                   /* Intent intent = new Intent(mContext, TextContentActivity.class);
                     intent.putExtra(Constant.KEY_STRING_1, nodeContent.getNext().getId());
                     intent.putExtra(Constant.KEY_STRING_2, mRegionCode);
                     intent.putExtra(Constant.KEY_STRING_3, mNodeId);
                     gotoActivity(intent);
-                    finish();
+                    finish();*/
+                   gotoNextContent(nodeContent);
                 }
             });
         }
@@ -345,5 +347,22 @@ public class TextContentActivity extends BaseWebViewActivity<TextContentContract
     protected void onDestroy() {
         super.onDestroy();
         GSYVideoManager.releaseAllVideos();
+    }
+
+    private void gotoLastContent(NodeContent currentNodeContent) {
+        Intent intent = new Intent(mContext, TextContentActivity.class);
+        intent.putExtra(Constant.KEY_STRING_1, currentNodeContent.getPrev().getId());
+        intent.putExtra(Constant.KEY_STRING_2, mRegionCode);
+        intent.putExtra(Constant.KEY_STRING_3, mNodeId);
+        gotoActivity(intent);
+        finish();
+    }
+    private void gotoNextContent(NodeContent currentNodeContent){
+        Intent intent = new Intent(mContext, TextContentActivity.class);
+        intent.putExtra(Constant.KEY_STRING_1, currentNodeContent.getNext().getId());
+        intent.putExtra(Constant.KEY_STRING_2, mRegionCode);
+        intent.putExtra(Constant.KEY_STRING_3, mNodeId);
+        gotoActivity(intent);
+        finish();
     }
 }

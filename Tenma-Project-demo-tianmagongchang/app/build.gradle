@@ -128,10 +128,11 @@ dependencies {
     // 通用组件
     compile project(path: ':tm_navigation')
     implementation project(path: ':linhaimodule')
+//    implementation 'com.github.3059485516:lin-hai:1.3.4'
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.tenma.ventures:tm_share_ss:1.0.40' //分享组件
+    implementation 'com.tenma.ventures:tm_share_ss:1.2.14' //分享组件
     implementation 'com.tianma.ventures:tm_own_find:1.0.25'    //发现组件，显示二级页面
-    implementation "com.tenma.ventures:tm_core:1.1.24"     //核心库
+    implementation "com.tenma.ventures:tm_core:1.2.23"     //核心库
 //    implementation 'com.tianma.ventures:tm_userCenter_2nd:1.1.2'   //个人中心
     implementation 'com.tianma.ventures:tm_user_center:1.1.5'
 //    implementation 'com.tianma.ventures:tm_user_center:1.0.3'
