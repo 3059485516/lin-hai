@@ -66,7 +66,6 @@ android {
     }
 
 
-
     dexOptions {
         javaMaxHeapSize "2048M"
         jumboMode true
@@ -105,6 +104,9 @@ android {
             resolutionStrategy.eachDependency { details ->
                 if (details.requested.group == 'com.contrarywind') {
                     details.useVersion "4.1.6"
+                } else if (details.requested.group == 'com.android.support' &&
+                        !details.requested.name.contains('multidex')) {
+                    details.useVersion "27.1.1"
                 }
             }
         }

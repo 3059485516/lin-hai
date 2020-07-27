@@ -8,6 +8,7 @@ import android.text.Html;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
@@ -58,6 +59,7 @@ public class TextContentActivity extends BaseWebViewActivity<TextContentContract
     protected ImageButton mIbLike;
 
     protected ImageButton mIbCollect;
+    private ImageView mIvNextDetail;
 
     protected GoodView mGoodView;
     private CommentAdapter mCommentAdapter;
@@ -109,6 +111,7 @@ public class TextContentActivity extends BaseWebViewActivity<TextContentContract
         mRvComment = findViewById(R.id.rv_comment);
         mIbLike = findViewById(R.id.ib_like);
         mIbCollect = findViewById(R.id.ib_collect);
+        mIvNextDetail = findViewById(R.id.iv_floating_next_detail);
 
         mGoodView = new GoodView(this);
 
@@ -278,12 +281,13 @@ public class TextContentActivity extends BaseWebViewActivity<TextContentContract
             mVideo.getFullscreenButton().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(mContext, FullScreenVideoActivity.class);
+                  /*  Intent intent = new Intent(mContext, FullScreenVideoActivity.class);
                     intent.putExtra(Constant.KEY_STRING_1, nodeContent.getId());
                     intent.putExtra(Constant.KEY_STRING_2, mRegionCode);
                     intent.putExtra(Constant.KEY_STRING_3, mNodeId);
                     intent.putExtra(Constant.KEY_INT_1, mVideo.getCurrentPositionWhenPlaying());
-                    gotoActivity(intent);
+                    gotoActivity(intent);*/
+                    LittleVideoActivity.launch(mContext,nodeContent.getId(),mRegionCode,mNodeId);
                 }
             });
         }
@@ -326,6 +330,13 @@ public class TextContentActivity extends BaseWebViewActivity<TextContentContract
                     gotoActivity(intent);
                     finish();*/
                    gotoNextContent(nodeContent);
+                }
+            });
+            mIvNextDetail.setVisibility(View.VISIBLE);
+            mIvNextDetail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    gotoNextContent(nodeContent);
                 }
             });
         }

@@ -1,50 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginLeft="@dimen/yl_margin_l"
     android:layout_marginTop="@dimen/yl_margin_l"
     android:layout_marginRight="@dimen/yl_margin_l"
     android:background="@drawable/ya02wmsj_cecoe_bg_comment"
     android:padding="@dimen/yl_margin_l">
-
+    <ImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="120dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ya02wmsj_cecoe_service_place"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintDimensionRatio="1:1"/>
     <TextView
         android:id="@+id/tv_name"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/tv_distance"
         android:ellipsize="end"
-        android:lines="2"
-        android:text="小王律师事务所"
-        android:textColor="@color/yl_text_dark"
+        android:maxLines="2"
+        android:layout_marginLeft="12dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/iv_cover"
+        app:layout_constraintTop_toTopOf="@+id/iv_cover"
+        android:text="小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所小王律师事务所"
+        android:textColor="@color/black"
         android:textSize="@dimen/yl_text_size_17" />
-
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"
+        android:text="每周六下午2点到5点"
+        android:maxLines="1"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_addr"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="@color/yl_text_light"
+        android:textSize="@dimen/yl_text_size_13" />
+    <TextView
+        android:id="@+id/tv_addr"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_time"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_distance"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:drawablePadding="8dp"
+        android:drawableLeft="@mipmap/ya02wmsj_cecoe_location"
+        android:text="浙江省台州市临海市古城街道叶下线" />
     <TextView
         android:id="@+id/tv_distance"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:drawableLeft="@mipmap/ya02wmsj_cecoe_location"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_addr"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_cover"
+        android:gravity="bottom"
+        android:maxLines="1"
         android:drawablePadding="@dimen/yl_margin_s"
         tools:text="距离当前：2公里" />
 
-    <TextView
-        android:id="@+id/tv_addr"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_name"
-        android:ellipsize="middle"
-        android:singleLine="true"
-        android:text="浙江省台州市临海市古城街道叶下线" />
-
-    <TextView
-        android:id="@+id/tv_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_addr"
-        android:layout_marginTop="@dimen/yl_margin_s"
-        android:text="每周六下午2点到5点"
-        android:textColor="@color/yl_text_light"
-        android:textSize="@dimen/yl_text_size_13" />
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

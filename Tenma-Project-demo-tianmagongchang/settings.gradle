@@ -1,1 +1,3 @@
+include ':edit_video'
+include':Fulive'
 include ':app', ':tm_navigation', ':linhaimodule'

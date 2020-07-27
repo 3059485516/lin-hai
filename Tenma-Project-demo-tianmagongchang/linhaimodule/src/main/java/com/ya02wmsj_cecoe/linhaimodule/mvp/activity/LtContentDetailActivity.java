@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -44,6 +45,8 @@ public class LtContentDetailActivity extends BaseWebViewActivity<LtContentDetail
     protected TextView mTvTitle;
 
     protected TextView mTvSource;
+
+    private ImageView mIvNextDetail;
 
     TextView mTvArea;
 
@@ -196,6 +199,8 @@ public class LtContentDetailActivity extends BaseWebViewActivity<LtContentDetail
                 TMShareUtil.getInstance(mContext).shareLink(tmLinkShare);
             }
         });
+        mIvNextDetail = findViewById(R.id.iv_floating_next_detail);
+
     }
 
     @Override
@@ -387,5 +392,22 @@ public class LtContentDetailActivity extends BaseWebViewActivity<LtContentDetail
             mIbCollect.setImageResource(R.mipmap.ya02wmsj_cecoe_collect);
         }
         mGoodView.show(mIbCollect);
+    }
+
+    private void gotoLastContent(NodeContent currentNodeContent) {
+        Intent intent = new Intent(mContext, TextContentActivity.class);
+        intent.putExtra(Constant.KEY_STRING_1, currentNodeContent.getPrev().getId());
+        intent.putExtra(Constant.KEY_STRING_2, mRegionCode);
+        intent.putExtra(Constant.KEY_STRING_3, mNodeId);
+        gotoActivity(intent);
+        finish();
+    }
+    private void gotoNextContent(NodeContent currentNodeContent){
+        Intent intent = new Intent(mContext, TextContentActivity.class);
+        intent.putExtra(Constant.KEY_STRING_1, currentNodeContent.getNext().getId());
+        intent.putExtra(Constant.KEY_STRING_2, mRegionCode);
+        intent.putExtra(Constant.KEY_STRING_3, mNodeId);
+        gotoActivity(intent);
+        finish();
     }
 }

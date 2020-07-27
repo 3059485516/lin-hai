@@ -19,6 +19,16 @@ public class ServiceInfoEntity implements Serializable {
     private RegionInfo region_info;
     private String distance;
 
+    public String getIcon_path() {
+        return icon_path;
+    }
+
+    public void setIcon_path(String icon_path) {
+        this.icon_path = icon_path;
+    }
+
+    private String icon_path;
+
     public String getId() {
         return id;
     }

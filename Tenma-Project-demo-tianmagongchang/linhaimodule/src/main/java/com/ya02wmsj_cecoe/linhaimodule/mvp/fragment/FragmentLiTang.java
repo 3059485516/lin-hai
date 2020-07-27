@@ -26,6 +26,7 @@ import com.ya02wmsj_cecoe.linhaimodule.adapter.LtMainNodeContentAdapter;
 import com.ya02wmsj_cecoe.linhaimodule.bean.LtMarkEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.NodeContent;
 import com.ya02wmsj_cecoe.linhaimodule.bean.UserOperateEvent;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LittleVideoActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LiveActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LtContentDetailActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LtFullScreenVideoActivity;
@@ -91,11 +92,12 @@ public class FragmentLiTang extends BaseAreaListFragment {
                 String type = nodeContent.getType();
                 if ("图文视频".equals(type)) {
                     if (nodeContent.getVideo_path() != null && !TextUtils.isEmpty(nodeContent.getVideo_path().getOrigUrl())) {
-                        Intent intent = new Intent(mActivity, LtFullScreenVideoActivity.class);
+                       /* Intent intent = new Intent(mActivity, LtFullScreenVideoActivity.class);
                         intent.putExtra(Constant.KEY_STRING_1, nodeContent.getId());
                         intent.putExtra(Constant.KEY_STRING_2, RegionManager.getInstance().getCurrentCountyCode());
                         intent.putExtra(Constant.KEY_STRING_3, nodeContent.getNode_id());
-                        mActivity.startActivity(intent);
+                        mActivity.startActivity(intent);*/
+                        LittleVideoActivity.launch(mActivity, nodeContent.getId(),RegionManager.getInstance().getCurrentCountyCode(),nodeContent.getNode_id());
                     } else {
                         Intent intent = new Intent(mActivity, LtContentDetailActivity.class);
                         intent.putExtra(Constant.KEY_STRING_1, nodeContent.getId());

@@ -881,4 +881,8 @@ public class Api {
     public static Observable<ZjkZjDetailEntity> queryExpertDetail(String id) {
         return API_SERVICE.queryExpertDetail("http://kp.appwzd.cn/kexieScore/expert/queryExpertDetail/" + id).compose(RxSchedulers.io_main());
     }
+
+    public static Observable<List<NodeContent>> getVideoList(Map<String, Object> param) {
+        return API_SERVICE.getVideoList(param).compose(RxSchedulers.io_main());
+    }
 }

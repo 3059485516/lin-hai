@@ -1,145 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/yl_white"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <com.ya02wmsj_cecoe.linhaimodule.widget.CoverVideo
-        android:id="@+id/coverView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="270dp"
-        android:visibility="gone" />
+        android:layout_height="match_parent"
+        android:background="@color/yl_white"
+        android:orientation="vertical">
 
-    <com.ya02wmsj_cecoe.linhaimodule.widget.RecyclerScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <LinearLayout
+        <com.ya02wmsj_cecoe.linhaimodule.widget.CoverVideo
+            android:id="@+id/coverView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="270dp"
+            android:visibility="gone" />
 
-            <com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView
-                android:id="@+id/iv_top"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/ya02wmsj_cecoe_placeholder"
-                app:height_width="1" />
-
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/yl_margin_l"
-                android:textColor="@color/yl_text_dark"
-                android:textSize="@dimen/yl_text_size_24"
-                tools:text="喜迎党的十九大思想汇报，阐述个人心得体会" />
+        <com.ya02wmsj_cecoe.linhaimodule.widget.RecyclerScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/yl_margin_l"
-                android:layout_marginRight="@dimen/yl_margin_l"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView
+                    android:id="@+id/iv_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ya02wmsj_cecoe_placeholder"
+                    app:height_width="1" />
 
                 <TextView
-                    android:id="@+id/tv_area"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/yl_margin_l"
-                    android:layout_marginBottom="@dimen/yl_margin_s"
-                    android:background="@drawable/ya02wmsj_cecoe_bg_detail_location"
-                    android:drawableLeft="@mipmap/ya02wmsj_cecoe_location2"
-                    android:paddingLeft="@dimen/yl_margin_l"
-                    android:paddingTop="@dimen/yl_margin_ss"
-                    android:paddingRight="@dimen/yl_margin_l"
-                    android:paddingBottom="@dimen/yl_margin_ss"
-                    android:textColor="#999999"
-                    android:textSize="@dimen/yl_text_size_15"
-                    tools:text="临海市" />
+                    android:layout_margin="@dimen/yl_margin_l"
+                    android:textColor="@color/yl_text_dark"
+                    android:textSize="@dimen/yl_text_size_24"
+                    tools:text="喜迎党的十九大思想汇报，阐述个人心得体会" />
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/yl_margin_l"
+                    android:layout_marginRight="@dimen/yl_margin_l"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_area"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/yl_margin_l"
+                        android:layout_marginBottom="@dimen/yl_margin_s"
+                        android:background="@drawable/ya02wmsj_cecoe_bg_detail_location"
+                        android:drawableLeft="@mipmap/ya02wmsj_cecoe_location2"
+                        android:paddingLeft="@dimen/yl_margin_l"
+                        android:paddingTop="@dimen/yl_margin_ss"
+                        android:paddingRight="@dimen/yl_margin_l"
+                        android:paddingBottom="@dimen/yl_margin_ss"
+                        android:textColor="#999999"
+                        android:textSize="@dimen/yl_text_size_15"
+                        tools:text="临海市" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/tv_source"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/yl_margin_l"
+                        android:layout_marginBottom="@dimen/yl_margin_s"
+                        android:textColor="#999999"
+                        android:textSize="@dimen/yl_text_size_15"
+                        tools:text="央视网 2019-06-04" />
+                </LinearLayout>
+
+                <WebView
+                    android:id="@+id/webView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/yl_margin_l" />
 
                 <TextView
-                    android:id="@+id/tv_source"
+                    android:id="@+id/tv_last_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/yl_margin_l"
+                    android:layout_marginTop="@dimen/yl_margin_l"
+                    android:layout_marginRight="@dimen/yl_margin_l"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/yl_text_size_15"
+                    android:textStyle="bold|italic"
+                    tools:text="上一条：喜迎党的十九大思想汇报，阐述个人心得体会" />
+
+                <TextView
+                    android:id="@+id/tv_next_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/yl_margin_l"
+                    android:layout_marginTop="@dimen/yl_margin_l"
+                    android:layout_marginRight="@dimen/yl_margin_l"
+                    android:layout_marginBottom="@dimen/yl_margin_l"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/yl_text_size_15"
+                    android:textStyle="bold|italic"
+                    tools:text="下一条：喜迎党的十九大思想汇报，阐述个人心得体会" />
+
+                <include layout="@layout/ya02wmsj_cecoe_divider_view" />
+
+
+                <TextView
+                    android:id="@+id/tv_operate_sum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/yl_margin_l"
                     android:layout_marginTop="@dimen/yl_margin_l"
-                    android:layout_marginBottom="@dimen/yl_margin_s"
-                    android:textColor="#999999"
+                    android:layout_marginBottom="@dimen/yl_margin_l"
+                    android:textColor="#4C4C4C"
                     android:textSize="@dimen/yl_text_size_15"
-                    tools:text="央视网 2019-06-04" />
+                    tools:text="评论(88) 赞(24)" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/yl_margin_l"
+                    android:layout_marginRight="@dimen/yl_margin_l"
+                    android:overScrollMode="never" />
             </LinearLayout>
 
-            <WebView
-                android:id="@+id/webView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/yl_margin_l" />
+        </com.ya02wmsj_cecoe.linhaimodule.widget.RecyclerScrollView>
 
-            <TextView
-                android:id="@+id/tv_last_content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/yl_margin_l"
-                android:layout_marginTop="@dimen/yl_margin_l"
-                android:layout_marginRight="@dimen/yl_margin_l"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:textColor="#000000"
-                android:textSize="@dimen/yl_text_size_15"
-                android:textStyle="bold|italic"
-                tools:text="上一条：喜迎党的十九大思想汇报，阐述个人心得体会" />
-
-            <TextView
-                android:id="@+id/tv_next_content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/yl_margin_l"
-                android:layout_marginTop="@dimen/yl_margin_l"
-                android:layout_marginRight="@dimen/yl_margin_l"
-                android:layout_marginBottom="@dimen/yl_margin_l"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:textColor="#000000"
-                android:textSize="@dimen/yl_text_size_15"
-                android:textStyle="bold|italic"
-                tools:text="下一条：喜迎党的十九大思想汇报，阐述个人心得体会" />
-
-            <include layout="@layout/ya02wmsj_cecoe_divider_view" />
-
-
-            <TextView
-                android:id="@+id/tv_operate_sum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/yl_margin_l"
-                android:layout_marginTop="@dimen/yl_margin_l"
-                android:layout_marginBottom="@dimen/yl_margin_l"
-                android:textColor="#4C4C4C"
-                android:textSize="@dimen/yl_text_size_15"
-                tools:text="评论(88) 赞(24)" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_comment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/yl_margin_l"
-                android:layout_marginRight="@dimen/yl_margin_l"
-                android:overScrollMode="never" />
-        </LinearLayout>
-
-    </com.ya02wmsj_cecoe.linhaimodule.widget.RecyclerScrollView>
-
-    <include
-        android:id="@+id/lay_bottom"
-        layout="@layout/ya02wmsj_cecoe_layout_comment_bar" />
-</LinearLayout>
+        <include
+            android:id="@+id/lay_bottom"
+            layout="@layout/ya02wmsj_cecoe_layout_comment_bar" />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_floating_next_detail"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:clickable="true"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="62dp"
+        android:adjustViewBounds="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible"
+        android:src="@mipmap/ya02wmsj_cecoe_next_detail" />
+</RelativeLayout>

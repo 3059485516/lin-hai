@@ -64,7 +64,7 @@ public class Config implements TMLoginManager.OnLoginListener {
         TMLoginManager.registerLoginChangeListener(this);
         mTmUser = TMSharedPUtil.getTMUser(mContext);
         mTMConfig = TMSharedPUtil.getTMBaseConfig(mContext);
-        if (!TextUtils.isEmpty(mTmUser.getToken())) {
+        if (mTmUser!= null&&!TextUtils.isEmpty(mTmUser.getToken())) {
             uploadUserInfo(mTmUser);
         } else {
             gotoLoginAct();

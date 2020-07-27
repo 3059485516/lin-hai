@@ -1346,6 +1346,10 @@ public interface ApiService {
      */
     @POST
     Observable<ZjkZjDetailEntity> queryExpertDetail(@Url String url);
+
+    @FormUrlEncoded
+    @POST("getVideoList")
+    Observable<List<NodeContent>> getVideoList(@FieldMap Map<String, Object> map);
 }
 
 

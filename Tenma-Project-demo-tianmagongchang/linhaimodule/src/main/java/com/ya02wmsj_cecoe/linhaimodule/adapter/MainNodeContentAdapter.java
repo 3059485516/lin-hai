@@ -11,6 +11,7 @@ import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.bean.NodeContent;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.FullScreenVideoActivity;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LittleVideoActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LiveActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.TextContentActivity;
 import com.ya02wmsj_cecoe.linhaimodule.utils.ImageManager;
@@ -77,11 +78,12 @@ public class MainNodeContentAdapter extends CommonAdapter<NodeContent> {
                 String type = nodeContent.getType();
                 if ("图文视频".equals(type)) {
                     if (nodeContent.getVideo_path() != null && !TextUtils.isEmpty(nodeContent.getVideo_path().getOrigUrl())) {
-                        Intent intent = new Intent(mContext, FullScreenVideoActivity.class);
+                      /*  Intent intent = new Intent(mContext, FullScreenVideoActivity.class);
                         intent.putExtra(Constant.KEY_STRING_1, nodeContent.getId());
                         intent.putExtra(Constant.KEY_STRING_2, RegionManager.getInstance().getCurrentCountyCode());
                         intent.putExtra(Constant.KEY_STRING_3, nodeContent.getNode_id());
-                        mContext.startActivity(intent);
+                        mContext.startActivity(intent);*/
+                        LittleVideoActivity.launch(mContext,nodeContent.getId(),RegionManager.getInstance().getCurrentCountyCode(),nodeContent.getNode_id());
                     } else {
                         Intent intent = new Intent(mContext, TextContentActivity.class);
                         intent.putExtra(Constant.KEY_STRING_1, nodeContent.getId());
