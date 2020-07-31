@@ -44,7 +44,7 @@ public class TakeBadHabitsListActivity extends BaseQuickAdapterListActivity<Take
         VideoShootActivity.start(this, new VideoShootActivity.OnCompleteListener() {
             @Override
             public void onComplete(String filePath) {
-
+                UploadBadHabitsActivity.launch(TakeBadHabitsListActivity.this,filePath);
             }
         });
     }

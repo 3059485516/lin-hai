@@ -1350,6 +1350,10 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("getVideoList")
     Observable<List<NodeContent>> getVideoList(@FieldMap Map<String, Object> map);
+
+    @FormUrlEncoded
+    @POST("shootBadHabit")
+    Observable<Object> shootBadHabit(@FieldMap Map<String, Object> map);
 }
 
 
