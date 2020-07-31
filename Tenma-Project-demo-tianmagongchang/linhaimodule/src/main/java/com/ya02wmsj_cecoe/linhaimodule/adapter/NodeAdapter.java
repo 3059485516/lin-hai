@@ -41,6 +41,7 @@ import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.ServiceListInfoActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.ShowCivilizeActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.SmartTechActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.SocialCollectActivity;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.TakeBadHabitsListActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.TalentActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.WebActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.WebBridgeActivity;
@@ -367,6 +368,9 @@ public class NodeAdapter extends CommonAdapter<Node> {
                     break;
                 case "专家库":
                     mContext.startActivity(new Intent(mContext, ZjkActivity.class));
+                    break;
+                case "我要拍陋习":
+                    mContext.startActivity(new Intent(mContext, TakeBadHabitsListActivity.class));
                     break;
 
             }

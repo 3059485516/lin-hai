@@ -68,6 +68,33 @@
                                 android:id="@+id/rv_node"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content" />
+                            <android.support.v4.view.ViewPager
+                                android:id="@+id/vp_node"
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp" />
+
+                            <LinearLayout
+                                android:id="@+id/wrap_indication"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="@dimen/yl_margin_s"
+                                android:layout_marginBottom="@dimen/yl_margin_l"
+                                android:orientation="horizontal">
+
+                                <View
+                                    android:id="@+id/indicatior1"
+                                    android:layout_width="20dp"
+                                    android:layout_height="2dp"
+                                    android:layout_marginRight="@dimen/yl_margin_l"
+                                    android:background="@color/yl_theme_color" />
+
+                                <View
+                                    android:id="@+id/indicatior2"
+                                    android:layout_width="20dp"
+                                    android:layout_height="2dp"
+                                    android:background="@color/yl_gray" />
+                            </LinearLayout>
                         </LinearLayout>
 
                     </android.support.v7.widget.CardView>

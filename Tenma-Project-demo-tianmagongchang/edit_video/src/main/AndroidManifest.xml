@@ -33,7 +33,7 @@
     <application>
         <activity android:name=".activity.VideoShootActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
+            android:theme="@style/FullAppTheme"
             android:windowSoftInputMode="stateAlwaysHidden|stateUnchanged"/>
         <activity android:name=".activity.ShortVideoEditActivity"
             android:screenOrientation="portrait"

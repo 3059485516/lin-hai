@@ -2,7 +2,9 @@ package com.ya02wmsj_cecoe.linhaimodule.mvp.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +19,7 @@ import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.adapter.FragmentVolunteerAdapter;
 import com.ya02wmsj_cecoe.linhaimodule.adapter.NodeAdapter;
+import com.ya02wmsj_cecoe.linhaimodule.adapter.ZhiYuanFuWuViewPageAdapter;
 import com.ya02wmsj_cecoe.linhaimodule.base.fragment.BaseListFragment;
 import com.ya02wmsj_cecoe.linhaimodule.bean.Node;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.TextContentActivity;
@@ -86,7 +89,8 @@ public class FragmentVolunteer extends BaseListFragment<FragmentVolunteerContrac
         mToolBar = mRootView.findViewById(R.id.toolbar);
         mBanner = mRootView.findViewById(R.id.banner);
         mRvNode = mRootView.findViewById(R.id.rv_node);
-
+        ViewPager viewPager = mRootView.findViewById(R.id.vp_node);
+        View viewPagerIndication = mRootView.findViewById(R.id.wrap_indication);
         mToolBar.setTitle("志愿服务");
         if (getArguments() != null) {
             mbBackMain = getArguments().getBoolean(Constant.KEY_BOOLEAN_1, false);
@@ -112,10 +116,46 @@ public class FragmentVolunteer extends BaseListFragment<FragmentVolunteerContrac
         setLayoutManager(new LinearLayoutManager(mActivity));
         initBanner();
         setLoadMoreEnabled(true);
+        List<Node> nodeList = getNodeList();
+        if(nodeList.size()>8){
+            mRvNode.setVisibility(View.GONE);
+            viewPager.setVisibility(View.VISIBLE);
+            viewPagerIndication.setVisibility(View.VISIBLE);
+            View indicator1, indicator2;
+            indicator1 = mRootView.findViewById(R.id.indicatior1);
+            indicator2 = mRootView.findViewById(R.id.indicatior2);
+            viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                @Override
+                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-        mRvNode.setLayoutManager(new GridLayoutManager(mActivity, 4));
-        mNodeAdapter = new NodeAdapter(mActivity, getNodeList());      //暂缺
-        mRvNode.setAdapter(mNodeAdapter);
+                }
+
+                @Override
+                public void onPageSelected(int position) {
+                    if (position == 0) {
+                        indicator1.setBackgroundColor(Color.parseColor("#F5B622"));
+                        indicator2.setBackgroundColor(Color.parseColor("#B0AA81"));
+                    } else {
+                        indicator1.setBackgroundColor(Color.parseColor("#B0AA81"));
+                        indicator2.setBackgroundColor(Color.parseColor("#F5B622"));
+                    }
+                }
+
+                @Override
+                public void onPageScrollStateChanged(int state) {
+
+                }
+            });
+            viewPager.setAdapter(new ZhiYuanFuWuViewPageAdapter(nodeList));
+        }else {
+            viewPager.setVisibility(View.GONE);
+            viewPagerIndication.setVisibility(View.GONE);
+            mRvNode.setVisibility(View.VISIBLE);
+            mRvNode.setLayoutManager(new GridLayoutManager(mActivity, 4));
+            mNodeAdapter = new NodeAdapter(mActivity, nodeList);      //暂缺
+            mRvNode.setAdapter(mNodeAdapter);
+        }
+
     }
 
     private List<Node> getNodeList() {
@@ -151,7 +191,11 @@ public class FragmentVolunteer extends BaseListFragment<FragmentVolunteerContrac
         node8.setTitle("我要签到");
         node8.setLocal(true);
         node8.setIcon(R.mipmap.ya02wmsj_cecoe_icon_wode_en + "");
-        return Arrays.asList(node1, node2, node3, node4, node5, node6, node7, node8);  //隐藏兑福利
+        Node node9 = new Node();
+        node9.setTitle("我要拍陋习");
+        node9.setLocal(true);
+        node9.setIcon(R.mipmap.ya02wmsj_cecoe_lou_xi + "");
+        return Arrays.asList(node1, node2, node3, node4, node5, node6, node7, node8,node9);  //隐藏兑福利
     }
 
     private void initBanner() {

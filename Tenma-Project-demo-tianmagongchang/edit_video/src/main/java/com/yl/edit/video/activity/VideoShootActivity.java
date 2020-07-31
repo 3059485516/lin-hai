@@ -157,6 +157,7 @@ public class VideoShootActivity extends UI implements MediaCaptureController.Med
 
     @Override
     protected void onDestroy() {
+        onCompleteListener = null;
         super.onDestroy();
         isFinish = true;
         if (mediaCaptureController != null) {
@@ -827,6 +828,9 @@ public class VideoShootActivity extends UI implements MediaCaptureController.Med
                     }else {
 //                        AddVideoContentActivity.launch(this,videoItem.getFilePath());
                     }
+                    if(onCompleteListener != null){
+                        onCompleteListener.onComplete(videoItem.getFilePath());
+                    }
                 }
                 finish();
             } else {
@@ -840,5 +844,16 @@ public class VideoShootActivity extends UI implements MediaCaptureController.Med
                 }
             }
         }
+    }
+
+
+    public static interface OnCompleteListener{
+        void onComplete(String filePath);
+    }
+    private static OnCompleteListener onCompleteListener;
+
+    public static void start(Context context,OnCompleteListener listener){
+        onCompleteListener = listener;
+        context.startActivity(new Intent(context,VideoShootActivity.class));
     }
 }
