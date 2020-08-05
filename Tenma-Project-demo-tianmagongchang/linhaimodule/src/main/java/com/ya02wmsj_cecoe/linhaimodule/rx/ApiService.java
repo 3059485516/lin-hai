@@ -1354,6 +1354,11 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("shootBadHabit")
     Observable<Object> shootBadHabit(@FieldMap Map<String, Object> map);
+
+    @FormUrlEncoded
+    @POST("getBadHabitNodeList")
+    Observable<List<Node>> getBadHabitList(@Field("TOKEN") String TOKEN);
+
 }
 
 

@@ -29,6 +29,7 @@ import com.ya02wmsj_cecoe.linhaimodule.widget.CoverVideo;
 import com.ya02wmsj_cecoe.linhaimodule.widget.ItemDecorationVertical;
 import com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView;
 import com.ya02wmsj_cecoe.linhaimodule.widget.dialog.CommentDialog;
+import com.yl.edit.video.activity.VideoShootActivity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -177,10 +178,22 @@ public class TextContentActivity extends BaseWebViewActivity<TextContentContract
 
     @Override
     public void onMenuClicked() {
-        Intent intent = new Intent(this, PublishOpinionActivity.class);
+       /* VideoShootActivity.start(this, new VideoShootActivity.OnCompleteListener() {
+            @Override
+            public void onComplete(String filePath) {
+                Intent intent = new Intent(TextContentActivity.this, PublishOpinionActivity.class);
+                intent.putExtra(Constant.KEY_STRING_1, mNodeId);
+                intent.putExtra(Constant.KEY_STRING_2, "内容");
+                intent.putExtra(Constant.KEY_STRING_3, filePath);
+                startActivity(intent);
+            }
+        });*/
+        Intent intent = new Intent(TextContentActivity.this, PublishOpinionActivity.class);
         intent.putExtra(Constant.KEY_STRING_1, mNodeId);
         intent.putExtra(Constant.KEY_STRING_2, "内容");
+        intent.putExtra(Constant.KEY_STRING_3, "");
         startActivity(intent);
+
     }
 
     @Override

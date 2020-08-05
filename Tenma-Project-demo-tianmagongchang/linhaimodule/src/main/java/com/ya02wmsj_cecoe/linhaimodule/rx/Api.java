@@ -72,6 +72,7 @@ import io.reactivex.Observable;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 
 import static com.ya02wmsj_cecoe.linhaimodule.Constant.BASE_URL_LT_INTERFACE_DEBUG;
@@ -892,4 +893,7 @@ public class Api {
         return API_SERVICE.shootBadHabit(map).compose(RxSchedulers.io_main());
     }
 
+    public static  Observable<List<Node>> getBadHabitList(){
+        return API_SERVICE.getBadHabitList(getToken()).compose(RxSchedulers.io_main());
+    }
 }

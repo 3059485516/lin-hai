@@ -42,9 +42,17 @@
     <application
         android:hardwareAccelerated="true"
         android:networkSecurityConfig="@xml/ya02wmsj_cecoe_network_security_config">
-        <activity android:name=".mvp.activity.UploadBadHabitsActivity"></activity>
-        <activity android:name=".mvp.activity.TakeBadHabitsListActivity" />
-        <activity android:name=".mvp.activity.ServiceInfoDetail2Activity" />
+        <activity android:name=".mvp.activity.ServiceListInfo2Activity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".mvp.activity.UploadBadHabitsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.TakeBadHabitsListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.activity.ServiceInfoDetail2Activity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"

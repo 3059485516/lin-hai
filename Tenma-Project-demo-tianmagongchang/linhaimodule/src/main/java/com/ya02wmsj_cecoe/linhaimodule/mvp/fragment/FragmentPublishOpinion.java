@@ -42,7 +42,8 @@ public class FragmentPublishOpinion extends BaseFragment<PublishOpinionContract.
 
     @Override
     protected void initMVP() {
-        mPresenter = new PublishOpinionPresenter(this);
+        // TODO: 2020/8/5
+        mPresenter = new PublishOpinionPresenter(this,null);
     }
 
     @Override
@@ -99,5 +100,26 @@ public class FragmentPublishOpinion extends BaseFragment<PublishOpinionContract.
             mPresenter.getImageList().addAll(PictureSelector.obtainMultipleResult(data));
             mImgAdapter.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public void dissCircleProgressDialog() {
+        // TODO: 2020/8/5
+    }
+
+    @Override
+    public void setUploadProgress(int progress) {
+        // TODO: 2020/8/5
+    }
+
+    @Override
+    public String getContentTitle() {
+        // TODO: 2020/8/5
+        return null;
+    }
+
+    @Override
+    public void showCircleProgressDialog() {
+        // TODO: 2020/8/5
     }
 }

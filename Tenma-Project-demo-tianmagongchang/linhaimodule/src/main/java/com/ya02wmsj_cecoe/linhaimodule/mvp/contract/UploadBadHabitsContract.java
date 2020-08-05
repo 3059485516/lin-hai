@@ -5,6 +5,9 @@ import android.content.Intent;
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.base.mvp.APresenter;
 import com.ya02wmsj_cecoe.linhaimodule.base.mvp.IView;
+import com.ya02wmsj_cecoe.linhaimodule.bean.Node;
+
+import java.util.List;
 
 /**
  * ================================================
@@ -24,7 +27,13 @@ public interface UploadBadHabitsContract {
 
         String getContent();
 
+        String getRegionCode();
+
+        String getBadHabitsNode();
+
         void showCircleProgressDialog();
+
+        void showBadHabitNode(List<Node> o);
     }
     abstract class Presenter extends APresenter<View>{
         public String getFilePath() {
@@ -47,6 +56,8 @@ public interface UploadBadHabitsContract {
         }
         public abstract void addContent();
         public abstract void submitCancel();
+
+        public abstract void getBadHabitList();
 
     }
 }

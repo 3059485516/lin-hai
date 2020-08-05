@@ -37,6 +37,7 @@ import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.OrderBetActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.OrderBetSubActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.OrginazeActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.RankingListActivity;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.ServiceListInfo2Activity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.ServiceListInfoActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.ShowCivilizeActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.SmartTechActivity;
@@ -249,13 +250,13 @@ public class NodeAdapter extends CommonAdapter<Node> {
                     mContext.startActivity(intentZX);
                     break;
                 case "律师咨询":
-                    Intent intentLvShi = new Intent(mContext, ServiceListInfoActivity.class);
+                    Intent intentLvShi = new Intent(mContext, ServiceListInfo2Activity.class);
                     intentLvShi.putExtra(Constant.KEY_STRING_1, "律师咨询");
                     intentLvShi.putExtra(Constant.KEY_STRING_2, "15");
                     mContext.startActivity(intentLvShi);
                     break;
                 case "农残检测":
-                    Intent intentJiance = new Intent(mContext, ServiceListInfoActivity.class);
+                    Intent intentJiance = new Intent(mContext, ServiceListInfo2Activity.class);
                     intentJiance.putExtra(Constant.KEY_STRING_1, "农残检测");
                     intentJiance.putExtra(Constant.KEY_STRING_2, "16");
                     mContext.startActivity(intentJiance);
@@ -276,13 +277,13 @@ public class NodeAdapter extends CommonAdapter<Node> {
                     mContext.startActivity(intentYL);
                     break;
                 case "免费发药点":
-                    Intent intentFYD = new Intent(mContext, ServiceListInfoActivity.class);
+                    Intent intentFYD = new Intent(mContext, ServiceListInfo2Activity.class);
                     intentFYD.putExtra(Constant.KEY_STRING_1, "免费发药点");
                     intentFYD.putExtra(Constant.KEY_STRING_2, "21");
                     mContext.startActivity(intentFYD);
                     break;
                 case "体育馆地图":
-                    Intent intentTYG = new Intent(mContext, ServiceListInfoActivity.class);
+                    Intent intentTYG = new Intent(mContext, ServiceListInfo2Activity.class);
                     intentTYG.putExtra(Constant.KEY_STRING_1, "体育馆地图");
                     intentTYG.putExtra(Constant.KEY_STRING_2, "22");
                     mContext.startActivity(intentTYG);

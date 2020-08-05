@@ -13,6 +13,7 @@ import com.netease.nim.yl.upload.NOSUploadHandler;
 import com.socks.library.KLog;
 import com.ya02wmsj_cecoe.linhaimodule.App;
 import com.ya02wmsj_cecoe.linhaimodule.Config;
+import com.ya02wmsj_cecoe.linhaimodule.bean.Node;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.UploadBadHabitsContract;
 import com.ya02wmsj_cecoe.linhaimodule.rx.Api;
 import com.ya02wmsj_cecoe.linhaimodule.rx.RxSubscriber;
@@ -23,6 +24,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import io.reactivex.Observable;
@@ -30,6 +32,8 @@ import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
+import io.reactivex.Single;
+import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
@@ -51,7 +55,13 @@ public class UploadBadHabitsPresenter extends UploadBadHabitsContract.Presenter 
 
     @Override
     public void addContent() {
-        uploadInit();
+        final String filePath = getFilePath();
+        if(TextUtils.isEmpty(filePath)){
+            uploadSuccess("");
+        }else {
+            uploadInit();
+        }
+
     }
 
     private Observable<AcceleratorConfig> loadDefaultAcceleratorConfig = Observable.create(new ObservableOnSubscribe<AcceleratorConfig>() {
@@ -98,7 +108,7 @@ public class UploadBadHabitsPresenter extends UploadBadHabitsContract.Presenter 
                 if (acceleratorConfig != null) {
                     return initNosUpload;
                 }
-                return null;
+                throw new IllegalArgumentException("acceleratorConfig init failed!");
             }
         });
         addRx2Destroy(new RxSubscriber<NOSUpload>(nosUploadObservable) {
@@ -202,7 +212,8 @@ public class UploadBadHabitsPresenter extends UploadBadHabitsContract.Presenter 
         String title = mView.getVideoTitle();
         String content = mView.getContent();
         String nodeId  = getSelectedNode();
-        final Map<String, Object> param = createParam(nodeId, title, vid, content);
+        final String regionCode = mView.getRegionCode();
+        final Map<String, Object> param = createParam(nodeId, title, vid, content,regionCode);
         addRx2Destroy(new RxSubscriber(Api.shootBadHabit(param)) {
             @Override
             protected void _onNext(Object o) {
@@ -220,27 +231,21 @@ public class UploadBadHabitsPresenter extends UploadBadHabitsContract.Presenter 
 
 
     private void sendUploadError(String errorMsg) {
-        Observable.just(errorMsg)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
+        Single.just(errorMsg).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SingleObserver<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         addRx2Destroy(d);
                     }
 
                     @Override
-                    public void onNext(String s) {
+                    public void onSuccess(String s) {
                         mView.dissCircleProgressDialog();
                         toast(s);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
 
                     }
                 });
@@ -254,12 +259,25 @@ public class UploadBadHabitsPresenter extends UploadBadHabitsContract.Presenter 
         }
     }
 
-    private Map<String,Object> createParam(String nodeId,String title,String video_path,String contents){
+    @Override
+    public void getBadHabitList() {
+        addRx2Destroy(new RxSubscriber<List<Node>>(Api.getBadHabitList()) {
+            @Override
+            protected void _onNext(List<Node> o) {
+                mView.showBadHabitNode(o);
+            }
+        });
+    }
+
+    private Map<String,Object> createParam(String nodeId,String title,String video_path,String contents,String regionCode){
         Map<String,Object> map = new HashMap<>();
         map.put("pre_node_id",nodeId);
         map.put("title",title);
-        map.put("video_path",video_path);
+        if(!TextUtils.isEmpty(video_path)){
+            map.put("video_path",video_path);
+        }
         map.put("contents",contents);
+        map.put("region_code",regionCode);
         return map;
     }
 }
