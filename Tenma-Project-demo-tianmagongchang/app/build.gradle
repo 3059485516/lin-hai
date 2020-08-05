@@ -130,7 +130,7 @@ dependencies {
     // 通用组件
     compile project(path: ':tm_navigation')
     implementation project(path: ':linhaimodule')
-//    implementation 'com.github.3059485516:lin-hai:1.3.4'
+//    implementation 'com.github.3059485516:lin-hai:1.3.6'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.tenma.ventures:tm_share_ss:1.2.14' //分享组件
     implementation 'com.tianma.ventures:tm_own_find:1.0.25'    //发现组件，显示二级页面

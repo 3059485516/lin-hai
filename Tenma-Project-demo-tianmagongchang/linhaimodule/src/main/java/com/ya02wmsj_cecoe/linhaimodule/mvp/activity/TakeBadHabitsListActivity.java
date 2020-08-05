@@ -47,6 +47,11 @@ public class TakeBadHabitsListActivity extends BaseQuickAdapterListActivity<Take
                 UploadBadHabitsActivity.launch(TakeBadHabitsListActivity.this,filePath);
             }
         });*/
-        UploadBadHabitsActivity.launch(TakeBadHabitsListActivity.this,"");
+        SelectVideoActivity.start(this, new SelectVideoActivity.OnCompleteListener() {
+            @Override
+            public void onComplete(String path) {
+                UploadBadHabitsActivity.launch(TakeBadHabitsListActivity.this,path);
+            }
+        });
     }
 }

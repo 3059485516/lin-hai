@@ -1,6 +1,7 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
@@ -50,6 +51,10 @@ import io.reactivex.schedulers.Schedulers;
 public class SelectVideoActivity extends BaseActivity implements MultiItemTypeAdapter.OnItemClickListener,
         MediaPlayer.OnPreparedListener, MediaPlayer.OnErrorListener, MediaPlayer.OnCompletionListener {
     private static final int REQUEST_CODE_RECODE = 301;
+    public static void start(Context context,OnCompleteListener listener){
+        onCompleteListener = listener;
+        context.startActivity(new Intent(context,SelectVideoActivity.class));
+    }
 
     protected VideoView mVideoView;
 
@@ -84,6 +89,9 @@ public class SelectVideoActivity extends BaseActivity implements MultiItemTypeAd
     protected void onDestroy() {
         if (mVideoView.isPlaying()) {
             stopPlay();
+        }
+        if(onCompleteListener != null){
+            onCompleteListener = null;
         }
         mVideoView.stopPlayback();
         super.onDestroy();
@@ -168,6 +176,11 @@ public class SelectVideoActivity extends BaseActivity implements MultiItemTypeAd
         String path = mPath;
         if (path == null) {
             path = mVideos.get(0).getPath();
+        }
+        if(onCompleteListener != null){
+            onCompleteListener.onComplete(path);
+            finishActivity();
+            return;
         }
 
         Intent intent = new Intent();
@@ -306,6 +319,17 @@ public class SelectVideoActivity extends BaseActivity implements MultiItemTypeAd
                 e.printStackTrace();
             }
         }
+    }
+
+
+    public static interface OnCompleteListener{
+        void onComplete(String path);
+    }
+
+    private static OnCompleteListener onCompleteListener;
+
+    public static void setOnCompleteListener(OnCompleteListener listener) {
+        onCompleteListener = listener;
     }
 }
 
