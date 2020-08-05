@@ -27,9 +27,9 @@ public class Constant {
 
     public static String getBaseInterfaceUrl() {
         if (BuildConfig.DEBUG) {
-            return BASE_URL_INTERFACE_DEBUG;
+            return BASE_URL_INTERFACE_RELEASE;
         }
-        return BASE_URL_INTERFACE_DEBUG;
+        return BASE_URL_INTERFACE_RELEASE;
     }
 
     public static final String getTMBasePackageName() {
