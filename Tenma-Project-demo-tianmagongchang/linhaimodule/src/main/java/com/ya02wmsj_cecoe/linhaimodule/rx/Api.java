@@ -72,10 +72,9 @@ import io.reactivex.Observable;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
-import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 
-import static com.ya02wmsj_cecoe.linhaimodule.Constant.BASE_URL_LT_INTERFACE_DEBUG;
+import static com.ya02wmsj_cecoe.linhaimodule.Constant.BASE_URL_LT_INTERFACE;
 
 
 public class Api {
@@ -183,7 +182,7 @@ public class Api {
     }
 
     public static Observable<LtUser> loginLt(String json, String serialnumber) {
-        return API_SERVICE.loginLt(BASE_URL_LT_INTERFACE_DEBUG + "login", json, serialnumber).compose(RxSchedulers.io_main());
+        return API_SERVICE.loginLt(BASE_URL_LT_INTERFACE + "login", json, serialnumber).compose(RxSchedulers.io_main());
     }
 
     public static Observable<Object> getSMSCode(String phone) {
@@ -508,8 +507,8 @@ public class Api {
         return API_SERVICE.loginByOpenId(getToken()).compose(RxSchedulers.io_main());
     }
 
-    public static Observable<ZhiyuanhuiListEntity> getRecruitList(String page, String rows) {
-        return API_SERVICE.getRecruitList(getToken(), page, rows).compose(RxSchedulers.io_main());
+    public static Observable<ZhiyuanhuiListEntity> getRecruitList(String name, String page, String rows) {
+        return API_SERVICE.getRecruitList(getToken(), name, page, rows).compose(RxSchedulers.io_main());
     }
 
     public static Observable<Object> signoutRecruit(String recruitId) {
@@ -675,15 +674,15 @@ public class Api {
     //--------------------------文化礼堂------------------------
 
     public static Observable<List<LtStreetEntity>> getAllCABranchList() {
-        return API_SERVICE.getAllCABranchList(BASE_URL_LT_INTERFACE_DEBUG + "getAllCABranchList").compose(RxSchedulers.io_main());
+        return API_SERVICE.getAllCABranchList(BASE_URL_LT_INTERFACE + "getAllCABranchList").compose(RxSchedulers.io_main());
     }
 
     public static Observable<List<LtEntitiy>> getCAList(String code) {
-        return API_SERVICE.getCAList(BASE_URL_LT_INTERFACE_DEBUG + "getCAList", code).compose(RxSchedulers.io_main());
+        return API_SERVICE.getCAList(BASE_URL_LT_INTERFACE + "getCAList", code).compose(RxSchedulers.io_main());
     }
 
     public static Observable<List<LtResouceEntity>> getCASourceList(String code) {
-        return API_SERVICE.getCASourceList(BASE_URL_LT_INTERFACE_DEBUG + "getCASourceList", code).compose(RxSchedulers.io_main());
+        return API_SERVICE.getCASourceList(BASE_URL_LT_INTERFACE + "getCASourceList", code).compose(RxSchedulers.io_main());
     }
 
     public static Observable<Object> applyCASource(Map<String, Object> map) {
@@ -691,35 +690,35 @@ public class Api {
         for (Map.Entry<String, Object> entry : map.entrySet()) {
             params.put(entry.getKey(), entry.getValue());
         }
-        return API_SERVICE.applyCASource(BASE_URL_LT_INTERFACE_DEBUG + "applyCASource", params).compose(RxSchedulers.io_main());
+        return API_SERVICE.applyCASource(BASE_URL_LT_INTERFACE + "applyCASource", params).compose(RxSchedulers.io_main());
     }
 
     public static Observable<List<LtAppointEntity>> getUserSourceApplyList() {
-        return API_SERVICE.getUserSourceApplyList(BASE_URL_LT_INTERFACE_DEBUG + "getUserSourceApplyList", getLtToken()).compose(RxSchedulers.io_main());
+        return API_SERVICE.getUserSourceApplyList(BASE_URL_LT_INTERFACE + "getUserSourceApplyList", getLtToken()).compose(RxSchedulers.io_main());
     }
 
     public static Observable<List<LtAppointEntity>> getManSourceApplyList(String flag) {
-        return API_SERVICE.getManSourceApplyList(BASE_URL_LT_INTERFACE_DEBUG + "getManSourceApplyList", getLtToken(), flag).compose(RxSchedulers.io_main());
+        return API_SERVICE.getManSourceApplyList(BASE_URL_LT_INTERFACE + "getManSourceApplyList", getLtToken(), flag).compose(RxSchedulers.io_main());
     }
 
     public static Observable<Object> auditSourceApply(String id, String status, String review_msg) {
-        return API_SERVICE.auditSourceApply(BASE_URL_LT_INTERFACE_DEBUG + "auditSourceApply", getLtToken(), id, status, review_msg).compose(RxSchedulers.io_main());
+        return API_SERVICE.auditSourceApply(BASE_URL_LT_INTERFACE + "auditSourceApply", getLtToken(), id, status, review_msg).compose(RxSchedulers.io_main());
     }
 
     public static Observable<List<LtStreetEntity>> getCABranchList() {
-        return API_SERVICE.getCABranchList(BASE_URL_LT_INTERFACE_DEBUG + "getCABranchList").compose(RxSchedulers.io_main());
+        return API_SERVICE.getCABranchList(BASE_URL_LT_INTERFACE + "getCABranchList").compose(RxSchedulers.io_main());
     }
 
     public static Observable<List<NodeContent>> getLtIndexTop(String region_code) {
-        return API_SERVICE.getLtIndexTop(BASE_URL_LT_INTERFACE_DEBUG + "getIndexTop", region_code).compose(RxSchedulers.io_main());
+        return API_SERVICE.getLtIndexTop(BASE_URL_LT_INTERFACE + "getIndexTop", region_code).compose(RxSchedulers.io_main());
     }
 
     public static Observable<List<NodeContent>> getLtContentList(String page, String rows, String mark_id) {
-        return API_SERVICE.getLtContentList(BASE_URL_LT_INTERFACE_DEBUG + "getContentList", page, rows, mark_id).compose(RxSchedulers.io_main());
+        return API_SERVICE.getLtContentList(BASE_URL_LT_INTERFACE + "getContentList", page, rows, mark_id).compose(RxSchedulers.io_main());
     }
 
     public static Observable<List<LtMarkEntity>> getContentMarks() {
-        return API_SERVICE.getContentMarks(BASE_URL_LT_INTERFACE_DEBUG + "getContentMarks").compose(RxSchedulers.io_main());
+        return API_SERVICE.getContentMarks(BASE_URL_LT_INTERFACE + "getContentMarks").compose(RxSchedulers.io_main());
     }
 
     public static Observable<List<NodeContent>> getLtContentDetail(Map<String, Object> map) {
@@ -727,11 +726,11 @@ public class Api {
         for (Map.Entry<String, Object> entry : map.entrySet()) {
             params.put(entry.getKey(), entry.getValue());
         }
-        return API_SERVICE.getLtContentDetail(BASE_URL_LT_INTERFACE_DEBUG + "getContentDetail", params).compose(RxSchedulers.io_main());
+        return API_SERVICE.getLtContentDetail(BASE_URL_LT_INTERFACE + "getContentDetail", params).compose(RxSchedulers.io_main());
     }
 
     public static Observable<List<LtExpoenentEntity>> getCAEvaList(String code) {
-        return API_SERVICE.getCAEvaList(BASE_URL_LT_INTERFACE_DEBUG + "getCAEvaList", code).compose(RxSchedulers.io_main());
+        return API_SERVICE.getCAEvaList(BASE_URL_LT_INTERFACE + "getCAEvaList", code).compose(RxSchedulers.io_main());
     }
 
     public static Observable<Object> addCAAdvance(Map<String, Object> map, List<LocalMedia> imageList) {
@@ -752,7 +751,7 @@ public class Api {
                 i++;
             }
         }
-        return API_SERVICE.addCAAdvance(BASE_URL_LT_INTERFACE_DEBUG + "addCAAdvance", parts).compose(RxSchedulers.io_main());
+        return API_SERVICE.addCAAdvance(BASE_URL_LT_INTERFACE + "addCAAdvance", parts).compose(RxSchedulers.io_main());
     }
 
     public static Observable<Object> editContent(Map<String, Object> map, List<LocalMedia> imageList) {
@@ -773,23 +772,23 @@ public class Api {
                 i++;
             }
         }
-        return API_SERVICE.editContent(BASE_URL_LT_INTERFACE_DEBUG + "editContent", parts).compose(RxSchedulers.io_main());
+        return API_SERVICE.editContent(BASE_URL_LT_INTERFACE + "editContent", parts).compose(RxSchedulers.io_main());
     }
 
     public static Observable<List<LtWatcherEntity>> getCameraList() {
-        return API_SERVICE.getCameraList(BASE_URL_LT_INTERFACE_DEBUG + "getCameraList", getLtToken()).compose(RxSchedulers.io_main());
+        return API_SERVICE.getCameraList(BASE_URL_LT_INTERFACE + "getCameraList", getLtToken()).compose(RxSchedulers.io_main());
     }
 
     public static Observable<LtWatcherPlayEntity> getCameraUrl(String code) {
-        return API_SERVICE.getCameraUrl(BASE_URL_LT_INTERFACE_DEBUG + "getCameraUrl", code).compose(RxSchedulers.io_main());
+        return API_SERVICE.getCameraUrl(BASE_URL_LT_INTERFACE + "getCameraUrl", code).compose(RxSchedulers.io_main());
     }
 
     public static Observable<LtDetailEntity> getCAInfo(String ca_id) {
-        return API_SERVICE.getCAInfo(BASE_URL_LT_INTERFACE_DEBUG + "getCAInfo", ca_id).compose(RxSchedulers.io_main());
+        return API_SERVICE.getCAInfo(BASE_URL_LT_INTERFACE + "getCAInfo", ca_id).compose(RxSchedulers.io_main());
     }
 
     public static Observable<List<LtEvaMainEntity>> getMyEvaApplies() {
-        return API_SERVICE.getMyEvaApplies(BASE_URL_LT_INTERFACE_DEBUG + "getMyEvaApplies", getLtToken()).compose(RxSchedulers.io_main());
+        return API_SERVICE.getMyEvaApplies(BASE_URL_LT_INTERFACE + "getMyEvaApplies", getLtToken()).compose(RxSchedulers.io_main());
     }
 
     public static Observable<Object> caEvaApply(Map<String, Object> map, List<LocalMedia> imageList) {
@@ -810,44 +809,44 @@ public class Api {
                 i++;
             }
         }
-        return API_SERVICE.caEvaApply(BASE_URL_LT_INTERFACE_DEBUG + "caEvaApply", parts).compose(RxSchedulers.io_main());
+        return API_SERVICE.caEvaApply(BASE_URL_LT_INTERFACE + "caEvaApply", parts).compose(RxSchedulers.io_main());
     }
 
     public static Observable<List<LtEvaEntity>> getEvaRules() {
-        return API_SERVICE.getEvaRules(BASE_URL_LT_INTERFACE_DEBUG + "getEvaRules", getLtToken()).compose(RxSchedulers.io_main());
+        return API_SERVICE.getEvaRules(BASE_URL_LT_INTERFACE + "getEvaRules", getLtToken()).compose(RxSchedulers.io_main());
     }
 
     public static Observable<List<LtMyAdvanceEntity>> getUserCAAdvanceList(String page, String rows) {
-        return API_SERVICE.getUserCAAdvanceList(BASE_URL_LT_INTERFACE_DEBUG + "getUserCAAdvanceList", page, rows).compose(RxSchedulers.io_main());
+        return API_SERVICE.getUserCAAdvanceList(BASE_URL_LT_INTERFACE + "getUserCAAdvanceList", page, rows).compose(RxSchedulers.io_main());
     }
 
     public static Observable<List<LtMyPublishEntity>> getUserConList(String page, String rows) {
-        return API_SERVICE.getUserConList(BASE_URL_LT_INTERFACE_DEBUG + "getUserConList", getLtToken(), page, rows).compose(RxSchedulers.io_main());
+        return API_SERVICE.getUserConList(BASE_URL_LT_INTERFACE + "getUserConList", getLtToken(), page, rows).compose(RxSchedulers.io_main());
     }
 
     public static Observable<Object> ltAddComment(String c_id, String pid, String content) {
-        return API_SERVICE.ltAddComment(BASE_URL_LT_INTERFACE_DEBUG + "addComment", getLtToken(), c_id, pid, content).compose(RxSchedulers.io_main());
+        return API_SERVICE.ltAddComment(BASE_URL_LT_INTERFACE + "addComment", getLtToken(), c_id, pid, content).compose(RxSchedulers.io_main());
     }
 
     public static Observable<List<CommentEntity>> getLtCommentByConId(String c_id, String page, String rows) {
-        return API_SERVICE.getLtCommentByConId(BASE_URL_LT_INTERFACE_DEBUG + "getCommentByConId", c_id, page, rows).compose(RxSchedulers.io_main());
+        return API_SERVICE.getLtCommentByConId(BASE_URL_LT_INTERFACE + "getCommentByConId", c_id, page, rows).compose(RxSchedulers.io_main());
     }
 
     public static Observable<Object> conPraise(String c_id) {
-        return API_SERVICE.conPraise(BASE_URL_LT_INTERFACE_DEBUG + "conPraise", getLtToken(), c_id).compose(RxSchedulers.io_main());
+        return API_SERVICE.conPraise(BASE_URL_LT_INTERFACE + "conPraise", getLtToken(), c_id).compose(RxSchedulers.io_main());
     }
 
     public static Observable<Object> conShare(String c_id) {
-        return API_SERVICE.conShare(BASE_URL_LT_INTERFACE_DEBUG + "conShare", getLtToken(), c_id).compose(RxSchedulers.io_main());
+        return API_SERVICE.conShare(BASE_URL_LT_INTERFACE + "conShare", getLtToken(), c_id).compose(RxSchedulers.io_main());
     }
 
     public static Observable<Object> conCollect(String c_id) {
-        return API_SERVICE.conCollect(BASE_URL_LT_INTERFACE_DEBUG + "conCollect", getLtToken(), c_id).compose(RxSchedulers.io_main());
+        return API_SERVICE.conCollect(BASE_URL_LT_INTERFACE + "conCollect", getLtToken(), c_id).compose(RxSchedulers.io_main());
     }
 
 
     public static Observable<Object> recordUserBrowsing(String c_id) {
-        return API_SERVICE.recordUserBrowsing(BASE_URL_LT_INTERFACE_DEBUG + "recordUserBrowsing", getLtToken(), c_id).compose(RxSchedulers.io_main());
+        return API_SERVICE.recordUserBrowsing(BASE_URL_LT_INTERFACE + "recordUserBrowsing", getLtToken(), c_id).compose(RxSchedulers.io_main());
     }
 
     /* ***************** 智慧科协 ******************************* */
@@ -888,12 +887,12 @@ public class Api {
         return API_SERVICE.getVideoList(param).compose(RxSchedulers.io_main());
     }
 
-    public static Observable<Object> shootBadHabit(@FieldMap Map<String, Object> map){
-        map.put("TOKEN",getToken());
+    public static Observable<Object> shootBadHabit(@FieldMap Map<String, Object> map) {
+        map.put("TOKEN", getToken());
         return API_SERVICE.shootBadHabit(map).compose(RxSchedulers.io_main());
     }
 
-    public static  Observable<List<Node>> getBadHabitList(){
+    public static Observable<List<Node>> getBadHabitList() {
         return API_SERVICE.getBadHabitList(getToken()).compose(RxSchedulers.io_main());
     }
 }

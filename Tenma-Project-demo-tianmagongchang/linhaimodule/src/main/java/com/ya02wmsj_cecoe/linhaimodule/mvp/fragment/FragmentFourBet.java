@@ -1,6 +1,5 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.fragment;
 
-
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -21,12 +20,10 @@ import com.ya02wmsj_cecoe.linhaimodule.utils.DisplayUtils;
 import com.ya02wmsj_cecoe.linhaimodule.utils.RegionManager;
 import com.ya02wmsj_cecoe.linhaimodule.widget.EmptyView;
 import com.ya02wmsj_cecoe.linhaimodule.widget.ToolbarLayout;
-
-
 import org.greenrobot.eventbus.EventBus;
-
 import java.util.Arrays;
 import java.util.List;
+
 
 public class FragmentFourBet extends BaseAreaFragment {
     protected ToolbarLayout mToolbar;
@@ -35,7 +32,6 @@ public class FragmentFourBet extends BaseAreaFragment {
     EmptyView mEmptyView;
 
     private FragmentWithTitleAdapter mPagerAdapter;
-
 
     @Override
     protected void updateRegion() {

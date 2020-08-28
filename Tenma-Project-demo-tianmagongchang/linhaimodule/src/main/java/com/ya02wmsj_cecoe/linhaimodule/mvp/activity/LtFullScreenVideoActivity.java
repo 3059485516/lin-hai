@@ -36,7 +36,7 @@ import java.util.Map;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
 
-import static com.ya02wmsj_cecoe.linhaimodule.Constant.BASE_URL_LT_DEBUG;
+import static com.ya02wmsj_cecoe.linhaimodule.Constant.BASE_URL_LT;
 import static com.ya02wmsj_cecoe.linhaimodule.utils.TDevice.getScreenWidth;
 
 public class LtFullScreenVideoActivity extends BaseActivity<FullScreenVideoContract.Presenter> implements FullScreenVideoContract.View {
@@ -115,7 +115,7 @@ public class LtFullScreenVideoActivity extends BaseActivity<FullScreenVideoContr
             public void onClick(View v) {
                 // 分享
                 TMLinkShare tmLinkShare = new TMLinkShare();
-                String url = BASE_URL_LT_DEBUG + "application/ya02lhwhlt_wdhaw/share/index.html?id=" + mContentId;
+                String url = BASE_URL_LT + "application/ya02lhwhlt_wdhaw/share/index.html?id=" + mContentId;
                 tmLinkShare.setUrl(url);
                 tmLinkShare.setTitle(mNodeContent.getTitle());
                 tmLinkShare.setThumb(mNodeContent.getIcon_path());

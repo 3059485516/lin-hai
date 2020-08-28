@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:gravity="top"
-                android:hint="详情描述"
+                android:hint="心愿故事"
                 android:lines="5"
                 android:padding="@dimen/yl_margin_s"
                 android:textSize="@dimen/yl_text_size_14" />

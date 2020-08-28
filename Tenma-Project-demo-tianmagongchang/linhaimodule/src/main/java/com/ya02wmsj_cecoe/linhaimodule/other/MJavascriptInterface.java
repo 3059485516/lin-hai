@@ -2,8 +2,6 @@ package com.ya02wmsj_cecoe.linhaimodule.other;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.WebActivity;
 import com.ya02wmsj_cecoe.linhaimodule.utils.JumpUtils;

@@ -613,13 +613,14 @@ public interface ApiService {
      * 获取志愿活动列表
      *
      * @param token
+     * @param name
      * @param page
      * @param rows
      * @return
      */
     @FormUrlEncoded
     @POST("getRecruitList")
-    Observable<ZhiyuanhuiListEntity> getRecruitList(@Field("TOKEN") String token, @Field("page") String page, @Field("rows") String rows);
+    Observable<ZhiyuanhuiListEntity> getRecruitList(@Field("TOKEN") String token,@Field("search_title") String name, @Field("page") String page, @Field("rows") String rows);
 
     /**
      * 取消活动报名
@@ -668,7 +669,7 @@ public interface ApiService {
      */
     @FormUrlEncoded
     @POST("getZyhOrganList")
-    Observable<List<OrginazeListEntity>> getZyhOrganList(@Field("TOKEN") String token, @Field("name") String name, @Field("page") String page, @Field("rows") String rows);
+    Observable<List<OrginazeListEntity>> getZyhOrganList(@Field("TOKEN") String token, @Field("search_title") String name, @Field("page") String page, @Field("rows") String rows);
 
     /**
      * 加入组织

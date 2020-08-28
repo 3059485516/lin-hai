@@ -4,14 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.TextView;
 
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.bean.ZhiyuanhuiEntity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.ActionDetailBetActivity;
-import com.ya02wmsj_cecoe.linhaimodule.utils.DateUtil;
 import com.ya02wmsj_cecoe.linhaimodule.utils.ImageManager;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -26,11 +24,15 @@ public class ActionAdapter extends CommonAdapter<ZhiyuanhuiEntity> {
     @Override
     protected void convert(ViewHolder holder, ZhiyuanhuiEntity zhiyuanhuiEntity, int position) {
         ImageManager.getInstance().loadImage(mContext, zhiyuanhuiEntity.getThumb(), R.mipmap.ya02wmsj_cecoe_placeholder, holder.getView(R.id.iv_img));
-        ImageManager.getInstance().loadCircleImage(mContext, zhiyuanhuiEntity.getDeptheadurl(), R.mipmap.ya02wmsj_cecoe_head, holder.getView(R.id.tv_user));
-        holder.setText(R.id.tv_time, DateUtil.getTimeStr(zhiyuanhuiEntity.getRecruit_start_time(), DateUtil.FORMAT_YMD));
         holder.setText(R.id.tv_title, zhiyuanhuiEntity.getTitle());
-        holder.setText(R.id.tv_distance, zhiyuanhuiEntity.getDistance());
-        holder.setText(R.id.tv_location, zhiyuanhuiEntity.getCounty());
+        holder.setText(R.id.tv_location, zhiyuanhuiEntity.getDetailaddress());
+
+        String address = zhiyuanhuiEntity.getDetailaddress();
+        if (TextUtils.isEmpty(address)) {
+            address = zhiyuanhuiEntity.getProvince_name() + zhiyuanhuiEntity.getCity_name() + zhiyuanhuiEntity.getCounty_name();
+        }
+        holder.setText(R.id.tv_location, address);
+
         holder.setVisible(R.id.tv_status, !TextUtils.isEmpty(zhiyuanhuiEntity.getYl_status()));
         TextView tv_status = holder.getView(R.id.tv_status);
         tv_status.setText(zhiyuanhuiEntity.getYl_status());
@@ -45,13 +47,10 @@ public class ActionAdapter extends CommonAdapter<ZhiyuanhuiEntity> {
         }
         int join = zhiyuanhuiEntity.getSignup_people() != 0 ? zhiyuanhuiEntity.getSignup_people() : zhiyuanhuiEntity.getJoin_num();
         holder.setText(R.id.tv_people, join + "/" + zhiyuanhuiEntity.getRecruit_people());
-        holder.getConvertView().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, ActionDetailBetActivity.class);
-                intent.putExtra(Constant.KEY_STRING_1, zhiyuanhuiEntity.getId());
-                mContext.startActivity(intent);
-            }
+        holder.getConvertView().setOnClickListener(v -> {
+            Intent intent = new Intent(mContext, ActionDetailBetActivity.class);
+            intent.putExtra(Constant.KEY_STRING_1, zhiyuanhuiEntity.getId());
+            mContext.startActivity(intent);
         });
     }
 }

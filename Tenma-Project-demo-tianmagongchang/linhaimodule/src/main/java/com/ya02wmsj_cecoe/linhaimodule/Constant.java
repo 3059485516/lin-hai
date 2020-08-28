@@ -1,34 +1,25 @@
 package com.ya02wmsj_cecoe.linhaimodule;
 
 import android.os.Environment;
-
-import com.ya02wmsj_cecoe.linhaimodule.BuildConfig;
-
 import java.io.File;
 
 public class Constant {
-    private static final String BASE_URL_RELEASE = "https://lhwmsj.hzyltx.com:8443/";         //https://lhwmsj.hzyltx.com:8443
-    private static final String BASE_URL_DEBUG = "http://192.168.1.165:8010/";
-    private static final String BASE_URL_DEBUG2= "http://47.99.86.101:8030/";
+    //新时代文明实践中心和 文化礼堂测试环境地址
+    private static final String BASE_URL_RELEASE= "http://47.99.86.101:8030/";
+    public static final String BASE_URL_LT = "http://47.99.86.101:8040/";    //文化礼堂正式测试地址
 
-    private static final String BASE_URL_INTERFACE_DEBUG = BASE_URL_DEBUG2 + "ya02wmsj_cecoe/api/";
+    //新时代文明实践中心和 文化礼堂正式环境地址
+   // private static final String BASE_URL_RELEASE = "https://lhwmsj.hzyltx.com:8443/";
+    //public static final String BASE_URL_LT = "https://lhwhlt.hzyltx.com:8443/";
+
     private static final String BASE_URL_INTERFACE_RELEASE = BASE_URL_RELEASE + "ya02wmsj_cecoe/api/";
-
-    public static final String BASE_URL_VOLUNTEER_DEBUG = "http://47.99.112.147:8080/";    //志愿汇登录debug地址
-    public static final String BASE_URL_LT_DEBUG = "https://lhwhlt.hzyltx.com:8443/";    //文化礼堂debug地址
-    public static final String BASE_URL_LT_INTERFACE_DEBUG = BASE_URL_LT_DEBUG + "ya02lhwhlt_wdhaw/api/";    //文化礼堂接口请求debug地址
+    public static final String BASE_URL_LT_INTERFACE = BASE_URL_LT + "ya02lhwhlt_wdhaw/api/";    //文化礼堂接口请求地址
 
     public static String getBaseUrl() {
-        if (BuildConfig.DEBUG) {
-            return BASE_URL_RELEASE;
-        }
         return BASE_URL_RELEASE;
     }
 
     public static String getBaseInterfaceUrl() {
-        if (BuildConfig.DEBUG) {
-            return BASE_URL_INTERFACE_RELEASE;
-        }
         return BASE_URL_INTERFACE_RELEASE;
     }
 

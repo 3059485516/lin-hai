@@ -1,6 +1,5 @@
 package com.ya02wmsj_cecoe.linhaimodule;
 
-
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
@@ -22,9 +21,7 @@ public class App {
     private static App instance;
 
     private App() {
-
     }
-
 
     static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);

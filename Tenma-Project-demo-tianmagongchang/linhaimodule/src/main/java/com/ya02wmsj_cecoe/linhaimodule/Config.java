@@ -30,7 +30,6 @@ import com.ya02wmsj_cecoe.linhaimodule.rx.RxManager;
 import com.ya02wmsj_cecoe.linhaimodule.rx.RxSubscriber;
 import com.ya02wmsj_cecoe.linhaimodule.utils.AppUtils;
 
-import static com.ya02wmsj_cecoe.linhaimodule.rx.HttpCode.CODE_0009;
 import static com.ya02wmsj_cecoe.linhaimodule.rx.HttpCode.CODE_20067;
 import static com.ya02wmsj_cecoe.linhaimodule.rx.HttpCode.CODE_40003;
 

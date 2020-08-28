@@ -1,106 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dimen_15"
+    android:layout_marginTop="@dimen/dp_10"
+    android:layout_marginRight="@dimen/dimen_15"
+    android:layout_marginBottom="@dimen/dp_10"
     android:background="@color/white">
 
-    <RelativeLayout
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/yl_margin_l">
+        android:background="@color/yl_white"
+        app:cardCornerRadius="5dp">
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/cardView"
+        <com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView
+            android:id="@+id/iv_img"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/yl_margin_l"
-            android:background="@color/yl_white"
-            app:cardCornerRadius="5dp">
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ya02wmsj_cecoe_dream_deer"
+            app:height_width="0.45" />
+    </android.support.v7.widget.CardView>
 
-            <com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView
-                android:id="@+id/iv_img"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/ya02wmsj_cecoe_dream_deer"
-                app:height_width="0.45" />
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cardView"
+        android:layout_alignLeft="@+id/cardView"
+        android:layout_alignRight="@+id/cardView"
+        android:layout_marginTop="@dimen/yl_margin_l"
+        android:layout_marginBottom="@dimen/yl_margin_s"
+        android:ellipsize="end"
+        android:lineSpacingMultiplier="1.2"
+        android:maxLines="2"
+        android:textColor="#000000"
+        android:textSize="@dimen/yl_text_size_18"
+        tools:text="迎新年朱坤走亲帮扶志愿服务系列" />
 
-            <TextView
-                android:id="@+id/tv_time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ya02wmsj_cecoe_time_back"
-                android:gravity="right"
-                android:padding="6px"
-                android:textColor="@color/white"
-                android:textSize="@dimen/yl_text_size_15"
-                tools:text="8小时" />
-        </android.support.v7.widget.CardView>
+    <TextView
+        android:id="@+id/tv_location"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_alignLeft="@+id/tv_title"
+        android:layout_alignTop="@+id/tv_distance"
+        android:layout_marginRight="@dimen/yl_margin_xl"
+        android:ellipsize="end"
+        android:lines="1"
+        android:layout_toRightOf="@+id/tv_distance"
+        android:drawableLeft="@mipmap/ya02wmsj_cecoe_wz"
+        android:drawablePadding="@dimen/dp_4"
+        android:textSize="@dimen/yl_text_size_15"
+        tools:text="临海临海市临海临海市临海临海市" />
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/cardView"
-            android:layout_alignLeft="@+id/cardView"
-            android:layout_alignRight="@+id/cardView"
-            android:layout_marginBottom="@dimen/yl_margin_l"
-            android:ellipsize="end"
-            android:singleLine="true"
-            android:textColor="#000000"
-            android:textSize="@dimen/yl_text_size_18"
-            tools:text="迎新年朱坤走亲帮扶志愿服务系列" />
+    <TextView
+        android:id="@+id/tv_people"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_location"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_toRightOf="@+id/tv_location"
+        android:drawablePadding="@dimen/dp_4"
+        android:drawableLeft="@mipmap/ya02wmsj_cecoe_rs"
+        android:textSize="@dimen/yl_text_size_15"
+        tools:text="1/20" />
 
-        <TextView
-            android:id="@+id/tv_distance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_title"
-            android:layout_alignLeft="@+id/tv_title"
-            android:layout_marginRight="@dimen/yl_margin_xl"
-            android:textSize="@dimen/yl_text_size_15"
-            tools:text=">50km" />
-
-        <TextView
-            android:id="@+id/tv_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/tv_distance"
-            android:layout_marginRight="@dimen/yl_margin_xl"
-            android:layout_toRightOf="@+id/tv_distance"
-            android:textSize="@dimen/yl_text_size_15"
-            tools:text="临海市" />
-
-        <TextView
-            android:id="@+id/tv_people"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/tv_distance"
-            android:layout_marginRight="@dimen/yl_margin_xl"
-            android:layout_toRightOf="@+id/tv_location"
-            android:textSize="@dimen/yl_text_size_15"
-            tools:text="1/20" />
-
-        <TextView
-            android:id="@+id/tv_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/tv_distance"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="35dp"
-            android:textColor="#999999"
-            android:textSize="@dimen/yl_text_size_15"
-            tools:text="1/20" />
-    </RelativeLayout>
-
-    <ImageView
-        android:id="@+id/tv_user"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_gravity="end|bottom"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="50dp"
-        android:src="@mipmap/ya02wmsj_cecoe_head" />
-</FrameLayout>
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_location"
+        android:layout_alignParentRight="true"
+        android:textColor="#999999"
+        android:textSize="@dimen/yl_text_size_15"
+        tools:text="状态" />
+</RelativeLayout>

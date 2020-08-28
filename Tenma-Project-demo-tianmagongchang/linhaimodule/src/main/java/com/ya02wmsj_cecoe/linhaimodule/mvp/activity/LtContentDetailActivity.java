@@ -32,12 +32,11 @@ import com.ya02wmsj_cecoe.linhaimodule.widget.ItemDecorationVertical;
 import com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView;
 import com.ya02wmsj_cecoe.linhaimodule.widget.dialog.CommentDialog;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import static com.ya02wmsj_cecoe.linhaimodule.Constant.BASE_URL_LT_DEBUG;
+import static com.ya02wmsj_cecoe.linhaimodule.Constant.BASE_URL_LT;
 
 public class LtContentDetailActivity extends BaseWebViewActivity<LtContentDetailPresenter> implements LtContentDetailContract.View {
     RatioImageView mIvTop;
@@ -192,7 +191,7 @@ public class LtContentDetailActivity extends BaseWebViewActivity<LtContentDetail
                 if (mNodeContent == null) return;
                 // 分享
                 TMLinkShare tmLinkShare = new TMLinkShare();
-                String url = BASE_URL_LT_DEBUG + "application/ya02lhwhlt_wdhaw/share/index.html?id=" + mContentId;
+                String url = BASE_URL_LT + "application/ya02lhwhlt_wdhaw/share/index.html?id=" + mContentId;
                 tmLinkShare.setUrl(url);
                 tmLinkShare.setTitle(mNodeContent.getTitle());
                 tmLinkShare.setThumb(mNodeContent.getIcon_path());

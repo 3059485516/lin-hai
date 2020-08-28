@@ -3,8 +3,6 @@ package com.ya02wmsj_cecoe.linhaimodule.mvp.fragment;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.TextView;
-
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.adapter.ApperaceAdapter;
 import com.ya02wmsj_cecoe.linhaimodule.base.fragment.BaseListFragment;
@@ -18,7 +16,6 @@ import com.ya02wmsj_cecoe.linhaimodule.widget.ActionThemeDialog;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 
 import io.reactivex.functions.Consumer;
-
 
 /**
  * 评一评

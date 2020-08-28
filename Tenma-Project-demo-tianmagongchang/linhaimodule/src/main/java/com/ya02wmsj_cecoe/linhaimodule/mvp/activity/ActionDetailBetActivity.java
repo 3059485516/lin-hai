@@ -1,6 +1,6 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
-import android.view.View;
+import android.text.Html;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -15,17 +15,16 @@ import com.ya02wmsj_cecoe.linhaimodule.utils.ImageManager;
 import com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView;
 
 
-public class ActionDetailBetActivity extends BaseWebViewActivity<ActionDetailBetContract.Presenter>
-        implements ActionDetailBetContract.View {
-    RatioImageView mIvTop;
-
-    TextView mTvTitle;
-
-    TextView mTvArea;
-
-    TextView mTvTime;
-
-    Button mBtn;
+public class ActionDetailBetActivity extends BaseWebViewActivity<ActionDetailBetContract.Presenter> implements ActionDetailBetContract.View {
+    protected RatioImageView mIvTop;
+    protected TextView mTvTitle;
+    protected TextView mTvArea;
+    protected TextView mTvTime;
+    protected TextView mTvZZ;
+    protected TextView mTvLXDH;
+    protected TextView mTvFZR;
+    protected TextView mTvBMRS;
+    protected Button mBtn;
 
     private int mStatus = 0;
 
@@ -52,15 +51,17 @@ public class ActionDetailBetActivity extends BaseWebViewActivity<ActionDetailBet
         mTvArea = findViewById(R.id.tv_area);
         mTvTime = findViewById(R.id.tv_time);
         mBtn = findViewById(R.id.btn_join);
-        mBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (0 == mStatus) {
-                    mPresenter.signupRecruit(getIntent().getStringExtra(Constant.KEY_STRING_1));
-                } else {
-                    mPresenter.signoutRecruit(getIntent().getStringExtra(Constant.KEY_STRING_1));
-                }
 
+        mTvZZ = findViewById(R.id.tv_zz);
+        mTvLXDH = findViewById(R.id.tv_lxdh);
+        mTvFZR = findViewById(R.id.tv_fzr);
+        mTvBMRS = findViewById(R.id.tv_bmrs);
+
+        mBtn.setOnClickListener(v -> {
+            if (0 == mStatus) {
+                mPresenter.signupRecruit(getIntent().getStringExtra(Constant.KEY_STRING_1));
+            } else {
+                mPresenter.signoutRecruit(getIntent().getStringExtra(Constant.KEY_STRING_1));
             }
         });
     }
@@ -82,6 +83,14 @@ public class ActionDetailBetActivity extends BaseWebViewActivity<ActionDetailBet
         mTvTitle.setText(entity.getName());
         mTvArea.setText(entity.getAddress());
         mTvTime.setText(DateUtil.getTimeStr(entity.getAct_start_time()));
+        mTvZZ.setText(entity.getDepartment_name());
+        mTvLXDH.setText(entity.getContact_phone());
+        mTvFZR.setText(entity.getContact());
         setHtml(entity.getContent());
+
+        StringBuilder htmlText = new StringBuilder();
+        htmlText.append("人数：<font color='#").append(Integer.toHexString(getResources().getColor(R.color.yl_red)).substring(2)).append("'>").append(entity.getSignup_people()).append("</font>").append(" / ").append(entity.getRecruit_people());
+
+        mTvBMRS.setText(Html.fromHtml(htmlText.toString()));
     }
 }

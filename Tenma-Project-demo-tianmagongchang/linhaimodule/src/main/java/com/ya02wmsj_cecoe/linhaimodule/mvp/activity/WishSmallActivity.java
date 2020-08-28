@@ -120,7 +120,7 @@ public class WishSmallActivity extends BaseActivity<WishSmallContract.Presenter>
                     return;
                 }
                 if (TextUtils.isEmpty(mEtDesc.getText())) {
-                    toast("请填写描述");
+                    toast("请填写心愿故事");
                     return;
                 }
                 //  提交

@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/yl_margin_l"
         app:arrow_show="false"
-        app:text_left="一级区域"
+        app:text_left="临海市"
         app:text_right="临海市" />
 
     <include layout="@layout/ya02wmsj_cecoe_divider_view" />
@@ -29,7 +29,7 @@
         android:id="@+id/tv_area_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:text_left="二级区域" />
+        app:text_left="镇街" />
 
     <include layout="@layout/ya02wmsj_cecoe_divider_view" />
 
@@ -37,7 +37,7 @@
         android:id="@+id/tv_area_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:text_left="三级区域" />
+        app:text_left="村社" />
 
     <include layout="@layout/ya02wmsj_cecoe_divider_view" />
 

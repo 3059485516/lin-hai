@@ -1,19 +1,20 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.presenter;
 
-import com.ya02wmsj_cecoe.linhaimodule.base.mvp.AListPresenter;
-import com.ya02wmsj_cecoe.linhaimodule.base.mvp.IListView;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.OrginazeContract;
 import com.ya02wmsj_cecoe.linhaimodule.rx.Api;
 import com.ya02wmsj_cecoe.linhaimodule.rx.RxSubscriber;
 
-public class OrginazePresenter extends AListPresenter {
-    public OrginazePresenter(IListView view) {
+
+public class OrginazePresenter extends OrginazeContract.Presenter {
+
+    public OrginazePresenter(OrginazeContract.View view) {
         super(view);
     }
 
     @Override
     public void getPageData(boolean isRefresh) {
         super.getPageData(isRefresh);
-        setDataSource(Api.getZyhOrganList("", getPage() + "", PAGE_SIZE + ""));
+        setDataSource(Api.getZyhOrganList(mView.getSearchStr(), getPage() + "", PAGE_SIZE + ""));
     }
 
     public void joinOrginize(String depId) {
