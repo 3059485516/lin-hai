@@ -77,54 +77,6 @@
             android:layout_marginTop="@dimen/yl_margin_xl"
             android:layout_marginBottom="@dimen/yl_margin_l" />
 
-        <LinearLayout
-            android:id="@+id/view_apply_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/yl_margin_xl"
-                android:layout_marginRight="@dimen/yl_margin_xl"
-                android:layout_marginBottom="@dimen/yl_margin_xl"
-                android:drawableLeft="@mipmap/ya02wmsj_cecoe_people"
-                android:drawablePadding="@dimen/yl_margin_s"
-                android:text="认领人信息"
-                android:textColor="#4c4c4c"
-                android:textSize="@dimen/yl_text_size_15" />
-
-            <include layout="@layout/ya02wmsj_cecoe_divider_view" />
-
-            <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
-                android:id="@+id/tv_apply_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/yl_margin_xl"
-                android:layout_marginRight="@dimen/yl_margin_xl"
-                app:e_text_left="认领人:"
-                app:text_gravity="right" />
-
-            <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
-                android:id="@+id/tv_apply_phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/yl_margin_xl"
-                android:layout_marginRight="@dimen/yl_margin_xl"
-                app:e_text_left="联系电话:"
-                app:edit_input_style="number"
-                app:text_gravity="right" />
-
-            <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
-                android:id="@+id/tv_apply_addr"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/yl_margin_xl"
-                android:layout_marginRight="@dimen/yl_margin_xl"
-                app:e_text_left="地址:"
-                app:text_gravity="right" />
-        </LinearLayout>
 
         <Button
             android:id="@+id/btn_apply"

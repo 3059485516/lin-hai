@@ -1,8 +1,6 @@
 package com.ya02wmsj_cecoe.linhaimodule.adapter;
 
 import android.content.Context;
-import android.view.View;
-
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.bean.VoteEntity;
@@ -42,12 +40,9 @@ public class VoteAdapter extends CommonAdapter<VoteEntity> {
         holder.setText(R.id.tv_title, voteEntity.getTitle());
         holder.setText(R.id.tv_content, "详情介绍");
         holder.setTextColor(R.id.tv_content, R.color.yl_pool_blue);
-        holder.getView(R.id.tv_content).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mVoteListener != null) {
-                    mVoteListener.onVoteDetailClick(voteEntity, position);
-                }
+        holder.getView(R.id.tv_content).setOnClickListener(v -> {
+            if (mVoteListener != null) {
+                mVoteListener.onVoteDetailClick(voteEntity, position);
             }
         });
     }

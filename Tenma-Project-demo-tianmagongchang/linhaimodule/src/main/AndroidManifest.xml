@@ -404,6 +404,11 @@
         <activity
             android:name=".mvp.activity.LittleVideoActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".mvp.activity.VoteAppraiseActivity"
+            android:theme="@style/YLDialogTheme" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.tenma.ventures.linhai.fileProvider"
@@ -414,5 +419,4 @@
                 android:resource="@xml/file_paths" />
         </provider>
     </application>
-
 </manifest>

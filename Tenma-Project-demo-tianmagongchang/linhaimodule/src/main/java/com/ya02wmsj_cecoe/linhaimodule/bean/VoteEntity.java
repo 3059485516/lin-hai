@@ -27,6 +27,16 @@ public class VoteEntity implements Serializable {
 
     private int my_score;
 
+    private VideoPath video_path;
+
+    public VideoPath getVideo_path() {
+        return video_path;
+    }
+
+    public void setVideo_path(VideoPath video_path) {
+        this.video_path = video_path;
+    }
+
     public String getContent() {
         return content;
     }

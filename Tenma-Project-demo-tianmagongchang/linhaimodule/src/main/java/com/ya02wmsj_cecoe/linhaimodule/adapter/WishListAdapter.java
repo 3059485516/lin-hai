@@ -18,7 +18,8 @@ import java.util.List;
  * Created by BenyChan on 2019-08-15.
  */
 public class WishListAdapter extends CommonAdapter<WishListEntity> {
-    public WishListAdapter(Context context, List<WishListEntity> datas) {
+
+    public WishListAdapter(Context context, List<WishListEntity>datas) {
         super(context, R.layout.ya02wmsj_cecoe_item_wish_list, datas);
     }
 

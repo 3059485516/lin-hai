@@ -10,6 +10,7 @@ import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
  * Created by BenyChan on 2019-08-15.
  */
 public class WishListActivity extends BaseListActivity<WishListContract.Presenter> implements WishListContract.View {
+
     @Override
     protected MultiItemTypeAdapter getAdapter() {
         return new WishListAdapter(this, mPresenter.getDataList());
