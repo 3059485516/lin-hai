@@ -1,6 +1,5 @@
 package com.ya02wmsj_cecoe.linhaimodule.rx;
 
-
 import com.ya02wmsj_cecoe.linhaimodule.bean.ActionDetailBetEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.ActionRecruitEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.ActivityThemeEntity;
@@ -95,6 +94,16 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("getContentList")
     Observable<List<NodeContent>> getTips(@Field("node_id") String id);
+
+
+    /**
+     * 首页活动
+     * @param map
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("getIndexActivity")
+    Observable<List<AppraiseEntity>> getIndexActivity(@FieldMap Map<String, Object> map);
 
     /**
      * 发起线上评议

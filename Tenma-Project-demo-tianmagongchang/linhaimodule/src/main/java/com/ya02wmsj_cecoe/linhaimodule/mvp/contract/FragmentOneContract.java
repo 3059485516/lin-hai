@@ -2,6 +2,7 @@ package com.ya02wmsj_cecoe.linhaimodule.mvp.contract;
 
 import com.ya02wmsj_cecoe.linhaimodule.base.mvp.AListPresenter;
 import com.ya02wmsj_cecoe.linhaimodule.base.mvp.IListView;
+import com.ya02wmsj_cecoe.linhaimodule.bean.AppraiseEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.Node;
 import com.ya02wmsj_cecoe.linhaimodule.bean.NodeContent;
 
@@ -14,16 +15,16 @@ import java.util.List;
 public interface FragmentOneContract {
     interface View extends IListView {
         void updataBanner();
-
         void updateNodeList();
-
         void updateTips();
+        void updateMainActivityView();
     }
 
     abstract class Presenter extends AListPresenter<View, NodeContent> {
         private List<Node> mNodeList = new ArrayList<>();
         private List<NodeContent> mBannerContent = new ArrayList<>();
         private List<NodeContent> mTips = new ArrayList<>();
+        private List<AppraiseEntity> mActivityEntityList = new ArrayList<>();
 
         public Presenter(View view) {
             super(view);
@@ -50,5 +51,11 @@ public interface FragmentOneContract {
         public List<NodeContent> getTipsList() {
             return mTips;
         }
+
+        public List<AppraiseEntity> getAppraiseEntityList() {
+            return mActivityEntityList;
+        }
+
+        public abstract void getIndexActivity();
     }
 }

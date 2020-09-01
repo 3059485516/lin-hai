@@ -132,6 +132,15 @@ public class Api {
         return API_SERVICE.getContentList(param).compose(RxSchedulers.io_main());
     }
 
+    /**
+     * 获取首页活动
+     * @return
+     */
+    public static Observable<List<AppraiseEntity>> getIndexActivity() {
+        Map<String, Object> param = createParamsMap(getToken());
+        return API_SERVICE.getIndexActivity(param).compose(RxSchedulers.io_main());
+    }
+
 
     /**
      * 发起评议

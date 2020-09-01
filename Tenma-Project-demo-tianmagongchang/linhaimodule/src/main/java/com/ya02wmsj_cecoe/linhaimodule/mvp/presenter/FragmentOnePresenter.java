@@ -1,6 +1,7 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.presenter;
 
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
+import com.ya02wmsj_cecoe.linhaimodule.bean.AppraiseEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.Node;
 import com.ya02wmsj_cecoe.linhaimodule.bean.NodeContent;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.FragmentOneContract;
@@ -27,11 +28,9 @@ public class FragmentOnePresenter extends FragmentOneContract.Presenter {
 
     @Override
     public List<String> getDefaultImgUrls() {
-        return new ArrayList<>(Arrays.asList(
-                "http://192.168.1.92:8026//upload//image//20190415//eab818686ece091a45efcaf4a0f8ca91.jpg",
+        return new ArrayList<>(Arrays.asList("http://192.168.1.92:8026//upload//image//20190415//eab818686ece091a45efcaf4a0f8ca91.jpg",
                 "http://192.168.1.92:8026//upload//image//20190415//70c4f8a0a2f022d6ea8d39ef759cdcc2.jpg",
-                "http://192.168.1.92:8026//upload//image//20190415//f4db8345b20dcbae5f3b22f9d4646c67.jpg"
-        ));
+                "http://192.168.1.92:8026//upload//image//20190415//f4db8345b20dcbae5f3b22f9d4646c67.jpg"));
     }
 
     @Override
@@ -102,7 +101,28 @@ public class FragmentOnePresenter extends FragmentOneContract.Presenter {
         if (isRefresh) {
             getBanner(mRegionCode);
             getTips();   //获取快讯
+            getIndexActivity();
             getNodeList();
         }
+    }
+
+
+    @Override
+    public void getIndexActivity() {
+        addRx2Destroy(new RxSubscriber<List<AppraiseEntity>>(Api.getIndexActivity()) {
+            @Override
+            protected void _onNext(List<AppraiseEntity> list) {
+                if (list != null && list.size() > 0) {
+                    getAppraiseEntityList().clear();
+                    getAppraiseEntityList().addAll(list);
+                }
+                mView.updateMainActivityView();
+            }
+
+            @Override
+            protected void _onError(String code) {
+                mView.updateMainActivityView();
+            }
+        });
     }
 }

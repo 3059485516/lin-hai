@@ -103,6 +103,31 @@
                             android:src="@mipmap/ya02wmsj_cecoe_ic_right_arrow" />
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:id="@+id/wrap_activity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="@dimen/yl_margin_l"
+                        android:layout_marginRight="5dp"
+                        android:visibility="gone"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_40"
+                            android:gravity="center_vertical"
+                            android:text="推荐的关注"
+                            android:layout_marginLeft="5dp"
+                            android:textColor="@color/yl_main_black"
+                            android:textSize="@dimen/yl_text_size_16" />
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv_activity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false" />
+                    </LinearLayout>
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/rv"
@@ -111,7 +136,6 @@
                         android:layout_margin="@dimen/yl_margin_l"
                         android:background="@color/yl_graybg"
                         android:nestedScrollingEnabled="false" />
-
                 </LinearLayout>
             </com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView>
         </com.scwang.smartrefresh.layout.SmartRefreshLayout>

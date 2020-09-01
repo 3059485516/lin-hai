@@ -24,6 +24,7 @@ public class AppraiseEntity implements Serializable {
      * start_time : 2019-06-15 00:00:00
      * pstatus : STATUS003
      * form_id : 3
+     * participate_total ：5
      */
 
     private String status;
@@ -47,6 +48,16 @@ public class AppraiseEntity implements Serializable {
     private List<VoteEntity> voteInfo;
     private List<OptionEntity> optionInfo;
     private List<QuestionEntity> questionInfo;
+
+    private String participate_total;
+
+    public String getParticipate_total() {
+        return participate_total;
+    }
+
+    public void setParticipate_total(String participate_total) {
+        this.participate_total = participate_total;
+    }
 
     public String getStatus() {
         return status;

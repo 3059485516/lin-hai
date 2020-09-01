@@ -13,6 +13,7 @@
     <color name="yl_graywhite">#F5F5F5</color>
     <color name="yl_graybg">#F2F2F2</color>
     <color name="yl_devide_line">#e7e7e7</color>
+    <color name="yl_black">#000000</color>
     <color name="yl_white">#FFF</color>
     <color name="yl_transparent">#00000000</color>
     <color name="yl_shadow">#88000000</color>
