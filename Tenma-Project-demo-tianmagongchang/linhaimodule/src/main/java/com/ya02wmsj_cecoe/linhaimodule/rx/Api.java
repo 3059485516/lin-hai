@@ -134,6 +134,7 @@ public class Api {
 
     /**
      * 获取首页活动
+     *
      * @return
      */
     public static Observable<List<AppraiseEntity>> getIndexActivity() {
@@ -387,8 +388,8 @@ public class Api {
         return API_SERVICE.getOnlineActivityList(getToken(), page, rows, "32", region_code, theme_id).compose(RxSchedulers.io_main());
     }
 
-    public static Observable<Object> giveScore(String activityId, String voteIds, String scores) {
-        return API_SERVICE.giveScore(getToken(), activityId, voteIds, scores).compose(RxSchedulers.io_main());
+    public static Observable<Object> giveScore(String activityId, String scoreIds, String optionIds, String scores) {
+        return API_SERVICE.giveScore(getToken(), activityId, scoreIds, optionIds, scores).compose(RxSchedulers.io_main());
     }
 
     public static Observable<Object> addEvent(Map<String, Object> map) {

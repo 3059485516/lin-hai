@@ -11,7 +11,6 @@
     android:orientation="vertical"
     android:paddingTop="@dimen/yl_margin_xl">
 
-
     <ImageView
         android:id="@+id/iv_head"
         android:layout_width="100dp"
@@ -42,69 +41,8 @@
         app:etv_ToExpandHintColor="@color/yl_theme_color"
         app:etv_ToShrinkHintColor="@color/yl_theme_color" />
 
-    <include layout="@layout/ya02wmsj_cecoe_divider_view" />
-
-    <LinearLayout
-        android:id="@+id/wrap_check"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingLeft="@dimen/yl_margin_xl"
-        android:paddingTop="@dimen/yl_margin_l"
-        android:paddingRight="@dimen/yl_margin_xl"
-        android:paddingBottom="@dimen/yl_margin_l">
-
-        <CheckBox
-            android:id="@+id/cb_0"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginLeft="@dimen/yl_margin_l"
-            android:layout_marginRight="@dimen/yl_margin_l"
-            android:background="@drawable/ya02wmsj_cecoe_star"
-            android:button="@null" />
-
-        <CheckBox
-            android:id="@+id/cb_1"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginLeft="@dimen/yl_margin_l"
-            android:layout_marginRight="@dimen/yl_margin_l"
-            android:background="@drawable/ya02wmsj_cecoe_star"
-            android:button="@null" />
-
-        <CheckBox
-            android:id="@+id/cb_2"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginLeft="@dimen/yl_margin_l"
-            android:layout_marginRight="@dimen/yl_margin_l"
-            android:background="@drawable/ya02wmsj_cecoe_star"
-            android:button="@null" />
-
-        <CheckBox
-            android:id="@+id/cb_3"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginLeft="@dimen/yl_margin_l"
-            android:layout_marginRight="@dimen/yl_margin_l"
-            android:background="@drawable/ya02wmsj_cecoe_star"
-            android:button="@null" />
-
-        <CheckBox
-            android:id="@+id/cb_4"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginLeft="@dimen/yl_margin_l"
-            android:layout_marginRight="@dimen/yl_margin_l"
-            android:background="@drawable/ya02wmsj_cecoe_star"
-            android:button="@null" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_ave"
-        android:gravity="center"
-        android:layout_marginBottom="@dimen/yl_margin_l"
-        android:text="平均分：3.2"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>

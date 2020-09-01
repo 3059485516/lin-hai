@@ -27,9 +27,9 @@ public class AppreaceScorePresenter extends AppreaceScoreContract.Presenter {
     }
 
     @Override
-    public void commit(String activityId, String voteIds, String scores) {
+    public void commit(String activityId, String scoreIds, String optionIds, String scores) {
         mView.showDialog();
-        addRx2Destroy(new RxSubscriber<Object>(Api.giveScore(activityId, voteIds, scores)) {
+        addRx2Destroy(new RxSubscriber<Object>(Api.giveScore(activityId, scoreIds, optionIds, scores),mView) {
             @Override
             protected void _onNext(Object o) {
                 mView.dismissDialog();

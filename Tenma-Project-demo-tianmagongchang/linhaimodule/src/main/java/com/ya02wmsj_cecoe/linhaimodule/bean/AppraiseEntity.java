@@ -48,6 +48,15 @@ public class AppraiseEntity implements Serializable {
     private List<VoteEntity> voteInfo;
     private List<OptionEntity> optionInfo;
     private List<QuestionEntity> questionInfo;
+    private List<ScoreInfo> scoreInfo;
+
+    public List<ScoreInfo> getScoreInfo() {
+        return scoreInfo;
+    }
+
+    public void setScoreInfo(List<ScoreInfo> scoreInfo) {
+        this.scoreInfo = scoreInfo;
+    }
 
     private String participate_total;
 

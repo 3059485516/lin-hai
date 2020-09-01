@@ -98,6 +98,7 @@ public interface ApiService {
 
     /**
      * 首页活动
+     *
      * @param map
      * @return
      */
@@ -220,8 +221,7 @@ public interface ApiService {
      */
     @FormUrlEncoded
     @POST("operateComment")
-    Observable<String> operateComment(@Field("TOKEN") String token, @Field("operate_type") String operate_type,
-                                      @Field("c_id") String c_id, @Field("content") String content);
+    Observable<String> operateComment(@Field("TOKEN") String token, @Field("operate_type") String operate_type, @Field("c_id") String c_id, @Field("content") String content);
 
     /**
      * 跟帖
@@ -392,26 +392,21 @@ public interface ApiService {
      */
     @FormUrlEncoded
     @POST("getOnlineActivityList")
-    Observable<List<AppraiseEntity>> getOnlineActivityList(@Field("TOKEN") String token,
-                                                           @Field("page") String page,
-                                                           @Field("rows") String rows,
-                                                           @Field("node_id") String node_id,
-                                                           @Field("region_code") String region_code,
-                                                           @Field("theme_id") String theme_id);
+    Observable<List<AppraiseEntity>> getOnlineActivityList(@Field("TOKEN") String token, @Field("page") String page, @Field("rows") String rows, @Field("node_id") String node_id, @Field("region_code") String region_code, @Field("theme_id") String theme_id);
 
     /**
      * 评分
      *
      * @param TOKEN
      * @param activityId
-     * @param voteIds
+     * @param scoreIds
+     * @param optionIds
      * @param scores
      * @return
      */
     @FormUrlEncoded
     @POST("giveScore")
-    Observable<Object> giveScore(@Field("TOKEN") String TOKEN, @Field("activityId") String activityId,
-                                 @Field("voteIds") String voteIds, @Field("scores") String scores);
+    Observable<Object> giveScore(@Field("TOKEN") String TOKEN, @Field("activityId") String activityId, @Field("scoreIds") String scoreIds, @Field("optionIds") String optionIds, @Field("scores") String scores);
 
     /**
      * 37.公众用户发布诉求
@@ -629,7 +624,7 @@ public interface ApiService {
      */
     @FormUrlEncoded
     @POST("getRecruitList")
-    Observable<ZhiyuanhuiListEntity> getRecruitList(@Field("TOKEN") String token,@Field("search_title") String name, @Field("page") String page, @Field("rows") String rows);
+    Observable<ZhiyuanhuiListEntity> getRecruitList(@Field("TOKEN") String token, @Field("search_title") String name, @Field("page") String page, @Field("rows") String rows);
 
     /**
      * 取消活动报名
@@ -830,9 +825,7 @@ public interface ApiService {
      */
     @FormUrlEncoded
     @POST("getServeInfoList")
-    Observable<List<ServiceInfoEntity>> getServeInfoList(
-            @Field("TOKEN") String token, @Field("category_id") String category_id,
-            @Field("page") String page, @Field("rows") String rows, @Field("longitude") String longitude, @Field("latitude") String latitude);
+    Observable<List<ServiceInfoEntity>> getServeInfoList(@Field("TOKEN") String token, @Field("category_id") String category_id, @Field("page") String page, @Field("rows") String rows, @Field("longitude") String longitude, @Field("latitude") String latitude);
 
     /**
      * 获取某条图文视频内容详情

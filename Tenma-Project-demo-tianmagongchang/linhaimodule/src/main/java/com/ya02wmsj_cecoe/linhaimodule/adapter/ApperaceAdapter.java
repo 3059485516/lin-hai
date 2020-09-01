@@ -28,7 +28,6 @@ public class ApperaceAdapter extends CommonAdapter<AppraiseEntity> {
         holder.setText(R.id.tv_time, appraiseEntity.getCtime());
         holder.setText(R.id.tv_make, "发布" + appraiseEntity.getForm_name());
         holder.setText(R.id.tv_inner_title, appraiseEntity.getTitle());
-        // holder.setText(R.id.tv_inner_conntent, Html.fromHtml(appraiseEntity.getContent()).toString());
         holder.setText(R.id.tv_inner_conntent, HtmlUtil.getTextFromHtml(appraiseEntity.getContent()).toString());
         if (!TextUtils.isEmpty(appraiseEntity.getPic_url())) {
             ImageManager.getInstance().loadCircleImage(mContext, appraiseEntity.getPic_url(), R.mipmap.ya02wmsj_cecoe_head, holder.getView(R.id.iv_icon));

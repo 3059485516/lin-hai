@@ -21,7 +21,7 @@ public interface AppreaceScoreContract {
 
         public abstract void getComment(String c_id);
 
-        public abstract void commit(String activityId, String voteIds, String scores);
+        public abstract void commit(String activityId, String scoreIds, String optionIds, String scores);
 
         public abstract void addComment(String c_id, String content);
 
