@@ -1,14 +1,12 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
 import android.support.v4.app.Fragment;
-
 import com.ya02wmsj_cecoe.linhaimodule.base.activity.BaseViewPagerActivity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.LtStreetEntity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.LtChooseLtContract;
-import com.ya02wmsj_cecoe.linhaimodule.mvp.fragment.LtListFragment;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.LtChooseLtPresenter;
-
 import java.util.List;
+
 
 public class LtChooseLtActivity extends BaseViewPagerActivity<LtChooseLtContract.Presenter> implements LtChooseLtContract.View {
     @Override

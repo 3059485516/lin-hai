@@ -25,7 +25,6 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.AbsListView;
 import android.widget.ScrollView;
 
-
 /**
  * description: 可拖拽的TextView  仿QQ未读消息数拖拽移除的功能
  * what & why is modified:

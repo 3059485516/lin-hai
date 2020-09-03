@@ -20,12 +20,8 @@ import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.base.activity.BaseActivity;
 
-
-import java.net.URLEncoder;
-
 public class LtAddressActivity extends BaseActivity {
     protected BridgeWebView mWebView;
-
 
     @Override
     protected int getLayoutId() {
@@ -34,7 +30,6 @@ public class LtAddressActivity extends BaseActivity {
 
     @Override
     protected void initMVP() {
-
     }
 
     @SuppressLint({"SetJavaScriptEnabled", "ClickableViewAccessibility", "JavascriptInterface"})
@@ -42,7 +37,6 @@ public class LtAddressActivity extends BaseActivity {
     @JavascriptInterface
     protected void initView() {
         setTitle("礼堂地图");
-
         mWebView = findViewById(R.id.webView);
         mWebView.setClickable(false);
         mWebView.setFocusable(true);
@@ -103,15 +97,12 @@ public class LtAddressActivity extends BaseActivity {
                 dismissDialog();
             }
         });
-
-//        mWebView.loadUrl("http://hzyltx.zhfucun.com/xsd-h5/index.html#/ltMap");
         mWebView.loadUrl("https://lhwhlt.hzyltx.com:8443/application/ya02lhwhlt_wdhaw/camap/index.html");
 
     }
 
     @Override
     protected void initData() {
-
     }
 
     @Override

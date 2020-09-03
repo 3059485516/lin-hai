@@ -32,6 +32,7 @@ import com.ya02wmsj_cecoe.linhaimodule.bean.LtWatcherPlayEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.MyExchangeListEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.Node;
 import com.ya02wmsj_cecoe.linhaimodule.bean.NodeContent;
+import com.ya02wmsj_cecoe.linhaimodule.bean.OnlineCommunity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.OrderDetailEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.OrderHistoryEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.OrganizationDetailEntity;
@@ -87,14 +88,21 @@ public interface ApiService {
     @POST("getIndexTop")
     Observable<List<NodeContent>> getIndexTop(@Field("region_code") String region_code);
 
+
     @FormUrlEncoded
     @POST("getContentList")
     Observable<List<NodeContent>> getContentList(@FieldMap Map<String, Object> map);
 
-    @FormUrlEncoded
-    @POST("getContentList")
-    Observable<List<NodeContent>> getTips(@Field("node_id") String id);
 
+    /**
+     * 获取网络社区列表
+     *
+     * @param map
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("getNetQueueList")
+    Observable<List<OnlineCommunity>> getNetQueueList(@FieldMap Map<String, Object> map);
 
     /**
      * 首页活动
@@ -417,6 +425,14 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("addEvent")
     Observable<Object> addEvent(@FieldMap Map<String, Object> map);
+
+
+    /**
+     * [志愿服务-点单]用户提交“其他服务”点单
+     */
+    @FormUrlEncoded
+    @POST("addOtherOrder")
+    Observable<Object> addOtherOrder(@FieldMap Map<String, Object> map);
 
     /**
      * 36.获取诉求分类列表

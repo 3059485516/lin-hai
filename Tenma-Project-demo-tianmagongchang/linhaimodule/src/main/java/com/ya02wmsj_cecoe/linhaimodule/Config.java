@@ -63,7 +63,7 @@ public class Config implements TMLoginManager.OnLoginListener {
         TMLoginManager.registerLoginChangeListener(this);
         mTmUser = TMSharedPUtil.getTMUser(mContext);
         mTMConfig = TMSharedPUtil.getTMBaseConfig(mContext);
-        if (mTmUser!= null&&!TextUtils.isEmpty(mTmUser.getToken())) {
+        if (mTmUser != null && !TextUtils.isEmpty(mTmUser.getToken())) {
             uploadUserInfo(mTmUser);
         } else {
             gotoLoginAct();
@@ -239,7 +239,7 @@ public class Config implements TMLoginManager.OnLoginListener {
      * 刷新志愿汇token
      */
     public void loginVolunteer() {
-        Log.e("Config","loginVolunteer");
+        Log.e("Config", "loginVolunteer");
         addRx2Destroy(new RxSubscriber<String>(Api.loginByOpenId()) {
             @Override
             protected void _onNext(String string) {

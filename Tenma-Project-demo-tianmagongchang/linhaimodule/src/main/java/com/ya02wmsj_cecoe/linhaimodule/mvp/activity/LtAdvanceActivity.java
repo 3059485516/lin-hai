@@ -67,29 +67,21 @@ public class LtAdvanceActivity extends BaseActivity<LtAdvancePresenter> implemen
                 return false;
             }
         });
-        findViewById(R.id.btn_commit).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mTvLt.getTag() == null) {
-                    toast("请选择礼堂");
-                    return;
-                }
-                if (TextUtils.isEmpty(mEtAdvance.getText())) {
-                    toast("请填写建议");
-                    return;
-                }
-                Map<String, Object> map = new HashMap<>();
-                map.put("ca_id", mTvLt.getTag().toString());
-                map.put("content", mEtAdvance.getText());
-                mPresenter.addCAAdvance(map);
+        findViewById(R.id.btn_commit).setOnClickListener(v -> {
+            if (mTvLt.getTag() == null) {
+                toast("请选择礼堂");
+                return;
             }
-        });
-        mTvLt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivityForResult(new Intent(mContext, LtChooseLtActivity2.class), REQUEST_LT_CODE);
+            if (TextUtils.isEmpty(mEtAdvance.getText())) {
+                toast("请填写建议");
+                return;
             }
+            Map<String, Object> map = new HashMap<>();
+            map.put("ca_id", mTvLt.getTag().toString());
+            map.put("content", mEtAdvance.getText());
+            mPresenter.addCAAdvance(map);
         });
+        mTvLt.setOnClickListener(v -> startActivityForResult(new Intent(mContext, LtChooseLtActivity2.class), REQUEST_LT_CODE));
     }
 
     @Override

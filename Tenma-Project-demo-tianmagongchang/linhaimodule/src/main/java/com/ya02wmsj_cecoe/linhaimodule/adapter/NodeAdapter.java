@@ -2,7 +2,6 @@ package com.ya02wmsj_cecoe.linhaimodule.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.text.TextUtils;
 
@@ -30,25 +29,22 @@ import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LtImActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LtResourceAppointActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LtShowActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LtWatcherActivity;
-import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.NetPersonActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.NetPersonBetActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.NodeContentActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.OrderBetActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.OrderBetSubActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.OrginazeActivity;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.OtherServicesActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.RankingListActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.ServiceListInfo2Activity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.ServiceListInfoActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.ShowCivilizeActivity;
-import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.SmartTechActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.SocialCollectActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.TakeBadHabitsListActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.TalentActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.WebActivity;
-import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.WebBridgeActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.WishListActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.ZhiyuanhuiActivity;
-import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.ZhkxActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.ZhkxBetActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.ZjkActivity;
 import com.ya02wmsj_cecoe.linhaimodule.utils.AppUtils;
@@ -60,12 +56,10 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.List;
 
-
 /**
  * Created by BenyChan on 2018/10/16.
  */
 public class NodeAdapter extends CommonAdapter<Node> {
-
     public NodeAdapter(Context context, List<Node> nodeParentList) {
         super(context, R.layout.ya02wmsj_cecoe_item_node, nodeParentList);
     }
@@ -74,15 +68,12 @@ public class NodeAdapter extends CommonAdapter<Node> {
     protected void convert(ViewHolder holder, Node node, int position) {
         ImageManager.getInstance().loadImage(mContext, Constant.getBaseUrl() + node.getIcon(), R.mipmap.ya02wmsj_cecoe_placeholder, holder.getView(R.id.iv_icon));
         holder.setText(R.id.tv_node_name, node.getTitle());
-
         if (node.isLocal()) {
             ImageManager.getInstance().loadImage(mContext, Integer.parseInt(node.getIcon()), holder.getView(R.id.iv_icon));
         } else {
             ImageManager.getInstance().loadImage(mContext, node.getIcon(), R.mipmap.ya02wmsj_cecoe_placeholder, holder.getView(R.id.iv_icon));
         }
-
         holder.getConvertView().setOnClickListener(v -> {
-            //  跳转
             switch (node.getTitle()) {
                 /*首页节点*/
                 case "志愿服务厅":
@@ -97,8 +88,6 @@ public class NodeAdapter extends CommonAdapter<Node> {
                     break;
                 case "智慧科协":
                 case "智慧科普":
-//                    mContext.startActivity(new Intent(mContext, SmartTechActivity.class));
-//                    mContext.startActivity(new Intent(mContext, ZhkxActivity.class));
                     mContext.startActivity(new Intent(mContext, ZhkxBetActivity.class));
                     break;
                 case "理论云学堂":
@@ -108,14 +97,11 @@ public class NodeAdapter extends CommonAdapter<Node> {
                     mContext.startActivity(intent);
                     break;
                 case "网络惠民":
-//                    mContext.startActivity(new Intent(mContext, NetPersonActivity.class));
                     mContext.startActivity(new Intent(mContext, NetPersonBetActivity.class));
                     break;
-
                 /*志愿汇节点*/
                 case "我要点单":
                 case "我要点服务":
-//                    mContext.startActivity(new Intent(mContext, SelectVolunteerOrderActivity.class));
                     mContext.startActivity(new Intent(mContext, OrderBetActivity.class));
                     break;
                 case "微心愿":
@@ -151,17 +137,13 @@ public class NodeAdapter extends CommonAdapter<Node> {
                     break;
                 case "签到":
                 case "我要签到":
-                    //打开微信小程序
                     IWXAPI api = WXAPIFactory.createWXAPI(mContext, "wx3a3159c772abde27");
                     api.registerApp("wx3a3159c772abde27");
                     WXLaunchMiniProgram.Req req = new WXLaunchMiniProgram.Req();
                     req.userName = "gh_9b78c83143ba"; // 填小程序原始id
-//                    req.path = "pages/index/index"; //拉起小程序页面的可带参路径，不填默认拉起小程序首页
-                    req.miniprogramType = WXLaunchMiniProgram.Req.MINIPTOGRAM_TYPE_RELEASE;// 可选打开 开发版，体验版和正式版
+                    req.miniprogramType = WXLaunchMiniProgram.Req.MINIPTOGRAM_TYPE_RELEASE;
                     api.sendReq(req);
                     break;
-
-                /*理论云课堂*/
                 case "学习强国":
                     AppUtils.gotoOtherApp(mContext, "cn.xuexi.android", "");
                     break;
@@ -183,12 +165,10 @@ public class NodeAdapter extends CommonAdapter<Node> {
                 case "达人库":
                     mContext.startActivity(new Intent(mContext, TalentActivity.class));
                     break;
-
                 /*网络惠民*/
                 case "社情收集":
                     mContext.startActivity(new Intent(mContext, SocialCollectActivity.class));
                     break;
-
                 /*网络社区-更多服务-点单*/
                 case "理论宣讲服务":
                 case "健身体育服务":
@@ -204,8 +184,6 @@ public class NodeAdapter extends CommonAdapter<Node> {
                     intentDD.putExtra(Constant.KEY_BEAN, node);
                     mContext.startActivity(intentDD);
                     break;
-
-
                 case "家政":
                     Intent intentJZ = new Intent(mContext, ServiceListInfoActivity.class);
                     intentJZ.putExtra(Constant.KEY_STRING_1, "家政");
@@ -228,7 +206,6 @@ public class NodeAdapter extends CommonAdapter<Node> {
                     AppUtils.gotoOtherApp(mContext, "com.eg.android.AlipayGphone", "alipays://platformapi/startapp?appId=20000193");
                     break;
                 case "找厕所":
-//                    AppUtils.gotoOtherApp(mContext, "com.autonavi.minimap", "androidamap://poi?sourceApplication=amap&keywords=洗手间&dev=0");
                     if (!AppUtils.appInstalled(mContext, "com.autonavi.minimap")) {
                         T.showShort(mContext, "请先安装高德地图再使用该功能");
                         break;
@@ -361,10 +338,7 @@ public class NodeAdapter extends CommonAdapter<Node> {
                     String enc = "40871" + phone + "webApp@#$%" + time;
                     Intent intentGKK = new Intent(mContext, WebActivity.class);
                     intentGKK.putExtra(Constant.KEY_STRING_1, "公开课");
-                    intentGKK.putExtra(Constant.KEY_STRING_2, "http://mc.m.5read.com/other/webapp4OpenClass_webApp4OpenClass_recommend.jspx?schoolid=40871"
-                            + "&uid=" + phone
-                            + "&_time=" + time
-                            + "&enc=" + MD5EncodeUtil.md5(enc));
+                    intentGKK.putExtra(Constant.KEY_STRING_2, "http://mc.m.5read.com/other/webapp4OpenClass_webApp4OpenClass_recommend.jspx?schoolid=40871" + "&uid=" + phone + "&_time=" + time + "&enc=" + MD5EncodeUtil.md5(enc));
                     mContext.startActivity(intentGKK);
                     break;
                 case "专家库":
@@ -373,9 +347,11 @@ public class NodeAdapter extends CommonAdapter<Node> {
                 case "我要拍陋习":
                     mContext.startActivity(new Intent(mContext, TakeBadHabitsListActivity.class));
                     break;
-
+                case "其他服务":
+                    //我要点服务 -- 其他服务
+                    mContext.startActivity(new Intent(mContext, OtherServicesActivity.class));
+                    break;
             }
         });
     }
-
 }

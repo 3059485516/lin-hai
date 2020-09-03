@@ -19,12 +19,10 @@ public class StaggeredDividerItemDecoration extends RecyclerView.ItemDecoration 
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-//        int position = parent.getChildAdapterPosition(view);
         StaggeredGridLayoutManager.LayoutParams params = (StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams();
         // 获取item在span中的下标
         int spanIndex = params.getSpanIndex();
-        int interval = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                this.interval, context.getResources().getDisplayMetrics());
+        int interval = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, this.interval, context.getResources().getDisplayMetrics());
         // 中间间隔
         if (spanIndex % count == 0) {
             outRect.left = 0;

@@ -1,8 +1,8 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
-import android.view.View;
 import android.widget.TextView;
 
 import com.ya02wmsj_cecoe.linhaimodule.Config;
@@ -15,12 +15,9 @@ import com.ya02wmsj_cecoe.linhaimodule.mvp.fragment.ExchangeListFragment;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.ExchangeFuliPresenter;
 import com.ya02wmsj_cecoe.linhaimodule.rx.RxBus;
 
-import io.reactivex.functions.Consumer;
-
 
 public class ExchangeFuliActivity extends BaseViewPagerActivity<ExchangeFuliPresenter> implements ExchangeFuliContract.View {
     private TextView mTvCoins;
-
 
     @Override
     protected int getLayoutId() {
@@ -54,22 +51,16 @@ public class ExchangeFuliActivity extends BaseViewPagerActivity<ExchangeFuliPres
         setTitle("我要兑福利");
         setMenuText("我的兑换");
         mTvCoins = findViewById(R.id.tv_my_coins);
-        mPresenter.getRxManager2Destroy().add(RxBus.getInstance().register(ExchangeResult.class).subscribe(new Consumer<ExchangeResult>() {
-            @Override
-            public void accept(ExchangeResult exchangeResult) throws Exception {
-                mPresenter.getVolunteerScore();     //更新益币
-            }
+        mPresenter.getRxManager2Destroy().add(RxBus.getInstance().register(ExchangeResult.class).subscribe(exchangeResult -> {
+            mPresenter.getVolunteerScore();     //更新益币
         }));
 
-        findViewById(R.id.tv_tip).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String url = "https://appapi.zyh365.com/qrcode/index.html?app_token=" + Config.getInstance().getVolunteerToken();
-                Intent intent = new Intent(mContext, WebActivity.class);
-                intent.putExtra(Constant.KEY_STRING_1, "兑换码");
-                intent.putExtra(Constant.KEY_STRING_2, url);
-                mContext.startActivity(intent);
-            }
+        findViewById(R.id.tv_tip).setOnClickListener(v -> {
+            String url = "https://appapi.zyh365.com/qrcode/index.html?app_token=" + Config.getInstance().getVolunteerToken();
+            Intent intent = new Intent(mContext, WebActivity.class);
+            intent.putExtra(Constant.KEY_STRING_1, "兑换码");
+            intent.putExtra(Constant.KEY_STRING_2, url);
+            mContext.startActivity(intent);
         });
     }
 
@@ -78,6 +69,7 @@ public class ExchangeFuliActivity extends BaseViewPagerActivity<ExchangeFuliPres
         gotoActivity(MyExchangeActivity.class);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void updateCoins(String coins) {
         mTvCoins.setText("当前益币：" + coins);

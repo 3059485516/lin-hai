@@ -95,7 +95,6 @@ public class MainTabView extends RelativeLayout {
             if (mTvRedNum.isShown()) {
                 mTvRedNum.setVisibility(View.GONE);
             }
-
         } else {
             if (!mTvRedNum.isShown()) {
                 mTvRedNum.setVisibility(View.VISIBLE);

@@ -1,7 +1,6 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
 import android.graphics.Color;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.ya02wmsj_cecoe.linhaimodule.adapter.EduCheckAdapter;

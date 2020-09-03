@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yl_white"
+    android:orientation="vertical">
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.RecyclerScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/yl_margin_xl"
+                android:background="@drawable/ya02wmsj_cecoe_bg_order"
+                app:e_text_left="联系人"
+                app:text_gravity="right" />
+
+            <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/yl_margin_xl"
+                android:layout_marginRight="@dimen/yl_margin_xl"
+                android:layout_marginBottom="@dimen/yl_margin_xl"
+                android:background="@drawable/ya02wmsj_cecoe_bg_order"
+                app:e_text_left="联系号码"
+                app:edit_input_style="number"
+                app:text_gravity="right" />
+
+            <com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup
+                android:id="@+id/tv_region"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/yl_margin_xl"
+                android:layout_marginRight="@dimen/yl_margin_xl"
+                android:layout_marginBottom="@dimen/yl_margin_xl"
+                android:background="@drawable/ya02wmsj_cecoe_bg_order"
+                app:text_left="村社" />
+
+            <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+                android:id="@+id/et_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/yl_margin_xl"
+                android:layout_marginRight="@dimen/yl_margin_xl"
+                android:layout_marginBottom="@dimen/yl_margin_xl"
+                android:background="@drawable/ya02wmsj_cecoe_bg_order"
+                app:e_hint="联系地址"
+                app:e_text_left="联系地址"
+                app:text_gravity="right" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="150dp"
+                android:layout_marginLeft="@dimen/yl_margin_xl"
+                android:layout_marginRight="@dimen/yl_margin_xl"
+                android:layout_marginBottom="@dimen/yl_margin_xl"
+                android:background="@drawable/ya02wmsj_cecoe_bg_order"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/et_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="top"
+                    android:hint="服务内容描述"
+                    android:lines="5"
+                    android:padding="@dimen/yl_margin_s"
+                    android:textSize="@dimen/yl_text_size_14" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.ya02wmsj_cecoe.linhaimodule.widget.RecyclerScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <Button
+            android:id="@+id/btn_commit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:background="@drawable/ya02wmsj_cecoe_bg_btn_commit"
+            android:text="提交"
+            android:textColor="@color/yl_white"
+            android:textSize="@dimen/yl_text_size_17" />
+    </LinearLayout>
+</LinearLayout>

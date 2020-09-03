@@ -15,19 +15,14 @@ import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.EventDetailContract;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.EventDetailPresenter;
 import com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup;
 
-
 /**
  * Created by BenyChan on 2019-07-30.
  */
 public class EventDetailActivity extends BaseActivity<EventDetailContract.Presenter> implements EventDetailContract.View {
     protected YLTextViewGroup mTvTitle;
-
     protected TextView mTvDesc;
-
     protected TextView mTvReasonTop;
-
     protected TextView mTvReason;
-
     protected RecyclerView mRvProcess;
 
     @Override
@@ -48,8 +43,6 @@ public class EventDetailActivity extends BaseActivity<EventDetailContract.Presen
         mTvReasonTop = findViewById(R.id.tv_reason_top);
         mTvReason = findViewById(R.id.tv_reason);
         mRvProcess = findViewById(R.id.rv_process);
-
-
         mRvProcess.setLayoutManager(new LinearLayoutManager(this));
     }
 

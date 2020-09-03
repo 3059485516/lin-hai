@@ -82,19 +82,16 @@ public class LittleVideoActivity extends BaseLittleVideoActivity<LittleVideoCont
 
     @Override
     protected void initView() {
-        mPresenter.getAdapter().setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
-            @Override
-            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                int id = view.getId();
-                if (id == R.id.tv_like) {
-                    likeClicked((TextView) view, position);
-                } else if (id == R.id.tv_collect) {
-                    collectClicked((TextView) view, position);
-                } else if (id == R.id.tv_share) {
-                    shareClicked((TextView) view, position);
-                } else if (id == R.id.tv_comment) {
-                    commentClicked((TextView) view,position);
-                }
+        mPresenter.getAdapter().setOnItemChildClickListener((adapter, view, position) -> {
+            int id = view.getId();
+            if (id == R.id.tv_like) {
+                likeClicked((TextView) view, position);
+            } else if (id == R.id.tv_collect) {
+                collectClicked((TextView) view, position);
+            } else if (id == R.id.tv_share) {
+                shareClicked((TextView) view, position);
+            } else if (id == R.id.tv_comment) {
+                commentClicked((TextView) view,position);
             }
         });
     }
@@ -116,12 +113,9 @@ public class LittleVideoActivity extends BaseLittleVideoActivity<LittleVideoCont
         // 预加载，请求数据内容
         int itemCount = mPresenter.getAdapter().getItemCount();
         if (itemCount - position < DEFAULT_PRELOAD_NUMBER && !isLoadingData && !isEnd) {
-//            requestNewData();
             mPresenter.loadMore();
         }
-
         startPlay(mCurrentPosition);
-
         mLastStopPosition = -1;
     }
 

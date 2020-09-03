@@ -7,14 +7,11 @@ import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
-
-
 import com.socks.library.KLog;
 
 /**
  * @author Yang Shihao
  */
-
 public class MyScrollView extends NestedScrollView {
     private long mDelay = 100;
     private long mLastScrollTime = -1;

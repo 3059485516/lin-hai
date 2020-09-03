@@ -11,7 +11,6 @@ import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.NodeContentContract;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.NodeContentPresenter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 
-
 /**
  * Created by BenyChan on 2019-07-16.
  */
@@ -44,13 +43,6 @@ public class IdeologyActivity extends BaseListActivity<NodeContentContract.Prese
         mRvNode = findViewById(R.id.rv_node);
         setTitle(getIntent().getStringExtra(Constant.KEY_STRING_1));
         setDefaultItemDecoration();
-
         mRvNode.setLayoutManager(new GridLayoutManager(this, 4));
-//        mRvNode.setAdapter(new NodeAdapter(this, Arrays.asList(
-//                new MainNodeEntity(R.mipmap.ya02wmsj_cecoe_ideology_1, "学堂直播", 0, null),
-//                new MainNodeEntity(R.mipmap.ya02wmsj_cecoe_ideology_2, "学习时代", 0, null),
-//                new MainNodeEntity(R.mipmap.ya02wmsj_cecoe_ideology_3, "做视频", 0, null),
-//                new MainNodeEntity(R.mipmap.ya02wmsj_cecoe_ideology_4, "学习强国", 0, null)
-//        )));
     }
 }

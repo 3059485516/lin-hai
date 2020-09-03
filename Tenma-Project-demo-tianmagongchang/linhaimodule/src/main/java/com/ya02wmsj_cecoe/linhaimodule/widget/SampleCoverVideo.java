@@ -10,7 +10,6 @@ import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 import com.shuyu.gsyvideoplayer.video.base.GSYBaseVideoPlayer;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 
-
 /**
  * 带封面
  */

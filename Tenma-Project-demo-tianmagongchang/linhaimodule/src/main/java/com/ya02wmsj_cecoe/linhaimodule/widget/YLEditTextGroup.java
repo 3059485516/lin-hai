@@ -101,7 +101,6 @@ public class YLEditTextGroup extends RelativeLayout {
             } else {
                 return string;
             }
-
         } catch (RuntimeException e) {
             return string;
         }
@@ -147,10 +146,8 @@ public class YLEditTextGroup extends RelativeLayout {
     }
 
     private InputFilter mInputFilter = new InputFilter() {
-
         Pattern emoji = Pattern.compile("[\ud83c\udc00-\ud83c\udfff]|[\ud83d\udc00-\ud83d\udfff]|[\u2600-\u27ff]",
                 Pattern.UNICODE_CASE | Pattern.CASE_INSENSITIVE);
-
         @Override
         public CharSequence filter(CharSequence charSequence, int i, int i1, Spanned spanned, int i2, int i3) {
             Matcher emojiMatcher = emoji.matcher(charSequence);

@@ -36,6 +36,7 @@ import com.ya02wmsj_cecoe.linhaimodule.bean.LtWatcherPlayEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.MyExchangeListEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.Node;
 import com.ya02wmsj_cecoe.linhaimodule.bean.NodeContent;
+import com.ya02wmsj_cecoe.linhaimodule.bean.OnlineCommunity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.OrderDetailEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.OrderHistoryEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.OrganizationDetailEntity;
@@ -131,6 +132,25 @@ public class Api {
         param.put("rows", rows);
         return API_SERVICE.getContentList(param).compose(RxSchedulers.io_main());
     }
+
+    /**
+     * 获取网络社区内容列表
+     *
+     * @param region_code
+     * @param node_id
+     * @param page
+     * @param rows
+     * @return
+     */
+    public static Observable<List<OnlineCommunity>> getNetQueueList(String region_code, String node_id, String page, String rows) {
+        Map<String, Object> param = createParamsMap(getToken());
+        param.put("region_code", region_code);
+        param.put("node_id", node_id);
+        param.put("page", page);
+        param.put("rows", rows);
+        return API_SERVICE.getNetQueueList(param).compose(RxSchedulers.io_main());
+    }
+
 
     /**
      * 获取首页活动
@@ -399,6 +419,26 @@ public class Api {
         }
         return API_SERVICE.addEvent(params).compose(RxSchedulers.io_main());
     }
+
+    /**
+     * [志愿服务-点单]用户提交“其他服务”点单
+     * @param regionCode
+     * @param name
+     * @param phone
+     * @param address
+     * @param content
+     * @return
+     */
+    public static Observable<Object> addOtherOrder(String regionCode, String name, String phone, String address, String content) {
+        Map<String, Object> params = createParamsMap(getToken());
+        params.put("region_code", regionCode);
+        params.put("name", name);
+        params.put("phone", phone);
+        params.put("address", address);
+        params.put("content", content);
+        return API_SERVICE.addOtherOrder(params).compose(RxSchedulers.io_main());
+    }
+
 
     public static Observable<List<CategoryTypeEntity>> getEventCategory(String region_code) {
         return API_SERVICE.getEventCategory(getToken(), region_code).compose(RxSchedulers.io_main());

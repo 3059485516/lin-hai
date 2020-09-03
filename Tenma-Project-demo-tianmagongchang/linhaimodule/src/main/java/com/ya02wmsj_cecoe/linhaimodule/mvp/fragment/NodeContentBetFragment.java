@@ -2,34 +2,29 @@ package com.ya02wmsj_cecoe.linhaimodule.mvp.fragment;
 
 import android.os.Bundle;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.view.View;
 import android.widget.RadioButton;
 
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.R;
-import com.ya02wmsj_cecoe.linhaimodule.adapter.MainNodeContentAdapter;
+import com.ya02wmsj_cecoe.linhaimodule.adapter.OnlineCommunityAdapter;
 import com.ya02wmsj_cecoe.linhaimodule.base.fragment.BaseListFragment;
-import com.ya02wmsj_cecoe.linhaimodule.base.mvp.IListView;
 import com.ya02wmsj_cecoe.linhaimodule.bean.UpdateRegionMyEntity;
-import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.NodeContentBetPresenter;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.OnlineCommunityContract;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.OnlineCommunityPresenter;
 import com.ya02wmsj_cecoe.linhaimodule.rx.RxBus;
 import com.ya02wmsj_cecoe.linhaimodule.utils.RegionManager;
 import com.ya02wmsj_cecoe.linhaimodule.widget.StaggeredDividerItemDecoration;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 
-import io.reactivex.functions.Consumer;
-
 import static android.support.v7.widget.StaggeredGridLayoutManager.VERTICAL;
 
-public class NodeContentBetFragment extends BaseListFragment<NodeContentBetPresenter>
-        implements IListView {
-
-    RadioButton mTvVillage;
-
-    RadioButton mTvTown;
-
-    RadioButton mTvCountry;
-
+/**
+ * 网络社区 界面
+ */
+public class NodeContentBetFragment extends BaseListFragment<OnlineCommunityContract.Presenter> implements OnlineCommunityContract.View {
+    protected RadioButton mTvVillage;
+    protected RadioButton mTvTown;
+    protected RadioButton mTvCountry;
     private int mRegionLevel = 0;   //0-全市，1-镇街，2-社区
 
     public static NodeContentBetFragment start(String nodeId) {
@@ -47,12 +42,12 @@ public class NodeContentBetFragment extends BaseListFragment<NodeContentBetPrese
 
     @Override
     protected MultiItemTypeAdapter getAdapter() {
-        return new MainNodeContentAdapter(mActivity, mPresenter.getDataList());
+        return new OnlineCommunityAdapter(mActivity, mPresenter.getDataList());
     }
 
     @Override
     protected void initMVP() {
-        mPresenter = new NodeContentBetPresenter(this, getArguments().getString(Constant.KEY_STRING_1));
+        mPresenter = new OnlineCommunityPresenter(this, getArguments().getString(Constant.KEY_STRING_1));
     }
 
     @Override
@@ -66,43 +61,31 @@ public class NodeContentBetFragment extends BaseListFragment<NodeContentBetPrese
         mTvCountry = mRootView.findViewById(R.id.tv_country);
         mTvCountry.setChecked(true);
 
-        mTvCountry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mRegionLevel = 0;
-                mPresenter.setRegionCode(RegionManager.getInstance().getCurrentCountyCode());
-                mPresenter.getPageData(true);
-            }
+        mTvCountry.setOnClickListener(v -> {
+            mRegionLevel = 0;
+            mPresenter.setRegionCode(RegionManager.getInstance().getCurrentCountyCode());
+            mPresenter.getPageData(true);
         });
-        mTvTown.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mRegionLevel = 1;
-                mPresenter.setRegionCode(RegionManager.getInstance().getCurrentTownCode());
-                mPresenter.getPageData(true);
-            }
+        mTvTown.setOnClickListener(v -> {
+            mRegionLevel = 1;
+            mPresenter.setRegionCode(RegionManager.getInstance().getCurrentTownCode());
+            mPresenter.getPageData(true);
         });
-        mTvVillage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mRegionLevel = 2;
-                mPresenter.setRegionCode(RegionManager.getInstance().getCurrentVillageCode());
-                mPresenter.getPageData(true);
-            }
+        mTvVillage.setOnClickListener(v -> {
+            mRegionLevel = 2;
+            mPresenter.setRegionCode(RegionManager.getInstance().getCurrentVillageCode());
+            mPresenter.getPageData(true);
         });
 
-        mPresenter.getRxManager2Destroy().add(RxBus.getInstance().register(UpdateRegionMyEntity.class).subscribe(new Consumer<UpdateRegionMyEntity>() {
-            @Override
-            public void accept(UpdateRegionMyEntity updateRegionMyEntity) throws Exception {
-                if (mRegionLevel == 0) {
-                    mPresenter.setRegionCode(RegionManager.getInstance().getCurrentCountyCode());
-                } else if (mRegionLevel == 1) {
-                    mPresenter.setRegionCode(RegionManager.getInstance().getCurrentTownCode());
-                } else {
-                    mPresenter.setRegionCode(RegionManager.getInstance().getCurrentVillageCode());
-                }
-                mPresenter.getPageData(true);
+        mPresenter.getRxManager2Destroy().add(RxBus.getInstance().register(UpdateRegionMyEntity.class).subscribe(updateRegionMyEntity -> {
+            if (mRegionLevel == 0) {
+                mPresenter.setRegionCode(RegionManager.getInstance().getCurrentCountyCode());
+            } else if (mRegionLevel == 1) {
+                mPresenter.setRegionCode(RegionManager.getInstance().getCurrentTownCode());
+            } else {
+                mPresenter.setRegionCode(RegionManager.getInstance().getCurrentVillageCode());
             }
+            mPresenter.getPageData(true);
         }));
     }
 }

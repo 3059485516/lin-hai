@@ -1,7 +1,7 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -40,6 +40,7 @@ public class LtAppointAuditActivity extends BaseActivity<LtAppointAuditPresenter
         mPresenter = new LtAppointAuditPresenter(this);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void initView() {
         setTitle("预约审核");
@@ -78,24 +79,13 @@ public class LtAppointAuditActivity extends BaseActivity<LtAppointAuditPresenter
             mWrapBtn.setVisibility(View.VISIBLE);
         }
 
-        findViewById(R.id.btn_agree).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.auditSourceApply(mLtAppointEntity.getId() + "", "审核通过", "");
-            }
-        });
+        findViewById(R.id.btn_agree).setOnClickListener(v -> mPresenter.auditSourceApply(mLtAppointEntity.getId() + "", "审核通过", ""));
 
-        findViewById(R.id.btn_refuse).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showRefuseDialog();
-            }
-        });
+        findViewById(R.id.btn_refuse).setOnClickListener(v -> showRefuseDialog());
     }
 
     @Override
     protected void initData() {
-
     }
 
     private void showRefuseDialog() {
@@ -106,35 +96,26 @@ public class LtAppointAuditActivity extends BaseActivity<LtAppointAuditPresenter
         mRefuseDialog = new Dialog(this, R.style.BottomDialogStyle);
         mRefuseDialog.setCanceledOnTouchOutside(true);
         mRefuseDialog.setCancelable(true);
-        mRefuseDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-                if (mRefuseDialog != null) {
-                    mRefuseDialog.dismiss();
-                    mRefuseDialog = null;
-                }
+        mRefuseDialog.setOnCancelListener(dialog -> {
+            if (mRefuseDialog != null) {
+                mRefuseDialog.dismiss();
+                mRefuseDialog = null;
             }
         });
         View view = LayoutInflater.from(mContext).inflate(R.layout.ya02wmsj_cecoe_lt_appoint_audit_refuse_dialog, null);
         EditText et_content = view.findViewById(R.id.et_content);
-        view.findViewById(R.id.iv_close).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mRefuseDialog.dismiss();
-                mRefuseDialog = null;
-            }
+        view.findViewById(R.id.iv_close).setOnClickListener(v -> {
+            mRefuseDialog.dismiss();
+            mRefuseDialog = null;
         });
-        view.findViewById(R.id.btn_commit).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (TextUtils.isEmpty(et_content.getText())) {
-                    toast("请填写理由");
-                    return;
-                }
-                mPresenter.auditSourceApply(mLtAppointEntity.getId() + "", "驳回", et_content.getText().toString());
-                mRefuseDialog.dismiss();
-                mRefuseDialog = null;
+        view.findViewById(R.id.btn_commit).setOnClickListener(v -> {
+            if (TextUtils.isEmpty(et_content.getText())) {
+                toast("请填写理由");
+                return;
             }
+            mPresenter.auditSourceApply(mLtAppointEntity.getId() + "", "驳回", et_content.getText().toString());
+            mRefuseDialog.dismiss();
+            mRefuseDialog = null;
         });
         mRefuseDialog.setContentView(view);
         //获取当前Activity所在的窗体

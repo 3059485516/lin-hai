@@ -41,12 +41,7 @@ public class LtChooseLtActivity2 extends BaseActivity<LtChooseLtPresenter2> impl
         mRvLt.setLayoutManager(new LinearLayoutManager(this));
         mRvArea.addItemDecoration(new ItemDecorationVertical(ContextCompat.getColor(this, R.color.yl_devide_line), 1, 0, 0));
         mRvLt.addItemDecoration(new ItemDecorationVertical(ContextCompat.getColor(this, R.color.yl_devide_line), 1, 0, 0));
-        mAreaAdapter = new LtChooseAreaAdapter2(this, mPresenter.getAreaList(), new LtChooseAreaAdapter2.IClickAreaItemListener() {
-            @Override
-            public void onAreaItemClick(LtStreetEntity entity) {
-                mPresenter.getLt(entity.getCode());
-            }
-        });
+        mAreaAdapter = new LtChooseAreaAdapter2(this, mPresenter.getAreaList(), entity -> mPresenter.getLt(entity.getCode()));
         mRvArea.setAdapter(mAreaAdapter);
         mLtAdapter = new LtChooseLtAdapter2(this, mPresenter.getLtList());
         mLtAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {

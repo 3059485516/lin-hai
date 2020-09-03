@@ -1,11 +1,9 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.EditText;
 
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
-import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.TimePickerView;
 import com.ya02wmsj_cecoe.linhaimodule.Config;
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
@@ -20,7 +18,6 @@ import com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup;
 import com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,59 +48,46 @@ public class LtApplyResourceActivity extends BaseActivity<LtApplyResourcePresent
         mTvEndTime = findViewById(R.id.tv_end_time);
         mEtReason = findViewById(R.id.et_reason);
 
-        mTvStartTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showTimePickDialog(mTvStartTime);
-            }
-        });
+        mTvStartTime.setOnClickListener(v -> showTimePickDialog(mTvStartTime));
 
-        mTvEndTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showTimePickDialog(mTvEndTime);
-            }
-        });
+        mTvEndTime.setOnClickListener(v -> showTimePickDialog(mTvEndTime));
 
-        findViewById(R.id.btn_apply).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (TextUtils.isEmpty(mEtUnit.getTextRight())) {
-                    toast("请输入单位或个人");
-                    return;
-                }
-                if (TextUtils.isEmpty(mEtName.getTextRight())) {
-                    toast("请输入联系人");
-                    return;
-                }
-                if (TextUtils.isEmpty(mEtPhone.getTextRight())) {
-                    toast("请输入联系电话");
-                    return;
-                }
-                if (TextUtils.isEmpty(mTvStartTime.getTextRight())) {
-                    toast("请选择开始时间");
-                    return;
-                }
-                if (TextUtils.isEmpty(mTvEndTime.getTextRight())) {
-                    toast("请选择结束时间");
-                    return;
-                }
-                if (TextUtils.isEmpty(mEtReason.getText())) {
-                    toast("请输入申请理由");
-                    return;
-                }
-                Map<String, Object> map = new HashMap<>();
-                map.put("csm_id", mEntity.getId());
-                map.put("uuid ", Config.getInstance().getUser().getUuid());
-                map.put("use_unit", mEtUnit.getTextRight());
-                map.put("linkman", mEtName.getTextRight());
-                map.put("phone", mEtPhone.getTextRight());
-                map.put("reason", mEtReason.getText());
-                map.put("s_time", mTvStartTime.getTextRight());
-                map.put("e_time", mTvEndTime.getTextRight());
-
-                mPresenter.applyCASource(map);
+        findViewById(R.id.btn_apply).setOnClickListener(v -> {
+            if (TextUtils.isEmpty(mEtUnit.getTextRight())) {
+                toast("请输入单位或个人");
+                return;
             }
+            if (TextUtils.isEmpty(mEtName.getTextRight())) {
+                toast("请输入联系人");
+                return;
+            }
+            if (TextUtils.isEmpty(mEtPhone.getTextRight())) {
+                toast("请输入联系电话");
+                return;
+            }
+            if (TextUtils.isEmpty(mTvStartTime.getTextRight())) {
+                toast("请选择开始时间");
+                return;
+            }
+            if (TextUtils.isEmpty(mTvEndTime.getTextRight())) {
+                toast("请选择结束时间");
+                return;
+            }
+            if (TextUtils.isEmpty(mEtReason.getText())) {
+                toast("请输入申请理由");
+                return;
+            }
+            Map<String, Object> map = new HashMap<>();
+            map.put("csm_id", mEntity.getId());
+            map.put("uuid ", Config.getInstance().getUser().getUuid());
+            map.put("use_unit", mEtUnit.getTextRight());
+            map.put("linkman", mEtName.getTextRight());
+            map.put("phone", mEtPhone.getTextRight());
+            map.put("reason", mEtReason.getText());
+            map.put("s_time", mTvStartTime.getTextRight());
+            map.put("e_time", mTvEndTime.getTextRight());
+
+            mPresenter.applyCASource(map);
         });
     }
 
@@ -119,12 +103,7 @@ public class LtApplyResourceActivity extends BaseActivity<LtApplyResourcePresent
 //        endTime.set(1900, 0, 1);  // 默认始于1900-01-01
         endTime.add(Calendar.MONTH, 3);  //三个月之内
 
-        TimePickerView timePickerView = new TimePickerBuilder(this, new OnTimeSelectListener() {
-            @Override
-            public void onTimeSelect(Date date, View v) {
-                ylTextViewGroup.setTextRight(DateUtil.date2Str(date, DateUtil.FORMAT));
-            }
-        }).setType(new boolean[]{true, true, true, true, true, true})
+        TimePickerView timePickerView = new TimePickerBuilder(this, (date, v) -> ylTextViewGroup.setTextRight(DateUtil.date2Str(date, DateUtil.FORMAT))).setType(new boolean[]{true, true, true, true, true, true})
                 .setRangDate(startTime, endTime)
                 .setDate(startTime)
                 .isDialog(false).build();

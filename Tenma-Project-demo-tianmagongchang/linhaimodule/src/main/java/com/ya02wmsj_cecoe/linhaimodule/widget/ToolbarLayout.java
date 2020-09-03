@@ -114,7 +114,6 @@ public class ToolbarLayout extends RelativeLayout {
     }
 
     public void setMenuText(String text) {
-
         mIvMenu.setVisibility(GONE);
         mTvMenu.setVisibility(VISIBLE);
         mTvMenu.setText(text);
@@ -139,7 +138,6 @@ public class ToolbarLayout extends RelativeLayout {
     }
 
     public void setMenuIcon(@DrawableRes int resId) {
-
         mTvMenu.setVisibility(GONE);
         mIvMenu.setVisibility(VISIBLE);
         mIvMenu.setImageResource(resId);
@@ -154,18 +152,13 @@ public class ToolbarLayout extends RelativeLayout {
     private int scrollY = 0;
 
     public void scrollChange(int verticalOffset) {
-
-
         if (scrollY == verticalOffset) {
             return;
         }
         scrollY = verticalOffset;
-
         boolean enable = scrollY < mMinHeight;
         setEnabled(enable);
-
         int h = Math.max(mMaxHeight - scrollY, mMinHeight);
-
         int beforeHeight = mTvTitle.getHeight();
         ValueAnimator scaleY = ValueAnimator.ofInt(beforeHeight, h);
         scaleY.addUpdateListener(animation -> {
@@ -173,10 +166,8 @@ public class ToolbarLayout extends RelativeLayout {
             ViewGroup.LayoutParams params = mTvTitle.getLayoutParams();
             params.height = h1;
             mTvTitle.setLayoutParams(params);
-
             float alpha = (Math.max(mHeightDiff, h1) - mHeightDiff) * 1.0F / mMinHeight;
             setAlpha(alpha);
-
             float y = h1 - mMaxHeight;
             setY(y);
             if (mScrollListener != null) {
@@ -185,7 +176,6 @@ public class ToolbarLayout extends RelativeLayout {
             float size = mMinTitleTextSize + mTitleTextSizeDiff * (h1 - mMinHeight) / mHeightDiff;
             mTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
         });
-
         int d = Math.abs(h - beforeHeight) * 3;
         scaleY.setDuration(d);
         scaleY.start();
@@ -209,25 +199,19 @@ public class ToolbarLayout extends RelativeLayout {
         mIvMenu = findViewById(R.id.toolbar_iv_menu);
         mTvTitle = findViewById(R.id.toolbar_tv_title);
         mTvMenu = findViewById(R.id.toolbar_tv_menu);
-
-
         if (!mShowBack) {
             mIvBack.setVisibility(View.GONE);
         }
-
         if (!TextUtils.isEmpty(mTitleText)) {
             setTitle(mTitleText);
         }
-
         if (mMenuIcon != null) {
             mIvMenu.setVisibility(VISIBLE);
             mIvMenu.setImageDrawable(mMenuIcon);
-
         } else if (!TextUtils.isEmpty(mMenuText)) {
             mTvMenu.setVisibility(VISIBLE);
             mTvMenu.setText(mMenuText);
         }
-
         setBackgroundColor(ContextCompat.getColor(getContext(), R.color.yl_theme_color));
     }
 

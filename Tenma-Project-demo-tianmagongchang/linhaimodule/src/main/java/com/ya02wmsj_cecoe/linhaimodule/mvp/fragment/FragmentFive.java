@@ -21,13 +21,13 @@ import com.ya02wmsj_cecoe.linhaimodule.utils.RegionManager;
 import com.ya02wmsj_cecoe.linhaimodule.widget.EmptyView;
 import com.ya02wmsj_cecoe.linhaimodule.widget.ToolbarLayout;
 
-
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.Arrays;
 import java.util.List;
 
 /**
+ * 网络社区
  * Created by BenyChan on 2019-07-16.
  */
 public class FragmentFive extends BaseAreaFragment {
@@ -37,7 +37,6 @@ public class FragmentFive extends BaseAreaFragment {
     EmptyView mEmptyView;
 
     private FragmentWithTitleAdapter mPagerAdapter;
-
 
     @Override
     protected void updateRegion() {
@@ -71,18 +70,17 @@ public class FragmentFive extends BaseAreaFragment {
         mToolbar.setMenuText(RegionManager.getInstance().getCurrentTownName());
         mToolbar.showBack();
         mToolbar.setOnClickListener(v -> {
-                    ShellEvent shellEvent = new ShellEvent();
-                    shellEvent.setType(0);
-                    JsonObject jsonObject = new JsonObject();
-                    jsonObject.addProperty("page", 0);
-                    Gson gson = new Gson();
-                    shellEvent.setParams(gson.toJson(jsonObject));
-                    EventBus.getDefault().post(shellEvent);
-                }
-                , v -> {
-                    // 选择区域
-                    showRegionPickerDialog(mToolbar.getMenuTextView());
-                });
+            ShellEvent shellEvent = new ShellEvent();
+            shellEvent.setType(0);
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("page", 0);
+            Gson gson = new Gson();
+            shellEvent.setParams(gson.toJson(jsonObject));
+            EventBus.getDefault().post(shellEvent);
+        }, v -> {
+            // 选择区域
+            showRegionPickerDialog(mToolbar.getMenuTextView());
+        });
         mTabLayout.setupWithViewPager(mViewPager);
         if (mEmptyView != null) {
             mEmptyView.setText("暂无数据,点击重新加载");
@@ -92,8 +90,7 @@ public class FragmentFive extends BaseAreaFragment {
     @Override
     protected void initData() {
         super.initData();
-        setViewPagerData(Arrays.asList("秀一秀", "帮一帮", "说一说", "更多服务"),
-                Arrays.asList(NodeContentBetFragment.start("21"), NodeContentBetFragment.start("22"), NodeContentBetFragment.start("23"), new MoreServiceFragment()));
+        setViewPagerData(Arrays.asList("秀一秀", "帮一帮", "说一说", "更多服务"), Arrays.asList(NodeContentBetFragment.start("21"), NodeContentBetFragment.start("22"), NodeContentBetFragment.start("23"), new MoreServiceFragment()));
     }
 
     public void setViewPagerData(String[] titles, Fragment[] fragments) {
@@ -139,6 +136,5 @@ public class FragmentFive extends BaseAreaFragment {
 
     @Override
     public void updateOnlineList() {
-
     }
 }

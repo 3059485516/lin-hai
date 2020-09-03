@@ -87,15 +87,13 @@ public class TextSwitcherAnimation {
         OutAnimationSet = new AnimationSet(true);
 
         alphaAnimation = new AlphaAnimation(0, 1);
-        translateAnimation = new TranslateAnimation(Animation.ABSOLUTE, 0, Animation.ABSOLUTE, 0,
-                Animation.ABSOLUTE, h, Animation.ABSOLUTE, 0);
+        translateAnimation = new TranslateAnimation(Animation.ABSOLUTE, 0, Animation.ABSOLUTE, 0, Animation.ABSOLUTE, h, Animation.ABSOLUTE, 0);
         InAnimationSet.addAnimation(alphaAnimation);
         InAnimationSet.addAnimation(translateAnimation);
         InAnimationSet.setDuration(DURATION);
 
         alphaAnimation = new AlphaAnimation(1, 0);
-        translateAnimation = new TranslateAnimation(Animation.ABSOLUTE, 0, Animation.ABSOLUTE, 0,
-                Animation.ABSOLUTE, 0, Animation.ABSOLUTE, -h);
+        translateAnimation = new TranslateAnimation(Animation.ABSOLUTE, 0, Animation.ABSOLUTE, 0, Animation.ABSOLUTE, 0, Animation.ABSOLUTE, -h);
         OutAnimationSet.addAnimation(alphaAnimation);
         OutAnimationSet.addAnimation(translateAnimation);
         OutAnimationSet.setDuration(DURATION);

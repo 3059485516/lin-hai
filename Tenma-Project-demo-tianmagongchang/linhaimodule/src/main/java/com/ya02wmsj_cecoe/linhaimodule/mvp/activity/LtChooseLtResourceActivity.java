@@ -1,6 +1,5 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.ya02wmsj_cecoe.linhaimodule.Constant;

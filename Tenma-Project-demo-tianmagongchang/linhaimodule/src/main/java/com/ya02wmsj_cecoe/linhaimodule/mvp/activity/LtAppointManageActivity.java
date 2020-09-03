@@ -1,9 +1,9 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
 import android.support.v4.app.Fragment;
-
 import com.ya02wmsj_cecoe.linhaimodule.base.activity.BaseViewPagerActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.fragment.LtAppointManageFragment;
+
 
 public class LtAppointManageActivity extends BaseViewPagerActivity {
     @Override
@@ -18,7 +18,6 @@ public class LtAppointManageActivity extends BaseViewPagerActivity {
 
     @Override
     protected void initMVP() {
-
     }
 
     @Override

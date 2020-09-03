@@ -42,8 +42,9 @@
     <application
         android:hardwareAccelerated="true"
         android:networkSecurityConfig="@xml/ya02wmsj_cecoe_network_security_config">
-        <activity android:name=".mvp.activity.ServiceListInfo2Activity"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".mvp.activity.ServiceListInfo2Activity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".mvp.activity.UploadBadHabitsActivity"
             android:screenOrientation="portrait" />
@@ -409,11 +410,15 @@
             android:name=".mvp.activity.VoteAppraiseActivity"
             android:theme="@style/YLDialogTheme" />
 
+        <activity
+            android:name=".mvp.activity.OtherServicesActivity"
+            android:screenOrientation="portrait" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.tenma.ventures.linhai.fileProvider"
-            android:grantUriPermissions="true"
-            android:exported="false">
+            android:exported="false"
+            android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />

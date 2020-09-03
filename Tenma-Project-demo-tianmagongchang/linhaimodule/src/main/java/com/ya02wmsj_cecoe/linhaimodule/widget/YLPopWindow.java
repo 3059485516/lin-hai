@@ -19,9 +19,7 @@ import android.widget.PopupWindow;
  * @author Yang Shihao
  */
 public class YLPopWindow implements PopupWindow.OnDismissListener {
-
     private static final float DEFAULT_ALPHA = 0.7f;
-
     private Context mContext;
     private int mWidth;
     private int mHeight;

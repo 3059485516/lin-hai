@@ -63,25 +63,20 @@ public class FinishWishActivity extends BaseActivity<FinishWishPresenter> implem
             }
         });
 
-
-        findViewById(R.id.btn_commit).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (TextUtils.isEmpty(mEtContent.getText())) {
-                    toast("请填写总结报告");
-                    return;
-                }
-                Map<String, Object> map = new HashMap<>();
-                map.put("wish_id", mWishId);
-                map.put("tell", mEtContent.getText());
-                mPresenter.commit(map);
+        findViewById(R.id.btn_commit).setOnClickListener(v -> {
+            if (TextUtils.isEmpty(mEtContent.getText())) {
+                toast("请填写总结报告");
+                return;
             }
+            Map<String, Object> map = new HashMap<>();
+            map.put("wish_id", mWishId);
+            map.put("tell", mEtContent.getText());
+            mPresenter.commit(map);
         });
     }
 
     @Override
     protected void initData() {
-
     }
 
     @Override

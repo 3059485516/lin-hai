@@ -27,19 +27,6 @@ public class WrapContentHeightViewPager extends ViewPager {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//        int currentItem = this.getCurrentItem();
-////        int height = 0;
-////        //这里有个前提就是ViewPager里面的View不能设置主动销毁，要保证getChildCount的数量与getCurrentItem对应上
-////        for (int i = 0; i < getChildCount(); i++) {
-////            if (currentItem == i) {
-////                View child = getChildAt(i);
-////                child.measure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
-////                height = child.getMeasuredHeight();
-////                break;
-////            }
-////        }
-////        heightMeasureSpec = MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY);
-////        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         int height = 0;
         if (map.size() > 0 && map.containsKey(currentPage)) {
             height = map.get(currentPage);

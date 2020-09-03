@@ -34,15 +34,16 @@ public class RecyclerScrollView extends ScrollView {
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                //  保存当前touch的纵坐标值
+                //保存当前touch的纵坐标值
                 touch = (int) ev.getRawY();
                 break;
             case MotionEvent.ACTION_MOVE:
-                //  滑动距离大于slop值时，返回true
-                if (Math.abs((int) ev.getRawY() - touch) > slop) return true;
+                //滑动距离大于slop值时，返回true
+                if (Math.abs((int) ev.getRawY() - touch) > slop){
+                    return true;
+                }
                 break;
         }
-
         return super.onInterceptTouchEvent(ev);
     }
 
