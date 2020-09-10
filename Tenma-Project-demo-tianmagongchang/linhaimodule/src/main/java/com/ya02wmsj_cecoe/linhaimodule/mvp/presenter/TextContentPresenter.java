@@ -113,9 +113,14 @@ public class TextContentPresenter extends TextContentContract.Presenter {
         addRx2Destroy(new RxSubscriber<List<NodeContent>>(Api.getContentDetail(map)) {
             @Override
             protected void _onNext(List<NodeContent> list) {
+                mView.dismissDialog();
                 if (list != null && list.size() > 0) {
                     mView.updateView(list.get(0));
                 }
+            }
+            protected  void _onError(String code){
+                mView.dismissDialog();
+                super._onError(code);
             }
         });
     }

@@ -17,8 +17,8 @@
         android:layout_width="@dimen/yl_title_height_style2"
         android:layout_height="@dimen/yl_title_height_style2"
         android:layout_centerVertical="true"
-        android:padding="14dp"
-        android:src="@drawable/ya02wmsj_cecoe_ic_chevron_right_24dp" />
+        android:padding="10dp"
+        android:src="@mipmap/app_back" />
 
     <ImageView
         android:id="@+id/iv_play"

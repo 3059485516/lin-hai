@@ -5,6 +5,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 
+import com.tenma.ventures.share.bean.TMLinkShare;
+import com.tenma.ventures.share.util.TMShareUtil;
 import com.ya02wmsj_cecoe.linhaimodule.Config;
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.R;
@@ -44,10 +46,22 @@ public class AppraiseWebContentActivity extends BaseWebViewActivity<ActionWebCon
     }
 
     @Override
+    public void onMenuClicked() {
+        //分享链接
+        TMLinkShare tmLinkShare = new TMLinkShare();
+        String url = Constant.getBaseUrl() + "application/ya02wmsj_cecoe/share/index.html?id=" + mActionEntity.getId();
+        tmLinkShare.setUrl(url);
+        tmLinkShare.setTitle(mActionEntity.getTitle());
+        tmLinkShare.setThumb(mActionEntity.getIcon_path());
+        TMShareUtil.getInstance(mContext).shareLink(tmLinkShare);
+    }
+
+    @Override
     protected void initView() {
         mActionEntity = (AppraiseEntity) getIntent().getSerializableExtra(Constant.KEY_BEAN);
         mRvVote = findViewById(R.id.rv_vote);
         setTitle(mActionEntity.getName());
+        setMenuIcon(R.mipmap.ya02wmsj_cecoe_icon_fx_white);
         setHtml(mActionEntity.getContent());
         mRvVote.setLayoutManager(new GridLayoutManager(this, 2));
         if (mActionEntity.getVoteInfo() != null) {

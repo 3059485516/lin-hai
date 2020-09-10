@@ -42,12 +42,17 @@ public class NodeContentBetFragment extends BaseListFragment<OnlineCommunityCont
 
     @Override
     protected MultiItemTypeAdapter getAdapter() {
-        return new OnlineCommunityAdapter(mActivity, mPresenter.getDataList());
+        OnlineCommunityAdapter adapter = new OnlineCommunityAdapter(mActivity, mPresenter.getDataList());
+        adapter.setNodeId(nodeId);
+        return adapter;
     }
+
+    private String nodeId;
 
     @Override
     protected void initMVP() {
-        mPresenter = new OnlineCommunityPresenter(this, getArguments().getString(Constant.KEY_STRING_1));
+        nodeId = getArguments().getString(Constant.KEY_STRING_1);
+        mPresenter = new OnlineCommunityPresenter(this,nodeId);
     }
 
     @Override

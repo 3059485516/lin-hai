@@ -70,12 +70,12 @@ public class MainNodeContentAdapter extends CommonAdapter<NodeContent> {
             String type = nodeContent.getType();
             if ("图文视频".equals(type)) {
                 if (nodeContent.getVideo_path() != null && !TextUtils.isEmpty(nodeContent.getVideo_path().getOrigUrl())) {
-                    LittleVideoActivity.launch(mContext, nodeContent.getId(), RegionManager.getInstance().getCurrentCountyCode(), nodeContent.getNode_id());
+                    LittleVideoActivity.launch(mContext, nodeContent.getId(), RegionManager.getInstance().getCurrentCountyCode(), "" + Constant.MAIN_NEW);
                 } else {
                     Intent intent = new Intent(mContext, TextContentActivity.class);
                     intent.putExtra(Constant.KEY_STRING_1, nodeContent.getId());
                     intent.putExtra(Constant.KEY_STRING_2, RegionManager.getInstance().getCurrentCountyCode());
-                    intent.putExtra(Constant.KEY_STRING_3, nodeContent.getNode_id());
+                    intent.putExtra(Constant.KEY_STRING_3, "" + Constant.MAIN_NEW);
                     intent.putExtra(Constant.KEY_STRING_4, "y");
                     mContext.startActivity(intent);
                 }

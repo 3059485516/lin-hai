@@ -2,8 +2,6 @@ package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -21,6 +19,7 @@ import com.ya02wmsj_cecoe.linhaimodule.utils.ImageManager;
 
 import java.util.List;
 
+
 public class ServiceInfoDetail2Activity extends BaseActivity {
     public static void launch(Context context, ServiceInfoEntity serviceInfoEntity){
         context.startActivity(new Intent(context,ServiceInfoDetail2Activity.class)
@@ -34,7 +33,6 @@ public class ServiceInfoDetail2Activity extends BaseActivity {
 
     @Override
     protected void initMVP() {
-
     }
 
     @Override

@@ -1,8 +1,7 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.contract;
 
-import com.ya02wmsj_cecoe.linhaimodule.adapter.TakeBadHabitsAdapter;
-import com.ya02wmsj_cecoe.linhaimodule.base.mvp.BaseCleanListContract;
-import com.ya02wmsj_cecoe.linhaimodule.base.mvp.BaseQuickAdapterPresenter;
+import com.ya02wmsj_cecoe.linhaimodule.base.mvp.AListPresenter;
+import com.ya02wmsj_cecoe.linhaimodule.base.mvp.IListView;
 import com.ya02wmsj_cecoe.linhaimodule.bean.NodeContent;
 
 /**
@@ -13,15 +12,12 @@ import com.ya02wmsj_cecoe.linhaimodule.bean.NodeContent;
  * ================================================
  */
 public interface TakeBadHabitsListContract {
-    interface View extends BaseCleanListContract.View{
-
+    interface View extends IListView {
     }
 
-    abstract class Presenter extends BaseQuickAdapterPresenter<TakeBadHabitsAdapter,View, NodeContent>{
-
+    abstract class Presenter extends AListPresenter<View, NodeContent> {
         public Presenter(View view) {
             super(view);
-            mAdapter = new TakeBadHabitsAdapter(mData);
         }
     }
 }

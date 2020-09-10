@@ -3,50 +3,43 @@ package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
-import com.luck.picture.lib.PictureSelector;
-import com.luck.picture.lib.config.PictureConfig;
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.base.activity.BaseActivity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.Node;
-import com.ya02wmsj_cecoe.linhaimodule.bean.RegionEntity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.UploadBadHabitsContract;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.UploadBadHabitsPresenter;
-import com.ya02wmsj_cecoe.linhaimodule.utils.KeyBoardUtils;
+import com.ya02wmsj_cecoe.linhaimodule.utils.ImageManager;
 import com.ya02wmsj_cecoe.linhaimodule.widget.CircleProgressDialog;
 import com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup;
 
 import java.util.List;
 
-public class UploadBadHabitsActivity extends BaseActivity<UploadBadHabitsContract.Presenter>implements UploadBadHabitsContract.View {
-
+/**
+ * 我要拍陋习
+ */
+public class UploadBadHabitsActivity extends BaseActivity<UploadBadHabitsContract.Presenter> implements UploadBadHabitsContract.View {
     private CircleProgressDialog mCircleProgressDialog;
     public static final int REQUEST_REGION_CODE = 400;
     private OptionsPickerView<Node> optionsPickerView;
 
-
-    public static void launch(Context context, String filePath){
-        context.startActivity(new Intent(context,UploadBadHabitsActivity.class)
-        .putExtra(Constant.KEY_STRING_1,filePath));
+    public static void launch(Context context, String filePath) {
+        context.startActivity(new Intent(context, UploadBadHabitsActivity.class).putExtra(Constant.KEY_STRING_1, filePath));
     }
+
     protected EditText mEtDesc;
-
     protected EditText mEtTitle;
-
-    private RecyclerView rvNode;
     protected YLTextViewGroup mTvRegion;
     protected YLTextViewGroup mTvNode;
+    protected ImageView iv_thumbnail;
 
     @Override
     protected int getLayoutId() {
@@ -55,62 +48,58 @@ public class UploadBadHabitsActivity extends BaseActivity<UploadBadHabitsContrac
 
     @Override
     protected void initMVP() {
-        mPresenter = new UploadBadHabitsPresenter(this,getIntent());
+        mPresenter = new UploadBadHabitsPresenter(this, getIntent());
     }
 
     @Override
     protected void initView() {
+        setTitle("我要拍陋习");
         mEtDesc = findViewById(R.id.et_desc);
         mEtTitle = findViewById(R.id.et_title);
         mTvRegion = findViewById(R.id.tv_region);
         mTvNode = findViewById(R.id.tv_node);
         View video = findViewById(R.id.video);
+        iv_thumbnail = findViewById(R.id.iv_thumbnail);
+
         final String filePath = mPresenter.getFilePath();
-        if(TextUtils.isEmpty(filePath)){
+        if (TextUtils.isEmpty(filePath)) {
             video.setVisibility(View.GONE);
+        }else {
+            ImageManager.getInstance().loadImage(mContext,filePath,iv_thumbnail);
         }
         mTvRegion.setOnClickListener(v -> startActivityForResult(new Intent(mContext, SelectRegionActivity.class), REQUEST_REGION_CODE));
-//        rvNode = findViewById(R.id.rv_node);
-//        rvNode.setLayoutManager(new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL));
-        final View.OnClickListener onClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onIvPlayClicked();
-            }
-        };
+
+        final View.OnClickListener onClickListener = v -> onIvPlayClicked();
         findViewById(R.id.iv_play).setOnClickListener(onClickListener);
-        findViewById(R.id.btn_release).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String videoTitle = getVideoTitle();
-                if(TextUtils.isEmpty(videoTitle)){
-                    toast("请填写标题！");
-                    return;
-                }
-                final String content = getContent();
-                if(TextUtils.isEmpty(content)){
-                    toast("请填写内容！");
-                    return;
-                }
-                final String regionCode = getRegionCode();
-                if(TextUtils.isEmpty(regionCode)){
-                    toast("请选择地区！");
-                    return;
-                }
-                final String badHabitsNode = getBadHabitsNode();
-                if(TextUtils.isEmpty(badHabitsNode)){
-                    toast("请选择栏目！");
-                    return;
-                }
-                mPresenter.addContent();
+        findViewById(R.id.btn_release).setOnClickListener(v -> {
+            final String videoTitle = getVideoTitle();
+            if (TextUtils.isEmpty(videoTitle)) {
+                toast("请填写标题！");
+                return;
             }
+            final String content = getContent();
+            if (TextUtils.isEmpty(content)) {
+                toast("请填写内容！");
+                return;
+            }
+            final String regionCode = getRegionCode();
+            if (TextUtils.isEmpty(regionCode)) {
+                toast("请选择地区！");
+                return;
+            }
+            final String badHabitsNode = getBadHabitsNode();
+            if (TextUtils.isEmpty(badHabitsNode)) {
+                toast("请选择栏目！");
+                return;
+            }
+            mPresenter.addContent();
         });
         mTvNode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(optionsPickerView != null){
+                if (optionsPickerView != null) {
                     optionsPickerView.show();
-                }else {
+                } else {
                     mPresenter.getBadHabitList();
                 }
             }
@@ -119,19 +108,18 @@ public class UploadBadHabitsActivity extends BaseActivity<UploadBadHabitsContrac
 
     @Override
     protected void initData() {
-//        mPresenter.getBadHabitList();
     }
 
     @Override
     public void setUploadProgress(int progress) {
-        if (mCircleProgressDialog != null){
+        if (mCircleProgressDialog != null) {
             mCircleProgressDialog.setProgress(progress);
         }
     }
 
     @Override
     public void dissCircleProgressDialog() {
-        if (mCircleProgressDialog != null && mCircleProgressDialog.isShowing()){
+        if (mCircleProgressDialog != null && mCircleProgressDialog.isShowing()) {
             mCircleProgressDialog.dismiss();
         }
     }
@@ -158,10 +146,10 @@ public class UploadBadHabitsActivity extends BaseActivity<UploadBadHabitsContrac
 
     @Override
     public void showCircleProgressDialog() {
-        if (mCircleProgressDialog == null){
+        if (mCircleProgressDialog == null) {
             mCircleProgressDialog = new CircleProgressDialog(mContext);
         }
-        if (!mCircleProgressDialog.isShowing()){
+        if (!mCircleProgressDialog.isShowing()) {
             mCircleProgressDialog.setProgress(0);
             mCircleProgressDialog.show();
         }
@@ -202,7 +190,7 @@ public class UploadBadHabitsActivity extends BaseActivity<UploadBadHabitsContrac
             }
         }).build();
         optionsPickerView.setPicker(o);
-        if(!optionsPickerView.isShowing()){
+        if (!optionsPickerView.isShowing()) {
             optionsPickerView.show();
         }
     }
@@ -214,7 +202,7 @@ public class UploadBadHabitsActivity extends BaseActivity<UploadBadHabitsContrac
 
     @Override
     protected void onDestroy() {
-        if(mCircleProgressDialog!=null&&mCircleProgressDialog.isShowing()){
+        if (mCircleProgressDialog != null && mCircleProgressDialog.isShowing()) {
             mCircleProgressDialog.dismiss();
         }
         super.onDestroy();

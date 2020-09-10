@@ -1,20 +1,19 @@
 package com.ya02wmsj_cecoe.linhaimodule.adapter;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.bean.NodeContent;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LittleVideoActivity;
 import com.ya02wmsj_cecoe.linhaimodule.utils.ImageManager;
 import com.ya02wmsj_cecoe.linhaimodule.utils.RegionManager;
 import com.ya02wmsj_cecoe.linhaimodule.utils.TDevice;
+import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.List;
 
@@ -25,13 +24,14 @@ import java.util.List;
  * desc   : EMPTY
  * ================================================
  */
-public class TakeBadHabitsAdapter extends BaseQuickAdapter<NodeContent, BaseViewHolder> {
-    public TakeBadHabitsAdapter(@Nullable List<NodeContent> data) {
-        super(R.layout.ya02wmsj_cecoe_item_take_bad_habits, data);
+public class TakeBadHabitsAdapter extends CommonAdapter<NodeContent> {
+
+    public TakeBadHabitsAdapter(Context context, List<NodeContent> data) {
+        super(context,R.layout.ya02wmsj_cecoe_item_take_bad_habits, data);
     }
 
     @Override
-    protected void convert(@NonNull BaseViewHolder helper, NodeContent item) {
+    protected void convert(ViewHolder helper, NodeContent item, int position) {
         ImageView imageView = helper.getView(R.id.iv_cover);
         ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
         final int adapterPosition = helper.getAdapterPosition();
@@ -64,14 +64,7 @@ public class TakeBadHabitsAdapter extends BaseQuickAdapter<NodeContent, BaseView
         } else {
             ImageManager.getInstance().loadCircleImage(mContext, R.mipmap.ya02wmsj_cecoe_head, helper.getView(R.id.iv_head));
         }
-        helper.setText(R.id.tv_name, item.getName())
-                .setText(R.id.tv_title, item.getTitle())
-                .setText(R.id.tv_like_num, item.getThumb_num() + "");
-        helper.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LittleVideoActivity.launch(mContext,item.getId(), RegionManager.getInstance().getCurrentCountyCode(),item.getNode_id());
-            }
-        });
+        helper.setText(R.id.tv_name, item.getName()).setText(R.id.tv_title, item.getTitle()).setText(R.id.tv_like_num, item.getThumb_num() + "");
+        helper.itemView.setOnClickListener(v -> LittleVideoActivity.launch(mContext, item.getId(), RegionManager.getInstance().getCurrentCountyCode(), "74"));
     }
 }

@@ -93,6 +93,13 @@ public abstract class BaseListActivity<P extends AListPresenter> extends BaseAct
         return R.layout.ya02wmsj_cecoe_activity_base_list;
     }
 
+    public void setLinearLayoutManager(){
+        LinearLayoutManager mLLManager = new LinearLayoutManager(this);
+        mLLManager.setSmoothScrollbarEnabled(true);
+        mLLManager.setAutoMeasureEnabled(true);
+        mRecyclerView.setLayoutManager(mLLManager);
+    }
+
     @Override
     protected final void initUI() {
         super.initUI();
@@ -101,11 +108,7 @@ public abstract class BaseListActivity<P extends AListPresenter> extends BaseAct
         mScrollView = findViewById(R.id.scroll);
         mRecyclerView.setFocusable(false);
         mRecyclerView.setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
-//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mLLManager = new LinearLayoutManager(this);
-        mLLManager.setSmoothScrollbarEnabled(true);
-        mLLManager.setAutoMeasureEnabled(true);
-        mRecyclerView.setLayoutManager(mLLManager);
+        setLinearLayoutManager();
         mMultiItemTypeAdapter = getAdapter();
         mAdapter = new MyEmptyWrapper(mMultiItemTypeAdapter);
         mEmptyView = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.ya02wmsj_cecoe_view_empty, mRecyclerView, false);

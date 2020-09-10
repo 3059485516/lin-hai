@@ -5,9 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.shuyu.gsyvideoplayer.builder.GSYVideoOptionBuilder;
-import com.shuyu.gsyvideoplayer.listener.GSYSampleCallBack;
 import com.shuyu.gsyvideoplayer.listener.VideoAllCallBack;
 import com.shuyu.gsyvideoplayer.utils.GSYVideoType;
 import com.ya02wmsj_cecoe.linhaimodule.R;
@@ -65,7 +63,7 @@ public abstract class BaseLittleVideoActivity<P extends APresenter<?>> extends B
      */
     private void initVideo() {
         mVideoView = new LittleVideoView(this);
-        GSYVideoType.setShowType(GSYVideoType.SCREEN_TYPE_FULL);
+        GSYVideoType.setShowType(GSYVideoType.SCREEN_TYPE_DEFAULT);
         mGsySmallVideoHelperBuilder = new GSYVideoOptionBuilder();
         mGsySmallVideoHelperBuilder
                 .setLooping(isLoopPlay)

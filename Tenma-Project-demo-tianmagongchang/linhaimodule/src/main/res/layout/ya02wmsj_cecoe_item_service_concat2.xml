@@ -1,55 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginRight="12dp"
-    android:layout_marginLeft="12dp"
-    android:layout_marginTop="12dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
     android:background="@drawable/ya02wmsj_cecoe_card_shape">
+
     <ImageView
         android:id="@+id/iv_head"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_margin="16dp"
-        android:src="@mipmap/ya02wmsj_cecoe_head"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="132dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:src="@mipmap/ya02wmsj_cecoe_head" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|start"
-        tools:text="交流交流看见就就金坷垃"
-        android:maxLines="2"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:layout_marginStart="12dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/iv_head"
-        app:layout_constraintRight_toLeftOf="@+id/tv_phone" />
-    <TextView
-        android:id="@+id/tv_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:maxLength="11"
-        tools:text="18798329987jlfajslkd"
-        android:layout_marginStart="12dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/tv_name"/>
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/iv_call_phone"
+        android:layout_toRightOf="@+id/iv_head"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.2"
+            android:maxLines="2"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            tools:text="交流交流看见就就金坷垃交流交流看见就就金坷垃交流交流看见就就金坷垃交流交流看见就就金坷垃交流交流看见就就金坷垃" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:maxLength="11"
+            tools:text="18798329987jlfajslkd" />
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/iv_call_phone"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:padding="12dp"
-        android:layout_marginEnd="8dp"
-        android:src="@mipmap/ya02wmsj_cecoe_call_phone"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-</android.support.constraint.ConstraintLayout>
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="6dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="6dp"
+        android:src="@mipmap/ya02wmsj_cecoe_call_phone" />
+</RelativeLayout>

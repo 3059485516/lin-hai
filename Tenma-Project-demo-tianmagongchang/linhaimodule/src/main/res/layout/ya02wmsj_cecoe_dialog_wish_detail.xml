@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/yl_margin_xl"
+    android:orientation="vertical">
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+        android:id="@+id/tv_apply_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/ya02wmsj_cecoe_acm_inputbox"
+        android:gravity="center_vertical"
+        app:e_text_left="认领人:"
+        app:text_gravity="right" />
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+        android:id="@+id/tv_apply_phone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/ya02wmsj_cecoe_acm_inputbox"
+        android:gravity="center_vertical"
+        app:e_text_left="联系电话:"
+        app:edit_input_style="number"
+        app:text_gravity="right" />
+
+    <com.ya02wmsj_cecoe.linhaimodule.widget.YLEditTextGroup
+        android:id="@+id/tv_apply_addr"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/ya02wmsj_cecoe_acm_inputbox"
+        android:gravity="center_vertical"
+        app:e_text_left="地址:"
+        app:text_gravity="right" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/yl_margin_xl"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ya02wmsj_cecoe_bg_btn_discuss"
+            android:letterSpacing="0.3"
+            android:text="取消"
+            android:textColor="@color/yl_white" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:background="@drawable/ya02wmsj_cecoe_selector_btn_bg"
+            android:letterSpacing="0.3"
+            android:text="认领心愿"
+            android:textColor="@color/yl_white" />
+    </LinearLayout>
+</LinearLayout>
+

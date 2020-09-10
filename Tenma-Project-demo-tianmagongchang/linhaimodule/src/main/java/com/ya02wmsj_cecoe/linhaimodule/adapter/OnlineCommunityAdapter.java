@@ -33,6 +33,15 @@ import java.util.List;
  * 网络社区适配器
  */
 public class OnlineCommunityAdapter extends MultiItemTypeAdapter<OnlineCommunity> {
+    private String nodeId;
+
+    public String getNodeId() {
+        return nodeId;
+    }
+
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
 
     public OnlineCommunityAdapter(Context context, List<OnlineCommunity> datas) {
         super(context, datas);
@@ -96,12 +105,12 @@ public class OnlineCommunityAdapter extends MultiItemTypeAdapter<OnlineCommunity
                 String type = nodeContent.getType();
                 if ("图文视频".equals(type)) {
                     if (nodeContent.getVideo_path() != null && !TextUtils.isEmpty(nodeContent.getVideo_path().getOrigUrl())) {
-                        LittleVideoActivity.launch(mContext, nodeContent.getId(), RegionManager.getInstance().getCurrentCountyCode(), nodeContent.getNode_id());
+                        LittleVideoActivity.launch(mContext, nodeContent.getId(), RegionManager.getInstance().getCurrentCountyCode(), nodeId);
                     } else {
                         Intent intent = new Intent(mContext, TextContentActivity.class);
                         intent.putExtra(Constant.KEY_STRING_1, nodeContent.getId());
                         intent.putExtra(Constant.KEY_STRING_2, RegionManager.getInstance().getCurrentCountyCode());
-                        intent.putExtra(Constant.KEY_STRING_3, nodeContent.getNode_id());
+                        intent.putExtra(Constant.KEY_STRING_3, nodeId);
                         intent.putExtra(Constant.KEY_STRING_4, "y");
                         mContext.startActivity(intent);
                     }

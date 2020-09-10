@@ -20,23 +20,16 @@ import com.ya02wmsj_cecoe.linhaimodule.utils.DialogHelp;
 import java.util.HashMap;
 import java.util.Map;
 
-
 /**
  * Created by BenyChan on 2019-07-26.
  */
 public class QuestionActivity extends BaseActivity<QuestionContract.Presenter> implements QuestionContract.View {
     protected TextView mTvContent;
-
     protected TextView mTvTime;
-
     protected LinearLayout mLayBottom;
-
     protected TextView mTvCountShow;
-
     protected ViewPager mVpQuestion;
-
     protected TextView mTvLast;
-
     protected TextView mTvNext;
 
     private AppraiseEntity mActivityEntity;
@@ -164,7 +157,6 @@ public class QuestionActivity extends BaseActivity<QuestionContract.Presenter> i
 
     @Override
     protected void initData() {
-
     }
 
     @Override

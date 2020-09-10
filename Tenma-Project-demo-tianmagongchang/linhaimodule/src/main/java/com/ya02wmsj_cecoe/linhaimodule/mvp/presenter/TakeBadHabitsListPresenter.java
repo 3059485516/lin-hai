@@ -1,12 +1,7 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.presenter;
 
-import com.ya02wmsj_cecoe.linhaimodule.bean.NodeContent;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.TakeBadHabitsListContract;
 import com.ya02wmsj_cecoe.linhaimodule.rx.Api;
-
-import java.util.List;
-
-import io.reactivex.Observable;
 
 /**
  * ================================================
@@ -21,20 +16,8 @@ public class TakeBadHabitsListPresenter extends TakeBadHabitsListContract.Presen
     }
 
     @Override
-    public void onRefresh() {
-        super.onRefresh();
-        getContentList(true);
+    public void getPageData(boolean isRefresh) {
+        super.getPageData(isRefresh);
+        setDataSource(Api.getContentList("", "", "", "74", String.valueOf(getPage()),PAGE_SIZE + ""));
     }
-
-    @Override
-    public void onLoadMore() {
-        super.onLoadMore();
-        getContentList(false);
-    }
-
-    private void getContentList(boolean isRefresh){
-        addDataObservable(contentList,isRefresh);
-    }
-    private final Observable<List<NodeContent>> contentList = Api.getContentList("", "", "", "74",
-            String.valueOf(getPage()), String.valueOf(getOnePageMaxSize()));
 }

@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.tenma.ventures.share.bean.TMLinkShare;
 import com.tenma.ventures.share.bean.TMTextShare;
 import com.tenma.ventures.share.util.TMShareUtil;
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
@@ -55,10 +56,23 @@ public class ApperaceScoreActivity extends BaseActivity<AppreaceScoreContract.Pr
         mPresenter = new AppreaceScorePresenter(this);
     }
 
+
+    @Override
+    public void onMenuClicked() {
+        //分享链接
+        TMLinkShare tmLinkShare = new TMLinkShare();
+        String url = Constant.getBaseUrl() + "application/ya02wmsj_cecoe/share/index.html?id=" + mEntity.getId();
+        tmLinkShare.setUrl(url);
+        tmLinkShare.setTitle(mEntity.getTitle());
+        tmLinkShare.setThumb(mEntity.getIcon_path());
+        TMShareUtil.getInstance(mContext).shareLink(tmLinkShare);
+    }
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void initView() {
         setTitle("我的评议");
+        setMenuIcon(R.mipmap.ya02wmsj_cecoe_icon_fx_white);
         mIvIcon = findViewById(R.id.iv_icon);
         mTvTitle = findViewById(R.id.tv_title);
         mTvInnerTitle = findViewById(R.id.tv_title_inner);

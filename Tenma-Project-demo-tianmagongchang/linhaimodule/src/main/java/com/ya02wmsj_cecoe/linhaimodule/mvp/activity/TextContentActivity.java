@@ -29,36 +29,23 @@ import com.ya02wmsj_cecoe.linhaimodule.widget.CoverVideo;
 import com.ya02wmsj_cecoe.linhaimodule.widget.ItemDecorationVertical;
 import com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView;
 import com.ya02wmsj_cecoe.linhaimodule.widget.dialog.CommentDialog;
-import com.yl.edit.video.activity.VideoShootActivity;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-
-import io.reactivex.functions.Consumer;
 
 /**
  * Created by BenyChan on 2019-07-25.
  */
 public class TextContentActivity extends BaseWebViewActivity<TextContentContract.Presenter> implements TextContentContract.View {
-    RatioImageView mIvTop;
-
+    protected RatioImageView mIvTop;
     protected TextView mTvTitle;
-
     protected TextView mTvSource;
-
-    TextView mTvArea;
-
-    CoverVideo mVideo;
-
+    protected TextView mTvArea;
+    protected CoverVideo mVideo;
     protected TextView mTvLastContent, mTvNextContent;
-
     protected TextView tv_operate_sum;
-
     protected RecyclerView mRvComment;
-
     protected ImageButton mIbLike;
-
     protected ImageButton mIbCollect;
     private ImageView mIvNextDetail;
 

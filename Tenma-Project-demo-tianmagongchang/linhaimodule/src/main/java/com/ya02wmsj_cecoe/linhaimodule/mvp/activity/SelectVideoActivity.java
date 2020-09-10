@@ -20,7 +20,6 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.luck.picture.lib.permissions.RxPermissions;
-import com.ya02wmsj_cecoe.linhaimodule.BuildConfig;
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.adapter.VideoAdapter;
