@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/yl_black"
     tools:context=".mvp.activity.VideoPreviewActivity">
-
 
     <VideoView
         android:id="@+id/video"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_centerInParent="true"
         android:layout_gravity="center" />
 
     <ImageView
         android:id="@+id/base_iv_back"
         android:layout_width="@dimen/yl_title_height_style2"
         android:layout_height="@dimen/yl_title_height_style2"
-        android:layout_centerVertical="true"
         android:padding="10dp"
         android:src="@mipmap/app_back" />
 
@@ -24,16 +24,15 @@
         android:id="@+id/iv_play"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:src="@mipmap/ya02wmsj_cecoe_play"
+        android:layout_centerInParent="true"
         android:visibility="gone" />
-
 
     <com.ya02wmsj_cecoe.linhaimodule.widget.loading.AVLoadingIndicatorView
         android:id="@+id/progress"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:layout_centerInParent="true"
         android:layout_gravity="center" />
-
-</merge>
+</RelativeLayout>
