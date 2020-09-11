@@ -49,7 +49,7 @@ public class AppraiseWebContentActivity extends BaseWebViewActivity<ActionWebCon
     public void onMenuClicked() {
         //分享链接
         TMLinkShare tmLinkShare = new TMLinkShare();
-        String url = Constant.getBaseUrl() + "application/ya02wmsj_cecoe/share/index.html?id=" + mActionEntity.getId();
+        String url = Constant.getBaseUrl() + "application/ya02wmsj_cecoe/activityShare/index.html?id=" + mActionEntity.getId();
         tmLinkShare.setUrl(url);
         tmLinkShare.setTitle(mActionEntity.getTitle());
         tmLinkShare.setThumb(mActionEntity.getIcon_path());

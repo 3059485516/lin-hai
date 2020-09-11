@@ -61,7 +61,7 @@ public class ApperaceScoreActivity extends BaseActivity<AppreaceScoreContract.Pr
     public void onMenuClicked() {
         //分享链接
         TMLinkShare tmLinkShare = new TMLinkShare();
-        String url = Constant.getBaseUrl() + "application/ya02wmsj_cecoe/share/index.html?id=" + mEntity.getId();
+        String url = Constant.getBaseUrl() + "application/ya02wmsj_cecoe/activityShare/index.html?id=" + mEntity.getId();
         tmLinkShare.setUrl(url);
         tmLinkShare.setTitle(mEntity.getTitle());
         tmLinkShare.setThumb(mEntity.getIcon_path());
