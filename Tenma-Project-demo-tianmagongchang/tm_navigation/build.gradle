@@ -18,10 +18,8 @@ android {
 def tm_core_versionName = properties.getProperty("tmCore.versionName")
 
 dependencies {
-    compile 'com.android.support.constraint:constraint-layout:1.1.3'
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-//    implementation 'com.tianma.ventures:tm_userCenter_2nd:1.1.1'
-    implementation 'com.tianma.ventures:tm_user_center:1.1.5'
-    implementation 'com.tianma.ventures:tm_own_find:1.0.25'
-
+    implementation  'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation  fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.tianma.ventures:tm_user_center:1.1.7'
+    implementation 'com.tianma.ventures:tm_own_find:1.0.38'
 }

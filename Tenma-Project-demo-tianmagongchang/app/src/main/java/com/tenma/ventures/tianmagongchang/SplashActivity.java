@@ -14,6 +14,7 @@ import com.tenma.ventures.bean.utils.TMSharedPUtil;
 import com.tenma.ventures.config.TMConstant;
 import com.tenma.ventures.config.TMServerConfig;
 import com.tenma.ventures.navigation.BottomNavigationActivity;
+import com.tenma.ventures.tools.encrypt.TMEncryptBean;
 import com.tenma.ventures.widget.CountDownProgressView;
 
 import java.io.File;
@@ -38,7 +39,7 @@ public class SplashActivity extends TMActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         mCountDownProgressView = (CountDownProgressView) findViewById(R.id.countdownProgressView);
-
+        TMEncryptBean.encrypt = true;
         TMBaseConfig tmBaseConfig = TMSharedPUtil.getTMBaseConfig(this);
         if (null != tmBaseConfig) {
             TMServerConfig.BASE_URL = tmBaseConfig.getDomain();
@@ -102,3 +103,4 @@ public class SplashActivity extends TMActivity {
     }
 
 }
+
