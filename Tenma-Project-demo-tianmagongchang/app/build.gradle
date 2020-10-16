@@ -7,7 +7,6 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.tenma.ventures.linhai"
-//        applicationId "com.tenma.ventures.tianmagongchang"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
@@ -65,11 +64,15 @@ android {
         }
     }
 
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            outputFileName = "临海_${defaultConfig.versionName}_${buildTime()}.apk"
+        }
+    }
 
     dexOptions {
         javaMaxHeapSize "2048M"
         jumboMode true
-        //  incremental false
     }
 
     lintOptions {
@@ -88,10 +91,7 @@ android {
             if (dx.additionalParameters == null) {
                 dx.additionalParameters = []
             }
-            dx.additionalParameters += '--multi-dex' // enable multidex
-
-            // optional
-            // dx.additionalParameters += "--main-dex-list=$projectDir/<filename>".toString() // enable the main-dex-list
+            dx.additionalParameters += '--multi-dex'
         }
     }
     compileOptions {
@@ -115,14 +115,15 @@ android {
 repositories {
     flatDir {
         dirs "libs"
-        //  dirs project(':tm_discover').file('libs')
     }
 }
-
 
 def plugin_versionName = '1.0.50'
 def tm_core_versionName = properties.getProperty("tmCore.versionName")
 
+static def buildTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getDefault())
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
