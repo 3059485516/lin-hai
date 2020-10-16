@@ -1,5 +1,6 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
+import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.adapter.ActionAdapter;
 import com.ya02wmsj_cecoe.linhaimodule.base.activity.BaseListActivity;
 import com.ya02wmsj_cecoe.linhaimodule.base.mvp.IListView;
@@ -15,6 +16,11 @@ public class ZhiyuanhuiMyListActivity extends BaseListActivity<ZhiyuanhuiMyListP
     @Override
     protected void initMVP() {
         mPresenter = new ZhiyuanhuiMyListPresenter(this);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.ya02wmsj_cecoe_activity_wdbm;
     }
 
     @Override

@@ -126,7 +126,7 @@ public class LittleVideoPresenter extends LittleVideoContract.Presenter {
     public void requestData(boolean isRefresh) {
         Map<String, Object> map = new HashMap<>();
         map.put("region_code", getRegionCode());
-        map.put("top_status", "n");
+       // map.put("top_status", "n");
         map.put("is_announce", "n");
         map.put("node_id", getNodeId());
         map.put("c_id", getContentId());
