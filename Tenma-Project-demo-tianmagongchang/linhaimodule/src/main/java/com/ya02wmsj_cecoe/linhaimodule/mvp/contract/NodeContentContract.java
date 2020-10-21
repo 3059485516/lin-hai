@@ -16,5 +16,7 @@ public interface NodeContentContract {
         public Presenter(View view) {
             super(view);
         }
+
+        public abstract String getNodeId();
     }
 }

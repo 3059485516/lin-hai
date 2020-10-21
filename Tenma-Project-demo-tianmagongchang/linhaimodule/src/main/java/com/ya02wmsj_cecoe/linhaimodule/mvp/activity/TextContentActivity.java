@@ -1,5 +1,6 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,6 +30,7 @@ import com.ya02wmsj_cecoe.linhaimodule.widget.CoverVideo;
 import com.ya02wmsj_cecoe.linhaimodule.widget.ItemDecorationVertical;
 import com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView;
 import com.ya02wmsj_cecoe.linhaimodule.widget.dialog.CommentDialog;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -165,22 +167,11 @@ public class TextContentActivity extends BaseWebViewActivity<TextContentContract
 
     @Override
     public void onMenuClicked() {
-       /* VideoShootActivity.start(this, new VideoShootActivity.OnCompleteListener() {
-            @Override
-            public void onComplete(String filePath) {
-                Intent intent = new Intent(TextContentActivity.this, PublishOpinionActivity.class);
-                intent.putExtra(Constant.KEY_STRING_1, mNodeId);
-                intent.putExtra(Constant.KEY_STRING_2, "内容");
-                intent.putExtra(Constant.KEY_STRING_3, filePath);
-                startActivity(intent);
-            }
-        });*/
         Intent intent = new Intent(TextContentActivity.this, PublishOpinionActivity.class);
         intent.putExtra(Constant.KEY_STRING_1, mNodeId);
         intent.putExtra(Constant.KEY_STRING_2, "内容");
         intent.putExtra(Constant.KEY_STRING_3, "");
         startActivity(intent);
-
     }
 
     @Override
@@ -188,6 +179,7 @@ public class TextContentActivity extends BaseWebViewActivity<TextContentContract
         mPresenter.browse(mContentId);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void updateComment() {
         int count = mPresenter.getCommentList().size();
@@ -195,6 +187,7 @@ public class TextContentActivity extends BaseWebViewActivity<TextContentContract
         mCommentAdapter.notifyDataSetChanged();
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void addCommentSuc(String count) {
         tv_operate_sum.setText("评论（" + count + "）");
@@ -281,13 +274,7 @@ public class TextContentActivity extends BaseWebViewActivity<TextContentContract
             mVideo.getFullscreenButton().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                  /*  Intent intent = new Intent(mContext, FullScreenVideoActivity.class);
-                    intent.putExtra(Constant.KEY_STRING_1, nodeContent.getId());
-                    intent.putExtra(Constant.KEY_STRING_2, mRegionCode);
-                    intent.putExtra(Constant.KEY_STRING_3, mNodeId);
-                    intent.putExtra(Constant.KEY_INT_1, mVideo.getCurrentPositionWhenPlaying());
-                    gotoActivity(intent);*/
-                    LittleVideoActivity.launch(mContext,nodeContent.getId(),mRegionCode,mNodeId);
+                    LittleVideoActivity.launch(mContext, nodeContent.getId(), mRegionCode, mNodeId);
                 }
             });
         }
@@ -307,12 +294,6 @@ public class TextContentActivity extends BaseWebViewActivity<TextContentContract
             mTvLastContent.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    /*Intent intent = new Intent(mContext, TextContentActivity.class);
-                    intent.putExtra(Constant.KEY_STRING_1, nodeContent.getPrev().getId());
-                    intent.putExtra(Constant.KEY_STRING_2, mRegionCode);
-                    intent.putExtra(Constant.KEY_STRING_3, mNodeId);
-                    gotoActivity(intent);
-                    finish();*/
                     gotoLastContent(nodeContent);
                 }
             });
@@ -323,13 +304,7 @@ public class TextContentActivity extends BaseWebViewActivity<TextContentContract
             mTvNextContent.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                   /* Intent intent = new Intent(mContext, TextContentActivity.class);
-                    intent.putExtra(Constant.KEY_STRING_1, nodeContent.getNext().getId());
-                    intent.putExtra(Constant.KEY_STRING_2, mRegionCode);
-                    intent.putExtra(Constant.KEY_STRING_3, mNodeId);
-                    gotoActivity(intent);
-                    finish();*/
-                   gotoNextContent(nodeContent);
+                    gotoNextContent(nodeContent);
                 }
             });
             mIvNextDetail.setVisibility(View.VISIBLE);
@@ -368,7 +343,8 @@ public class TextContentActivity extends BaseWebViewActivity<TextContentContract
         gotoActivity(intent);
         finish();
     }
-    private void gotoNextContent(NodeContent currentNodeContent){
+
+    private void gotoNextContent(NodeContent currentNodeContent) {
         Intent intent = new Intent(mContext, TextContentActivity.class);
         intent.putExtra(Constant.KEY_STRING_1, currentNodeContent.getNext().getId());
         intent.putExtra(Constant.KEY_STRING_2, mRegionCode);

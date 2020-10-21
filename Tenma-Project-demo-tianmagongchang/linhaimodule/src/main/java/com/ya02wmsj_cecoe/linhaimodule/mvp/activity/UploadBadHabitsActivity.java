@@ -125,6 +125,17 @@ public class UploadBadHabitsActivity extends BaseActivity<UploadBadHabitsContrac
     }
 
     @Override
+    public void showCircleProgressDialog() {
+        if (mCircleProgressDialog == null) {
+            mCircleProgressDialog = new CircleProgressDialog(mContext);
+        }
+        if (!mCircleProgressDialog.isShowing()) {
+            mCircleProgressDialog.setProgress(0);
+            mCircleProgressDialog.show();
+        }
+    }
+
+    @Override
     public String getVideoTitle() {
         return mEtTitle.getText().toString();
     }
@@ -144,16 +155,6 @@ public class UploadBadHabitsActivity extends BaseActivity<UploadBadHabitsContrac
         return (String) mTvNode.getTag();
     }
 
-    @Override
-    public void showCircleProgressDialog() {
-        if (mCircleProgressDialog == null) {
-            mCircleProgressDialog = new CircleProgressDialog(mContext);
-        }
-        if (!mCircleProgressDialog.isShowing()) {
-            mCircleProgressDialog.setProgress(0);
-            mCircleProgressDialog.show();
-        }
-    }
 
     public void onIvPlayClicked() {
         final String filePath = mPresenter.getFilePath();

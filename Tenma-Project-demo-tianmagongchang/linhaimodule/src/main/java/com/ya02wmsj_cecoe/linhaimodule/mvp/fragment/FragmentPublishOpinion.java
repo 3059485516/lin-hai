@@ -119,6 +119,11 @@ public class FragmentPublishOpinion extends BaseFragment<PublishOpinionContract.
     }
 
     @Override
+    public String getContents() {
+        return null;
+    }
+
+    @Override
     public void showCircleProgressDialog() {
         // TODO: 2020/8/5
     }

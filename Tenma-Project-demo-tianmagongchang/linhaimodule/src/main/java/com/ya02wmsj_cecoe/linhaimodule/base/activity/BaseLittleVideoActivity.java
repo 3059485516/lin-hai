@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.shuyu.gsyvideoplayer.builder.GSYVideoOptionBuilder;
 import com.shuyu.gsyvideoplayer.listener.VideoAllCallBack;
@@ -29,6 +30,7 @@ public abstract class BaseLittleVideoActivity<P extends APresenter<?>> extends B
     protected PagerLayoutManager mPagerLayoutManager;
     protected int mCurrentPosition;
     private ImageView mIvBack;
+    protected TextView mRightText;
 
     @Override
     protected int getLayoutId() {
@@ -40,16 +42,28 @@ public abstract class BaseLittleVideoActivity<P extends APresenter<?>> extends B
         return false;
     }
 
+    protected void onRightTextViewClicked(){
+    }
+
     @Override
     protected void initUI() {
         super.initUI();
         mIvBack = findViewById(R.id.iv_back);
+        mRightText = findViewById(R.id.tv_rightText);
         mIvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+
+        mRightText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onRightTextViewClicked();
+            }
+        });
+
         mProgressBar = findViewById(R.id.pb);
         mRecyclerView = findViewById(R.id.rv);
         initVideo();

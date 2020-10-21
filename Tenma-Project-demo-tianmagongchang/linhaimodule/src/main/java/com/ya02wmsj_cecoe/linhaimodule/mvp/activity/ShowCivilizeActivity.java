@@ -10,7 +10,9 @@ import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 public class ShowCivilizeActivity extends BaseListActivity<NodeContentContract.Presenter> implements NodeContentContract.View {
     @Override
     protected MultiItemTypeAdapter getAdapter() {
-        return new NodeContentAdapter(this, mPresenter.getDataList());
+        NodeContentAdapter adapter =  new NodeContentAdapter(this, mPresenter.getDataList());
+        adapter.setNodeId(mPresenter.getNodeId());
+        return adapter;
     }
 
     @Override

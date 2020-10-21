@@ -266,6 +266,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".mvp.activity.PublishOpinionActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize"
             android:screenOrientation="portrait" />
         <activity
             android:name=".mvp.activity.ServiceListInfoActivity"

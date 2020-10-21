@@ -16,7 +16,6 @@ import com.shuyu.gsyvideoplayer.utils.GSYVideoType;
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.bean.NodeContent;
-import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.FullScreenVideoActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LittleVideoActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LiveActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.TextContentActivity;
@@ -39,6 +38,16 @@ import java.util.List;
 public class NodeContentAdapter extends MultiItemTypeAdapter<NodeContent> {
     public static final String TAG = "NodeContentAdapter";
     private GSYVideoOptionBuilder mGSVideoOptionBuilder;
+
+    private String mNodeId;
+
+    public String getNodeId() {
+        return mNodeId;
+    }
+
+    public void setNodeId(String nodeId) {
+        this.mNodeId = nodeId;
+    }
 
     public NodeContentAdapter(Context context, List<NodeContent> datas) {
         super(context, datas);
@@ -102,7 +111,11 @@ public class NodeContentAdapter extends MultiItemTypeAdapter<NodeContent> {
                 Intent intent = new Intent(mContext, TextContentActivity.class);
                 intent.putExtra(Constant.KEY_STRING_1, nodeContent.getId());
                 intent.putExtra(Constant.KEY_STRING_2, RegionManager.getInstance().getCurrentCountyCode());
-                intent.putExtra(Constant.KEY_STRING_3, nodeContent.getNode_id());
+                if (TextUtils.isEmpty(mNodeId)){
+                    intent.putExtra(Constant.KEY_STRING_3,nodeContent.getNode_id());
+                }else {
+                    intent.putExtra(Constant.KEY_STRING_3,mNodeId);
+                }
                 mContext.startActivity(intent);
             });
         }
@@ -217,9 +230,6 @@ public class NodeContentAdapter extends MultiItemTypeAdapter<NodeContent> {
                             gsyVideoPlayer.getBackButton().setVisibility(View.GONE);
                         }
                     });
-
-            //增加title
-//            gsyVideoPlayer.getTitleTextView().setText(name);
             gsyVideoPlayer.getTitleTextView().setVisibility(View.GONE);
             gsyVideoPlayer.loadCoverImage(nodeContent.getVideo_path().getSnapshotUrl(), R.mipmap.ya02wmsj_cecoe_placeholder);
 
@@ -227,42 +237,16 @@ public class NodeContentAdapter extends MultiItemTypeAdapter<NodeContent> {
             gsyVideoPlayer.getBackButton().setVisibility(View.GONE);
 
             gsyVideoPlayer.getStartButton().setOnClickListener(view -> {
-//                boolean inPlayingState = gsyVideoPlayer.isInPlayingState();
-////                if (inPlayingState) {
-////                    gsyVideoPlayer.doubleTouch();
-////                } else {
-////                    String playUrl = nodeContent.getVideo_path().getOrigUrl();
-////                    String title = nodeContent.getTitle();
-////                    view.setClickable(false);
-////                    if (!TextUtils.isEmpty(playUrl)) {
-//////                        mGSVideoOptionBuilder.setVideoTitle(title);
-////                        mGSVideoOptionBuilder.setUrl(playUrl);
-////                        mGSVideoOptionBuilder.build(gsyVideoPlayer);
-////                        Log.e(TAG, "adater potion--->" + position);
-////                        gsyVideoPlayer.setPlayPosition(position);
-////                        gsyVideoPlayer.startBtnPlay();
-////                        view.setClickable(true);
-////                    } else {
-////                        view.setClickable(true);
-////                    }
-////                }
-               /* Intent intent = new Intent(mContext, FullScreenVideoActivity.class);
-                intent.putExtra(Constant.KEY_STRING_1, nodeContent.getId());
-                intent.putExtra(Constant.KEY_STRING_2, RegionManager.getInstance().getCurrentCountyCode());
-                intent.putExtra(Constant.KEY_STRING_3, nodeContent.getNode_id());
-                intent.putExtra(Constant.KEY_INT_1, gsyVideoPlayer.getCurrentPositionWhenPlaying());
-                mContext.startActivity(intent);*/
-                LittleVideoActivity.launch(mContext,nodeContent.getId(),RegionManager.getInstance().getCurrentCountyCode(),nodeContent.getNode_id());
-
+                String nid;
+                if (TextUtils.isEmpty(mNodeId)){
+                    nid = nodeContent.getNode_id();
+                }else {
+                    nid = mNodeId;
+                }
+                LittleVideoActivity.launch(mContext, nodeContent.getId(), RegionManager.getInstance().getCurrentCountyCode(), nid);
             });
             //设置全屏按键功能
             gsyVideoPlayer.getFullscreenButton().setVisibility(View.GONE);
-//            gsyVideoPlayer.getFullscreenButton().setOnClickListener(v -> {
-//                Intent intent = new Intent(mContext, FullScreenVideoActivity.class);
-//                intent.putExtra(Constant.KEY_STRING_1, nodeContent.getId());
-//                intent.putExtra(Constant.KEY_INT_1, gsyVideoPlayer.getCurrentPositionWhenPlaying());
-//                mContext.startActivity(intent);
-//            });
         }
     }
 
@@ -285,7 +269,6 @@ public class NodeContentAdapter extends MultiItemTypeAdapter<NodeContent> {
             mGSVideoOptionBuilder
                     .setIsTouchWiget(false)
                     .setSetUpLazy(true)//lazy可以防止滑动卡顿
-//                    .setVideoTitle(name)
                     .setCacheWithPlay(false)
                     .setRotateViewAuto(true)
                     .setLockLand(true)
@@ -307,9 +290,6 @@ public class NodeContentAdapter extends MultiItemTypeAdapter<NodeContent> {
                             gsyVideoPlayer.getBackButton().setVisibility(View.GONE);
                         }
                     });
-
-            //增加title
-//            gsyVideoPlayer.getTitleTextView().setText(name);
             gsyVideoPlayer.getTitleTextView().setVisibility(View.VISIBLE);
             if (nodeContent.getLiveinfo() != null) {
                 gsyVideoPlayer.loadCoverImage(nodeContent.getLiveinfo().getIcon(), R.mipmap.ya02wmsj_cecoe_placeholder);

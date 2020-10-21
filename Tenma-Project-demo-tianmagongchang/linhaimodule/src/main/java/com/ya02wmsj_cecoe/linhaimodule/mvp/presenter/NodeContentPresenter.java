@@ -21,4 +21,9 @@ public class NodeContentPresenter extends NodeContentContract.Presenter {
         super.getPageData(isRefresh);
         setDataSource(Api.getContentList(mRegionCode, "","n", mNodeId, getPage() + "", PAGE_SIZE + ""));
     }
+
+    @Override
+    public String getNodeId() {
+        return mNodeId;
+    }
 }

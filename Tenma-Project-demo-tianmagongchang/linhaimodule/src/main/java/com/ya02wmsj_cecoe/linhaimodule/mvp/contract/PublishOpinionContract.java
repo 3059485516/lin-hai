@@ -15,13 +15,10 @@ import java.util.Map;
  */
 public interface PublishOpinionContract {
     interface View extends IView {
-
         void dissCircleProgressDialog();
-
         void setUploadProgress(int progress);
-
         String getContentTitle();
-
+        String getContents();
         void showCircleProgressDialog();
     }
 
@@ -49,7 +46,8 @@ public interface PublishOpinionContract {
         }
 
         public abstract List<LocalMedia> getImageList();
-
         public abstract void commit(Map<String, Object> map);
+        public abstract void addContent();
+        public abstract void submitCancel();
     }
 }

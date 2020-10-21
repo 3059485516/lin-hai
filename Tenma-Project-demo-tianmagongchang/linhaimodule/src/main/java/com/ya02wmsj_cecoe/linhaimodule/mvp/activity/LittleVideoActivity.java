@@ -1,5 +1,6 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -52,10 +53,11 @@ public class LittleVideoActivity extends BaseLittleVideoActivity<LittleVideoCont
     private int mLastStopPosition;
 
     public static void launch(Context context, String contentId, String regionCode, String nodeId) {
-        context.startActivity(new Intent(context, LittleVideoActivity.class)
-                .putExtra(Constant.KEY_STRING_1, contentId)
-                .putExtra(Constant.KEY_STRING_2, regionCode)
-                .putExtra(Constant.KEY_STRING_3, nodeId));
+        Intent intent = new Intent(context, LittleVideoActivity.class);
+        intent.putExtra(Constant.KEY_STRING_1, contentId);
+        intent.putExtra(Constant.KEY_STRING_2, regionCode);
+        intent.putExtra(Constant.KEY_STRING_3, nodeId);
+        context.startActivity(intent);
     }
 
     /**
@@ -90,9 +92,10 @@ public class LittleVideoActivity extends BaseLittleVideoActivity<LittleVideoCont
             } else if (id == R.id.tv_share) {
                 shareClicked((TextView) view, position);
             } else if (id == R.id.tv_comment) {
-                commentClicked((TextView) view,position);
+                commentClicked((TextView) view, position);
             }
         });
+        setMenuText("拍同款");
     }
 
 
@@ -142,16 +145,25 @@ public class LittleVideoActivity extends BaseLittleVideoActivity<LittleVideoCont
         int itemCount = mPresenter.getAdapter().getItemCount();
         if (!isNoMoreData && itemCount - position < DEFAULT_PRELOAD_NUMBER && !isLoadingData) {
             // 正在加载中, 防止网络太慢或其他情况造成重复请求列表
-//            isLoadMoreData = true;
             isLoadingData = true;
             mPresenter.loadMore();
         }
-        //如果是最后一条，并且无网络请求,并且无数据
-        if (itemCount == position + 1 && !isLoadingData && isNoMoreData) {
-//            Toast.makeText(MainActivity.this, "No more video.", Toast.LENGTH_SHORT).show();
-        }
         startPlay(position);
         mCurrentPosition = position;
+    }
+
+    /**
+     * 拍同款
+     */
+    protected void onRightTextViewClicked(){
+        SelectVideoActivity.start(this, path -> {
+            Intent intent = new Intent(LittleVideoActivity.this, PublishOpinionActivity.class);
+            intent.putExtra(Constant.KEY_STRING_1, mPresenter.getNodeId());
+            intent.putExtra(Constant.KEY_STRING_2, "内容");
+            intent.putExtra(Constant.KEY_STRING_3, path);
+            startActivity(intent);
+            finish();
+        });
     }
 
     /**
@@ -167,12 +179,18 @@ public class LittleVideoActivity extends BaseLittleVideoActivity<LittleVideoCont
             ((ViewGroup) parent).removeView(mVideoView);
         }
         if (mVideoContent != null) {
+            if (mPresenter.getNodeId().equals("21") || mPresenter.getNodeId().equals("22") || (mPresenter.getNodeId().equals("23"))) {
+                mRightText.setVisibility(View.VISIBLE);
+            }else {
+                mRightText.setVisibility(View.GONE);
+            }
+
             mVideoContent.addView(mVideoView, 0);
             VideoPath video_path = mPresenter.getData().get(position).getVideo_path();
             ImageView ivThumb = mVideoView.getIvThumb();
             String snapshotUrl = video_path.getSnapshotUrl();
-            if(!TextUtils.isEmpty(snapshotUrl)){
-                ImageManager.getInstance().loadImage(this,snapshotUrl,ivThumb);
+            if (!TextUtils.isEmpty(snapshotUrl)) {
+                ImageManager.getInstance().loadImage(this, snapshotUrl, ivThumb);
             }
             mGsySmallVideoHelperBuilder.setLooping(true);
             mGsySmallVideoHelperBuilder.setUrl(video_path.getOrigUrl());
@@ -195,13 +213,13 @@ public class LittleVideoActivity extends BaseLittleVideoActivity<LittleVideoCont
     private void likeClicked(TextView view, int position) {
         view.setClickable(false);
         NodeContent nodeContent = mPresenter.getData().get(position);
-        mPresenter.like(nodeContent.getId(), view,position);
+        mPresenter.like(nodeContent.getId(), view, position);
     }
 
     private void collectClicked(TextView view, int position) {
         view.setClickable(false);
         NodeContent nodeContent = mPresenter.getData().get(position);
-        mPresenter.collect(nodeContent.getId(), view,position);
+        mPresenter.collect(nodeContent.getId(), view, position);
     }
 
     private void shareClicked(TextView tvShare, int position) {
@@ -213,25 +231,23 @@ public class LittleVideoActivity extends BaseLittleVideoActivity<LittleVideoCont
         tmLinkShare.setTitle(nodeContent.getTitle());
         tmLinkShare.setThumb(nodeContent.getIcon_path());
         TMShareUtil.getInstance(mContext).shareLink(tmLinkShare, new PlatformActionListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
                 toast("分享成功");
                 tvShare.setText(nodeContent.getShare_num() + 1 + "");
-
-//                mPresenter.share(mPresenter.getContentId());
             }
 
             @Override
             public void onError(Platform platform, int i, Throwable throwable) {
-//                        toast("分享失败");
             }
 
             @Override
             public void onCancel(Platform platform, int i) {
-//                        toast("分享取消");
             }
         });
     }
+
     private Dialog mCommentDialog;
 
     private void dismissCommentDialog() {
@@ -242,23 +258,14 @@ public class LittleVideoActivity extends BaseLittleVideoActivity<LittleVideoCont
     }
 
     private void commentClicked(TextView tvComment, int position) {
-        // TODO: 2020/7/22
         NodeContent nodeContent = mPresenter.getData().get(position);
-
-       /* if (mCommentDialog != null) {
-            mCommentDialog.show();
-            return;
-        }*/
         mCommentDialog = new Dialog(this, R.style.BottomDialogStyle);
         mCommentDialog.setCanceledOnTouchOutside(true);
         mCommentDialog.setCancelable(true);
-        mCommentDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-                if (mCommentDialog != null) {
-                    mCommentDialog.dismiss();
-                    mCommentDialog = null;
-                }
+        mCommentDialog.setOnCancelListener(dialog -> {
+            if (mCommentDialog != null) {
+                mCommentDialog.dismiss();
+                mCommentDialog = null;
             }
         });
         View view = LayoutInflater.from(mContext).inflate(R.layout.ya02wmsj_cecoe_dialog_video_comment, null);
@@ -275,17 +282,12 @@ public class LittleVideoActivity extends BaseLittleVideoActivity<LittleVideoCont
             @Override
             public void onClick(View v) {
                 if (!TextUtils.isEmpty(et_content.getText())) {
-                    mPresenter.addComment(nodeContent.getId(), et_content.getText().toString(),tvComment);
+                    mPresenter.addComment(nodeContent.getId(), et_content.getText().toString(), tvComment);
                 }
             }
         });
 
-        iv_close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismissCommentDialog();
-            }
-        });
+        iv_close.setOnClickListener(v -> dismissCommentDialog());
 
         mCommentDialog.setContentView(view);
         //获取当前Activity所在的窗体
@@ -297,7 +299,7 @@ public class LittleVideoActivity extends BaseLittleVideoActivity<LittleVideoCont
         lp.width = (int) getScreenWidth();
         dialogWindow.setAttributes(lp); //将属性设置给窗体
         mCommentDialog.show();
-        mPresenter.getCommentById(nodeContent.getId(),adapter,progressBar);
+        mPresenter.getCommentById(nodeContent.getId(), adapter, progressBar);
     }
 
     private void updateLike(boolean hasLike, TextView tvLike) {
@@ -325,8 +327,6 @@ public class LittleVideoActivity extends BaseLittleVideoActivity<LittleVideoCont
             NodeContent nodeContent = mPresenter.getData().get(position);
             tvLike.setText(String.valueOf(nodeContent.getThumb_num()));
             updateLike(mPresenter.isHasLike(nodeContent), tvLike);
-        } else {
-
         }
         tvLike.setClickable(true);
     }
@@ -337,19 +337,12 @@ public class LittleVideoActivity extends BaseLittleVideoActivity<LittleVideoCont
             NodeContent nodeContent = mPresenter.getData().get(position);
             tvCollect.setText(String.valueOf(nodeContent.getCollect_num()));
             updateCollect(mPresenter.isHasCollect(nodeContent), tvCollect);
-        } else {
-
         }
         tvCollect.setClickable(true);
     }
 
     @Override
     public void changeShareState(boolean isSucceed) {
-        if (isSucceed) {
-
-        } else {
-
-        }
     }
 
     @Override
@@ -374,7 +367,6 @@ public class LittleVideoActivity extends BaseLittleVideoActivity<LittleVideoCont
 
     @Override
     public void noMoreData(boolean isRefresh) {
-//        T.showShort(this,"已经到底了!");
         isNoMoreData = true;
     }
 

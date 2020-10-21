@@ -83,8 +83,8 @@ public class AppraiseWebContentActivity extends BaseWebViewActivity<ActionWebCon
 
                 @Override
                 public void onVoteDetailClick(VoteEntity entity, int position) {
-                    Intent intent = new Intent(mContext,VoteAppraiseActivity.class);
-                    intent.putExtra(Constant.KEY_BEAN,entity);
+                    Intent intent = new Intent(mContext, VoteAppraiseActivity.class);
+                    intent.putExtra(Constant.KEY_BEAN, entity);
                     startActivity(intent);
                     /*DialogHelp.getMessageDialog(mContext, entity.getContent()).show();*/
                 }
