@@ -22,7 +22,5 @@
         android:id="@+id/video_item_player"
         android:layout_width="match_parent"
         android:layout_height="230dp"
-        android:layout_below="@+id/tv_title"
-        android:layout_marginLeft="@dimen/yl_margin_xl"
-        android:layout_marginRight="@dimen/yl_margin_xl" />
+        android:layout_below="@+id/tv_title" />
 </RelativeLayout>
