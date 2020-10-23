@@ -375,4 +375,8 @@ public class LittleVideoActivity extends BaseLittleVideoActivity<LittleVideoCont
         tvComment.setText(count);
         dismissCommentDialog();
     }
+
+    protected boolean fullScreen() {
+        return true;
+    }
 }
