@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.tenma.ventures.share.bean.TMLinkShare;
+import com.tenma.ventures.share.util.TMShareUtil;
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.adapter.QuestionFragmentAdapter;
@@ -55,7 +57,7 @@ public class QuestionActivity extends BaseActivity<QuestionContract.Presenter> i
     @Override
     protected void initView() {
         setTitle(mActivityEntity.getName());
-        setMenuText("提交");
+        setMenuIcon(R.mipmap.ya02wmsj_cecoe_icon_fx_white);
         mTvContent = findViewById(R.id.tv_content);
         mTvTime = findViewById(R.id.tv_time);
         mLayBottom = findViewById(R.id.lay_bottom);
@@ -78,6 +80,7 @@ public class QuestionActivity extends BaseActivity<QuestionContract.Presenter> i
             public void onPageScrolled(int i, float v, int i1) {
                 mCurrentQuestionIndex = i;
                 mTvCountShow.setText(getShowCountText());
+                submitBtnIsVisibility();
             }
 
             @Override
@@ -92,26 +95,41 @@ public class QuestionActivity extends BaseActivity<QuestionContract.Presenter> i
         });
         mTvLast.setOnClickListener(v -> {
             // 上一题逻辑
-            if (mActivityEntity == null || mActivityEntity.getQuestionInfo() == null) return;
+            if (mActivityEntity == null || mActivityEntity.getQuestionInfo() == null) {
+                return;
+            }
             if (mCurrentQuestionIndex <= 0) {
                 toast("当前已经是第一题了");
-                return;
+            } else {
+                mVpQuestion.setCurrentItem(mCurrentQuestionIndex - 1);
             }
-            mVpQuestion.setCurrentItem(mCurrentQuestionIndex - 1);
+
         });
+
         mTvNext.setOnClickListener(v -> {
             // 下一题逻辑
-            if (mActivityEntity == null || mActivityEntity.getQuestionInfo() == null) return;
-            if (mCurrentQuestionIndex >= mActivityEntity.getQuestionInfo().size() - 1) {
-                toast("当前已经是最后一题了");
+            if (mActivityEntity == null || mActivityEntity.getQuestionInfo() == null) {
                 return;
             }
-            mVpQuestion.setCurrentItem(mCurrentQuestionIndex + 1);
+
+            if (mCurrentQuestionIndex >= mActivityEntity.getQuestionInfo().size() - 1) {
+                submitData();
+            } else {
+                mVpQuestion.setCurrentItem(mCurrentQuestionIndex + 1);
+            }
         });
     }
 
-    @Override
-    public void onMenuClicked() {
+
+    private void submitBtnIsVisibility() {
+        if (mCurrentQuestionIndex >= mActivityEntity.getQuestionInfo().size() - 1) {
+            mTvNext.setText("提交");
+        } else {
+            mTvNext.setText("下一题");
+        }
+    }
+
+    private void submitData() {
         // 提交
         if (mActivityEntity == null || mActivityEntity.getQuestionInfo() == null) return;
         String message = "确认提交答案？";
@@ -127,6 +145,18 @@ public class QuestionActivity extends BaseActivity<QuestionContract.Presenter> i
             mPresenter.answerQuestion(map);
             dialog.dismiss();
         }).show();
+    }
+
+
+    @Override
+    public void onMenuClicked() {
+        //分享链接
+        TMLinkShare tmLinkShare = new TMLinkShare();
+        String url = Constant.getBaseUrl() + "application/ya02wmsj_cecoe/activityShare/index.html?id=" + mActivityEntity.getId();
+        tmLinkShare.setUrl(url);
+        tmLinkShare.setTitle(mActivityEntity.getTitle());
+        tmLinkShare.setThumb(mActivityEntity.getIcon_path());
+        TMShareUtil.getInstance(mContext).shareLink(tmLinkShare);
     }
 
     private String getShowCountText() {

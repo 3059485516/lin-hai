@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:background="@color/yl_black">
 
     <android.support.v7.widget.RecyclerView
@@ -24,12 +25,12 @@
         android:id="@+id/tv_rightText"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
-        android:text="拍同款"
-        android:visibility="gone"
-        android:textColor="@color/white"
-        android:gravity="center"
-        android:textSize="@dimen/yl_text_size_18"
         android:layout_margin="@dimen/yl_margin_xl"
+        android:gravity="center"
+        android:text="拍同款"
+        android:textColor="@color/white"
+        android:textSize="@dimen/yl_text_size_18"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
