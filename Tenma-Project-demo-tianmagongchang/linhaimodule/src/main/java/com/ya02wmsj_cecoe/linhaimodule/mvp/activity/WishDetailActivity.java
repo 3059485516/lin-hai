@@ -88,9 +88,9 @@ public class WishDetailActivity extends BaseActivity<WishDetailContract.Presente
         mTvDesc.setText(entity.getDesc());
         mTvPhone.setVisibility(View.GONE);
         if (entity.getClaim_info() != null) {
+            mTvPhone.setVisibility(View.VISIBLE);
+            mTvPhone.setText(entity.getName() + "   " + entity.getPhone());
             if (entity.getClaim_info().getUser_id().equals(Config.getInstance().getUser().getUuid())) {
-                mTvPhone.setVisibility(View.VISIBLE);
-                mTvPhone.setText(entity.getName() + "   " + entity.getPhone());
                 setMenuText("办结心愿");
             }
         }
