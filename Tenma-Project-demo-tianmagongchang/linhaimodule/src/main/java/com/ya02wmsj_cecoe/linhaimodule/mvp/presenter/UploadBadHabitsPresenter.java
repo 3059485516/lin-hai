@@ -74,8 +74,7 @@ public class UploadBadHabitsPresenter extends UploadBadHabitsContract.Presenter 
             acceleratorConfig.setMonitorThread(true);
             acceleratorConfig.setQueryRetryCount(2);
             emitter.onNext(acceleratorConfig);
-        } catch (InvalidChunkSizeException |
-                InvalidParameterException e) {
+        } catch (InvalidChunkSizeException | InvalidParameterException e) {
             emitter.onError(e);
         }
     });

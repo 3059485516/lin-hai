@@ -98,7 +98,7 @@ public class WishDetailActivity extends BaseActivity<WishDetailContract.Presente
             WishProcessAdapter adapter = new WishProcessAdapter(this, entity.getProcess_info());
             mRvProcess.setAdapter(adapter);
         }
-        if ("待认领".equals(entity.getStatus())) {
+        if ("待认领".equals(entity.getStatus()) && "未认领".equals(entity.getClaim_me())) {
             mBtnApply.setVisibility(View.VISIBLE);
         } else {
             mBtnApply.setVisibility(View.GONE);

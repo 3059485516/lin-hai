@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.ya02wmsj_cecoe.linhaimodule.Config;
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.base.activity.BaseActivity;
@@ -64,10 +65,17 @@ public class UploadBadHabitsActivity extends BaseActivity<UploadBadHabitsContrac
         final String filePath = mPresenter.getFilePath();
         if (TextUtils.isEmpty(filePath)) {
             video.setVisibility(View.GONE);
-        }else {
-            ImageManager.getInstance().loadImage(mContext,filePath,iv_thumbnail);
+        } else {
+            ImageManager.getInstance().loadImage(mContext, filePath, iv_thumbnail);
         }
         mTvRegion.setOnClickListener(v -> startActivityForResult(new Intent(mContext, SelectRegionActivity.class), REQUEST_REGION_CODE));
+
+        String curRegionCode = Config.getInstance().getUser().getRegion_code();
+        String curRegionName = Config.getInstance().getUser().getVillage_name();
+        if (!TextUtils.isEmpty(curRegionCode)) {
+            mTvRegion.setTag(curRegionCode);
+            mTvRegion.setTextRight(curRegionName);
+        }
 
         final View.OnClickListener onClickListener = v -> onIvPlayClicked();
         findViewById(R.id.iv_play).setOnClickListener(onClickListener);

@@ -33,17 +33,15 @@ public class ActionAdapter extends CommonAdapter<ZhiyuanhuiEntity> {
         }
         holder.setText(R.id.tv_location, address);
 
-        holder.setVisible(R.id.tv_status, !TextUtils.isEmpty(zhiyuanhuiEntity.getYl_status()));
+        int finish = zhiyuanhuiEntity.getIs_finish();
         TextView tv_status = holder.getView(R.id.tv_status);
         tv_status.setText(zhiyuanhuiEntity.getYl_status());
-        if ("审核中".equals(zhiyuanhuiEntity.getYl_status())) {
-            tv_status.setTextColor(Color.parseColor("#4b9eff"));
-        } else if ("已通过".equals(zhiyuanhuiEntity.getYl_status())) {
-            tv_status.setTextColor(Color.parseColor("#3bbd66"));
-        } else if ("未通过".equals(zhiyuanhuiEntity.getYl_status())) {
-            tv_status.setTextColor(Color.parseColor("#f22510"));
-        } else if ("已结束".equals(zhiyuanhuiEntity.getYl_status())) {
+        if (1 == finish) {
             tv_status.setTextColor(Color.parseColor("#999999"));
+            tv_status.setText(zhiyuanhuiEntity.getStatus());
+        } else {
+            tv_status.setTextColor(Color.parseColor("#3bbd66"));
+            tv_status.setText(zhiyuanhuiEntity.getStatus());
         }
         int join = zhiyuanhuiEntity.getSignup_people() != 0 ? zhiyuanhuiEntity.getSignup_people() : zhiyuanhuiEntity.getJoin_num();
         holder.setText(R.id.tv_people, join + "/" + zhiyuanhuiEntity.getRecruit_people());

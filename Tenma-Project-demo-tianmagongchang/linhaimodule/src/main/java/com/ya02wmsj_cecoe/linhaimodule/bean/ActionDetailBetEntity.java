@@ -1,6 +1,7 @@
 package com.ya02wmsj_cecoe.linhaimodule.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 public class ActionDetailBetEntity implements Serializable {
@@ -387,7 +388,15 @@ public class ActionDetailBetEntity implements Serializable {
     }
 
     public String getStatus() {
-        return status;
+        if (is_finish == 1) {
+            return "已结束";
+        } else {
+            if (new Date().getTime() < recruit_start_time) {
+                return "未开始";
+            } else {
+                return "进行中";
+            }
+        }
     }
 
     public String getConsult_id() {

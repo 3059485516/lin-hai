@@ -24,8 +24,8 @@ public class ActionDetailBetActivity extends BaseWebViewActivity<ActionDetailBet
     protected TextView mTvLXDH;
     protected TextView mTvFZR;
     protected TextView mTvBMRS;
+    protected TextView mTvStatus;
     protected Button mBtn;
-
     private int mStatus = 0;
 
     @Override
@@ -56,6 +56,7 @@ public class ActionDetailBetActivity extends BaseWebViewActivity<ActionDetailBet
         mTvLXDH = findViewById(R.id.tv_lxdh);
         mTvFZR = findViewById(R.id.tv_fzr);
         mTvBMRS = findViewById(R.id.tv_bmrs);
+        mTvStatus = findViewById(R.id.tv_status);
 
         mBtn.setOnClickListener(v -> {
             if (0 == mStatus) {
@@ -81,16 +82,15 @@ public class ActionDetailBetActivity extends BaseWebViewActivity<ActionDetailBet
         }
         ImageManager.getInstance().loadImage(this, entity.getThumb(), R.mipmap.ya02wmsj_cecoe_placeholder, mIvTop);
         mTvTitle.setText(entity.getName());
+        mTvStatus.setText("活动" + entity.getStatus());
         mTvArea.setText(entity.getAddress());
         mTvTime.setText(DateUtil.getTimeStr(entity.getAct_start_time()));
         mTvZZ.setText(entity.getDepartment_name());
         mTvLXDH.setText(entity.getContact_phone());
         mTvFZR.setText(entity.getContact());
         setHtml(entity.getContent());
-
         StringBuilder htmlText = new StringBuilder();
         htmlText.append("人数：<font color='#").append(Integer.toHexString(getResources().getColor(R.color.yl_red)).substring(2)).append("'>").append(entity.getSignup_people()).append("</font>").append(" / ").append(entity.getRecruit_people());
-
         mTvBMRS.setText(Html.fromHtml(htmlText.toString()));
     }
 }

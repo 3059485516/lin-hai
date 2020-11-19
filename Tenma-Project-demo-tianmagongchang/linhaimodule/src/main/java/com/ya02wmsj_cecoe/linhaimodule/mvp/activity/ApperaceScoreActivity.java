@@ -27,7 +27,6 @@ import com.ya02wmsj_cecoe.linhaimodule.widget.ItemDecorationVertical;
 import com.ya02wmsj_cecoe.linhaimodule.widget.dialog.CommentDialog;
 
 import java.util.List;
-
 import cn.carbs.android.expandabletextview.library.ExpandableTextView;
 
 /**
@@ -55,7 +54,6 @@ public class ApperaceScoreActivity extends BaseActivity<AppreaceScoreContract.Pr
         mEntity = (AppraiseEntity) getIntent().getSerializableExtra(Constant.KEY_BEAN);
         mPresenter = new AppreaceScorePresenter(this);
     }
-
 
     @Override
     public void onMenuClicked() {

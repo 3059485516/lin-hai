@@ -28,16 +28,13 @@ import com.ya02wmsj_cecoe.linhaimodule.utils.ImageManager;
 import java.util.HashMap;
 import java.util.Map;
 
-
 import static com.ya02wmsj_cecoe.linhaimodule.utils.TDevice.getScreenWidth;
 
+
 public class DiscussDetailActivity extends BaseWebViewActivity<DiscussDetailContract.Presenter> implements DiscussDetailContract.View, DiscussCommentAdapter.IReplyComment {
-    TextView mTvTitle;
-
-    TextView mTvPublish;
-
-    RecyclerView mRvDiscuss;
-
+    protected TextView mTvTitle;
+    protected TextView mTvPublish;
+    protected RecyclerView mRvDiscuss;
 
     private Dialog mDiscussDialog;
     private Dialog mReplyComDialog;
@@ -87,7 +84,6 @@ public class DiscussDetailActivity extends BaseWebViewActivity<DiscussDetailCont
 
     @Override
     protected void initData() {
-
     }
 
     @Override
@@ -163,7 +159,6 @@ public class DiscussDetailActivity extends BaseWebViewActivity<DiscussDetailCont
                 mPresenter.addDiscuss(map);
             }
         });
-
         mDiscussDialog.setContentView(view);
         //获取当前Activity所在的窗体
         Window dialogWindow = mDiscussDialog.getWindow();
@@ -174,16 +169,6 @@ public class DiscussDetailActivity extends BaseWebViewActivity<DiscussDetailCont
         lp.width = (int) getScreenWidth();
         dialogWindow.setAttributes(lp); //将属性设置给窗体
         mDiscussDialog.show();
-    }
-
-
-    private void dismissDiscussDialog() {
-        if (mDiscussDialog == null)
-            return;
-        else if (mDiscussDialog.isShowing()) {
-            mDiscussDialog.dismiss();
-            mDiscussDialog = null;
-        }
     }
 
     private void showReplyCommentDialog() {
@@ -257,15 +242,6 @@ public class DiscussDetailActivity extends BaseWebViewActivity<DiscussDetailCont
         mReplyComDialog.show();
     }
 
-
-    private void dismissReplyDialog() {
-        if (mReplyComDialog == null)
-            return;
-        else if (mReplyComDialog.isShowing()) {
-            mReplyComDialog.dismiss();
-            mReplyComDialog = null;
-        }
-    }
 
     @Override
     public void replyComment(CommentEntity commentEntity) {

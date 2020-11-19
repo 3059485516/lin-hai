@@ -34,6 +34,7 @@ public class AppraiseEntity implements Serializable {
     private String ctime;
     private String node_id;
     private String content;
+    private String subtitle;
     private String id;
     private String form_name;
     private String address;
@@ -234,5 +235,13 @@ public class AppraiseEntity implements Serializable {
 
     public void setPic_url(String pic_url) {
         this.pic_url = pic_url;
+    }
+
+    public String getSubtitle() {
+        return subtitle;
+    }
+
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
     }
 }

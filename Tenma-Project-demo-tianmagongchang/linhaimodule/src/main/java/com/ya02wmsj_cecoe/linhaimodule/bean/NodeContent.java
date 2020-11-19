@@ -39,6 +39,7 @@ public class NodeContent implements Serializable {
     private String node_id;
     private String id;
     private String title;
+    private String subtitle;
     private String operate_time;
     private String release_time;
     private String publish_time;
@@ -289,5 +290,13 @@ public class NodeContent implements Serializable {
 
     public void setPublish_time(String publish_time) {
         this.publish_time = publish_time;
+    }
+
+    public String getSubtitle() {
+        return subtitle;
+    }
+
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
     }
 }

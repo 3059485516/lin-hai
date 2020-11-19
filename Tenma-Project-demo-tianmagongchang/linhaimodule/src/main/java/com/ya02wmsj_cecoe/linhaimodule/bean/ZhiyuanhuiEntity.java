@@ -1,38 +1,9 @@
 package com.ya02wmsj_cecoe.linhaimodule.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class ZhiyuanhuiEntity implements Serializable {
-
-    /**
-     * distance : 1.28723708E7
-     * thumb : http://jinyupei.test.image.zyh365.com/vms/2019/19//157301039584256f801934c334195974f037db4693ca1
-     * city : 台州市
-     * county : 市辖区
-     * deptid : 147608411235733e348eba11e682992c56dcba85b9
-     * follow_num : 0
-     * title : ceshi1
-     * recruit_people : 20
-     * recruit_finish_time : 1573142399999
-     * read_num : 2
-     * city_name : null
-     * is_signup : 0
-     * province : 浙江省
-     * deptheadurl : http://jinyupei.test.image.zyh365.com/1573198585623ae76b490a5b44024ab15e80b3f1b3e00.jpg
-     * id : 15730104375138ca261c84a62464d8e839adb0bf0c274
-     * share_num : 0
-     * like_num : 0
-     * detailaddress : 浙江省杭州市江干区公园路财富金融中心
-     * recruit_start_time : 1572969600000
-     * county_name : null
-     * province_name : null
-     * deptname : 台州市
-     * signup_people : 0
-     * categoryIds : null
-     * location : null
-     * is_finish : 0
-     * signupType : 1
-     */
     private String distance;
     private String thumb;
     private String city;
@@ -293,5 +264,17 @@ public class ZhiyuanhuiEntity implements Serializable {
 
     public void setJoin_num(int join_num) {
         this.join_num = join_num;
+    }
+
+    public String getStatus() {
+        if (is_finish == 1) {
+            return "已结束";
+        } else {
+            if (new Date().getTime() < recruit_start_time) {
+                return "未开始";
+            } else {
+                return "进行中";
+            }
+        }
     }
 }

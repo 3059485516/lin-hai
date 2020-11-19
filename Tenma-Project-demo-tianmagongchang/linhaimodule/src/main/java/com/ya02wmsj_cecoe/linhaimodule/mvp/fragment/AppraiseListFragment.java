@@ -2,7 +2,6 @@ package com.ya02wmsj_cecoe.linhaimodule.mvp.fragment;
 
 import android.view.View;
 import android.widget.RadioButton;
-import android.widget.TextView;
 
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.adapter.AppraiseListAdapter;
@@ -16,20 +15,15 @@ import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 
 import io.reactivex.functions.Consumer;
 
-
 /**
  * 议一议
  * Created by BenyChan on 2019-08-01.
  */
 public class AppraiseListFragment extends BaseListFragment<AppraiseListPresenter> implements AppraiseListContract.View {
-    RadioButton mTvVillage;
-
-    RadioButton mTvTown;
-
-    RadioButton mTvCountry;
-
+    protected RadioButton mTvVillage;
+    protected RadioButton mTvTown;
+    protected RadioButton mTvCountry;
     private int mRegionLevel = 0;   //0-全市，1-镇街， 2-社区
-
 
     @Override
     protected int getLayoutId() {
@@ -53,10 +47,7 @@ public class AppraiseListFragment extends BaseListFragment<AppraiseListPresenter
         mTvVillage = mRootView.findViewById(R.id.tv_village);
         mTvTown = mRootView.findViewById(R.id.tv_town);
         mTvCountry = mRootView.findViewById(R.id.tv_country);
-
         mTvCountry.setChecked(true);
-
-
         mTvCountry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

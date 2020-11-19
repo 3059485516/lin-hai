@@ -45,6 +45,8 @@ public class WishDetailEntity implements Serializable {
     private WishApplyInfo claim_info;
     private List<WishProcessItem> process_info;
 
+    private String claim_me;
+
     public String getId() {
         return id;
     }
@@ -187,5 +189,13 @@ public class WishDetailEntity implements Serializable {
 
     public void setProcess_info(List<WishProcessItem> process_info) {
         this.process_info = process_info;
+    }
+
+    public String getClaim_me() {
+        return claim_me;
+    }
+
+    public void setClaim_me(String claim_me) {
+        this.claim_me = claim_me;
     }
 }

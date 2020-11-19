@@ -53,8 +53,11 @@ public class SelectRegionActivity extends BaseActivity<BindRegionContract.Presen
             mPresenter.getRegionData2("town", (String) mTvRegionCounty.getTag());
         });
         mTvRegionVillage.setOnClickListener(v -> {
-            if (mTvRegionTown.getTag() == null) return;
-            mPresenter.getRegionData3("village", (String) mTvRegionTown.getTag());
+            if (mTvRegionTown.getTag() == null){
+                toast("请先选择镇/街");
+            }else {
+                mPresenter.getRegionData3("village", (String) mTvRegionTown.getTag());
+            }
         });
 
         findViewById(R.id.btn_bind).setOnClickListener(new View.OnClickListener() {
