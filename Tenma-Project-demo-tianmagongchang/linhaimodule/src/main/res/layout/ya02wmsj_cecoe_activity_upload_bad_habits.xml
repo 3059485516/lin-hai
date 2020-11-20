@@ -112,7 +112,7 @@
                 android:layout_marginRight="@dimen/yl_margin_xl"
                 android:layout_marginBottom="@dimen/yl_margin_xl"
                 android:background="@drawable/ya02wmsj_cecoe_bg_order"
-                app:text_left="开启定位" />
+                app:text_left="位置" />
 
             <TextView
                 android:layout_width="match_parent"

@@ -28,6 +28,7 @@ public class ActionDetailBetPresenter extends ActionDetailBetContract.Presenter 
             @Override
             protected void _onNext(Object o) {
                 mView.toast("报名成功");
+                mView.updateBnt(1);
             }
         });
     }
@@ -38,6 +39,7 @@ public class ActionDetailBetPresenter extends ActionDetailBetContract.Presenter 
             @Override
             protected void _onNext(Object o) {
                 mView.toast("取消报名成功");
+                mView.updateBnt(0);
             }
         });
     }

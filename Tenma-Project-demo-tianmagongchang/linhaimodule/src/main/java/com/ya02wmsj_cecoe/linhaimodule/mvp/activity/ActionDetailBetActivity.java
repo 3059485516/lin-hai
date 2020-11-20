@@ -1,6 +1,7 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
 import android.text.Html;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -75,10 +76,15 @@ public class ActionDetailBetActivity extends BaseWebViewActivity<ActionDetailBet
     @Override
     public void updateView(ActionDetailBetEntity entity) {
         mStatus = entity.getIs_signup();
-        if (mStatus == 0) {
-            mBtn.setText("报名");
-        } else {
-            mBtn.setText("取消报名");
+        if ("进行中".equals(entity.getStatus())) {
+            mBtn.setVisibility(View.VISIBLE);
+            if (mStatus == 0) {
+                mBtn.setText("报名");
+            } else {
+                mBtn.setText("取消报名");
+            }
+        }else {
+            mBtn.setVisibility(View.GONE);
         }
         ImageManager.getInstance().loadImage(this, entity.getThumb(), R.mipmap.ya02wmsj_cecoe_placeholder, mIvTop);
         mTvTitle.setText(entity.getName());
@@ -92,5 +98,15 @@ public class ActionDetailBetActivity extends BaseWebViewActivity<ActionDetailBet
         StringBuilder htmlText = new StringBuilder();
         htmlText.append("人数：<font color='#").append(Integer.toHexString(getResources().getColor(R.color.yl_red)).substring(2)).append("'>").append(entity.getSignup_people()).append("</font>").append(" / ").append(entity.getRecruit_people());
         mTvBMRS.setText(Html.fromHtml(htmlText.toString()));
+    }
+
+    @Override
+    public void updateBnt(int status) {
+        mStatus = status;
+        if (mStatus == 0) {
+            mBtn.setText("报名");
+        } else {
+            mBtn.setText("取消报名");
+        }
     }
 }

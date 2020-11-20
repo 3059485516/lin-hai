@@ -1,5 +1,7 @@
 package com.ya02wmsj_cecoe.linhaimodule.bean;
 
+import android.text.TextUtils;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;

@@ -77,7 +77,6 @@
             android:layout_marginTop="@dimen/yl_margin_xl"
             android:layout_marginBottom="@dimen/yl_margin_l" />
 
-
         <Button
             android:id="@+id/btn_apply"
             android:layout_width="match_parent"
@@ -86,7 +85,7 @@
             android:background="@drawable/ya02wmsj_cecoe_selector_btn_bg"
             android:letterSpacing="0.3"
             android:text="认领心愿"
-            android:textColor="@color/yl_white" />
-
+            android:textColor="@color/yl_white"
+            android:visibility="gone" />
     </LinearLayout>
 </com.ya02wmsj_cecoe.linhaimodule.widget.MyScrollView>

@@ -7,6 +7,7 @@ import com.ya02wmsj_cecoe.linhaimodule.bean.ActionDetailBetEntity;
 public interface ActionDetailBetContract {
     interface View extends IView {
         void updateView(ActionDetailBetEntity entity);
+        void updateBnt(int status);
     }
 
     abstract class Presenter extends APresenter<View> {

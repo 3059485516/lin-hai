@@ -29,7 +29,7 @@
         android:id="@+id/tv_area_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:text_left="镇街" />
+        app:text_left="镇/街" />
 
     <include layout="@layout/ya02wmsj_cecoe_divider_view" />
 
@@ -37,7 +37,7 @@
         android:id="@+id/tv_area_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:text_left="村社" />
+        app:text_left="村/社区" />
 
     <include layout="@layout/ya02wmsj_cecoe_divider_view" />
 

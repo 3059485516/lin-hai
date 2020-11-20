@@ -35,7 +35,7 @@ public class ActionAdapter extends CommonAdapter<ZhiyuanhuiEntity> {
 
         int finish = zhiyuanhuiEntity.getIs_finish();
         TextView tv_status = holder.getView(R.id.tv_status);
-        tv_status.setText(zhiyuanhuiEntity.getYl_status());
+
         if (1 == finish) {
             tv_status.setTextColor(Color.parseColor("#999999"));
             tv_status.setText(zhiyuanhuiEntity.getStatus());

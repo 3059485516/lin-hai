@@ -20,6 +20,7 @@
             android:layout_toLeftOf="@+id/iv_search"
             android:background="@color/transparent"
             android:gravity="center_vertical"
+            android:hint="搜索标题关键词"
             android:maxLines="1"
             android:textCursorDrawable="@drawable/ya02wmsj_cecoe_my_cursor" />
 

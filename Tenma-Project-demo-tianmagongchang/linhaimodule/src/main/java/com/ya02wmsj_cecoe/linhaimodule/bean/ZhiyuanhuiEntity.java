@@ -1,5 +1,7 @@
 package com.ya02wmsj_cecoe.linhaimodule.bean;
 
+import android.text.TextUtils;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -273,7 +275,11 @@ public class ZhiyuanhuiEntity implements Serializable {
             if (new Date().getTime() < recruit_start_time) {
                 return "未开始";
             } else {
-                return "进行中";
+                if ("审核中".equals(yl_status)){
+                    return "审核中";
+                }else {
+                    return "进行中";
+                }
             }
         }
     }
