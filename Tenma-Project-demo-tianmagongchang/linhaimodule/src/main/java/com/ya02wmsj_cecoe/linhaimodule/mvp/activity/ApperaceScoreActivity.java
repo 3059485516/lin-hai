@@ -5,6 +5,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,6 +28,7 @@ import com.ya02wmsj_cecoe.linhaimodule.widget.ItemDecorationVertical;
 import com.ya02wmsj_cecoe.linhaimodule.widget.dialog.CommentDialog;
 
 import java.util.List;
+
 import cn.carbs.android.expandabletextview.library.ExpandableTextView;
 
 /**
@@ -37,11 +39,13 @@ public class ApperaceScoreActivity extends BaseActivity<AppreaceScoreContract.Pr
     private TextView mTvTitle, mTvInnerTitle, mTvTime, mTvCommentTop;
     private ExpandableTextView mTvContent;
     private RecyclerView mRvVote, mRvComment;
+    private Button btn_commit;
 
     protected ImageButton mIbLike;
 
     protected ImageButton mIbCollect;
-    private AppraiseEntity mEntity;
+    private String mId;
+    private AppraiseEntity mAppraiseEntity;
     private CommentAdapter mCommentAdapter;
 
     @Override
@@ -51,7 +55,12 @@ public class ApperaceScoreActivity extends BaseActivity<AppreaceScoreContract.Pr
 
     @Override
     protected void initMVP() {
-        mEntity = (AppraiseEntity) getIntent().getSerializableExtra(Constant.KEY_BEAN);
+        AppraiseEntity mEntity = (AppraiseEntity) getIntent().getSerializableExtra(Constant.KEY_BEAN);
+        if (mEntity != null) {
+            mId = mEntity.getId();
+        } else {
+            finishActivity();
+        }
         mPresenter = new AppreaceScorePresenter(this);
     }
 
@@ -59,11 +68,31 @@ public class ApperaceScoreActivity extends BaseActivity<AppreaceScoreContract.Pr
     public void onMenuClicked() {
         //分享链接
         TMLinkShare tmLinkShare = new TMLinkShare();
-        String url = Constant.getBaseUrl() + "application/ya02wmsj_cecoe/activityShare/index.html?id=" + mEntity.getId();
+        String url = Constant.getBaseUrl() + "application/ya02wmsj_cecoe/activityShare/index.html?id=" + mAppraiseEntity.getId();
         tmLinkShare.setUrl(url);
-        tmLinkShare.setTitle(mEntity.getTitle());
-        tmLinkShare.setThumb(mEntity.getIcon_path());
+        tmLinkShare.setTitle(mAppraiseEntity.getTitle());
+        tmLinkShare.setThumb(mAppraiseEntity.getIcon_path());
         TMShareUtil.getInstance(mContext).shareLink(tmLinkShare);
+    }
+
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void updateInfo(AppraiseEntity appraiseEntity) {
+        mAppraiseEntity = appraiseEntity;
+        ImageManager.getInstance().loadCircleImage(this, mAppraiseEntity.getIcon_path(), R.mipmap.ya02wmsj_cecoe_head, mIvIcon);
+        mTvTitle.setText(mAppraiseEntity.getName());
+        mTvTime.setText(mAppraiseEntity.getStatus() + "     " + mAppraiseEntity.getCtime());
+        mTvInnerTitle.setText("发布" + mAppraiseEntity.getName());
+        mTvContent.setText(HtmlUtil.getTextFromHtml(mAppraiseEntity.getContent()));
+        mTvCommentTop.setText("评论（0）");
+        mRvVote.setLayoutManager(new LinearLayoutManager(this));
+        ApperaceScoreAdapter voteAdapter = new ApperaceScoreAdapter(mContext, mAppraiseEntity.getScoreInfo(), !mAppraiseEntity.getParticipate());
+        mRvVote.setAdapter(voteAdapter);
+
+        if (mAppraiseEntity.getParticipate()) {
+            btn_commit.setVisibility(View.GONE);
+            //已经参与评分则隐藏提交按钮
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -82,17 +111,8 @@ public class ApperaceScoreActivity extends BaseActivity<AppreaceScoreContract.Pr
 
         mIbLike = findViewById(R.id.ib_like);
         mIbCollect = findViewById(R.id.ib_collect);
+        btn_commit = findViewById(R.id.btn_commit);
 
-        ImageManager.getInstance().loadCircleImage(this, mEntity.getIcon_path(), R.mipmap.ya02wmsj_cecoe_head, mIvIcon);
-        mTvTitle.setText(mEntity.getName());
-        mTvTime.setText(mEntity.getStatus() + "     " + mEntity.getCtime());
-        mTvInnerTitle.setText("发布" + mEntity.getName());
-        mTvContent.setText(HtmlUtil.getTextFromHtml(mEntity.getContent()));
-        mTvCommentTop.setText("评论（0）");
-
-        mRvVote.setLayoutManager(new LinearLayoutManager(this));
-        ApperaceScoreAdapter voteAdapter = new ApperaceScoreAdapter(mContext, mEntity.getScoreInfo(), !mEntity.getParticipate());
-        mRvVote.setAdapter(voteAdapter);
 
         mRvComment.setLayoutManager(new LinearLayoutManager(this));
         int dimension = (int) getResources().getDimension(R.dimen.yl_list_horizontal_margin);
@@ -100,20 +120,16 @@ public class ApperaceScoreActivity extends BaseActivity<AppreaceScoreContract.Pr
         mCommentAdapter = new CommentAdapter(this, mPresenter.getCommentList());
         mRvComment.setAdapter(mCommentAdapter);
 
-        if (mEntity.getParticipate()) {
-            findViewById(R.id.btn_commit).setVisibility(View.GONE);
-            //已经参与评分则隐藏提交按钮
-        }
-        findViewById(R.id.btn_commit).setOnClickListener(v -> {
+        btn_commit.setOnClickListener(v -> {
             // 提交
-            if (mEntity.getStatus().equals("已结束")) {
+            if (mAppraiseEntity.getStatus().equals("已结束")) {
                 toast("活动已结束");
                 return;
             }
             StringBuilder sbScoreIds = new StringBuilder();
             StringBuilder sbOptionIds = new StringBuilder();
             StringBuilder sbScores = new StringBuilder();
-            List<ScoreInfo> scoreInfoList = mEntity.getScoreInfo();
+            List<ScoreInfo> scoreInfoList = mAppraiseEntity.getScoreInfo();
             if (scoreInfoList != null && scoreInfoList.size() > 0) {
                 for (int i = 0; i < scoreInfoList.size(); i++) {
                     ScoreInfo scoreInfo = scoreInfoList.get(i);
@@ -145,7 +161,7 @@ public class ApperaceScoreActivity extends BaseActivity<AppreaceScoreContract.Pr
                     }
                 }
             }
-            mPresenter.commit(mEntity.getId(), sbScoreIds.toString(), sbOptionIds.toString(), sbScores.toString());
+            mPresenter.commit(mAppraiseEntity.getId(), sbScoreIds.toString(), sbOptionIds.toString(), sbScores.toString());
         });
 
         findViewById(R.id.ll_comment).setOnClickListener(v -> {
@@ -154,7 +170,7 @@ public class ApperaceScoreActivity extends BaseActivity<AppreaceScoreContract.Pr
             dialog.setEmptyable(false);
             dialog.setCommitListener(v1 -> {
                 if (dialog.getCommentText() != null && dialog.getCommentText().length() > 0) {
-                    mPresenter.addComment(mEntity.getId(), dialog.getCommentText());
+                    mPresenter.addComment(mAppraiseEntity.getId(), dialog.getCommentText());
                 }
                 dialog.dismiss();
             });
@@ -163,25 +179,26 @@ public class ApperaceScoreActivity extends BaseActivity<AppreaceScoreContract.Pr
 
         findViewById(R.id.ib_collect).setOnClickListener(v -> {
             //  点赞
-            mPresenter.collect(mEntity.getId());
+            mPresenter.collect(mAppraiseEntity.getId());
         });
 
         findViewById(R.id.ib_like).setOnClickListener(v -> {
             // 点赞
-            mPresenter.like(mEntity.getId());
+            mPresenter.like(mAppraiseEntity.getId());
         });
 
         findViewById(R.id.ib_share).setOnClickListener(v -> {
             // 分享
             TMTextShare share = new TMTextShare();
-            share.setContent(mEntity.getContent());
+            share.setContent(mAppraiseEntity.getContent());
             TMShareUtil.getInstance(mContext).shareText(share);
         });
     }
 
     @Override
     protected void initData() {
-        mPresenter.getComment(mEntity.getId());
+        mPresenter.getComment(mId);
+        mPresenter.getOnlineActivityDetail(mId);
     }
 
     @SuppressLint("SetTextI18n")

@@ -1,5 +1,6 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,9 +27,11 @@ import java.util.Map;
  */
 public class AppraiseWebContentActivity extends BaseWebViewActivity<ActionWebContract.Presenter> implements ActionWebContract.View {
     protected RecyclerView mRvVote;
-    private AppraiseEntity mActionEntity;
     private VoteAdapter mVoteAdapter;
     private OptionVoteAdapter mOptionAdapter;
+
+    private String mId;
+    private AppraiseEntity mAppraiseEntity;
 
     @Override
     protected boolean canOverrideUrlLoading() {
@@ -49,23 +52,29 @@ public class AppraiseWebContentActivity extends BaseWebViewActivity<ActionWebCon
     public void onMenuClicked() {
         //分享链接
         TMLinkShare tmLinkShare = new TMLinkShare();
-        String url = Constant.getBaseUrl() + "application/ya02wmsj_cecoe/activityShare/index.html?id=" + mActionEntity.getId();
+        String url = Constant.getBaseUrl() + "application/ya02wmsj_cecoe/activityShare/index.html?id=" + mAppraiseEntity.getId();
         tmLinkShare.setUrl(url);
-        tmLinkShare.setTitle(mActionEntity.getTitle());
-        tmLinkShare.setThumb(mActionEntity.getIcon_path());
+        tmLinkShare.setTitle(mAppraiseEntity.getTitle());
+        tmLinkShare.setThumb(mAppraiseEntity.getIcon_path());
         TMShareUtil.getInstance(mContext).shareLink(tmLinkShare);
     }
 
     @Override
     protected void initView() {
-        mActionEntity = (AppraiseEntity) getIntent().getSerializableExtra(Constant.KEY_BEAN);
-        mRvVote = findViewById(R.id.rv_vote);
-        setTitle(mActionEntity.getName());
+        AppraiseEntity actionEntity = (AppraiseEntity) getIntent().getSerializableExtra(Constant.KEY_BEAN);
+        setTitle(actionEntity.getName());
         setMenuIcon(R.mipmap.ya02wmsj_cecoe_icon_fx_white);
-        setHtml(mActionEntity.getContent());
+        mRvVote = findViewById(R.id.rv_vote);
+    }
+
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void updateInfo(AppraiseEntity appraiseEntity) {
+        mAppraiseEntity = appraiseEntity;
+        setHtml(mAppraiseEntity.getContent());
         mRvVote.setLayoutManager(new GridLayoutManager(this, 2));
-        if (mActionEntity.getVoteInfo() != null) {
-            mVoteAdapter = new VoteAdapter(this, mActionEntity.getVoteInfo());
+        if (mAppraiseEntity.getVoteInfo() != null) {
+            mVoteAdapter = new VoteAdapter(this, mAppraiseEntity.getVoteInfo());
             mVoteAdapter.setVoteListener(new VoteAdapter.IVote() {
                 @Override
                 public void onVoteClick(VoteEntity entity, int position) {
@@ -86,12 +95,11 @@ public class AppraiseWebContentActivity extends BaseWebViewActivity<ActionWebCon
                     Intent intent = new Intent(mContext, VoteAppraiseActivity.class);
                     intent.putExtra(Constant.KEY_BEAN, entity);
                     startActivity(intent);
-                    /*DialogHelp.getMessageDialog(mContext, entity.getContent()).show();*/
                 }
             });
             mRvVote.setAdapter(mVoteAdapter);
-        } else if (mActionEntity.getOptionInfo() != null) {
-            mOptionAdapter = new OptionVoteAdapter(this, mActionEntity.getOptionInfo());
+        } else if (mAppraiseEntity.getOptionInfo() != null) {
+            mOptionAdapter = new OptionVoteAdapter(this, mAppraiseEntity.getOptionInfo());
             mOptionAdapter.setVoteListener((entity, position) -> {
                 // 判断用户角色并投票        征询
                 if (Config.getInstance().getUser() != null) {
@@ -110,24 +118,25 @@ public class AppraiseWebContentActivity extends BaseWebViewActivity<ActionWebCon
 
     @Override
     protected void initData() {
+        mPresenter.getOnlineActivityDetail(mId);
     }
 
     @Override
     public void updateVoteCount(int position, String count) {
-        if (mActionEntity.getVoteInfo() != null) {
+        if (mAppraiseEntity.getVoteInfo() != null) {
             if (TextUtils.isEmpty(count)) {
-                int vote = Integer.parseInt(mActionEntity.getVoteInfo().get(position).getVote_number());
-                mActionEntity.getVoteInfo().get(position).setVote_number(String.valueOf(vote + 1));
+                int vote = Integer.parseInt(mAppraiseEntity.getVoteInfo().get(position).getVote_number());
+                mAppraiseEntity.getVoteInfo().get(position).setVote_number(String.valueOf(vote + 1));
             } else {
-                mActionEntity.getVoteInfo().get(position).setVote_number(count);
+                mAppraiseEntity.getVoteInfo().get(position).setVote_number(count);
             }
             mVoteAdapter.notifyDataSetChanged();
-        } else if (mActionEntity.getOptionInfo() != null) {
+        } else if (mAppraiseEntity.getOptionInfo() != null) {
             if (TextUtils.isEmpty(count)) {
-                int vote = Integer.parseInt(mActionEntity.getOptionInfo().get(position).getVote_number());
-                mActionEntity.getOptionInfo().get(position).setVote_number(String.valueOf(vote + 1));
+                int vote = Integer.parseInt(mAppraiseEntity.getOptionInfo().get(position).getVote_number());
+                mAppraiseEntity.getOptionInfo().get(position).setVote_number(String.valueOf(vote + 1));
             } else {
-                mActionEntity.getOptionInfo().get(position).setVote_number(count);
+                mAppraiseEntity.getOptionInfo().get(position).setVote_number(count);
             }
             mOptionAdapter.notifyDataSetChanged();
         }

@@ -1,5 +1,6 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
@@ -34,8 +35,11 @@ public class QuestionActivity extends BaseActivity<QuestionContract.Presenter> i
     protected TextView mTvLast;
     protected TextView mTvNext;
 
-    private AppraiseEntity mActivityEntity;
-    private int mCurrentQuestionIndex = 0;      //当前在第几题 0为第一题
+    private String mId;
+    private AppraiseEntity mAppraiseEntity;
+
+    private int mCurrentQuestionIndex = 0;
+    //当前在第几题 0为第一题
     private static Map<String, Object> _ANSWER_MAP_ = new HashMap<>();
 
     public static void addQuestionReq(QuestionItemReq req, int position) {
@@ -50,13 +54,33 @@ public class QuestionActivity extends BaseActivity<QuestionContract.Presenter> i
 
     @Override
     protected void initMVP() {
-        mActivityEntity = (AppraiseEntity) getIntent().getSerializableExtra(Constant.KEY_BEAN);
-        mPresenter = new QuestionPresenter(this, mActivityEntity.getId());
+        AppraiseEntity mEntity = (AppraiseEntity) getIntent().getSerializableExtra(Constant.KEY_BEAN);
+        if (mEntity != null) {
+            setTitle(mEntity.getName());
+            mId = mEntity.getId();
+        } else {
+            finishActivity();
+        }
+        mPresenter = new QuestionPresenter(this, mId);
+    }
+
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void updateInfo(AppraiseEntity appraiseEntity) {
+        mAppraiseEntity = appraiseEntity;
+        mTvContent.setText(mAppraiseEntity.getContent());
+        mTvTime.setText(mAppraiseEntity.getCtime());
+        if (mAppraiseEntity.getQuestionInfo() == null || mAppraiseEntity.getQuestionInfo().size() == 0) {
+            mLayBottom.setVisibility(View.GONE);
+        } else {
+            mTvCountShow.setText(getShowCountText());
+            QuestionFragmentAdapter adapter = new QuestionFragmentAdapter(getSupportFragmentManager(), mAppraiseEntity.getQuestionInfo());
+            mVpQuestion.setAdapter(adapter);
+        }
     }
 
     @Override
     protected void initView() {
-        setTitle(mActivityEntity.getName());
         setMenuIcon(R.mipmap.ya02wmsj_cecoe_icon_fx_white);
         mTvContent = findViewById(R.id.tv_content);
         mTvTime = findViewById(R.id.tv_time);
@@ -65,16 +89,6 @@ public class QuestionActivity extends BaseActivity<QuestionContract.Presenter> i
         mVpQuestion = findViewById(R.id.vp_question);
         mTvLast = findViewById(R.id.tv_last);
         mTvNext = findViewById(R.id.tv_next);
-
-        mTvContent.setText(mActivityEntity.getContent());
-        mTvTime.setText(mActivityEntity.getCtime());
-        if (mActivityEntity.getQuestionInfo() == null || mActivityEntity.getQuestionInfo().size() == 0) {
-            mLayBottom.setVisibility(View.GONE);
-        } else {
-            mTvCountShow.setText(getShowCountText());
-            QuestionFragmentAdapter adapter = new QuestionFragmentAdapter(getSupportFragmentManager(), mActivityEntity.getQuestionInfo());
-            mVpQuestion.setAdapter(adapter);
-        }
         mVpQuestion.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
@@ -85,17 +99,15 @@ public class QuestionActivity extends BaseActivity<QuestionContract.Presenter> i
 
             @Override
             public void onPageSelected(int i) {
-
             }
 
             @Override
             public void onPageScrollStateChanged(int i) {
-
             }
         });
         mTvLast.setOnClickListener(v -> {
             // 上一题逻辑
-            if (mActivityEntity == null || mActivityEntity.getQuestionInfo() == null) {
+            if (mAppraiseEntity == null || mAppraiseEntity.getQuestionInfo() == null) {
                 return;
             }
             if (mCurrentQuestionIndex <= 0) {
@@ -108,11 +120,11 @@ public class QuestionActivity extends BaseActivity<QuestionContract.Presenter> i
 
         mTvNext.setOnClickListener(v -> {
             // 下一题逻辑
-            if (mActivityEntity == null || mActivityEntity.getQuestionInfo() == null) {
+            if (mAppraiseEntity == null || mAppraiseEntity.getQuestionInfo() == null) {
                 return;
             }
 
-            if (mCurrentQuestionIndex >= mActivityEntity.getQuestionInfo().size() - 1) {
+            if (mCurrentQuestionIndex >= mAppraiseEntity.getQuestionInfo().size() - 1) {
                 submitData();
             } else {
                 mVpQuestion.setCurrentItem(mCurrentQuestionIndex + 1);
@@ -120,9 +132,8 @@ public class QuestionActivity extends BaseActivity<QuestionContract.Presenter> i
         });
     }
 
-
     private void submitBtnIsVisibility() {
-        if (mCurrentQuestionIndex >= mActivityEntity.getQuestionInfo().size() - 1) {
+        if (mCurrentQuestionIndex >= mAppraiseEntity.getQuestionInfo().size() - 1) {
             mTvNext.setText("提交");
         } else {
             mTvNext.setText("下一题");
@@ -131,15 +142,15 @@ public class QuestionActivity extends BaseActivity<QuestionContract.Presenter> i
 
     private void submitData() {
         // 提交
-        if (mActivityEntity == null || mActivityEntity.getQuestionInfo() == null) return;
+        if (mAppraiseEntity == null || mAppraiseEntity.getQuestionInfo() == null) return;
         String message = "确认提交答案？";
-        if (_ANSWER_MAP_.size() < mActivityEntity.getQuestionInfo().size()) {
+        if (_ANSWER_MAP_.size() < mAppraiseEntity.getQuestionInfo().size()) {
             message = "还有题目没做完，确认提交？";
         }
         DialogHelp.getConfirmDialog(this, message, (dialog, which) -> {
             // 提交
             Map<String, Object> map = new HashMap<>();
-            map.put("activityId", mActivityEntity.getId());
+            map.put("activityId", mAppraiseEntity.getId());
             String data = map2String(_ANSWER_MAP_);
             map.put("data", data);
             mPresenter.answerQuestion(map);
@@ -152,26 +163,26 @@ public class QuestionActivity extends BaseActivity<QuestionContract.Presenter> i
     public void onMenuClicked() {
         //分享链接
         TMLinkShare tmLinkShare = new TMLinkShare();
-        String url = Constant.getBaseUrl() + "application/ya02wmsj_cecoe/activityShare/index.html?id=" + mActivityEntity.getId();
+        String url = Constant.getBaseUrl() + "application/ya02wmsj_cecoe/activityShare/index.html?id=" + mAppraiseEntity.getId();
         tmLinkShare.setUrl(url);
-        tmLinkShare.setTitle(mActivityEntity.getTitle());
-        tmLinkShare.setThumb(mActivityEntity.getIcon_path());
+        tmLinkShare.setTitle(mAppraiseEntity.getTitle());
+        tmLinkShare.setThumb(mAppraiseEntity.getIcon_path());
         TMShareUtil.getInstance(mContext).shareLink(tmLinkShare);
     }
 
     private String getShowCountText() {
-        if (mActivityEntity == null || mActivityEntity.getQuestionInfo() == null) return "";
+        if (mAppraiseEntity == null || mAppraiseEntity.getQuestionInfo() == null) return "";
         if (mCurrentQuestionIndex <= 0) {
             mTvLast.setTextColor(ContextCompat.getColor(mContext, R.color.yl_text_light));
         } else {
             mTvLast.setTextColor(Color.parseColor("#F12E20"));
         }
-        if (mCurrentQuestionIndex >= mActivityEntity.getQuestionInfo().size() - 1) {
+        if (mCurrentQuestionIndex >= mAppraiseEntity.getQuestionInfo().size() - 1) {
             mTvNext.setTextColor(ContextCompat.getColor(mContext, R.color.yl_text_light));
         } else {
             mTvNext.setTextColor(Color.parseColor("#F12E20"));
         }
-        return mCurrentQuestionIndex + 1 + "/" + mActivityEntity.getQuestionInfo().size();
+        return mCurrentQuestionIndex + 1 + "/" + mAppraiseEntity.getQuestionInfo().size();
     }
 
     private String map2String(Map<String, Object> map) {
@@ -187,6 +198,7 @@ public class QuestionActivity extends BaseActivity<QuestionContract.Presenter> i
 
     @Override
     protected void initData() {
+        mPresenter.getOnlineActivityDetail(mId);
     }
 
     @Override

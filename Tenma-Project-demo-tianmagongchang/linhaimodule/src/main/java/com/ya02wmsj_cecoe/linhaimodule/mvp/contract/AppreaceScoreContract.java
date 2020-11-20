@@ -2,6 +2,7 @@ package com.ya02wmsj_cecoe.linhaimodule.mvp.contract;
 
 import com.ya02wmsj_cecoe.linhaimodule.base.mvp.APresenter;
 import com.ya02wmsj_cecoe.linhaimodule.base.mvp.IView;
+import com.ya02wmsj_cecoe.linhaimodule.bean.AppraiseEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.CommentEntity;
 
 import java.util.ArrayList;
@@ -10,15 +11,14 @@ import java.util.List;
 public interface AppreaceScoreContract {
     interface View extends IView {
         void updateComment();
+        void updateInfo(AppraiseEntity appraiseEntity);
     }
 
     abstract class Presenter extends APresenter<View> {
         private List<CommentEntity> mCommentList = new ArrayList<>();
-
         public Presenter(View view) {
             super(view);
         }
-
         public abstract void getComment(String c_id);
 
         public abstract void commit(String activityId, String scoreIds, String optionIds, String scores);
@@ -32,5 +32,6 @@ public interface AppreaceScoreContract {
         public List<CommentEntity> getCommentList() {
             return mCommentList;
         }
+        public abstract void getOnlineActivityDetail(String id);
     }
 }

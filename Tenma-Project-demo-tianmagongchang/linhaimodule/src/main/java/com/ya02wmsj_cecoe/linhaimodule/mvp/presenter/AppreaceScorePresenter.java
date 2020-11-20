@@ -1,5 +1,6 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.presenter;
 
+import com.ya02wmsj_cecoe.linhaimodule.bean.AppraiseEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.CommentEntity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.AppreaceScoreContract;
 import com.ya02wmsj_cecoe.linhaimodule.rx.Api;
@@ -8,6 +9,7 @@ import com.ya02wmsj_cecoe.linhaimodule.rx.RxSubscriber;
 import java.util.List;
 
 public class AppreaceScorePresenter extends AppreaceScoreContract.Presenter {
+
     public AppreaceScorePresenter(AppreaceScoreContract.View view) {
         super(view);
     }
@@ -29,7 +31,7 @@ public class AppreaceScorePresenter extends AppreaceScoreContract.Presenter {
     @Override
     public void commit(String activityId, String scoreIds, String optionIds, String scores) {
         mView.showDialog();
-        addRx2Destroy(new RxSubscriber<Object>(Api.giveScore(activityId, scoreIds, optionIds, scores),mView) {
+        addRx2Destroy(new RxSubscriber<Object>(Api.giveScore(activityId, scoreIds, optionIds, scores), mView) {
             @Override
             protected void _onNext(Object o) {
                 mView.dismissDialog();
@@ -82,6 +84,26 @@ public class AppreaceScorePresenter extends AppreaceScoreContract.Presenter {
             protected void _onNext(Object o) {
                 mView.dismissDialog();
                 toast("收藏成功");
+            }
+
+            @Override
+            protected void _onError(String code) {
+                mView.dismissDialog();
+                super._onError(code);
+            }
+        });
+    }
+
+    @Override
+    public void getOnlineActivityDetail(String id) {
+        mView.showDialog();
+        addRx2Destroy(new RxSubscriber<List<AppraiseEntity>>(Api.getOnlineActivityDetail(id)) {
+            @Override
+            protected void _onNext(List<AppraiseEntity> list) {
+                mView.dismissDialog();
+                if (list != null && list.size() > 0) {
+                    mView.updateInfo(list.get(0));
+                }
             }
 
             @Override

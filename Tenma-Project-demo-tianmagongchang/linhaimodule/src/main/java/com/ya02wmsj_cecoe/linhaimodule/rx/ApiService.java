@@ -402,6 +402,18 @@ public interface ApiService {
     @POST("getOnlineActivityList")
     Observable<List<AppraiseEntity>> getOnlineActivityList(@Field("TOKEN") String token, @Field("page") String page, @Field("rows") String rows, @Field("node_id") String node_id, @Field("region_code") String region_code, @Field("theme_id") String theme_id);
 
+
+    /**
+     * 获取详情信息
+     * @param token
+     * @param id
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("getOnlineActivityList")
+    Observable<List<AppraiseEntity>> getOnlineActivityDetail(@Field("TOKEN") String token, @Field("id") String id);
+
+
     /**
      * 评分
      *
