@@ -29,6 +29,7 @@ import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LtImActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LtResourceAppointActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LtShowActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LtWatcherActivity;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.MyWantSignIn;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.NetPersonBetActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.NodeContentActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.OrderBetActivity;
@@ -137,12 +138,14 @@ public class NodeAdapter extends CommonAdapter<Node> {
                     break;
                 case "签到":
                 case "我要签到":
-                    IWXAPI api = WXAPIFactory.createWXAPI(mContext, "wx3a3159c772abde27");
+                    /*IWXAPI api = WXAPIFactory.createWXAPI(mContext, "wx3a3159c772abde27");
                     api.registerApp("wx3a3159c772abde27");
                     WXLaunchMiniProgram.Req req = new WXLaunchMiniProgram.Req();
                     req.userName = "gh_9b78c83143ba"; // 填小程序原始id
                     req.miniprogramType = WXLaunchMiniProgram.Req.MINIPTOGRAM_TYPE_RELEASE;
-                    api.sendReq(req);
+                    api.sendReq(req);*/
+                    Intent intent6 = new Intent(mContext, MyWantSignIn.class);
+                    mContext.startActivity(intent6);
                     break;
                 case "学习强国":
                     AppUtils.gotoOtherApp(mContext, "cn.xuexi.android", "");

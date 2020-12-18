@@ -34,8 +34,7 @@ public abstract class BaseWebViewActivity<P extends APresenter> extends BaseActi
 
     @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
     @Override
-    protected final void initUI() {
-        super.initUI();
+    protected void initUI() {
         mWebView = findViewById(R.id.webView);
         mWebView.setClickable(false);
         mWebView.setFocusable(true);
@@ -65,17 +64,14 @@ public abstract class BaseWebViewActivity<P extends APresenter> extends BaseActi
         }
 
         mWebView.setWebViewClient(new WebViewClient() {
-
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 if (canOverrideUrlLoading()) return super.shouldOverrideUrlLoading(view, url);
                 if (url != null) {//自定义跳转
-
                     return true;
                 }
                 return super.shouldOverrideUrlLoading(view, url);
             }
-
 
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -87,10 +83,8 @@ public abstract class BaseWebViewActivity<P extends APresenter> extends BaseActi
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 dismissDialog();
-                int w = View.MeasureSpec.makeMeasureSpec(0,
-                        View.MeasureSpec.UNSPECIFIED);
-                int h = View.MeasureSpec.makeMeasureSpec(0,
-                        View.MeasureSpec.UNSPECIFIED);
+                int w = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+                int h = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
                 // 重新测量
                 mWebView.measure(w, h);
             }

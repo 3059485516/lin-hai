@@ -266,8 +266,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".mvp.activity.PublishOpinionActivity"
-            android:windowSoftInputMode="stateVisible|adjustResize"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
             android:name=".mvp.activity.ServiceListInfoActivity"
             android:screenOrientation="portrait" />
@@ -413,6 +413,10 @@
 
         <activity
             android:name=".mvp.activity.OtherServicesActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".mvp.activity.MyWantSignIn"
             android:screenOrientation="portrait" />
 
         <provider

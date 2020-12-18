@@ -29,7 +29,7 @@ import com.ya02wmsj_cecoe.linhaimodule.widget.ToolbarLayout;
 
 public abstract class BaseActivity<P extends APresenter> extends TMActivity implements DialogInterface.OnCancelListener {
     protected ToolbarLayout mToolbarLayout;
-    ImageView mIvBack;
+    protected ImageView mIvBack;
 
     protected P mPresenter;
     protected Activity mContext;
