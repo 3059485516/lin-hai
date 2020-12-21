@@ -56,7 +56,6 @@ public abstract class BaseActivity<P extends APresenter> extends TMActivity impl
             StatusBarUtils.setColor(this, ContextCompat.getColor(this, R.color.yl_theme_color));
         }
 
-
         mToolbarLayout = findViewById(R.id.base_toolbar);
         mIvBack = findViewById(R.id.base_iv_back);
         AppManager.getInstance().pushActivity(this);

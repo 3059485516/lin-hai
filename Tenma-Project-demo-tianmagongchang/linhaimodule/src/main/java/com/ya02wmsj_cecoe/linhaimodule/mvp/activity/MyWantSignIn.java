@@ -11,6 +11,7 @@ import android.webkit.WebViewClient;
 import com.ya02wmsj_cecoe.linhaimodule.Config;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.base.activity.BaseWebViewActivity;
+import com.ya02wmsj_cecoe.linhaimodule.utils.AppUtils;
 
 
 public class MyWantSignIn extends BaseWebViewActivity {
@@ -73,7 +74,9 @@ public class MyWantSignIn extends BaseWebViewActivity {
     protected void initData() {
         StringBuilder stringBuilder = new StringBuilder("https://appapi.zyh365.com/quick-sign/index.html?token=");
         stringBuilder.append(Config.getInstance().getVolunteerToken());
-        stringBuilder.append("&mobile_unique=18267839955&redirectUri=");
+        stringBuilder.append("&mobile_unique=");
+        stringBuilder.append(AppUtils.getIMEI(mContext,Config.getInstance().getUser().getPhone()));
+        stringBuilder.append("&redirectUri=");
         stringBuilder.append(returnHtmlUrl);
         stringBuilder.append("&title=%E5%BF%97%E6%84%BF%E6%B1%87&comment=0");
         mWebView.loadUrl(stringBuilder.toString());
