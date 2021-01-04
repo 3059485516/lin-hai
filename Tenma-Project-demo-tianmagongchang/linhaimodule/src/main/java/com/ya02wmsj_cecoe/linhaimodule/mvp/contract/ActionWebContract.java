@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public interface ActionWebContract {
     interface View extends IView {
-        void updateVoteCount(int position, String count);
+        void updateVoteCount(int position);
         void updateInfo(AppraiseEntity appraiseEntity);
     }
 

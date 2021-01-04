@@ -122,22 +122,14 @@ public class AppraiseWebContentActivity extends BaseWebViewActivity<ActionWebCon
     }
 
     @Override
-    public void updateVoteCount(int position, String count) {
+    public void updateVoteCount(int position) {
         if (mAppraiseEntity.getVoteInfo() != null) {
-            if (TextUtils.isEmpty(count)) {
-                int vote = Integer.parseInt(mAppraiseEntity.getVoteInfo().get(position).getVote_number());
-                mAppraiseEntity.getVoteInfo().get(position).setVote_number(String.valueOf(vote + 1));
-            } else {
-                mAppraiseEntity.getVoteInfo().get(position).setVote_number(count);
-            }
+            int vote = Integer.parseInt(mAppraiseEntity.getVoteInfo().get(position).getVote_number());
+            mAppraiseEntity.getVoteInfo().get(position).setVote_number(String.valueOf(vote + 1));
             mVoteAdapter.notifyDataSetChanged();
         } else if (mAppraiseEntity.getOptionInfo() != null) {
-            if (TextUtils.isEmpty(count)) {
-                int vote = Integer.parseInt(mAppraiseEntity.getOptionInfo().get(position).getVote_number());
-                mAppraiseEntity.getOptionInfo().get(position).setVote_number(String.valueOf(vote + 1));
-            } else {
-                mAppraiseEntity.getOptionInfo().get(position).setVote_number(count);
-            }
+            int vote = Integer.parseInt(mAppraiseEntity.getOptionInfo().get(position).getVote_number());
+            mAppraiseEntity.getOptionInfo().get(position).setVote_number(String.valueOf(vote + 1));
             mOptionAdapter.notifyDataSetChanged();
         }
     }

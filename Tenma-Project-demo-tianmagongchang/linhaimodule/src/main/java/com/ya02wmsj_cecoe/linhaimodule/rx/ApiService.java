@@ -64,6 +64,7 @@ import java.util.Map;
 
 import io.reactivex.Observable;
 import okhttp3.MultipartBody;
+import okhttp3.ResponseBody;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
@@ -331,6 +332,12 @@ public interface ApiService {
      * @param map
      * @return
      */
+    @FormUrlEncoded
+    @POST("consultOrSelectVote")
+    Observable<ResponseBody> consultNewOrSelectVote(@FieldMap Map<String, Object> map);
+
+
+
     @FormUrlEncoded
     @POST("consultOrSelectVote")
     Observable<String> consultOrSelectVote(@FieldMap Map<String, Object> map);

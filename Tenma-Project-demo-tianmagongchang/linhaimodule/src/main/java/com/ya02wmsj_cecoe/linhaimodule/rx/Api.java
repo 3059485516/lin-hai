@@ -2,7 +2,9 @@ package com.ya02wmsj_cecoe.linhaimodule.rx;
 
 import android.text.TextUtils;
 
+import com.google.gson.Gson;
 import com.luck.picture.lib.entity.LocalMedia;
+import com.socks.library.KLog;
 import com.ya02wmsj_cecoe.linhaimodule.Config;
 import com.ya02wmsj_cecoe.linhaimodule.bean.ActionDetailBetEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.ActionRecruitEntity;
@@ -14,6 +16,7 @@ import com.ya02wmsj_cecoe.linhaimodule.bean.CommentEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.EduEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.EventDetail;
 import com.ya02wmsj_cecoe.linhaimodule.bean.ExchangeListEntity;
+import com.ya02wmsj_cecoe.linhaimodule.bean.HttpResult;
 import com.ya02wmsj_cecoe.linhaimodule.bean.KjcgDetailEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.KjxqDetailEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.LiveListEntity;
@@ -328,6 +331,29 @@ public class Api {
         }
         return API_SERVICE.getActivityList(params).compose(RxSchedulers.io_main());
     }
+
+    /**
+     * 公众用户参与  征询/人物评选活动投票
+     *
+     * @param map
+     * @return
+     */
+    public static Observable<String> consultNewOrSelectVote(Map<String, Object> map) {
+        Map<String, Object> params = createParamsMap(getToken());
+        if (map != null && map.size() > 0) {
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                params.put(entry.getKey(), entry.getValue());
+            }
+        }
+        return API_SERVICE.consultNewOrSelectVote(params).map(responseBody -> {
+            String json = new String(responseBody.bytes(), "UTF-8");
+            KLog.d("json++++++++++", json);
+            Gson ggson = new Gson();
+            HttpResult httpResult = ggson.fromJson(json, HttpResult.class);
+            return httpResult.getDesc();
+        }).compose(RxSchedulers.io_main());
+    }
+
 
     /**
      * 公众用户参与  征询/人物评选活动投票

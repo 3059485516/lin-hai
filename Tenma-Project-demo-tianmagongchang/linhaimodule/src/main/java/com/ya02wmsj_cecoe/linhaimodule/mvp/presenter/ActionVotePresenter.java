@@ -1,5 +1,7 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.presenter;
 
+import android.text.TextUtils;
+
 import com.ya02wmsj_cecoe.linhaimodule.bean.AppraiseEntity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.ActionWebContract;
 import com.ya02wmsj_cecoe.linhaimodule.rx.Api;
@@ -21,8 +23,14 @@ public class ActionVotePresenter extends ActionWebContract.Presenter {
         addRx2Destroy(new RxSubscriber<String>(Api.consultOrSelectVote(map)) {
             @Override
             protected void _onNext(String str) {
-                toast("投票成功");
-                mView.updateVoteCount(position, str);
+                toast("投票成功!");
+                mView.updateVoteCount(position);
+                /*if (!TextUtils.isEmpty(str) && str.contains("成功")) {
+                    toast(str);
+                    mView.updateVoteCount(position);
+                } else {
+                    toast(str);
+                }*/
             }
         });
     }
