@@ -151,8 +151,11 @@ public class LtEvaluationPublishActivity extends BaseActivity<LtEvaluationPublis
     private void showTimePickDialog(YLTextViewGroup ylTextViewGroup) {
         KeyBoardUtils.closeSoftInput(this);
         Calendar startTime = Calendar.getInstance();
+        startTime.add(Calendar.YEAR, -1);  //一年之前
         Calendar endTime = Calendar.getInstance();
         endTime.add(Calendar.YEAR, 1);  //一年之内
+
+        Calendar curTime = Calendar.getInstance();
 
         TimePickerView timePickerView = new TimePickerBuilder(this, new OnTimeSelectListener() {
             @Override
@@ -161,7 +164,7 @@ public class LtEvaluationPublishActivity extends BaseActivity<LtEvaluationPublis
             }
         }).setType(new boolean[]{true, true, true, true, true, true})
                 .setRangDate(startTime, endTime)
-                .setDate(startTime)
+                .setDate(curTime)
                 .isDialog(false).build();
         timePickerView.show();
     }

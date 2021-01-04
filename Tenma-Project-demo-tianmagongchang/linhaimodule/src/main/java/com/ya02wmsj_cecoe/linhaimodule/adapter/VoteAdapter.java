@@ -1,13 +1,17 @@
 package com.ya02wmsj_cecoe.linhaimodule.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.bean.VoteEntity;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.PreviewImageActivity;
 import com.ya02wmsj_cecoe.linhaimodule.utils.ImageManager;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -44,6 +48,14 @@ public class VoteAdapter extends CommonAdapter<VoteEntity> {
             if (mVoteListener != null) {
                 mVoteListener.onVoteDetailClick(voteEntity, position);
             }
+        });
+
+        holder.getView(R.id.iv_icon).setOnClickListener(v -> {
+            Intent intent = new Intent(mContext, PreviewImageActivity.class);
+            ArrayList list = new ArrayList();
+            list.add(voteEntity.getPic());
+            intent.putExtra(Constant.KEY_BEAN,list);
+            mContext.startActivity(intent);
         });
     }
 

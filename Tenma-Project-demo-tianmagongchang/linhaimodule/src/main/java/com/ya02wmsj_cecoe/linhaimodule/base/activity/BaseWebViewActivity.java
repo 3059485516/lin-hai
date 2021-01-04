@@ -22,7 +22,6 @@ import com.ya02wmsj_cecoe.linhaimodule.other.MJavascriptInterface;
  * @param <P>
  */
 public abstract class BaseWebViewActivity<P extends APresenter> extends BaseActivity<P> {
-
     protected WebView mWebView;
 
     protected abstract boolean canOverrideUrlLoading();
@@ -35,6 +34,7 @@ public abstract class BaseWebViewActivity<P extends APresenter> extends BaseActi
     @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
     @Override
     protected void initUI() {
+        super.initUI();
         mWebView = findViewById(R.id.webView);
         mWebView.setClickable(false);
         mWebView.setFocusable(true);
