@@ -1,7 +1,6 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
 import android.view.View;
-
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.ya02wmsj_cecoe.linhaimodule.R;
@@ -14,15 +13,12 @@ import com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup;
 
 import java.util.List;
 
-
 /**
  * Created by BenyChan on 2019-07-27.
  */
 public class BindRegionActivity extends BaseActivity<BindRegionContract.Presenter> implements BindRegionContract.View {
     protected YLTextViewGroup mTvRegionCounty;
-
     protected YLTextViewGroup mTvRegionTown;
-
     protected YLTextViewGroup mTvRegionVillage;
 
     @Override

@@ -2,7 +2,6 @@ package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
 import android.content.Intent;
 import android.view.View;
-
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.base.activity.BaseActivity;
 
@@ -14,7 +13,6 @@ public class LtResourceAppointActivity extends BaseActivity {
 
     @Override
     protected void initMVP() {
-
     }
 
     @Override
@@ -45,6 +43,5 @@ public class LtResourceAppointActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
     }
 }

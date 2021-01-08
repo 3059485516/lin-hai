@@ -312,16 +312,11 @@ public class Config implements TMLoginManager.OnLoginListener {
 
     @Override
     public void onLogout() {
-        LogoutHelper.logout();  //im退出登录
+        LogoutHelper.logout();
         token = "";
         mVolunteerToken = "";
         mLtToken = "";
         mUser = new User();
         isLoginIm = false;
     }
-
-
-//    public static class Holder {
-//        public static final Config INSTANCE = new Config();
-//    }
 }

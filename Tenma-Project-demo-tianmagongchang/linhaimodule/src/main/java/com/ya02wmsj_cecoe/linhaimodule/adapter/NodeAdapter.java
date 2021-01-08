@@ -12,9 +12,11 @@ import com.ya02wmsj_cecoe.linhaimodule.Config;
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.bean.Node;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.BindRegionActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.CloudClassActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.DiscoverActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.DoVolunteerActivity;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.EditRegionActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.EduActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.ExchangeFuliActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LtEvaluationActivity;
@@ -186,6 +188,10 @@ public class NodeAdapter extends CommonAdapter<Node> {
                     Intent intentDD = new Intent(mContext, OrderBetSubActivity.class);
                     intentDD.putExtra(Constant.KEY_BEAN, node);
                     mContext.startActivity(intentDD);
+                    break;
+                case "修改区域":
+                    Intent editRegionIntent = new Intent(mContext, EditRegionActivity.class);
+                    mContext.startActivity(editRegionIntent);
                     break;
                 case "家政":
                     Intent intentJZ = new Intent(mContext, ServiceListInfoActivity.class);

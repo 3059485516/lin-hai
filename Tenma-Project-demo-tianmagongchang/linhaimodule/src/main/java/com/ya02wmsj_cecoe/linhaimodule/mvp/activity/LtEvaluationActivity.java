@@ -6,11 +6,8 @@ import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.EvaluationContract;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.EvaluationPresenter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 
+
 public class LtEvaluationActivity extends BaseListActivity<EvaluationPresenter> implements EvaluationContract.View {
-//    @Override
-//    protected int getLayoutId() {
-//        return R.layout.ya02wmsj_cecoe_evaluation_activity;
-//    }
 
     @Override
     protected void initMVP() {
@@ -22,7 +19,6 @@ public class LtEvaluationActivity extends BaseListActivity<EvaluationPresenter> 
         setTitle("测评记录");
         setMenuText("上报");
     }
-
 
     @Override
     protected MultiItemTypeAdapter getAdapter() {

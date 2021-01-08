@@ -11,15 +11,14 @@ import com.ya02wmsj_cecoe.linhaimodule.bean.Node;
 import java.util.Arrays;
 import java.util.Collections;
 
-
+/**
+ * 更多服务
+ */
 public class MoreServiceFragment extends BaseFragment {
-    RecyclerView mRv1;
-
-    RecyclerView mRv2;
-
-    RecyclerView mRv3;
-
-    RecyclerView mRv4;
+    protected RecyclerView mRv1;
+    protected RecyclerView mRv2;
+    protected RecyclerView mRv3;
+    protected RecyclerView mRv4;
 
     @Override
     protected int getLayoutId() {
@@ -28,7 +27,6 @@ public class MoreServiceFragment extends BaseFragment {
 
     @Override
     protected void initMVP() {
-
     }
 
     @Override
@@ -46,7 +44,8 @@ public class MoreServiceFragment extends BaseFragment {
                 new Node("理论宣讲服务", R.mipmap.ya02wmsj_cecoe_lilun + "", true, "1"),
                 new Node("教育志愿服务", R.mipmap.ya02wmsj_cecoe_jiaoyu + "", true, "2"),
                 new Node("文化服务", R.mipmap.ya02wmsj_cecoe_wenhua + "", true, "3"),
-                new Node("科技与科普服务", R.mipmap.ya02wmsj_cecoe_keji + "", true, "4")
+                new Node("科技与科普服务", R.mipmap.ya02wmsj_cecoe_keji + "", true, "4"),
+                new Node("修改区域", R.mipmap.ya02wmsj_cecoe_keji + "", true, "5")
         ));
         NodeAdapter adapter2 = new NodeAdapter(mActivity, Arrays.asList(
                 new Node("家政", R.mipmap.ya02wmsj_cecoe_jiazheng + "", true),
@@ -76,6 +75,5 @@ public class MoreServiceFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-
     }
 }

@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class AppraiseListAdapter extends CommonAdapter<NodeContent> {
     public AppraiseListAdapter(Context context, List<NodeContent> datas) {
-        super(context, R.layout.ya02wmsj_cecoe_fragment_apperace, datas);
+        super(context, R.layout.ya02wmsj_cecoe_fragment_apperace_list, datas);
     }
 
     @Override

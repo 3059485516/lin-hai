@@ -46,9 +46,7 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, Obje
             } else {
                 throw new ApiException(code);
             }
-        } catch (IOException e) {
-            throw new ApiException(HttpCode.CODE_30002.getCode());
-        } catch (JSONException e) {
+        } catch (IOException | JSONException e) {
             throw new ApiException(HttpCode.CODE_30002.getCode());
         } catch (JsonSyntaxException e) {
             throw new JsonException(HttpCode.CODE_30003.getCode());

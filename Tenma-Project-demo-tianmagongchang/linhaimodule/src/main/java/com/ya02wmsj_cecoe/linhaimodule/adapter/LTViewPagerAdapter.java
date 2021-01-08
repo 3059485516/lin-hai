@@ -33,8 +33,8 @@ public class LTViewPagerAdapter extends PagerAdapter {
             new Node("随手拍", R.mipmap.ya02wmsj_cecoe_net_1_5 + "", true),
             new Node("测评记录", R.mipmap.ya02wmsj_cecoe_ceping + "", true),
             new Node("消息", R.mipmap.ya02wmsj_cecoe_ideology_4 + "", true),
-            new Node("视频监控", R.mipmap.ya02wmsj_cecoe_ideology_3 + "", true),
-            new Node("预约管理", R.mipmap.ya02wmsj_cecoe_net_2_3 + "", true)
+            new Node("视频监控", R.mipmap.ya02wmsj_cecoe_ideology_3 + "", true)
+           // new Node("预约管理", R.mipmap.ya02wmsj_cecoe_net_2_3 + "", true)
     ));
 
     public LTViewPagerAdapter(Context context) {

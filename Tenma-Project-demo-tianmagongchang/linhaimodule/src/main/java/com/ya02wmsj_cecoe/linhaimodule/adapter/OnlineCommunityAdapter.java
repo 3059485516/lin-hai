@@ -55,7 +55,6 @@ public class OnlineCommunityAdapter extends MultiItemTypeAdapter<OnlineCommunity
 
 
     protected class ContentItem extends MyItemViewDelegate<OnlineCommunity> {
-
         ContentItem(int layoutId) {
             super(layoutId);
         }
@@ -134,7 +133,6 @@ public class OnlineCommunityAdapter extends MultiItemTypeAdapter<OnlineCommunity
      * 一个图
      */
     protected class ActivityItem extends MyItemViewDelegate<OnlineCommunity> {
-
         ActivityItem(int layoutId) {
             super(layoutId);
         }

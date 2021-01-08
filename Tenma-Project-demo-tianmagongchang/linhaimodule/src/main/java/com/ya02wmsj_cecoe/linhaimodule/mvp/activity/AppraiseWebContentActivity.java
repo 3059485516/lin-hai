@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 
 import com.tenma.ventures.share.bean.TMLinkShare;
 import com.tenma.ventures.share.util.TMShareUtil;
@@ -62,6 +61,7 @@ public class AppraiseWebContentActivity extends BaseWebViewActivity<ActionWebCon
     @Override
     protected void initView() {
         AppraiseEntity actionEntity = (AppraiseEntity) getIntent().getSerializableExtra(Constant.KEY_BEAN);
+        mId = actionEntity.getId();
         setTitle(actionEntity.getName());
         setMenuIcon(R.mipmap.ya02wmsj_cecoe_icon_fx_white);
         mRvVote = findViewById(R.id.rv_vote);

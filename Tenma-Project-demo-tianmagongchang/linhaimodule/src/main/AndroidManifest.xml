@@ -139,6 +139,9 @@
             android:name=".mvp.activity.BindRegionActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".mvp.activity.EditRegionActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".mvp.activity.AppraiseListActivity"
             android:screenOrientation="portrait" />
         <activity

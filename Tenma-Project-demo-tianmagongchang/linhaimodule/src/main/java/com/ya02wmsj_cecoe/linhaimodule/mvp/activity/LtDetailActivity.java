@@ -41,7 +41,7 @@ public class LtDetailActivity extends BaseActivity<LtDetailPresenter> implements
     @Override
     protected void initView() {
         setTitle(getIntent().getStringExtra(Constant.KEY_STRING_2));
-        setMenuText("预约使用");
+        //setMenuText("预约使用");
         mIvTop = findViewById(R.id.iv_top);
         mTvCaName = findViewById(R.id.tv_ca_name);
         mTvCaDesc = findViewById(R.id.tv_ca_desc);

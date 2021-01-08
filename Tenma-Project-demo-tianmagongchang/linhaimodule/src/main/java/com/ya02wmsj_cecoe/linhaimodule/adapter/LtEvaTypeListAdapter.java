@@ -1,5 +1,6 @@
 package com.ya02wmsj_cecoe.linhaimodule.adapter;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,14 +18,12 @@ public class LtEvaTypeListAdapter extends BaseNodeViewFactory {
 
     public interface IClickWatcherListener {
         void expand(TreeNode treeNode);
-
         void gotoDetail(TreeNode treeNode);
     }
 
     public LtEvaTypeListAdapter(LtEvaTypeListAdapter.IClickWatcherListener listener) {
         mListener = listener;
     }
-
 
     @Override
     public BaseNodeViewBinder getNodeViewBinder(View view, int level) {
@@ -34,6 +33,7 @@ public class LtEvaTypeListAdapter extends BaseNodeViewFactory {
     public class LtWatcherItemView extends BaseNodeViewBinder {
         private int level;
         private TextView tv_title;
+        private TextView tv_score;
         private ImageView iv_arrow, iv_left;
         private View root_view;
 
@@ -43,6 +43,7 @@ public class LtEvaTypeListAdapter extends BaseNodeViewFactory {
             tv_title = itemView.findViewById(R.id.tv_title);
             iv_arrow = itemView.findViewById(R.id.iv_arrow);
             iv_left = itemView.findViewById(R.id.iv_left);
+            tv_score = itemView.findViewById(R.id.tv_score);
             root_view = itemView;
         }
 
@@ -51,6 +52,7 @@ public class LtEvaTypeListAdapter extends BaseNodeViewFactory {
             return R.layout.ya02wmsj_cecoe_lt_eva_type_item;
         }
 
+        @SuppressLint("SetTextI18n")
         @Override
         public void bindView(TreeNode treeNode) {
             if (treeNode == null) {
@@ -59,10 +61,13 @@ public class LtEvaTypeListAdapter extends BaseNodeViewFactory {
             LtEvaEntity entity = (LtEvaEntity) treeNode.getValue();
             if (entity != null) {
                 tv_title.setText(entity.getTitle());
+                tv_score.setText(entity.getPoint() + "分");
                 if (entity.getChildren() == null || entity.getChildren().size() == 0) {
                     iv_arrow.setVisibility(View.GONE);
+                    tv_score.setVisibility(View.VISIBLE);
                 } else {
                     iv_arrow.setVisibility(View.VISIBLE);
+                    tv_score.setVisibility(View.GONE);
                 }
                 if (treeNode.isExpanded()) {
                     iv_arrow.setImageResource(R.mipmap.ya02wmsj_cecoe_arrow_down_1);

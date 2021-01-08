@@ -39,9 +39,6 @@ public class MJavascriptInterface {
         intent.setClass(context, WebActivity.class);
         intent.putExtra(Constant.KEY_STRING_1, "新时代文明实践");
         intent.putExtra(Constant.KEY_STRING_2, url);
-//        intent.setAction("android.intent.action.VIEW");
-//        Uri content_url = Uri.parse(url);
-//        intent.setData(content_url);
         context.startActivity(intent);
     }
 }
