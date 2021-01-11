@@ -1,8 +1,7 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.presenter;
 
-import android.text.TextUtils;
-
 import com.ya02wmsj_cecoe.linhaimodule.bean.AppraiseEntity;
+import com.ya02wmsj_cecoe.linhaimodule.bean.HttpResult;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.ActionWebContract;
 import com.ya02wmsj_cecoe.linhaimodule.rx.Api;
 import com.ya02wmsj_cecoe.linhaimodule.rx.RxSubscriber;
@@ -20,17 +19,20 @@ public class ActionVotePresenter extends ActionWebContract.Presenter {
 
     @Override
     public void vote(int position, Map<String, Object> map) {
-        addRx2Destroy(new RxSubscriber<String>(Api.consultOrSelectVote(map)) {
+        addRx2Destroy(new RxSubscriber<HttpResult>(Api.consultNewOrSelectVote(map)) {
             @Override
-            protected void _onNext(String str) {
-                toast("投票成功!");
-                mView.updateVoteCount(position);
-                /*if (!TextUtils.isEmpty(str) && str.contains("成功")) {
-                    toast(str);
-                    mView.updateVoteCount(position);
+            protected void _onNext(HttpResult httpResult) {
+                if (httpResult != null) {
+                    String desc = httpResult.getDesc();
+                    if (50001 == httpResult.getResultCode()) {
+                        toast(desc);
+                    } else if (50000 == httpResult.getResultCode()) {
+                        toast(desc);
+                        mView.updateVoteCount(position);
+                    }
                 } else {
-                    toast(str);
-                }*/
+                    toast("投票失败!");
+                }
             }
         });
     }

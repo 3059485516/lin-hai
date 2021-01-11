@@ -422,6 +422,10 @@
             android:name=".mvp.activity.MyWantSignIn"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".mvp.activity.ShowCvilizePublishActivity"
+            android:screenOrientation="portrait" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.tenma.ventures.linhai.fileProvider"

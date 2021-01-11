@@ -338,7 +338,7 @@ public class Api {
      * @param map
      * @return
      */
-    public static Observable<String> consultNewOrSelectVote(Map<String, Object> map) {
+    public static Observable<HttpResult> consultNewOrSelectVote(Map<String, Object> map) {
         Map<String, Object> params = createParamsMap(getToken());
         if (map != null && map.size() > 0) {
             for (Map.Entry<String, Object> entry : map.entrySet()) {
@@ -350,7 +350,7 @@ public class Api {
             KLog.d("json++++++++++", json);
             Gson ggson = new Gson();
             HttpResult httpResult = ggson.fromJson(json, HttpResult.class);
-            return httpResult.getDesc();
+            return httpResult;
         }).compose(RxSchedulers.io_main());
     }
 

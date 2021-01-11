@@ -1,6 +1,6 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
-import android.view.View;
+import android.widget.Button;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.view.OptionsPickerView;
@@ -24,6 +24,8 @@ public class EditRegionActivity extends BaseActivity<EditRegionContract.Presente
     protected YLTextViewGroup mTvRegionTown;
     protected YLTextViewGroup mTvRegionVillage;
 
+    protected Button mBtnBindArea;
+
     @Override
     protected int getLayoutId() {
         return R.layout.ya02wmsj_cecoe_activity_bind_region;
@@ -40,6 +42,9 @@ public class EditRegionActivity extends BaseActivity<EditRegionContract.Presente
         mTvRegionCounty = findViewById(R.id.tv_area_1);
         mTvRegionTown = findViewById(R.id.tv_area_2);
         mTvRegionVillage = findViewById(R.id.tv_area_3);
+        mBtnBindArea = findViewById(R.id.btn_bind);
+
+        mBtnBindArea.setText("修改区域");
 
         User user = Config.getInstance().getUser();
         String county = user.getCounty();
@@ -68,15 +73,12 @@ public class EditRegionActivity extends BaseActivity<EditRegionContract.Presente
             mPresenter.getRegionData3("village", (String) mTvRegionTown.getTag());
         });
 
-        findViewById(R.id.btn_bind).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mTvRegionVillage.getTag() == null) {
-                    toast("请选择完整区域");
-                    return;
-                }
-                mPresenter.bindArea((String) mTvRegionVillage.getTag());
+        mBtnBindArea.setOnClickListener(v -> {
+            if (mTvRegionVillage.getTag() == null) {
+                toast("请选择完整区域");
+                return;
             }
+            mPresenter.bindArea((String) mTvRegionVillage.getTag());
         });
     }
 

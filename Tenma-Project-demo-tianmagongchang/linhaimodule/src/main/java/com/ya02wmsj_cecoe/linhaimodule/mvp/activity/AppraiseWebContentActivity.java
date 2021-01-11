@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.tenma.ventures.share.bean.TMLinkShare;
 import com.tenma.ventures.share.util.TMShareUtil;
@@ -14,11 +16,14 @@ import com.ya02wmsj_cecoe.linhaimodule.adapter.OptionVoteAdapter;
 import com.ya02wmsj_cecoe.linhaimodule.adapter.VoteAdapter;
 import com.ya02wmsj_cecoe.linhaimodule.base.activity.BaseWebViewActivity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.AppraiseEntity;
+import com.ya02wmsj_cecoe.linhaimodule.bean.OptionEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.VoteEntity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.ActionWebContract;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.ActionVotePresenter;
+import com.ya02wmsj_cecoe.linhaimodule.utils.ImageManager;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -31,6 +36,12 @@ public class AppraiseWebContentActivity extends BaseWebViewActivity<ActionWebCon
 
     private String mId;
     private AppraiseEntity mAppraiseEntity;
+
+    private ImageView iv_icon;
+    private TextView tv_mainTitle;
+    private TextView tv_time;
+    private TextView tv_totalNum;
+    private TextView tv_Mtitle;
 
     @Override
     protected boolean canOverrideUrlLoading() {
@@ -65,6 +76,12 @@ public class AppraiseWebContentActivity extends BaseWebViewActivity<ActionWebCon
         setTitle(actionEntity.getName());
         setMenuIcon(R.mipmap.ya02wmsj_cecoe_icon_fx_white);
         mRvVote = findViewById(R.id.rv_vote);
+
+        iv_icon = findViewById(R.id.iv_icon);
+        tv_mainTitle = findViewById(R.id.tv_mainTitle);
+        tv_time = findViewById(R.id.tv_time);
+        tv_totalNum = findViewById(R.id.tv_totalNum);
+        tv_Mtitle = findViewById(R.id.tv_Mtitle);
     }
 
     @SuppressLint("SetTextI18n")
@@ -72,8 +89,31 @@ public class AppraiseWebContentActivity extends BaseWebViewActivity<ActionWebCon
     public void updateInfo(AppraiseEntity appraiseEntity) {
         mAppraiseEntity = appraiseEntity;
         setHtml(mAppraiseEntity.getContent());
+
+        ImageManager.getInstance().loadCircleImage(mContext, appraiseEntity.getPic_url(), R.mipmap.ya02wmsj_cecoe_head, iv_icon);
+        tv_mainTitle.setText(appraiseEntity.getName());
+        tv_time.setText("截止时间：" + appraiseEntity.getEnd_time());
+
+        tv_Mtitle.setText(appraiseEntity.getTitle());
+
         mRvVote.setLayoutManager(new GridLayoutManager(this, 2));
         if (mAppraiseEntity.getVoteInfo() != null) {
+            List<VoteEntity> voteEntityList = mAppraiseEntity.getVoteInfo();
+            int allNum = 0;
+            for (int i = 0; i < voteEntityList.size(); i++) {
+                VoteEntity voteEntity = voteEntityList.get(i);
+                if (voteEntity != null) {
+                    String vote_number = voteEntity.getVote_number();
+                    try {
+                        int num = Integer.valueOf(vote_number);
+                        allNum = allNum + num;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            tv_totalNum.setText("总票：" + allNum);
+
             mVoteAdapter = new VoteAdapter(this, mAppraiseEntity.getVoteInfo());
             mVoteAdapter.setVoteListener(new VoteAdapter.IVote() {
                 @Override
@@ -99,6 +139,23 @@ public class AppraiseWebContentActivity extends BaseWebViewActivity<ActionWebCon
             });
             mRvVote.setAdapter(mVoteAdapter);
         } else if (mAppraiseEntity.getOptionInfo() != null) {
+            List<OptionEntity> voteEntityList = mAppraiseEntity.getOptionInfo();
+            int allNum = 0;
+            for (int i = 0; i < voteEntityList.size(); i++) {
+                OptionEntity voteEntity = voteEntityList.get(i);
+                if (voteEntity != null) {
+                    String vote_number = voteEntity.getVote_number();
+                    try {
+                        int num = Integer.valueOf(vote_number);
+                        allNum = allNum + num;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            tv_totalNum.setText("总票：" + allNum);
+
             mOptionAdapter = new OptionVoteAdapter(this, mAppraiseEntity.getOptionInfo());
             mOptionAdapter.setVoteListener((entity, position) -> {
                 // 判断用户角色并投票        征询
