@@ -113,7 +113,6 @@ public class ApperaceScoreActivity extends BaseActivity<AppreaceScoreContract.Pr
         mIbCollect = findViewById(R.id.ib_collect);
         btn_commit = findViewById(R.id.btn_commit);
 
-
         mRvComment.setLayoutManager(new LinearLayoutManager(this));
         int dimension = (int) getResources().getDimension(R.dimen.yl_list_horizontal_margin);
         mRvComment.addItemDecoration(new ItemDecorationVertical(ContextCompat.getColor(this, R.color.yl_devide_line), 1, dimension, dimension));

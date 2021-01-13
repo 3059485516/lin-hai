@@ -5,15 +5,15 @@ import java.io.File;
 
 public class Constant {
     //新时代文明实践中心和 文化礼堂测试环境地址
-    /*private static final String BASE_URL_RELEASE= "http://47.99.86.101:8030/";
-    public static final String BASE_URL_LT = "http://47.99.86.101:8040/";*/
+    private static final String BASE_URL_RELEASE= "http://47.99.86.101:8030/";
+    public static final String BASE_URL_LT = "http://47.99.86.101:8040/";
 
-    //新时代文明实践中心和 文化礼堂正式环境地址
+   /* //新时代文明实践中心和 文化礼堂正式环境地址
     private static final String BASE_URL_RELEASE = "https://lhwmsj.hzyltx.com:8443/";
-    public static final String BASE_URL_LT = "https://lhwhlt.hzyltx.com:8443/";
+    public static final String BASE_URL_LT = "https://lhwhlt.hzyltx.com:8443/";*/
 
     private static final String BASE_URL_INTERFACE_RELEASE = BASE_URL_RELEASE + "ya02wmsj_cecoe/api/";
-    public static final String BASE_URL_LT_INTERFACE = BASE_URL_LT + "ya02lhwhlt_wdhaw/api/";    //文化礼堂接口请求地址
+    public static final String BASE_URL_LT_INTERFACE = BASE_URL_LT + "ya02lhwhlt_wdhaw/api/";
 
     public static String getBaseUrl() {
         return BASE_URL_RELEASE;

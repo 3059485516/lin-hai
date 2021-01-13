@@ -8,8 +8,6 @@ import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.base.activity.BaseViewPagerActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.fragment.FragmentPublishOpinion;
 
-
-
 /**
  * Created by BenyChan on 2019-07-19.
  */
@@ -33,7 +31,6 @@ public class AppraiseActivity extends BaseViewPagerActivity {
 
     @Override
     protected void initMVP() {
-
     }
 
     @Override
@@ -41,7 +38,6 @@ public class AppraiseActivity extends BaseViewPagerActivity {
         setTitle("线上评议");
         mRootView = findViewById(R.id.rootView);
     }
-
 
     @Override
     protected void onDestroy() {

@@ -65,6 +65,7 @@ import com.ya02wmsj_cecoe.linhaimodule.bean.KjcgEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.ZjkProfessionEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.ZjkZjDetailEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.ZjkzjEntiey;
+import com.ya02wmsj_cecoe.linhaimodule.utils.PicUtils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -881,12 +882,14 @@ public class Api {
             int i = 0;
             for (LocalMedia media : imageList) {
                 String path;
+                String img_prop = PicUtils.getPicTime(media.getPath());
                 if (!TextUtils.isEmpty(media.getCompressPath())) {
                     path = media.getCompressPath();
                 } else {
                     path = media.getPath();
                 }
                 parts.add(createMultipartBody("pics_" + i, path));
+                parts.add(MultipartBody.Part.createFormData("img_prop_" + i, img_prop));
                 i++;
             }
         }
@@ -975,5 +978,33 @@ public class Api {
 
     public static Observable<List<Node>> getBadHabitList() {
         return API_SERVICE.getBadHabitList(getToken()).compose(RxSchedulers.io_main());
+    }
+
+
+    /**
+     * 我要秀文明
+     * @param map
+     * @param mediaList
+     * @return
+     */
+    public static Observable<Object> addContentShowCvilize(Map<String, Object> map, List<LocalMedia> mediaList) {
+        List<MultipartBody.Part> parts = createParamsList(getToken());
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            parts.add(MultipartBody.Part.createFormData(entry.getKey(), entry.getValue().toString()));
+        }
+        if (mediaList != null && mediaList.size() > 0) {
+            int i = 0;
+            for (LocalMedia media : mediaList) {
+                String path;
+                if (!TextUtils.isEmpty(media.getCompressPath())) {
+                    path = media.getCompressPath();
+                } else {
+                    path = media.getPath();
+                }
+                parts.add(createMultipartBody("pics_" + i, path));
+                i++;
+            }
+        }
+        return API_SERVICE.addContent(parts).compose(RxSchedulers.io_main());
     }
 }

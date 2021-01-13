@@ -82,7 +82,8 @@ dependencies {
     compile 'com.shuyu:gsyVideoPlayer-ex_so:5.0.1'
 
     //    网易IM
-    implementation 'com.github.3059485516:NeteaseIMSDK:2.7'
+    implementation 'com.github.3059485516:NeteaseIMSDK:2.9'
     implementation project(path: ':edit_video')
+    implementation 'com.android.support:exifinterface:27.1.0'
 
 }

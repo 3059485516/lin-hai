@@ -23,9 +23,7 @@ import java.util.Map;
  */
 public class AppealCommitActivity extends BaseActivity<AppealCommitContract.Presenter> implements AppealCommitContract.View {
     protected YLEditTextGroup mEtTitle;
-
     protected YLTextViewGroup mTvType;
-
     protected EditText mEtDesc;
 
     private static final int CODE_REQUEST_CATEGORY = 110;

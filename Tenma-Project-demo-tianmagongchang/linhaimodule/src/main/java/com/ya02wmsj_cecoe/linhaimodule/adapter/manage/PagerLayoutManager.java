@@ -43,7 +43,6 @@ public class PagerLayoutManager extends LinearLayoutManager implements RecyclerV
     @Override
     public void onScrollStateChanged(int state) {
         super.onScrollStateChanged(state);
-
         if (state == RecyclerView.SCROLL_STATE_IDLE) {
             View view = mSnapHelper.findSnapView(this);
             if (view == null) {
@@ -54,19 +53,19 @@ public class PagerLayoutManager extends LinearLayoutManager implements RecyclerV
                 mOnPageChangedListener.onPageSelected(position, position == getItemCount() - 1);
             }
         }
-
     }
+
     @Override
     public int scrollHorizontallyBy(int dx, RecyclerView.Recycler recycler, RecyclerView.State state) {
         direction = dx;
         return super.scrollHorizontallyBy(dx, recycler, state);
     }
+
     @Override
     public int scrollVerticallyBy(int dy, RecyclerView.Recycler recycler, RecyclerView.State state) {
         direction = dy;
         return super.scrollVerticallyBy(dy, recycler, state);
     }
-
 
     @Override
     public void onChildViewAttachedToWindow(@NonNull View view) {

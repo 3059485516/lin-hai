@@ -29,6 +29,7 @@ public class AppealManagerActivity extends BaseActivity {
                 gotoActivity(AppealActivity.class);
             }
         });
+
         findViewById(R.id.do_action).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -96,24 +96,22 @@ public class ShowCvilizePublishActivity extends BaseActivity<ShowCvilizePublishC
             }
         });
 
-        findViewById(R.id.btn_commit).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (TextUtils.isEmpty(mEtTitle.getTextRight())) {
-                    toast("请输入标题");
-                    return;
-                }
-                if (TextUtils.isEmpty(mEtContent.getText())) {
-                    toast("请输入内容");
-                    return;
-                }
-
-                Map<String, Object> map = new HashMap<>();
-                map.put("id", "");
-                map.put("title", mEtTitle.getTextRight());
-                map.put("contents", mEtContent.getText());
-                mPresenter.editContent(map, mVideoPath);
+        findViewById(R.id.btn_commit).setOnClickListener(v -> {
+            if (TextUtils.isEmpty(mEtTitle.getTextRight())) {
+                toast("请输入标题");
+                return;
             }
+            if (TextUtils.isEmpty(mEtContent.getText())) {
+                toast("请输入内容");
+                return;
+            }
+
+            Map<String, Object> map = new HashMap<>();
+            map.put("show_type", "内容");
+            map.put("node_id", "30");
+            map.put("title", mEtTitle.getTextRight());
+            map.put("contents", mEtContent.getText());
+            mPresenter.editContent(map, mVideoPath);
         });
     }
 

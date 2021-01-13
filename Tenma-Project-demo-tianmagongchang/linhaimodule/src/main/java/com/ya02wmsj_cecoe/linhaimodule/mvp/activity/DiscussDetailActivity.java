@@ -93,7 +93,7 @@ public class DiscussDetailActivity extends BaseWebViewActivity<DiscussDetailCont
 
     @Override
     public void getSubCommentSuc() {
-        showReplyCommentDialog();  //请求评论的回复成功后显示回复评论dialog
+        showReplyCommentDialog();
     }
 
     @Override

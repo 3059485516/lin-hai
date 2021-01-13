@@ -41,7 +41,7 @@
     <color name="yl_bg_touch">@color/yl_lightest_gray</color>
     <color name="yl_ui_dialog_list_text">#5E5E5E</color>
     <color name="yl_day_infoTextColor">#999999</color>
-    <color name="yl_red">#D43D3D</color>
+    <color name="yl_red">#E60012</color>
     <color name="yl_commonred">#F05F4C</color>
     <color name="yl_pink">#FF8FB0</color>
     <color name="yl_pool_blue">#6cc1ee</color>

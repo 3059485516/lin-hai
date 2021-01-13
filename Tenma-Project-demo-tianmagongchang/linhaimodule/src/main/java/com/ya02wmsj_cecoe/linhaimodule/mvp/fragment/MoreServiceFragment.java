@@ -45,7 +45,7 @@ public class MoreServiceFragment extends BaseFragment {
                 new Node("教育志愿服务", R.mipmap.ya02wmsj_cecoe_jiaoyu + "", true, "2"),
                 new Node("文化服务", R.mipmap.ya02wmsj_cecoe_wenhua + "", true, "3"),
                 new Node("科技与科普服务", R.mipmap.ya02wmsj_cecoe_keji + "", true, "4"),
-                new Node("修改区域", R.mipmap.ya02wmsj_cecoe_keji + "", true, "5")
+                new Node("修改区域", R.mipmap.ya02wmsj_cecoe_xgqy + "", true, "5")
         ));
         NodeAdapter adapter2 = new NodeAdapter(mActivity, Arrays.asList(
                 new Node("家政", R.mipmap.ya02wmsj_cecoe_jiazheng + "", true),

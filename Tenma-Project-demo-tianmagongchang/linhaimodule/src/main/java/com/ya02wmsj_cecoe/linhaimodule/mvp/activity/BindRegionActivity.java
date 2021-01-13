@@ -42,6 +42,7 @@ public class BindRegionActivity extends BaseActivity<BindRegionContract.Presente
             if (mTvRegionCounty.getTag() == null) return;
             mPresenter.getRegionData2("town", (String) mTvRegionCounty.getTag());
         });
+
         mTvRegionVillage.setOnClickListener(v -> {
             if (mTvRegionTown.getTag() == null) return;
             mPresenter.getRegionData3("village", (String) mTvRegionTown.getTag());

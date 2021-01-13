@@ -9,7 +9,9 @@ import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 /**
  * Created by BenyChan on 2019-07-29.
  */
-public class AppraiseListActivity extends BaseListActivity<AppraiseFragmentContract.Presenter> implements AppraiseFragmentContract.View {
+public class AppraiseListActivity extends BaseListActivity<AppraiseFragmentContract.Presenter>
+        implements AppraiseFragmentContract.View {
+
     @Override
     protected MultiItemTypeAdapter getAdapter() {
         return new AppraiseAdapter(this, mPresenter.getDataList());
@@ -29,6 +31,5 @@ public class AppraiseListActivity extends BaseListActivity<AppraiseFragmentContr
 
     @Override
     public void showActionThemeDialog() {
-
     }
 }

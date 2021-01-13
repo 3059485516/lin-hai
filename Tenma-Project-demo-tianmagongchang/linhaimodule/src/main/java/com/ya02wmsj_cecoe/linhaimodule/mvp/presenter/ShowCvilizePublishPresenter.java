@@ -204,7 +204,7 @@ public class ShowCvilizePublishPresenter extends ShowCvilizePublishContract.Pres
     }
 
     private void uploadSuccess(Map<String, Object> map) {
-        addRx2Destroy(new RxSubscriber<Object>(Api.editContent(map, getImageList())) {
+        addRx2Destroy(new RxSubscriber<Object>(Api.addContentShowCvilize(map, getImageList())) {
             @Override
             protected void _onNext(Object o) {
                 toast("提交成功");
