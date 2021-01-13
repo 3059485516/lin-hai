@@ -27,7 +27,7 @@ public class ShowCivilizeActivity extends BaseListActivity<NodeContentContract.P
     @Override
     protected void initView() {
         setTitle("我要秀文明");
-        setMenuText("上报");
+        setMenuText("发布");
         setDefaultItemDecoration();
     }
 

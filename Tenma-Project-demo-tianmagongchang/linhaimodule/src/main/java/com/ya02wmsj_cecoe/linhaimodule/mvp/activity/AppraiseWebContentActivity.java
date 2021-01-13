@@ -73,7 +73,7 @@ public class AppraiseWebContentActivity extends BaseWebViewActivity<ActionWebCon
     protected void initView() {
         AppraiseEntity actionEntity = (AppraiseEntity) getIntent().getSerializableExtra(Constant.KEY_BEAN);
         mId = actionEntity.getId();
-        setTitle(actionEntity.getName());
+        setTitle(actionEntity.getForm_name());
         setMenuIcon(R.mipmap.ya02wmsj_cecoe_icon_fx_white);
         mRvVote = findViewById(R.id.rv_vote);
 

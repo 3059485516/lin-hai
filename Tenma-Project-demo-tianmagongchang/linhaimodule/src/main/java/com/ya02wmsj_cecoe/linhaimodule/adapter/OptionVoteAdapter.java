@@ -2,7 +2,6 @@ package com.ya02wmsj_cecoe.linhaimodule.adapter;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
-import android.view.View;
 import android.widget.TextView;
 
 import com.ya02wmsj_cecoe.linhaimodule.R;
@@ -19,7 +18,7 @@ public class OptionVoteAdapter extends CommonAdapter<OptionEntity> {
     private IOptionVote mListerner;
 
     public OptionVoteAdapter(Context context, List<OptionEntity> datas) {
-        super(context, R.layout.ya02wmsj_cecoe_item_vote, datas);
+        super(context, R.layout.ya02wmsj_cecoe_item_vote_old, datas);
     }
 
     public void setVoteListener(OptionVoteAdapter.IOptionVote voteListener) {

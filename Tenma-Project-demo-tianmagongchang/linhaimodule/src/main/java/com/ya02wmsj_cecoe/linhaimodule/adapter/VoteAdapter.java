@@ -43,8 +43,6 @@ public class VoteAdapter extends CommonAdapter<VoteEntity> {
             }
         });
         holder.setText(R.id.tv_title, voteEntity.getTitle());
-        holder.setText(R.id.tv_content, "详情介绍");
-        holder.setTextColor(R.id.tv_content, R.color.yl_pool_blue);
         holder.getView(R.id.tv_content).setOnClickListener(v -> {
             if (mVoteListener != null) {
                 mVoteListener.onVoteDetailClick(voteEntity, position);

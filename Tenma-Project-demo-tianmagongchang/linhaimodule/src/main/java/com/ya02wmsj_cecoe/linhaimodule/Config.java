@@ -181,7 +181,7 @@ public class Config implements TMLoginManager.OnLoginListener {
             imei = AppUtils.getIMEI(mContext, tmUser.getMobile());
         }
         Log.i(TAG, user_json);
-        addRx2Destroy(new RxSubscriber<User>(Api.login(user_json, imei)) {      // 上报用户信息
+        addRx2Destroy(new RxSubscriber<User>(Api.login(user_json, imei)) {
             @Override
             protected void _onNext(User user) {
                 Log.i(TAG, user.toString());
@@ -190,7 +190,7 @@ public class Config implements TMLoginManager.OnLoginListener {
                 if (TextUtils.isEmpty(user.getRegion_code())) {
                     gotoBindRegionAct();
                 }
-                loginVolunteerBack();       //登录志愿汇
+                loginVolunteerBack();
                 uploadUserInfoToLt(tmUser);
             }
 

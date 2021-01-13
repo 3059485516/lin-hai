@@ -88,7 +88,6 @@ public class BindRegionActivity extends BaseActivity<BindRegionContract.Presente
             textViewGroup.setTag(list.get(options1).getCode());
             mTvRegionVillage.setTextRight("");
             mTvRegionVillage.setTag(null);
-
         }).build();
         optionPicker.setPicker(list);
         if (!optionPicker.isShowing()) {
@@ -101,7 +100,6 @@ public class BindRegionActivity extends BaseActivity<BindRegionContract.Presente
         OptionsPickerView optionPicker = new OptionsPickerBuilder(this, (options1, options2, options3, v) -> {
             textViewGroup.setTextRight(list.get(options1).getName());
             textViewGroup.setTag(list.get(options1).getCode());
-
         }).build();
         optionPicker.setPicker(list);
         if (!optionPicker.isShowing()) {

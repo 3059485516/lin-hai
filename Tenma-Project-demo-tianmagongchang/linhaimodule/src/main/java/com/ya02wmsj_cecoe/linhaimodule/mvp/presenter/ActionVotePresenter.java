@@ -19,7 +19,8 @@ public class ActionVotePresenter extends ActionWebContract.Presenter {
 
     @Override
     public void vote(int position, Map<String, Object> map) {
-        addRx2Destroy(new RxSubscriber<HttpResult>(Api.consultNewOrSelectVote(map)) {
+        mView.showDialog("正在投票...");
+        addRx2Destroy(new RxSubscriber<HttpResult>(Api.consultNewOrSelectVote(map),mView) {
             @Override
             protected void _onNext(HttpResult httpResult) {
                 if (httpResult != null) {
@@ -29,6 +30,8 @@ public class ActionVotePresenter extends ActionWebContract.Presenter {
                     } else if (50000 == httpResult.getResultCode()) {
                         toast(desc);
                         mView.updateVoteCount(position);
+                    }else {
+                        toast(desc);
                     }
                 } else {
                     toast("投票失败!");

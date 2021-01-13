@@ -36,7 +36,7 @@ public class JumpUtils {
                 || "征询".equals(entity.getForm_name())
                 || "评选".equals(entity.getForm_name())) {
             intent = new Intent(context, AppraiseWebContentActivity.class);
-        } else if ("有奖竞赛".equals(entity.getForm_name())) {
+        }else if ("有奖竞赛".equals(entity.getForm_name())) {
             // 答题界面
             intent = new Intent(context, QuestionActivity.class);
         } else {

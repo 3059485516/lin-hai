@@ -889,7 +889,7 @@ public class Api {
                     path = media.getPath();
                 }
                 parts.add(createMultipartBody("pics_" + i, path));
-                parts.add(MultipartBody.Part.createFormData("img_prop_" + i, img_prop));
+                parts.add(MultipartBody.Part.createFormData("info_pics_" + i, img_prop));
                 i++;
             }
         }

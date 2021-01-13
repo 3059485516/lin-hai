@@ -46,7 +46,7 @@ public class AppraiseActivity extends BaseViewPagerActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+       // super.onActivityResult(requestCode, resultCode, data);
         getAdapter().getCurrentFragment().onActivityResult(requestCode, resultCode, data);
     }
 }

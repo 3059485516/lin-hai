@@ -57,7 +57,6 @@ public class ShowCvilizePublishActivity extends BaseActivity<ShowCvilizePublishC
     @Override
     protected void initView() {
         setTitle("内容发布");
-        setMenuText("我发布的");
         mEtTitle = findViewById(R.id.et_title);
         mEtContent = findViewById(R.id.et_content);
         mRvPic = findViewById(R.id.rv_pic);
@@ -121,7 +120,7 @@ public class ShowCvilizePublishActivity extends BaseActivity<ShowCvilizePublishC
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+       // super.onActivityResult(requestCode, resultCode, data);
         if (data == null || resultCode != RESULT_OK) {
             return;
         }

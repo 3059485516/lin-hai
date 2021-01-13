@@ -3,6 +3,7 @@ package com.ya02wmsj_cecoe.linhaimodule.adapter;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -29,6 +30,14 @@ public class LtEvaMainAdapter extends CommonAdapter<LtEvaMainEntity> {
         holder.setText(R.id.tv_points, ltEvaMainEntity.getFinal_audit_point() + "分");
         holder.setText(R.id.tv_status, ltEvaMainEntity.getStatus());
         holder.setText(R.id.tv_time, ltEvaMainEntity.getReport_time());
+
+        String status = ltEvaMainEntity.getStatus();
+        if (!TextUtils.isEmpty(status) && status.equals("终审通过")){
+            holder.setVisible(R.id.tv_points,true);
+        }else {
+            holder.setVisible(R.id.tv_points,false);
+        }
+
         if (ltEvaMainEntity.getStatus().contains("驳回")) {
             holder.setBackgroundColor(R.id.tv_status, ContextCompat.getColor(mContext, R.color.yl_theme_color));
             holder.setVisible(R.id.tv_refuse, true);

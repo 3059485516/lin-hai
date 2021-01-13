@@ -36,7 +36,12 @@ public class RetrofitUtils implements IGlobalManager {
                 mPersistentCookieJar = new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(App.get().getApplication()));
                 HttpLoggingInterceptor logging = new HttpLoggingInterceptor(message -> KLog.d("json++++++++++", message));
                 logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-                mClient = new OkHttpClient.Builder().connectTimeout(10, TimeUnit.SECONDS).readTimeout(10, TimeUnit.SECONDS).addInterceptor(logging).cookieJar(mPersistentCookieJar).build();
+                mClient = new OkHttpClient.Builder()
+                        .connectTimeout(120, TimeUnit.SECONDS)
+                        .readTimeout(120, TimeUnit.SECONDS)
+                        .writeTimeout(120, TimeUnit.SECONDS)
+                        .addInterceptor(logging)
+                        .cookieJar(mPersistentCookieJar).build();
             }
 
             mRetrofit = new Retrofit.Builder().baseUrl(Constant.getBaseInterfaceUrl()).addConverterFactory(GsonConverterFactory.create()).addCallAdapterFactory(RxJava2CallAdapterFactory.create()).client(mClient).build();
