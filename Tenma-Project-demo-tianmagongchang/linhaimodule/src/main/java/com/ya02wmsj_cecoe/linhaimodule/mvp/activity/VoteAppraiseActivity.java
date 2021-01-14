@@ -3,6 +3,7 @@ package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
 
@@ -11,6 +12,7 @@ import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.base.activity.BaseActivity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.VideoPath;
 import com.ya02wmsj_cecoe.linhaimodule.bean.VoteEntity;
+import com.ya02wmsj_cecoe.linhaimodule.other.MJavascriptInterface;
 import com.ya02wmsj_cecoe.linhaimodule.utils.DisplayUtils;
 import com.ya02wmsj_cecoe.linhaimodule.widget.CoverVideo;
 
@@ -54,6 +56,28 @@ public class VoteAppraiseActivity extends BaseActivity {
         iv_back.setOnClickListener(v -> {
             finish();
         });
+
+        webView.setClickable(false);
+        webView.setFocusable(true);
+        webView.setHorizontalScrollBarEnabled(false);
+        webView.addJavascriptInterface(new MJavascriptInterface(mContext), "imagelistener");
+        WebSettings settings = webView.getSettings();
+        settings.setDefaultFontSize(16);
+        settings.setJavaScriptEnabled(true);
+        settings.setSupportZoom(false);
+        settings.setDisplayZoomControls(false);
+        settings.setUseWideViewPort(false);
+        settings.setBuiltInZoomControls(false);
+        settings.setAllowFileAccess(true);
+        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
+        settings.setLoadWithOverviewMode(true);
+        settings.setBlockNetworkImage(false);
+        settings.setPluginState(WebSettings.PluginState.ON);
+        // 清缓存和记录，缓存引起的白屏
+        webView.clearCache(true);
+        webView.clearHistory();
+        settings.setDomStorageEnabled(true);//开启本地DOM存储
+        settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK); //设置缓存
     }
 
     @Override

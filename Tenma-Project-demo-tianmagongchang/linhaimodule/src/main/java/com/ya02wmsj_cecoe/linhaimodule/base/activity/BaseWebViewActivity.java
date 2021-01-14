@@ -15,7 +15,6 @@ import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.base.mvp.APresenter;
 import com.ya02wmsj_cecoe.linhaimodule.other.MJavascriptInterface;
 
-
 /**
  * WebView 基础页面
  *

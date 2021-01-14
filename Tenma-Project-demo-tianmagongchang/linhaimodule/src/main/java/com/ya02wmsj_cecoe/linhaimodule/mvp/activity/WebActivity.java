@@ -5,10 +5,8 @@ import com.ya02wmsj_cecoe.linhaimodule.base.activity.BaseWebViewActivity;
 
 public class WebActivity extends BaseWebViewActivity {
 
-
     @Override
     protected void initMVP() {
-
     }
 
     @Override
@@ -16,13 +14,10 @@ public class WebActivity extends BaseWebViewActivity {
         setTitle(getIntent().getStringExtra(Constant.KEY_STRING_1));
         mWebView.loadUrl(getIntent().getStringExtra(Constant.KEY_STRING_2));
         mWebView.requestFocus();
-//        mWebView.loadUrl("http://www.expoon.com/e/wwc15slc1qv/panorama");
-
     }
 
     @Override
     protected void initData() {
-
     }
 
     @Override
