@@ -26,6 +26,6 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 //    implementation 'com.android.support:appcompat-v7:27.1.1'
     //    网易IM
-    implementation 'com.github.3059485516:NeteaseIMSDK:2.7'
+    implementation 'com.github.3059485516:NeteaseIMSDK:2.9'
     implementation project(path: ':Fulive')
 }
