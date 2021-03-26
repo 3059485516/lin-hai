@@ -869,8 +869,8 @@ public class Api {
         return API_SERVICE.getCAInfo(BASE_URL_LT_INTERFACE + "getCAInfo", ca_id).compose(RxSchedulers.io_main());
     }
 
-    public static Observable<List<LtEvaMainEntity>> getMyEvaApplies() {
-        return API_SERVICE.getMyEvaApplies(BASE_URL_LT_INTERFACE + "getMyEvaApplies", getLtToken()).compose(RxSchedulers.io_main());
+    public static Observable<List<LtEvaMainEntity>> getMyEvaApplies(String page, String rows) {
+        return API_SERVICE.getMyEvaApplies(BASE_URL_LT_INTERFACE + "getMyEvaApplies", getLtToken(), page, rows).compose(RxSchedulers.io_main());
     }
 
     public static Observable<Object> caEvaApply(Map<String, Object> map, List<LocalMedia> imageList) {

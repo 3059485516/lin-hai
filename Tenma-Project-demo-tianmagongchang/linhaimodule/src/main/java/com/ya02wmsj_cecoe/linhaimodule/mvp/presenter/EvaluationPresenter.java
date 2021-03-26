@@ -12,6 +12,6 @@ public class EvaluationPresenter extends EvaluationContract.Presenter {
     @Override
     public void getPageData(boolean isRefresh) {
         super.getPageData(isRefresh);
-        setDataSource(Api.getMyEvaApplies());
+        setDataSource(Api.getMyEvaApplies(getPage() + "", PAGE_SIZE + ""));
     }
 }

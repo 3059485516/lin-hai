@@ -1187,7 +1187,7 @@ public interface ApiService {
      */
     @FormUrlEncoded
     @POST
-    Observable<List<LtEvaMainEntity>> getMyEvaApplies(@Url String url, @Field("TOKEN") String token);
+    Observable<List<LtEvaMainEntity>> getMyEvaApplies(@Url String url, @Field("TOKEN") String token,@Field("page") String page, @Field("rows") String rows);
 
     /**
      * 发布礼堂活动评审
