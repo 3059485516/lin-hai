@@ -1,13 +1,11 @@
 package com.ya02wmsj_cecoe.linhaimodule.bean;
 
-import com.contrarywind.interfaces.IPickerViewData;
-
 import java.io.Serializable;
 
 /**
  * Created by BenyChan on 2019-08-07.
  */
-public class Node implements Serializable, IPickerViewData {
+public class Node implements Serializable {
 
     /**
      * id : 29
@@ -107,8 +105,4 @@ public class Node implements Serializable, IPickerViewData {
         this.extra = extra;
     }
 
-    @Override
-    public String getPickerViewText() {
-        return getTitle();
-    }
 }

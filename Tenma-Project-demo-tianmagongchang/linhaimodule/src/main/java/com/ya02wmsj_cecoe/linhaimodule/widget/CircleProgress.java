@@ -17,7 +17,6 @@ import android.view.View;
 
 import com.ya02wmsj_cecoe.linhaimodule.R;
 
-
 /**
  * 圆形进度条
  */
@@ -95,34 +94,33 @@ public class CircleProgress extends View {
 
     private void initAttrs(AttributeSet attrs) {
         TypedArray typedArray = mContext.obtainStyledAttributes(attrs, R.styleable.YLCircleProgressBar);
-        antiAlias = typedArray.getBoolean(R.styleable.YLCircleProgressBar_antiAlias, true);
-        mHint = typedArray.getString(R.styleable.YLCircleProgressBar_hint);
-        mHintColor = typedArray.getColor(R.styleable.YLCircleProgressBar_hintColor, Color.BLACK);
-        mHintSize = typedArray.getDimension(R.styleable.YLCircleProgressBar_hintSize, 15);
-        mValue = typedArray.getFloat(R.styleable.YLCircleProgressBar_value, 50);
-        mMaxValue = typedArray.getFloat(R.styleable.YLCircleProgressBar_maxValue, 100);
+        antiAlias = typedArray.getBoolean(R.styleable.YLCircleProgressBar_pd_antiAlias, true);
+        mHint = typedArray.getString(R.styleable.YLCircleProgressBar_pd_hint);
+        mHintColor = typedArray.getColor(R.styleable.YLCircleProgressBar_pd_hintColor, Color.BLACK);
+        mHintSize = typedArray.getDimension(R.styleable.YLCircleProgressBar_pd_hintSize, 15);
+        mValue = typedArray.getFloat(R.styleable.YLCircleProgressBar_pd_value, 50);
+        mMaxValue = typedArray.getFloat(R.styleable.YLCircleProgressBar_pd_maxValue, 100);
         //内容数值精度格式
-        mPrecision = typedArray.getInt(R.styleable.YLCircleProgressBar_precision, 0);
+        mPrecision = typedArray.getInt(R.styleable.YLCircleProgressBar_pd_precision, 0);
         mPrecisionFormat = MiscUtil.getPrecisionFormat(mPrecision);
-        mValueColor = typedArray.getColor(R.styleable.YLCircleProgressBar_valueColor, Color.BLACK);
-        mValueSize = typedArray.getDimension(R.styleable.YLCircleProgressBar_valueSize, 15);
+        mValueColor = typedArray.getColor(R.styleable.YLCircleProgressBar_pd_valueColor, Color.BLACK);
+        mValueSize = typedArray.getDimension(R.styleable.YLCircleProgressBar_pd_valueSize, 15);
 
-        mUnit = typedArray.getString(R.styleable.YLCircleProgressBar_unit);
-        mUnitColor = typedArray.getColor(R.styleable.YLCircleProgressBar_unitColor, Color.BLACK);
-        mUnitSize = typedArray.getDimension(R.styleable.YLCircleProgressBar_unitSize, 30);
+        mUnit = typedArray.getString(R.styleable.YLCircleProgressBar_pd_unit);
+        mUnitColor = typedArray.getColor(R.styleable.YLCircleProgressBar_pd_unitColor, Color.BLACK);
+        mUnitSize = typedArray.getDimension(R.styleable.YLCircleProgressBar_pd_unitSize, 30);
 
-        mArcWidth = typedArray.getDimension(R.styleable.YLCircleProgressBar_arcWidth, 15);
-        mStartAngle = typedArray.getFloat(R.styleable.YLCircleProgressBar_startAngle, 270);
-        mSweepAngle = typedArray.getFloat(R.styleable.YLCircleProgressBar_sweepAngle, 360);
+        mArcWidth = typedArray.getDimension(R.styleable.YLCircleProgressBar_pd_arcWidth, 15);
+        mStartAngle = typedArray.getFloat(R.styleable.YLCircleProgressBar_pd_startAngle, 270);
+        mSweepAngle = typedArray.getFloat(R.styleable.YLCircleProgressBar_pd_sweepAngle, 360);
 
-        mBgArcColor = typedArray.getColor(R.styleable.YLCircleProgressBar_bgArcColor, Color.WHITE);
-        mBgArcWidth = typedArray.getDimension(R.styleable.YLCircleProgressBar_bgArcWidth, 15);
-        mTextOffsetPercentInRadius = typedArray.getFloat(R.styleable.YLCircleProgressBar_textOffsetPercentInRadius, 0.33f);
+        mBgArcColor = typedArray.getColor(R.styleable.YLCircleProgressBar_pd_bgArcColor, Color.WHITE);
+        mBgArcWidth = typedArray.getDimension(R.styleable.YLCircleProgressBar_pd_bgArcWidth, 15);
+        mTextOffsetPercentInRadius = typedArray.getFloat(R.styleable.YLCircleProgressBar_pd_textOffsetPercentInRadius, 0.33f);
 
-        //mPercent = typedArray.getFloat(R.styleable.CircleProgressBar_percent, 0);
-        mAnimTime = typedArray.getInt(R.styleable.YLCircleProgressBar_animTime, 1000);
+        mAnimTime = typedArray.getInt(R.styleable.YLCircleProgressBar_pd_animTime, 1000);
 
-        int gradientArcColors = typedArray.getResourceId(R.styleable.YLCircleProgressBar_arcColors, 0);
+        int gradientArcColors = typedArray.getResourceId(R.styleable.YLCircleProgressBar_pd_arcColors, 0);
         if (gradientArcColors != 0) {
             try {
                 int[] gradientColors = getResources().getIntArray(gradientArcColors);

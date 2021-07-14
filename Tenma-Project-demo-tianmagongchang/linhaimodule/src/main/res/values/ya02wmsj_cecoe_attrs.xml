@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="YLClearEditView">
-        <attr name="text_size" format="dimension" />
-        <attr name="text_color" format="color" />
-        <attr name="hint" format="string" />
-    </declare-styleable>
-
     <declare-styleable name="YLClearEditViewSingle">
         <attr name="s_text_size" format="dimension" />
         <attr name="s_text_color" format="color" />
@@ -81,6 +75,7 @@
         <attr name="tab_icon" format="reference" />
         <attr name="tab_bind_fragment" format="string" />
     </declare-styleable>
+
     <declare-styleable name="IconView">
         <attr name="name" format="string" />
         <attr name="tagId" format="string" />
@@ -104,31 +99,31 @@
 
     <!-- 圆形进度条 -->
     <declare-styleable name="YLCircleProgressBar">
-        <attr name="antiAlias" />
-        <attr name="startAngle" />
-        <attr name="sweepAngle" />
-        <attr name="animTime" />
-        <attr name="maxValue" />
-        <attr name="value" />
-        <attr name="precision" />
-        <attr name="valueSize" />
-        <attr name="valueColor" />
-        <attr name="textOffsetPercentInRadius" />
+        <attr name="pd_antiAlias" format="boolean"/>
+        <attr name="pd_startAngle" format="float"/>
+        <attr name="pd_sweepAngle" format="float"/>
+        <attr name="pd_animTime" format="integer"/>
+        <attr name="pd_maxValue" format="float"/>
+        <attr name="pd_value" format="float"/>
+        <attr name="pd_precision" format="integer"/>
+        <attr name="pd_valueSize" format="dimension"/>
+        <attr name="pd_valueColor" format="color"/>
+        <attr name="pd_textOffsetPercentInRadius" format="float"/>
         <!-- 绘制内容相应的提示语 -->
-        <attr name="hint" />
-        <attr name="hintSize" />
-        <attr name="hintColor" />
+        <attr name="pd_hint" format="string"/>
+        <attr name="pd_hintSize" format="dimension"/>
+        <attr name="pd_hintColor" format="color"/>
         <!-- 绘制内容的单位 -->
-        <attr name="unit" />
-        <attr name="unitSize" />
-        <attr name="unitColor" />
+        <attr name="pd_unit" format="string"/>
+        <attr name="pd_unitSize" format="dimension"/>
+        <attr name="pd_unitColor" format="color"/>
         <!-- 圆弧宽度 -->
-        <attr name="arcWidth" />
-        <attr name="arcColors" />
+        <attr name="pd_arcWidth" format="dimension"/>
+        <attr name="pd_arcColors" format="color"/>
         <!-- 背景圆弧颜色 -->
-        <attr name="bgArcColor" />
+        <attr name="pd_bgArcColor" format="color"/>
         <!-- 背景圆弧宽度 -->
-        <attr name="bgArcWidth" format="dimension" />
+        <attr name="pd_bgArcWidth" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="AVLoadingIndicatorView">
