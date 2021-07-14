@@ -22,14 +22,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-
 /**
  * 启动页
  * Created by bin on 2018/1/3.
  */
-
 public class SplashActivity extends TMActivity {
-
     private CountDownProgressView mCountDownProgressView;
 
     @Override
@@ -40,13 +37,13 @@ public class SplashActivity extends TMActivity {
         setContentView(R.layout.activity_splash);
         mCountDownProgressView = (CountDownProgressView) findViewById(R.id.countdownProgressView);
         TMEncryptBean.encrypt = true;
+        TMSharedPUtil.saveTMAgreeAgreement(this, true);
         TMBaseConfig tmBaseConfig = TMSharedPUtil.getTMBaseConfig(this);
         if (null != tmBaseConfig) {
             TMServerConfig.BASE_URL = tmBaseConfig.getDomain();
             getConfig();
         }
         showCountDownProgressView();
-
     }
 
     @Override
@@ -93,7 +90,6 @@ public class SplashActivity extends TMActivity {
                 configFile.deleteOnExit();
             }
             FileOutputStream outputStream;
-
             outputStream = openFileOutput(TMConstant.Config.CONFIG_FILE_NAME, Context.MODE_PRIVATE);
             outputStream.write(baseConfig.getBytes());
             outputStream.close();
@@ -101,6 +97,5 @@ public class SplashActivity extends TMActivity {
             e.printStackTrace();
         }
     }
-
 }
 

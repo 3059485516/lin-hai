@@ -4,11 +4,11 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.tenma.ventures.linhai"
         minSdkVersion 21
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -106,7 +106,7 @@ android {
                     details.useVersion "4.1.6"
                 } else if (details.requested.group == 'com.android.support' &&
                         !details.requested.name.contains('multidex')) {
-                    details.useVersion "27.1.1"
+                    details.useVersion "28.0.0"
                 }
             }
         }
@@ -126,18 +126,14 @@ static def buildTime() {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
-    // 通用组件
-    compile project(path: ':tm_navigation')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':tm_navigation')
     implementation project(path: ':linhaimodule')
-    //implementation 'com.github.3059485516:lin-hai:1.3.7'
-    implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.tenma.ventures:tm_share_ss:1.2.15' //分享组件
-    implementation 'com.tianma.ventures:tm_own_find:1.0.38'    //发现组件，显示二级页面
-    implementation "com.tenma.ventures:tm_core:1.2.33"     //核心库
-    implementation 'com.tianma.ventures:tm_user_center:1.1.7'
+    //implementation 'com.github.3059485516:lin-hai:1.5.2'
+
+    implementation 'com.tenma.ventures:tm_share_ss:1.2.31'
+    implementation 'com.tianma.ventures:tm_own_find:1.4.1'
+    implementation "com.tenma.ventures:tm_core:1.2.69"
+    implementation 'com.tianma.ventures:tm_user_center:1.3.7-beta3'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-
-
 }
