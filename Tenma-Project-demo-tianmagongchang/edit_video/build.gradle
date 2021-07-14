@@ -1,12 +1,13 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'//this
-group = 'com.github.3059485516'//this
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.3059485516'
+
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
@@ -24,8 +25,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-//    implementation 'com.android.support:appcompat-v7:27.1.1'
-    //    网易IM
-    implementation 'com.github.3059485516:NeteaseIMSDK:2.9'
+    implementation 'com.github.3059485516:NeteaseIMSDK:3.1'
+    implementation 'com.github.Jay-Goo:RangeSeekBar:v1.0.7'
     implementation project(path: ':Fulive')
 }
