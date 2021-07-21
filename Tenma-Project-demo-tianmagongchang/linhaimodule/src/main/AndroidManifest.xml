@@ -250,9 +250,6 @@
             android:name=".mvp.activity.PreviewImageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".mvp.activity.NetPersonActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".mvp.activity.SocialCollectActivity"
             android:screenOrientation="portrait" />
         <activity

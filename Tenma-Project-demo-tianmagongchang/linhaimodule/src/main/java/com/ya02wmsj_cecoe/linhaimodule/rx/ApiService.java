@@ -1397,6 +1397,17 @@ public interface ApiService {
     @POST("getBadHabitNodeList")
     Observable<List<Node>> getBadHabitList(@Field("TOKEN") String TOKEN);
 
+
+    /**
+     * 栏目点击统计
+     * @param url
+     * @param token
+     * @param type
+     * @return
+     */
+    @FormUrlEncoded
+    @POST
+    Observable<String> clickedContent(@Url String url, @Field("TOKEN") String token, @Field("node") String type);
 }
 
 

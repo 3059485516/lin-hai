@@ -1,6 +1,8 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.fragment;
 
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.adapter.NodeContentAdapter;
@@ -11,8 +13,6 @@ import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.NodeContentContract;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.NodeContentPresenter;
 import com.ya02wmsj_cecoe.linhaimodule.rx.RxBus;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
-
-import io.reactivex.functions.Consumer;
 
 /**
  * Created by BenyChan on 2019-07-16.
@@ -30,7 +30,22 @@ public class NodeContentFragment extends BaseListFragment<NodeContentContract.Pr
 
     @Override
     protected MultiItemTypeAdapter getAdapter() {
-        return new NodeContentAdapter(mActivity, mPresenter.getDataList());
+        NodeContentAdapter nodeContentAdapter = new NodeContentAdapter(mActivity, mPresenter.getDataList());
+        nodeContentAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                String nodeId = mPresenter.getNodeId();
+                if ("36".equals(nodeId) || "37".equals(nodeId)) {
+                    mPresenter.clickContent("教育服务");
+                }
+            }
+
+            @Override
+            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                return false;
+            }
+        });
+        return nodeContentAdapter;
     }
 
     @Override
@@ -42,17 +57,14 @@ public class NodeContentFragment extends BaseListFragment<NodeContentContract.Pr
     @Override
     protected void initView() {
         setDefaultItemDecoration();
-        mPresenter.getRxManager2Destroy().add(RxBus.getInstance().register(UserOperateEvent.class).subscribe(new Consumer<UserOperateEvent>() {
-            @Override
-            public void accept(UserOperateEvent userOperateEvent) throws Exception {
-                for (NodeContent content : mPresenter.getDataList()) {
-                    if (content.getId().equals(userOperateEvent.getId())) {
-                        content.setThumb_num(userOperateEvent.getLikeNum());
-                        break;
-                    }
+        mPresenter.getRxManager2Destroy().add(RxBus.getInstance().register(UserOperateEvent.class).subscribe(userOperateEvent -> {
+            for (NodeContent content : mPresenter.getDataList()) {
+                if (content.getId().equals(userOperateEvent.getId())) {
+                    content.setThumb_num(userOperateEvent.getLikeNum());
+                    break;
                 }
-                updateList();
             }
+            updateList();
         }));
     }
 }

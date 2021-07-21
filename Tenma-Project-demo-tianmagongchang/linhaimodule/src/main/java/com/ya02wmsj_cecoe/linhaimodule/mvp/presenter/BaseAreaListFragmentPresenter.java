@@ -12,7 +12,8 @@ import com.ya02wmsj_cecoe.linhaimodule.utils.RegionManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BaseAreaListFragmentPresenter extends BaseAreaListFragmentContract.Presenter {
+
+public abstract class BaseAreaListFragmentPresenter extends BaseAreaListFragmentContract.Presenter {
     private List<AppraiseEntity> mNodeContentList = new ArrayList<>();
     private List<LtMarkEntity> mMarkList = new ArrayList<>();
     private List<NodeContent> mBannerDataList = new ArrayList<>();
@@ -93,7 +94,6 @@ public class BaseAreaListFragmentPresenter extends BaseAreaListFragmentContract.
 
     @Override
     public void getBanner(String region_code) {
-
     }
 
     @Override
@@ -107,7 +107,6 @@ public class BaseAreaListFragmentPresenter extends BaseAreaListFragmentContract.
 
     @Override
     public void getNodeList() {
-
     }
 
     public String getMarkId() {
@@ -119,10 +118,21 @@ public class BaseAreaListFragmentPresenter extends BaseAreaListFragmentContract.
     }
 
     protected void getMarkList() {
-
     }
 
     public List<LtMarkEntity> getMarkDataList() {
         return mMarkList;
+    }
+
+    public void clickContent() {
+        addRx2Destroy(new RxSubscriber<String>(Api.clickedContent("文化礼堂")) {
+            @Override
+            protected void _onNext(String str) {
+            }
+
+            @Override
+            protected void _onError(String code) {
+            }
+        });
     }
 }

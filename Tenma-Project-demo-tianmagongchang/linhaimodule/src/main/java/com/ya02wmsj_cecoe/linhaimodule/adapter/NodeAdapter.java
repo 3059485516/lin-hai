@@ -5,14 +5,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 
-import com.tencent.mm.opensdk.modelbiz.WXLaunchMiniProgram;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.ya02wmsj_cecoe.linhaimodule.Config;
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.bean.Node;
-import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.BindRegionActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.CloudClassActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.DiscoverActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.DoVolunteerActivity;
@@ -63,6 +59,7 @@ import java.util.List;
  * Created by BenyChan on 2018/10/16.
  */
 public class NodeAdapter extends CommonAdapter<Node> {
+
     public NodeAdapter(Context context, List<Node> nodeParentList) {
         super(context, R.layout.ya02wmsj_cecoe_item_node, nodeParentList);
     }
@@ -77,6 +74,9 @@ public class NodeAdapter extends CommonAdapter<Node> {
             ImageManager.getInstance().loadImage(mContext, node.getIcon(), R.mipmap.ya02wmsj_cecoe_placeholder, holder.getView(R.id.iv_icon));
         }
         holder.getConvertView().setOnClickListener(v -> {
+            if (mOnItemClickListener != null){
+                mOnItemClickListener.onItemClick(holder.getConvertView(),holder,position);
+            }
             switch (node.getTitle()) {
                 /*首页节点*/
                 case "志愿服务厅":

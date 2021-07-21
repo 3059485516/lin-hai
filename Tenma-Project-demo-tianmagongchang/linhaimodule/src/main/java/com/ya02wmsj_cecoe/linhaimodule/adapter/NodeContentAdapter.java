@@ -108,13 +108,16 @@ public class NodeContentAdapter extends MultiItemTypeAdapter<NodeContent> {
                 ImageManager.getInstance().loadImage(mContext, path, R.mipmap.ya02wmsj_cecoe_placeholder, holder.getView(R.id.iv_image));
             }
             holder.getConvertView().setOnClickListener(v -> {
+                if (mOnItemClickListener != null) {
+                    mOnItemClickListener.onItemClick(holder.getConvertView(), holder, position);
+                }
                 Intent intent = new Intent(mContext, TextContentActivity.class);
                 intent.putExtra(Constant.KEY_STRING_1, nodeContent.getId());
                 intent.putExtra(Constant.KEY_STRING_2, RegionManager.getInstance().getCurrentCountyCode());
-                if (TextUtils.isEmpty(mNodeId)){
-                    intent.putExtra(Constant.KEY_STRING_3,nodeContent.getNode_id());
-                }else {
-                    intent.putExtra(Constant.KEY_STRING_3,mNodeId);
+                if (TextUtils.isEmpty(mNodeId)) {
+                    intent.putExtra(Constant.KEY_STRING_3, nodeContent.getNode_id());
+                } else {
+                    intent.putExtra(Constant.KEY_STRING_3, mNodeId);
                 }
                 mContext.startActivity(intent);
             });
@@ -181,6 +184,9 @@ public class NodeContentAdapter extends MultiItemTypeAdapter<NodeContent> {
                 }
             }
             holder.getConvertView().setOnClickListener(v -> {
+                if (mOnItemClickListener != null) {
+                    mOnItemClickListener.onItemClick(holder.getConvertView(), holder, position);
+                }
                 JumpUtils.gotoPreviewImageActivity(mContext, new ArrayList<>(Arrays.asList(nodeContent.getPath().split(","))), nodeContent.getAlbumDesc(), 0);
             });
         }
@@ -207,8 +213,7 @@ public class NodeContentAdapter extends MultiItemTypeAdapter<NodeContent> {
             GSYVideoType.setShowType(GSYVideoType.SCREEN_TYPE_DEFAULT);
             mGSVideoOptionBuilder
                     .setIsTouchWiget(false)
-                    .setSetUpLazy(true)//lazy可以防止滑动卡顿
-//                    .setVideoTitle(name)
+                    .setSetUpLazy(true)
                     .setCacheWithPlay(false)
                     .setRotateViewAuto(true)
                     .setLockLand(true)
@@ -238,10 +243,13 @@ public class NodeContentAdapter extends MultiItemTypeAdapter<NodeContent> {
 
             gsyVideoPlayer.getStartButton().setOnClickListener(view -> {
                 String nid;
-                if (TextUtils.isEmpty(mNodeId)){
+                if (TextUtils.isEmpty(mNodeId)) {
                     nid = nodeContent.getNode_id();
-                }else {
+                } else {
                     nid = mNodeId;
+                }
+                if (mOnItemClickListener != null) {
+                    mOnItemClickListener.onItemClick(holder.getConvertView(), holder, position);
                 }
                 LittleVideoActivity.launch(mContext, nodeContent.getId(), RegionManager.getInstance().getCurrentCountyCode(), nid);
             });
@@ -317,10 +325,8 @@ public class NodeContentAdapter extends MultiItemTypeAdapter<NodeContent> {
                         Log.e(TAG, "adater potion--->" + position);
                         gsyVideoPlayer.setPlayPosition(position);
                         gsyVideoPlayer.startBtnPlay();
-                        view.setClickable(true);
-                    } else {
-                        view.setClickable(true);
                     }
+                    view.setClickable(true);
                 }
 
             });
@@ -329,6 +335,9 @@ public class NodeContentAdapter extends MultiItemTypeAdapter<NodeContent> {
                 if (nodeContent.getLiveinfo() == null || "空闲".equals(nodeContent.getLiveinfo().getStatus())) {
                     T.showShort(mContext, "直播空闲中");
                     return;
+                }
+                if (mOnItemClickListener != null) {
+                    mOnItemClickListener.onItemClick(holder.getConvertView(), holder, position);
                 }
                 Intent intent = new Intent(mContext, LiveActivity.class);
                 intent.putExtra(Constant.KEY_STRING_1, nodeContent.getLiveinfo().getName());

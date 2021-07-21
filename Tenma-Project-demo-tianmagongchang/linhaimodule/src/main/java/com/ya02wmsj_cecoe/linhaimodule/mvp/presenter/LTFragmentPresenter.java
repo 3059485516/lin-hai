@@ -3,7 +3,7 @@ package com.ya02wmsj_cecoe.linhaimodule.mvp.presenter;
 import com.ya02wmsj_cecoe.linhaimodule.bean.LtMarkEntity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.Node;
 import com.ya02wmsj_cecoe.linhaimodule.bean.NodeContent;
-import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.BaseAreaListFragmentContract;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.LTFragmentContract;
 import com.ya02wmsj_cecoe.linhaimodule.rx.Api;
 import com.ya02wmsj_cecoe.linhaimodule.rx.RxSubscriber;
 import com.ya02wmsj_cecoe.linhaimodule.utils.RegionManager;
@@ -12,11 +12,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
-public class LTFragmentPresenter extends BaseAreaListFragmentPresenter {
+/**
+ * 文化礼堂
+ */
+public class LTFragmentPresenter extends LTFragmentContract.Presenter {
     private List<String> mBannerImageUrls = new ArrayList<>();
 
-    public LTFragmentPresenter(BaseAreaListFragmentContract.View view) {
+    public LTFragmentPresenter(LTFragmentContract.View view) {
         super(view);
         getBanner(RegionManager.getInstance().getCurrentCountyCode());
         getMarkList();

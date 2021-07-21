@@ -8,7 +8,7 @@ import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.BaseAreaListFragmentPresent
 import com.ya02wmsj_cecoe.linhaimodule.utils.RegionManager;
 import com.ya02wmsj_cecoe.linhaimodule.widget.regionpicker.RegionPickDialog;
 
-public abstract class BaseAreaListFragment extends BaseListFragment<BaseAreaListFragmentPresenter>
+public abstract class BaseAreaListFragment<P extends BaseAreaListFragmentPresenter> extends BaseListFragment<BaseAreaListFragmentPresenter>
         implements BaseAreaListFragmentContract.View {
     protected RegionPickDialog mRegionPickDialog;
 

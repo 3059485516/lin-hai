@@ -5,11 +5,11 @@ import android.view.View;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.base.activity.BaseActivity;
 
-
 /**
  * Created by BenyChan on 2019-08-07.
  */
 public class AppealManagerActivity extends BaseActivity {
+
     @Override
     protected int getLayoutId() {
         return R.layout.ya02wmsj_cecoe_activity_appeal_manager;
@@ -17,7 +17,6 @@ public class AppealManagerActivity extends BaseActivity {
 
     @Override
     protected void initMVP() {
-
     }
 
     @Override

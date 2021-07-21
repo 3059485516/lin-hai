@@ -10,11 +10,14 @@ import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.adapter.NodeAdapter;
 import com.ya02wmsj_cecoe.linhaimodule.base.activity.BaseActivity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.Node;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.NetPersonBetContract;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.NetPersonBetPresenter;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 
 import java.util.Arrays;
 
-public class NetPersonBetActivity extends BaseActivity {
-    RecyclerView mRvNode;
+public class NetPersonBetActivity extends BaseActivity<NetPersonBetContract.Presenter> implements NetPersonBetContract.View {
+    protected RecyclerView mRvNode;
 
     @Override
     protected int getLayoutId() {
@@ -23,7 +26,7 @@ public class NetPersonBetActivity extends BaseActivity {
 
     @Override
     protected void initMVP() {
-
+        mPresenter = new NetPersonBetPresenter(this);
     }
 
     @Override
@@ -40,27 +43,36 @@ public class NetPersonBetActivity extends BaseActivity {
                 new Node("智慧养老", R.mipmap.ya02wmsj_cecoe_zhyl + "", true)
         ));
         mRvNode.setAdapter(nodeAdapter);
-
-        findViewById(R.id.iv_zixun).setOnClickListener(new View.OnClickListener() {
+        nodeAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intentZX = new Intent(mContext, WebActivity.class);
-                intentZX.putExtra(Constant.KEY_STRING_1, "我要咨询");
-                intentZX.putExtra(Constant.KEY_STRING_2, "http://www.zjzwfw.gov.cn/jfaqfront/xiaomi/index.do");
-                mContext.startActivity(intentZX);
+            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                if (position == 0){
+                    mPresenter.clickContent("电子图书馆");
+                }else if (position == 5){
+                    mPresenter.clickContent("智慧养老");
+                }
+            }
+
+            @Override
+            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                return false;
             }
         });
 
-        findViewById(R.id.iv_shouji).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(mContext, SocialCollectActivity.class));
-            }
+        findViewById(R.id.iv_zixun).setOnClickListener(v -> {
+            mPresenter.clickContent("政务举报网");
+            Intent intentZX = new Intent(mContext, WebActivity.class);
+            intentZX.putExtra(Constant.KEY_STRING_1, "我要咨询");
+            intentZX.putExtra(Constant.KEY_STRING_2, "http://www.zjzwfw.gov.cn/jfaqfront/xiaomi/index.do");
+            mContext.startActivity(intentZX);
+        });
+
+        findViewById(R.id.iv_shouji).setOnClickListener(v ->{
+            startActivity(new Intent(mContext, SocialCollectActivity.class));
         });
     }
 
     @Override
     protected void initData() {
-
     }
 }

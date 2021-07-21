@@ -6,6 +6,7 @@ import com.ya02wmsj_cecoe.linhaimodule.rx.Api;
 import com.ya02wmsj_cecoe.linhaimodule.rx.RxSubscriber;
 
 public class ActionDetailBetPresenter extends ActionDetailBetContract.Presenter {
+
     public ActionDetailBetPresenter(ActionDetailBetContract.View view) {
         super(view);
     }

@@ -14,5 +14,7 @@ public interface ZhkxContract {
         }
 
         public abstract void logToEBook();
+
+        public abstract void clickContent();
     }
 }

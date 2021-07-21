@@ -10,7 +10,11 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.List;
 
+/**
+ * 达人库 适配器
+ */
 public class TalentAdapter extends CommonAdapter<TalentEntity> {
+
     public TalentAdapter(Context context, List<TalentEntity> datas) {
         super(context, R.layout.ya02wmsj_cecoe_item_talent, datas);
     }

@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -22,12 +23,16 @@ import com.ya02wmsj_cecoe.linhaimodule.adapter.NodeAdapter;
 import com.ya02wmsj_cecoe.linhaimodule.adapter.ZhiYuanFuWuViewPageAdapter;
 import com.ya02wmsj_cecoe.linhaimodule.base.fragment.BaseListFragment;
 import com.ya02wmsj_cecoe.linhaimodule.bean.Node;
+import com.ya02wmsj_cecoe.linhaimodule.bean.NodeContent;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LittleVideoActivity;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LiveActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.TextContentActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.FragmentVolunteerContract;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.FragmentVolunteerPresenter;
 import com.ya02wmsj_cecoe.linhaimodule.utils.DisplayUtils;
 import com.ya02wmsj_cecoe.linhaimodule.utils.ImageManager;
 import com.ya02wmsj_cecoe.linhaimodule.utils.RegionManager;
+import com.ya02wmsj_cecoe.linhaimodule.utils.T;
 import com.ya02wmsj_cecoe.linhaimodule.widget.ToolbarLayout;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -35,20 +40,15 @@ import com.youth.banner.Transformer;
 import com.youth.banner.loader.ImageLoader;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 
-
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.Arrays;
 import java.util.List;
 
-
 public class FragmentVolunteer extends BaseListFragment<FragmentVolunteerContract.Presenter> implements FragmentVolunteerContract.View {
     protected ToolbarLayout mToolBar;
-
     protected Banner mBanner;
-
     protected RecyclerView mRvNode;
-
     private NodeAdapter mNodeAdapter;
 
     private boolean mbBackMain = false;
@@ -70,18 +70,49 @@ public class FragmentVolunteer extends BaseListFragment<FragmentVolunteerContrac
 
     @Override
     protected MultiItemTypeAdapter getAdapter() {
-        return new FragmentVolunteerAdapter(mActivity, mPresenter.getDataList());
+        FragmentVolunteerAdapter adapter = new FragmentVolunteerAdapter(mActivity, mPresenter.getDataList());
+        adapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                NodeContent nodeContent = mPresenter.getDataList().get(position);
+                if ("直播".equals(nodeContent.getType())) {
+                    mPresenter.clickContent();
+                    if (nodeContent.getLiveinfo() == null || "空闲".equals(nodeContent.getLiveinfo().getStatus())) {
+                        T.showShort(getContext(), "直播空闲中");
+                        return;
+                    } else {
+                        Intent intent = new Intent(getContext(), LiveActivity.class);
+                        intent.putExtra(Constant.KEY_STRING_1, nodeContent.getLiveinfo().getName());
+                        intent.putExtra(Constant.KEY_STRING_2, nodeContent.getLiveinfo().getHls_pull_url());
+                        startActivity(intent);
+                    }
+                } else if ("图文视频".equals(nodeContent.getType())) {
+                    mPresenter.clickContent();
+                    Intent intent = null;
+                    if (nodeContent.getVideo_path() != null && !TextUtils.isEmpty(nodeContent.getVideo_path().getOrigUrl())) {
+                        LittleVideoActivity.launch(getContext(),nodeContent.getId(), RegionManager.getInstance().getCurrentCountyCode(),"30");
+                    } else {
+                        intent = new Intent(getContext(), TextContentActivity.class);
+                        intent.putExtra(Constant.KEY_STRING_1, nodeContent.getId());
+                        intent.putExtra(Constant.KEY_STRING_2, RegionManager.getInstance().getCurrentCountyCode());
+                        intent.putExtra(Constant.KEY_STRING_3, "30");
+                    }
+                    if (intent != null)
+                        getContext().startActivity(intent);
+                }
+            }
+
+            @Override
+            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                return false;
+            }
+        });
+        return adapter;
     }
 
     @Override
     protected void initMVP() {
         mPresenter = new FragmentVolunteerPresenter(this);
-    }
-
-    @Override
-    protected void initData() {
-        super.initData();
-        mPresenter.getNodeList();
     }
 
     @Override
@@ -117,7 +148,7 @@ public class FragmentVolunteer extends BaseListFragment<FragmentVolunteerContrac
         initBanner();
         setLoadMoreEnabled(true);
         List<Node> nodeList = getNodeList();
-        if(nodeList.size()>8){
+        if (nodeList.size() > 8) {
             mRvNode.setVisibility(View.GONE);
             viewPager.setVisibility(View.VISIBLE);
             viewPagerIndication.setVisibility(View.VISIBLE);
@@ -127,7 +158,6 @@ public class FragmentVolunteer extends BaseListFragment<FragmentVolunteerContrac
             viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                 @Override
                 public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
                 }
 
                 @Override
@@ -143,19 +173,33 @@ public class FragmentVolunteer extends BaseListFragment<FragmentVolunteerContrac
 
                 @Override
                 public void onPageScrollStateChanged(int state) {
-
                 }
             });
             viewPager.setAdapter(new ZhiYuanFuWuViewPageAdapter(nodeList));
-        }else {
+        } else {
             viewPager.setVisibility(View.GONE);
             viewPagerIndication.setVisibility(View.GONE);
             mRvNode.setVisibility(View.VISIBLE);
             mRvNode.setLayoutManager(new GridLayoutManager(mActivity, 4));
-            mNodeAdapter = new NodeAdapter(mActivity, nodeList);      //暂缺
+            mNodeAdapter = new NodeAdapter(mActivity, nodeList);
             mRvNode.setAdapter(mNodeAdapter);
         }
 
+        mNodeAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                if (position != 1 || position != 4 || position != 6 || position != 8){
+                    mPresenter.clickContent();
+                }
+            }
+
+            @Override
+            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                return false;
+            }
+        });
+
+        mPresenter.clickContent();
     }
 
     private List<Node> getNodeList() {
@@ -163,39 +207,47 @@ public class FragmentVolunteer extends BaseListFragment<FragmentVolunteerContrac
         node1.setTitle("我要做志愿");
         node1.setLocal(true);
         node1.setIcon(R.mipmap.ya02wmsj_cecoe_worth_1 + "");
+
         Node node2 = new Node();
         node2.setTitle("我要点服务");
         node2.setLocal(true);
         node2.setIcon(R.mipmap.ya02wmsj_cecoe_net_1_2 + "");
+
         Node node3 = new Node();
         node3.setTitle("我要兑福利");
         node3.setLocal(true);
         node3.setIcon(R.mipmap.ya02wmsj_cecoe_worth_5 + "");
+
         Node node4 = new Node();
         node4.setTitle("我要看排名");
         node4.setLocal(true);
         node4.setIcon(R.mipmap.ya02wmsj_cecoe_ideology_1 + "");
+
         Node node5 = new Node();
         node5.setTitle("我有微心愿");
         node5.setLocal(true);
         node5.setIcon(R.mipmap.ya02wmsj_cecoe_main_3 + "");
+
         Node node6 = new Node();
         node6.setTitle("我要加团队");
         node6.setLocal(true);
         node6.setIcon(R.mipmap.ya02wmsj_cecoe_net_1_7 + "");
+
         Node node7 = new Node();
         node7.setTitle("我要秀文明");
         node7.setLocal(true);
         node7.setIcon(R.mipmap.ya02wmsj_cecoe_main_2 + "");
+
         Node node8 = new Node();
         node8.setTitle("我要签到");
         node8.setLocal(true);
         node8.setIcon(R.mipmap.ya02wmsj_cecoe_icon_wode_en + "");
+
         Node node9 = new Node();
         node9.setTitle("我要拍陋习");
         node9.setLocal(true);
         node9.setIcon(R.mipmap.ya02wmsj_cecoe_lou_xi + "");
-        return Arrays.asList(node1, node2, node3, node4, node5, node6, node7, node8,node9);  //隐藏兑福利
+        return Arrays.asList(node1, node2, node3, node4, node5, node6, node7, node8, node9);
     }
 
     private void initBanner() {
@@ -234,11 +286,6 @@ public class FragmentVolunteer extends BaseListFragment<FragmentVolunteerContrac
     public void onPause() {
         super.onPause();
         mBanner.stopAutoPlay();
-    }
-
-    @Override
-    public void updateNodeList() {
-        mNodeAdapter.notifyDataSetChanged();
     }
 
     @Override

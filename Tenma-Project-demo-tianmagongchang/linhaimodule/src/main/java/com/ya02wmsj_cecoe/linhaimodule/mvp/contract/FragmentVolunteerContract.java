@@ -4,14 +4,11 @@ import com.ya02wmsj_cecoe.linhaimodule.base.mvp.AListPresenter;
 import com.ya02wmsj_cecoe.linhaimodule.base.mvp.IListView;
 import com.ya02wmsj_cecoe.linhaimodule.bean.Node;
 import com.ya02wmsj_cecoe.linhaimodule.bean.NodeContent;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public interface FragmentVolunteerContract {
     interface View extends IListView {
-        void updateNodeList();
-
         void updateBanner();
     }
 
@@ -23,12 +20,6 @@ public interface FragmentVolunteerContract {
             super(view);
         }
 
-        public abstract void getNodeList();
-
-        public List<Node> getNodeData() {
-            return mNodeList;
-        }
-
         public List<NodeContent> getBannerContent() {
             return mBannerContent;
         }
@@ -38,5 +29,7 @@ public interface FragmentVolunteerContract {
         public abstract List<String> getBannerUrls();
 
         public abstract List<String> getDefaultImgUrls();
+
+        public abstract void clickContent();
     }
 }

@@ -12,17 +12,19 @@ import android.view.ViewGroup;
 import com.ya02wmsj_cecoe.linhaimodule.Config;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.bean.Node;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
+/**
+ * 文化礼堂适配器
+ */
 public class LTViewPagerAdapter extends PagerAdapter {
     private LayoutInflater mInflater;
     private Context mContext;
     private List<Node> list1 = new ArrayList<>(Arrays.asList(
-//            new Node("资源预约", R.mipmap.ya02wmsj_cecoe_ideology_2 + "", true),
             new Node("礼堂地图", R.mipmap.ya02wmsj_cecoe_net_2_4 + "", true),
             new Node("礼堂秀场", R.mipmap.ya02wmsj_cecoe_platform_4 + "", true),
             new Node("礼堂指数", R.mipmap.ya02wmsj_cecoe_net_1_6 + "", true),
@@ -34,8 +36,17 @@ public class LTViewPagerAdapter extends PagerAdapter {
             new Node("测评记录", R.mipmap.ya02wmsj_cecoe_ceping + "", true),
             new Node("消息", R.mipmap.ya02wmsj_cecoe_ideology_4 + "", true),
             new Node("视频监控", R.mipmap.ya02wmsj_cecoe_ideology_3 + "", true)
-           // new Node("预约管理", R.mipmap.ya02wmsj_cecoe_net_2_3 + "", true)
     ));
+
+    public interface OnNodeItemClickCall{
+        public void onItemClicked(String name);
+    }
+
+    private OnNodeItemClickCall onNodeItemClickCall;
+
+    public void setOnNodeItemClickCall(OnNodeItemClickCall onNodeItemClickCall) {
+        this.onNodeItemClickCall = onNodeItemClickCall;
+    }
 
     public LTViewPagerAdapter(Context context) {
         mContext = context;
@@ -44,7 +55,6 @@ public class LTViewPagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        // !Config.getInstance().getUser().isLtManager()
         if (!Config.getInstance().getUser().isLtManager()) {
             return 1;
         }
@@ -68,7 +78,21 @@ public class LTViewPagerAdapter extends PagerAdapter {
         } else {
             list = list2;
         }
-        rv_node.setAdapter(new NodeAdapter(mContext, list));
+        NodeAdapter adapter = new NodeAdapter(mContext, list);
+        adapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                if (onNodeItemClickCall != null){
+                    onNodeItemClickCall.onItemClicked(adapter.getDatas().get(position).getTitle());
+                }
+            }
+
+            @Override
+            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                return false;
+            }
+        });
+        rv_node.setAdapter(adapter);
         container.addView(root);
         return root;
     }

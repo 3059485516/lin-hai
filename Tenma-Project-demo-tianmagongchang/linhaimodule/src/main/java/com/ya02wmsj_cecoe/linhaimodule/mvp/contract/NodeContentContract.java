@@ -9,14 +9,14 @@ import com.ya02wmsj_cecoe.linhaimodule.bean.NodeContent;
  */
 public interface NodeContentContract {
     interface View extends IListView {
-
     }
 
     abstract class Presenter extends AListPresenter<View, NodeContent> {
         public Presenter(View view) {
             super(view);
         }
-
         public abstract String getNodeId();
+
+        public abstract void clickContent(String type);
     }
 }

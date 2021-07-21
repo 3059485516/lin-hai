@@ -19,7 +19,6 @@ import com.ya02wmsj_cecoe.linhaimodule.base.mvp.APresenter;
 import com.ya02wmsj_cecoe.linhaimodule.utils.T;
 
 
-
 public abstract class BaseFragment<P extends APresenter> extends TMFragment implements DialogInterface.OnCancelListener {
     private static final String TAG = "BaseFragment";
     protected P mPresenter;

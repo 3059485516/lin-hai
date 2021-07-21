@@ -19,35 +19,23 @@ import com.ya02wmsj_cecoe.linhaimodule.mvp.fragment.FragmentOne;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.fragment.FragmentVolunteer;
 import com.ya02wmsj_cecoe.linhaimodule.utils.PermissionsUtils;
 import com.ya02wmsj_cecoe.linhaimodule.widget.MainTabView;
-
 import java.util.concurrent.TimeUnit;
-
 import io.reactivex.Flowable;
-
 
 /**
  * 首页
  */
 public class MainActivity extends BaseActivity implements MainTabView.TabClickListener, BackPressListener, MainTabView.ClearUnreadListener {
-    MainTabView mTabOne;
-
-    MainTabView mTabTwo;
-
-    MainTabView mTabThree;
-
-    MainTabView mTabFour;
-
-    MainTabView mTabFive;
+    protected MainTabView mTabOne;
+    protected MainTabView mTabTwo;
+    protected MainTabView mTabThree;
+    protected MainTabView mTabFour;
+    protected MainTabView mTabFive;
 
     private FragmentManager mFragmentManager;
     private MainTabView mCurrentTab;
     private boolean mExit = false;
 
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
 
     @Override
     protected int getLayoutId() {
@@ -71,8 +59,6 @@ public class MainActivity extends BaseActivity implements MainTabView.TabClickLi
         mTabThree = findViewById(R.id.tab_three);
         mTabFour = findViewById(R.id.tab_four);
         mTabFive = findViewById(R.id.tab_five);
-
-
         mTabOne.bindData(R.drawable.ya02wmsj_cecoe_selector_one, "首页", new FragmentOne(), true, this, null);
         mTabTwo.bindData(R.drawable.ya02wmsj_cecoe_selector_two, "志愿服务", new FragmentVolunteer(), false, this, null);
         mTabThree.bindData(R.drawable.ya02wmsj_cecoe_selector_three, "文化礼堂", new FragmentLiTang(), false, this, this);
@@ -82,7 +68,6 @@ public class MainActivity extends BaseActivity implements MainTabView.TabClickLi
         mFragmentManager.beginTransaction().add(R.id.fl_container, mTabOne.getFragment()).show(mTabOne.getFragment()).commitAllowingStateLoss();
         mCurrentTab = mTabOne;
     }
-
 
     @Override
     protected void initData() {
@@ -100,7 +85,6 @@ public class MainActivity extends BaseActivity implements MainTabView.TabClickLi
     public void tabClick(MainTabView mainTab) {
         showFragment(mainTab);
     }
-
 
     private void showFragment(MainTabView indexTab) {
         GSYVideoManager.releaseAllVideos();
@@ -126,7 +110,6 @@ public class MainActivity extends BaseActivity implements MainTabView.TabClickLi
     public void onBackPressed() {
         if (mExit) {
             finishActivity();
-//            AppManager.getInstance().exit();
         } else {
             mExit = true;
             toast("再按返回键退出");
@@ -147,5 +130,4 @@ public class MainActivity extends BaseActivity implements MainTabView.TabClickLi
         }, throwable -> {
         });
     }
-
 }

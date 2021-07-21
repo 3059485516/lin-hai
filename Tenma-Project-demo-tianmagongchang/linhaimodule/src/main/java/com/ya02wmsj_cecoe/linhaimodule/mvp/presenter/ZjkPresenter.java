@@ -8,6 +8,7 @@ import com.ya02wmsj_cecoe.linhaimodule.rx.RxSubscriber;
 import java.util.List;
 
 public class ZjkPresenter extends ZjkContract.Presenter {
+
     public ZjkPresenter(ZjkContract.View view) {
         super(view);
     }

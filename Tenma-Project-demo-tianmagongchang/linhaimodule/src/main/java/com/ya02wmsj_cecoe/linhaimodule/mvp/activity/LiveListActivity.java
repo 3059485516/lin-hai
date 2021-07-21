@@ -11,6 +11,7 @@ import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.LiveListPresenter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 
 public class LiveListActivity extends BaseListActivity<LiveListPresenter> implements IListView {
+
     @Override
     protected MultiItemTypeAdapter getAdapter() {
         LiveListAdapter adapter = new LiveListAdapter(this, mPresenter.getDataList());

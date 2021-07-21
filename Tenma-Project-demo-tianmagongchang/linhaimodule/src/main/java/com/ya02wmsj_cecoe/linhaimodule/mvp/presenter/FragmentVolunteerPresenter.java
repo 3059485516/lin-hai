@@ -2,7 +2,6 @@ package com.ya02wmsj_cecoe.linhaimodule.mvp.presenter;
 
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.bean.NodeContent;
-import com.ya02wmsj_cecoe.linhaimodule.bean.ZhiyuanhuiListEntity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.FragmentVolunteerContract;
 import com.ya02wmsj_cecoe.linhaimodule.rx.Api;
 import com.ya02wmsj_cecoe.linhaimodule.rx.RxSubscriber;
@@ -12,26 +11,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
+/**
+ * 志愿服务
+ */
 public class FragmentVolunteerPresenter extends FragmentVolunteerContract.Presenter {
     private List<String> mBannerImageUrls = new ArrayList<>();
 
     public FragmentVolunteerPresenter(FragmentVolunteerContract.View view) {
         super(view);
-    }
-
-    @Override
-    public void getNodeList() {
-//        addRx2Destroy(new RxSubscriber<List<Node>>(Api.getNodeList("25")) {
-//            @Override
-//            protected void _onNext(List<Node> list) {
-//                if (list != null) {
-//                    getNodeData().clear();
-//                    getNodeData().addAll(list);
-//                    mView.updateNodeList();
-//                }
-//            }
-//        });
     }
 
     @Override
@@ -75,5 +62,18 @@ public class FragmentVolunteerPresenter extends FragmentVolunteerContract.Presen
         super.getPageData(isRefresh);
         getBanner(RegionManager.getInstance().getCurrentCountyCode(), "30");
         setDataSource(Api.getContentList(RegionManager.getInstance().getCurrentCountyCode(), "","n", "30", getPage() + "", PAGE_SIZE + ""));
+    }
+
+    @Override
+    public void clickContent() {
+        addRx2Destroy(new RxSubscriber<String>(Api.clickedContent("志愿汇")) {
+            @Override
+            protected void _onNext(String str) {
+            }
+
+            @Override
+            protected void _onError(String code) {
+            }
+        });
     }
 }

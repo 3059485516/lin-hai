@@ -80,6 +80,7 @@ import okhttp3.RequestBody;
 import retrofit2.http.FieldMap;
 
 import static com.ya02wmsj_cecoe.linhaimodule.Constant.BASE_URL_LT_INTERFACE;
+import static com.ya02wmsj_cecoe.linhaimodule.Constant.BASE_URL_INTERFACE_RELEASE;
 
 
 public class Api {
@@ -978,6 +979,10 @@ public class Api {
 
     public static Observable<List<Node>> getBadHabitList() {
         return API_SERVICE.getBadHabitList(getToken()).compose(RxSchedulers.io_main());
+    }
+
+    public static Observable<String> clickedContent(String type) {
+        return API_SERVICE.clickedContent(BASE_URL_INTERFACE_RELEASE + "click", getToken(), type).compose(RxSchedulers.io_main());
     }
 
 

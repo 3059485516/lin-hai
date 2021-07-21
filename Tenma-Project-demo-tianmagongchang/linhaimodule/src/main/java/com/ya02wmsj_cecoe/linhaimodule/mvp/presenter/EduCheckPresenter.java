@@ -1,14 +1,29 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.presenter;
 
-import com.ya02wmsj_cecoe.linhaimodule.base.mvp.AListPresenter;
-import com.ya02wmsj_cecoe.linhaimodule.base.mvp.IListView;
-import com.ya02wmsj_cecoe.linhaimodule.bean.EduEntity;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.EduCheckContract;
 import com.ya02wmsj_cecoe.linhaimodule.rx.Api;
+import com.ya02wmsj_cecoe.linhaimodule.rx.RxSubscriber;
 
-public class EduCheckPresenter extends AListPresenter<IListView, EduEntity> {
+/**
+ * 教育查询
+ */
+public class EduCheckPresenter extends EduCheckContract.Presenter {
 
-    public EduCheckPresenter(IListView view) {
+    public EduCheckPresenter(EduCheckContract.View view) {
         super(view);
+    }
+
+    @Override
+    public void clickContent() {
+        addRx2Destroy(new RxSubscriber<String>(Api.clickedContent("教育服务")) {
+            @Override
+            protected void _onNext(String str) {
+            }
+
+            @Override
+            protected void _onError(String code) {
+            }
+        });
     }
 
     @Override

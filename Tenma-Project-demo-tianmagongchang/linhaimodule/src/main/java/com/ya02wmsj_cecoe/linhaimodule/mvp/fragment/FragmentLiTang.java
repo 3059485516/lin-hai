@@ -29,7 +29,7 @@ import com.ya02wmsj_cecoe.linhaimodule.bean.UserOperateEvent;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LittleVideoActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LiveActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LtContentDetailActivity;
-import com.ya02wmsj_cecoe.linhaimodule.mvp.activity.LtFullScreenVideoActivity;
+import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.LTFragmentContract;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.LTFragmentPresenter;
 import com.ya02wmsj_cecoe.linhaimodule.rx.RxBus;
 import com.ya02wmsj_cecoe.linhaimodule.utils.DisplayUtils;
@@ -54,9 +54,11 @@ import io.reactivex.functions.Consumer;
 
 import static android.support.v7.widget.StaggeredGridLayoutManager.VERTICAL;
 
-public class FragmentLiTang extends BaseAreaListFragment {
+/**
+ * 文化礼堂
+ */
+public class FragmentLiTang extends BaseAreaListFragment<LTFragmentContract.Presenter> implements LTFragmentContract.View{
     protected ToolbarLayout mToolBar;
-
     protected Banner mBanner;
     private LinearLayout mWrapIndication;
     private View mIndicator1, mIndicator2;
@@ -76,7 +78,6 @@ public class FragmentLiTang extends BaseAreaListFragment {
         return fragmentLiTang;
     }
 
-
     @Override
     protected int getLayoutId() {
         return R.layout.ya02wmsj_cecoe_fragment_lt;
@@ -91,13 +92,9 @@ public class FragmentLiTang extends BaseAreaListFragment {
                 NodeContent nodeContent = mPresenter.getDataList().get(position);
                 String type = nodeContent.getType();
                 if ("图文视频".equals(type)) {
+                    mPresenter.clickContent();
                     if (nodeContent.getVideo_path() != null && !TextUtils.isEmpty(nodeContent.getVideo_path().getOrigUrl())) {
-                       /* Intent intent = new Intent(mActivity, LtFullScreenVideoActivity.class);
-                        intent.putExtra(Constant.KEY_STRING_1, nodeContent.getId());
-                        intent.putExtra(Constant.KEY_STRING_2, RegionManager.getInstance().getCurrentCountyCode());
-                        intent.putExtra(Constant.KEY_STRING_3, nodeContent.getNode_id());
-                        mActivity.startActivity(intent);*/
-                        LittleVideoActivity.launch(mActivity, nodeContent.getId(),RegionManager.getInstance().getCurrentCountyCode(),nodeContent.getNode_id());
+                        LittleVideoActivity.launch(mActivity, nodeContent.getId(), RegionManager.getInstance().getCurrentCountyCode(), nodeContent.getNode_id());
                     } else {
                         Intent intent = new Intent(mActivity, LtContentDetailActivity.class);
                         intent.putExtra(Constant.KEY_STRING_1, nodeContent.getId());
@@ -107,12 +104,14 @@ public class FragmentLiTang extends BaseAreaListFragment {
                         mActivity.startActivity(intent);
                     }
                 } else if ("相册".equals(type)) {
+                    mPresenter.clickContent();
                     JumpUtils.gotoPreviewImageActivity(mActivity, new ArrayList<>(Arrays.asList(nodeContent.getPath().split(","))), nodeContent.getAlbumDesc(), 0);
                 } else if ("直播".equals(type)) {
                     if (nodeContent.getLiveinfo() == null || "空闲".equals(nodeContent.getLiveinfo().getStatus())) {
                         T.showShort(mActivity, "直播空闲中");
                         return;
                     }
+                    mPresenter.clickContent();
                     Intent intent = new Intent(mActivity, LiveActivity.class);
                     intent.putExtra(Constant.KEY_STRING_1, nodeContent.getLiveinfo().getName());
                     intent.putExtra(Constant.KEY_STRING_2, nodeContent.getLiveinfo().getHls_pull_url());
@@ -142,11 +141,16 @@ public class FragmentLiTang extends BaseAreaListFragment {
         mIndicator2 = mRootView.findViewById(R.id.indicatior2);
         ViewPager vp_node = mRootView.findViewById(R.id.vp_node);
         mNodeAdapter = new LTViewPagerAdapter(mActivity);
+        mNodeAdapter.setOnNodeItemClickCall(new LTViewPagerAdapter.OnNodeItemClickCall() {
+            @Override
+            public void onItemClicked(String name) {
+                mPresenter.clickContent();
+            }
+        });
         vp_node.setAdapter(mNodeAdapter);
         vp_node.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
 
             @Override
@@ -162,7 +166,6 @@ public class FragmentLiTang extends BaseAreaListFragment {
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
 
@@ -176,8 +179,7 @@ public class FragmentLiTang extends BaseAreaListFragment {
             }
         }
         mToolBar.showBack();
-        mToolBar.setOnClickListener(v ->
-                {
+        mToolBar.setOnClickListener(v -> {
                     if (mbBackMain) {
                         finishActivity();
                     } else {
@@ -189,8 +191,7 @@ public class FragmentLiTang extends BaseAreaListFragment {
                         shellEvent.setParams(gson.toJson(jsonObject));
                         EventBus.getDefault().post(shellEvent);
                     }
-                }
-                , null);
+                }, null);
 
         setLayoutManager(new StaggeredGridLayoutManager(2, VERTICAL));
         setItemDecoration(new StaggeredDividerItemDecoration(mActivity, 10, 2));
@@ -226,6 +227,7 @@ public class FragmentLiTang extends BaseAreaListFragment {
     protected void initData() {
         super.initData();
         mPresenter.getPageData(true);
+        mPresenter.clickContent();
     }
 
     private void initBanner() {
@@ -274,13 +276,10 @@ public class FragmentLiTang extends BaseAreaListFragment {
 
     @Override
     protected void updateRegion() {
-//        mToolBar.setMenuText(RegionManager.getInstance().getCurrentVillageName());
-//        mPresenter.getBanner(RegionManager.getInstance().getCurrentVillageCode());
     }
 
     @Override
     public void updateOnlineList() {
-
     }
 
     @Override
