@@ -91,8 +91,7 @@ public abstract class BaseFragment<P extends APresenter> extends TMFragment impl
         return (T) layoutView.findViewById(resId);
     }
 
-    protected abstract @LayoutRes
-    int getLayoutId();
+    protected abstract @LayoutRes int getLayoutId();
 
     protected abstract void initMVP();
 

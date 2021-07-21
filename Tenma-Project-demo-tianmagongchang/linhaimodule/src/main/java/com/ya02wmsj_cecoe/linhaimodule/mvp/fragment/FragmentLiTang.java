@@ -100,7 +100,6 @@ public class FragmentLiTang extends BaseAreaListFragment<LTFragmentContract.Pres
                         intent.putExtra(Constant.KEY_STRING_1, nodeContent.getId());
                         intent.putExtra(Constant.KEY_STRING_2, RegionManager.getInstance().getCurrentCountyCode());
                         intent.putExtra(Constant.KEY_STRING_3, nodeContent.getNode_id());
-                        intent.putExtra(Constant.KEY_STRING_3, nodeContent.getNode_id());
                         mActivity.startActivity(intent);
                     }
                 } else if ("相册".equals(type)) {
