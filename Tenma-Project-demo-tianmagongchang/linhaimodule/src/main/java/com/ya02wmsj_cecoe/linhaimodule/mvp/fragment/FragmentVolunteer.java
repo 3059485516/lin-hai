@@ -183,22 +183,20 @@ public class FragmentVolunteer extends BaseListFragment<FragmentVolunteerContrac
             mRvNode.setLayoutManager(new GridLayoutManager(mActivity, 4));
             mNodeAdapter = new NodeAdapter(mActivity, nodeList);
             mRvNode.setAdapter(mNodeAdapter);
-        }
-
-        mNodeAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
-                if (position != 1 || position != 4 || position != 6 || position != 8){
-                    mPresenter.clickContent();
+            mNodeAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                    if (position != 1 || position != 4 || position != 6 || position != 8){
+                        mPresenter.clickContent();
+                    }
                 }
-            }
 
-            @Override
-            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-                return false;
-            }
-        });
-
+                @Override
+                public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                    return false;
+                }
+            });
+        }
         mPresenter.clickContent();
     }
 
