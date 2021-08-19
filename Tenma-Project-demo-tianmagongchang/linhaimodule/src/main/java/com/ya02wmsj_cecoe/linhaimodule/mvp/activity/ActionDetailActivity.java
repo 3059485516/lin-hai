@@ -12,24 +12,15 @@ import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.ActionDetailContract;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.ActionDetailPresenter;
 import com.ya02wmsj_cecoe.linhaimodule.widget.YLTextViewGroup;
 
-
 /**
  * Created by BenyChan on 2019-07-23.
  */
 public class ActionDetailActivity extends BaseWebViewActivity<ActionDetailContract.Presenter> implements ActionDetailContract.View {
     protected TextView mTvTitle;
-
     protected TextView mTvSource;
-
     protected YLTextViewGroup mTvTime;
-
     protected YLTextViewGroup mTvAddress;
-
     protected YLTextViewGroup mTvUser;
-
-  /*  @BindView(R2.id.tv_tel)
-    protected YLTextViewGroup mTvTel;*/
-
     protected Button mBtnApply;
 
     @Override
@@ -76,6 +67,5 @@ public class ActionDetailActivity extends BaseWebViewActivity<ActionDetailContra
 
     @Override
     protected void initData() {
-
     }
 }

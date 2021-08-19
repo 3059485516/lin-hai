@@ -22,9 +22,7 @@ import me.texy.treeview.TreeView;
  */
 public class CategorySelectActivity extends BaseActivity<SelectOrderTypeContract.Presenter> implements SelectOrderTypeContract.View {
     protected FrameLayout rootView;
-
     protected EmptyView emptyView;
-
     private TreeView treeView;
 
     @Override
@@ -40,7 +38,6 @@ public class CategorySelectActivity extends BaseActivity<SelectOrderTypeContract
     @Override
     protected void initView() {
         setTitle("诉求类型");
-
         rootView = findViewById(R.id.root);
         emptyView = findViewById(R.id.emptyView);
     }
@@ -55,7 +52,6 @@ public class CategorySelectActivity extends BaseActivity<SelectOrderTypeContract
         rootView.removeAllViews();
         CategoryTypeAdapter orderAdapter = new CategoryTypeAdapter();
         orderAdapter.setListener(treeNode -> {
-            // 点击
             boolean isSpan = treeNode.isExpanded();
             treeNode.setExpanded(!isSpan);
             treeView.refreshTreeView();

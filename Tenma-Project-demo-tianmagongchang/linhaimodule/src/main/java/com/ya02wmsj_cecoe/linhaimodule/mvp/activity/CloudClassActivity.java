@@ -63,7 +63,6 @@ public class CloudClassActivity extends BaseListActivity<NodeContentBetContract.
                     mPresenter.clickContent("理论云学堂");
                 }
             }
-
             @Override
             public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
                 return false;

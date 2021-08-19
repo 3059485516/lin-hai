@@ -4,7 +4,6 @@ import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.base.activity.BaseWebViewActivity;
@@ -14,7 +13,6 @@ import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.ActionDetailBetPresenter;
 import com.ya02wmsj_cecoe.linhaimodule.utils.DateUtil;
 import com.ya02wmsj_cecoe.linhaimodule.utils.ImageManager;
 import com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView;
-
 
 public class ActionDetailBetActivity extends BaseWebViewActivity<ActionDetailBetContract.Presenter> implements ActionDetailBetContract.View {
     protected RatioImageView mIvTop;

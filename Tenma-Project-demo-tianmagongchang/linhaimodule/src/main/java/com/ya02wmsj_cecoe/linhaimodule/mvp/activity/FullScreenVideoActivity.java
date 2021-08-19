@@ -1,7 +1,6 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -38,13 +37,12 @@ import cn.sharesdk.framework.PlatformActionListener;
 
 import static com.ya02wmsj_cecoe.linhaimodule.utils.TDevice.getScreenWidth;
 
+
 public class FullScreenVideoActivity extends BaseActivity<FullScreenVideoContract.Presenter> implements FullScreenVideoContract.View {
     protected SoonCoverVideo mSoonCoverVideo;
     private ImageView mIvBack, mIvHead;
     private TextView mTvTitle, mTvName, mTvAddr, mTvLike, mTvCollect, mTvShare, mTvComment;
-
     private Dialog mCommentDialog;
-
     private NodeContent mNodeContent;
     private String mContentId, mRegionCode, mNodeId;
     private int mCurrentSeek = -1;
@@ -88,65 +86,41 @@ public class FullScreenVideoActivity extends BaseActivity<FullScreenVideoContrac
         mTvShare = findViewById(R.id.tv_share);
         mTvComment = findViewById(R.id.tv_comment);
 
-        mIvBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        mIvBack.setOnClickListener(v -> finish());
 
-        mTvLike.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.like(mContentId);
-            }
-        });
+        mTvLike.setOnClickListener(v -> mPresenter.like(mContentId));
 
-        mTvCollect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.collect(mContentId);
-            }
-        });
+        mTvCollect.setOnClickListener(v -> mPresenter.collect(mContentId));
 
-        mTvShare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 分享
-                TMLinkShare tmLinkShare = new TMLinkShare();
-                String url = Constant.getBaseUrl() + "application/ya02wmsj_cecoe/share/index.html?id=" + mContentId;
-                tmLinkShare.setUrl(url);
-                tmLinkShare.setTitle(mNodeContent.getTitle());
-                tmLinkShare.setThumb(mNodeContent.getIcon_path());
-                TMShareUtil.getInstance(mContext).shareLink(tmLinkShare, new PlatformActionListener() {
-                    @Override
-                    public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
-                        toast("分享成功");
-                        if (mNodeContent != null) {
-                            mTvShare.setText(mNodeContent.getShare_num() + 1 + "");
-                        }
-                        mPresenter.share(mContentId);
+        mTvShare.setOnClickListener(v -> {
+            TMLinkShare tmLinkShare = new TMLinkShare();
+            String url = Constant.getBaseUrl() + "application/ya02wmsj_cecoe/share/index.html?id=" + mContentId;
+            tmLinkShare.setUrl(url);
+            tmLinkShare.setTitle(mNodeContent.getTitle());
+            tmLinkShare.setThumb(mNodeContent.getIcon_path());
+            TMShareUtil.getInstance(mContext).shareLink(tmLinkShare, new PlatformActionListener() {
+                @Override
+                public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
+                    toast("分享成功");
+                    if (mNodeContent != null) {
+                        mTvShare.setText(mNodeContent.getShare_num() + 1 + "");
                     }
+                    mPresenter.share(mContentId);
+                }
 
-                    @Override
-                    public void onError(Platform platform, int i, Throwable throwable) {
-//                        toast("分享失败");
-                    }
+                @Override
+                public void onError(Platform platform, int i, Throwable throwable) {
+                }
 
-                    @Override
-                    public void onCancel(Platform platform, int i) {
-//                        toast("分享取消");
-                    }
-                });
-            }
+                @Override
+                public void onCancel(Platform platform, int i) {
+                }
+            });
         });
 
-        mTvComment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 评论
-                mPresenter.getCommentById(mContentId);
-            }
+        mTvComment.setOnClickListener(v -> {
+            // 评论
+            mPresenter.getCommentById(mContentId);
         });
     }
 
@@ -158,13 +132,10 @@ public class FullScreenVideoActivity extends BaseActivity<FullScreenVideoContrac
         mCommentDialog = new Dialog(this, R.style.BottomDialogStyle);
         mCommentDialog.setCanceledOnTouchOutside(true);
         mCommentDialog.setCancelable(true);
-        mCommentDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-                if (mCommentDialog != null) {
-                    mCommentDialog.dismiss();
-                    mCommentDialog = null;
-                }
+        mCommentDialog.setOnCancelListener(dialog -> {
+            if (mCommentDialog != null) {
+                mCommentDialog.dismiss();
+                mCommentDialog = null;
             }
         });
         View view = LayoutInflater.from(mContext).inflate(R.layout.ya02wmsj_cecoe_dialog_video_comment, null);
@@ -174,21 +145,13 @@ public class FullScreenVideoActivity extends BaseActivity<FullScreenVideoContrac
         rv_comment.setAdapter(new CommentAdapter(this, mPresenter.getCommentList()));
         EditText et_content = view.findViewById(R.id.et_content);
         TextView tv_commit = view.findViewById(R.id.tv_commit);
-        tv_commit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!TextUtils.isEmpty(et_content.getText())) {
-                    mPresenter.addComment(mContentId, et_content.getText().toString());
-                }
+        tv_commit.setOnClickListener(v -> {
+            if (!TextUtils.isEmpty(et_content.getText())) {
+                mPresenter.addComment(mContentId, et_content.getText().toString());
             }
         });
 
-        iv_close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismissCommentDialog();
-            }
-        });
+        iv_close.setOnClickListener(v -> dismissCommentDialog());
 
         mCommentDialog.setContentView(view);
         //获取当前Activity所在的窗体
@@ -245,7 +208,6 @@ public class FullScreenVideoActivity extends BaseActivity<FullScreenVideoContrac
         if (!TextUtils.isEmpty(mNodeContent.getPic_url())) {
             ImageManager.getInstance().loadCircleImage(this, mNodeContent.getPic_url(), R.mipmap.ya02wmsj_cecoe_head, mIvHead);
         }
-
         if (mNodeContent.getVideo_path() != null) {
             mSoonCoverVideo.setLooping(true);
             mSoonCoverVideo.setUp(mNodeContent.getVideo_path().getOrigUrl(), false, "");
@@ -254,7 +216,6 @@ public class FullScreenVideoActivity extends BaseActivity<FullScreenVideoContrac
             }
             mSoonCoverVideo.startPlayLogic();
         }
-
         mTvTitle.setText(mNodeContent.getTitle());
         mTvName.setText(mNodeContent.getName());
         mTvAddr.setText(mNodeContent.getOperate_time());
@@ -263,22 +224,21 @@ public class FullScreenVideoActivity extends BaseActivity<FullScreenVideoContrac
         mTvShare.setText(mNodeContent.getShare_num() + "");
         mTvComment.setText(mNodeContent.getComment_count() + "");
 
-        hasLike = mNodeContent.getThumb() == 1;      //是否已经点过赞
-        hasCollect = mNodeContent.getCollect() == 1; //是否已经收藏过
+        hasLike = mNodeContent.getThumb() == 1;
+        hasCollect = mNodeContent.getCollect() == 1;
         if (hasLike) {
             mTvLike.setCompoundDrawablesWithIntrinsicBounds(R.mipmap.ya02wmsj_cecoe_like_press, 0, 0, 0);
-            mTvLike.setCompoundDrawablePadding(DisplayUtils.dip2px(this, 6));
         } else {
             mTvLike.setCompoundDrawablesWithIntrinsicBounds(R.mipmap.ya02wmsj_cecoe_good, 0, 0, 0);
-            mTvLike.setCompoundDrawablePadding(DisplayUtils.dip2px(this, 6));
         }
+        mTvLike.setCompoundDrawablePadding(DisplayUtils.dip2px(this, 6));
+
         if (hasCollect) {
             mTvCollect.setCompoundDrawablesWithIntrinsicBounds(R.mipmap.ya02wmsj_cecoe_collect_press, 0, 0, 0);
-            mTvCollect.setCompoundDrawablePadding(DisplayUtils.dip2px(this, 6));
         } else {
             mTvCollect.setCompoundDrawablesWithIntrinsicBounds(R.mipmap.ya02wmsj_cecoe_collect, 0, 0, 0);
-            mTvCollect.setCompoundDrawablePadding(DisplayUtils.dip2px(this, 6));
         }
+        mTvCollect.setCompoundDrawablePadding(DisplayUtils.dip2px(this, 6));
     }
 
     @Override
@@ -328,9 +288,6 @@ public class FullScreenVideoActivity extends BaseActivity<FullScreenVideoContrac
 
     @Override
     public void shareSuc() {
-//        if (mNodeContent != null) {
-//            mTvShare.setText(mNodeContent.getShare_num() + 1 + "");
-//        }
     }
 
     @Override

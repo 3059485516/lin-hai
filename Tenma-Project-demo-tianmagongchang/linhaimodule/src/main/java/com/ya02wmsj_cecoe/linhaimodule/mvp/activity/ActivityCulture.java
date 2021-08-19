@@ -14,13 +14,11 @@ import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.CulturePresenter;
 import com.ya02wmsj_cecoe.linhaimodule.widget.ItemDecorationVertical;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 
-
 /**
  * Created by BenyChan on 2019-07-16.
  */
 public class ActivityCulture extends BaseListActivity<CultureContract.Presenter> implements CultureContract.View {
     protected RecyclerView mRvTop;
-
     private AdvanceTopAdapter mTopAdapter;
 
     @Override

@@ -21,10 +21,10 @@ import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class FinishWishActivity extends BaseActivity<FinishWishPresenter> implements IView {
     private EditText mEtContent;
     private RecyclerView mRvPic;
-
     protected ImageAdapter mImgAdapter;
     private String mWishId;
 
@@ -81,7 +81,6 @@ public class FinishWishActivity extends BaseActivity<FinishWishPresenter> implem
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //super.onActivityResult(requestCode, resultCode, data);
         if (data == null || resultCode != RESULT_OK) {
             return;
         }

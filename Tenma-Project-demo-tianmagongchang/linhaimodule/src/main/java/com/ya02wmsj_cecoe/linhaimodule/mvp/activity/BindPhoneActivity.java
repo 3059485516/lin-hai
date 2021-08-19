@@ -2,23 +2,18 @@ package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
 import android.widget.EditText;
 import android.widget.TextView;
-
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.base.activity.BaseActivity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.BindPhoneContract;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.BindPhonePresenter;
-
 
 /**
  * Created by BenyChan on 2019-07-23.
  */
 public class BindPhoneActivity extends BaseActivity<BindPhoneContract.Presenter> implements BindPhoneContract.View {
     protected EditText mEtPhone;
-
     protected EditText mEtCode;
-
     protected TextView mBtnCode;
-
     protected TextView mBtnBind;
 
     @Override
@@ -39,13 +34,13 @@ public class BindPhoneActivity extends BaseActivity<BindPhoneContract.Presenter>
         mBtnCode = findViewById(R.id.tv_find_passwd);
         mBtnBind = findViewById(R.id.btn_register);
         mBtnCode.setOnClickListener(v -> {
-            //  获取验证码
+            //获取验证码
             if (mEtPhone.getText() != null) {
                 mPresenter.getSMSCode(mEtPhone.getText().toString());
             }
         });
         mBtnBind.setOnClickListener(v -> {
-            //  绑定
+            //绑定
             if (mEtPhone.getText() != null && mEtCode.getText() != null) {
                 mPresenter.bindPhone(mEtPhone.getText().toString(), mEtCode.getText().toString());
             }
@@ -54,7 +49,6 @@ public class BindPhoneActivity extends BaseActivity<BindPhoneContract.Presenter>
 
     @Override
     protected void initData() {
-
     }
 
     @Override

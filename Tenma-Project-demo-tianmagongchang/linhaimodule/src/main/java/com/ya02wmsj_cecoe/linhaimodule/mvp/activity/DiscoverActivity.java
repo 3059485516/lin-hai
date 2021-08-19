@@ -35,14 +35,11 @@ public class DiscoverActivity extends BaseActivity<DiscoverPresenter> implements
     private ImageView mIvAddMedia, mIvPlay;
     private RatioImageView mIvThumbnail;
     private FrameLayout mWrapVideo;
-
     private ImageAdapter mThumbAdapter, mPicAdapter;
     private static int REQUEST_THUMB_CODE = 100;
     private static int REQUEST_IMAGE_CODE = 101;
     private static int REQUEST_VIDEO_CODE = 102;
-
     private String mVideoPath;
-
     private CircleProgressDialog mCircleProgressDialog;
 
     @Override
@@ -60,7 +57,6 @@ public class DiscoverActivity extends BaseActivity<DiscoverPresenter> implements
     protected void initView() {
         setTitle("发现非遗");
         setMenuText("发布");
-
         mEtTitle = findViewById(R.id.et_title);
         mEtName = findViewById(R.id.et_name);
         mEtPhone = findViewById(R.id.et_cancat);
@@ -74,22 +70,14 @@ public class DiscoverActivity extends BaseActivity<DiscoverPresenter> implements
         mWrapVideo = findViewById(R.id.wrap_video);
         mWrapVideo.setVisibility(View.GONE);
         mIvAddMedia.setVisibility(View.VISIBLE);
-        mIvAddMedia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivityForResult(new Intent(mContext, SelectVideoActivity.class), REQUEST_VIDEO_CODE);
+        mIvAddMedia.setOnClickListener(v -> startActivityForResult(new Intent(mContext, SelectVideoActivity.class), REQUEST_VIDEO_CODE));
+        mIvPlay.setOnClickListener(v -> {
+            if (TextUtils.isEmpty(mVideoPath)) {
+                return;
             }
-        });
-        mIvPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (TextUtils.isEmpty(mVideoPath)) {
-                    return;
-                }
-                Intent intent = new Intent(mContext, VideoPreviewActivity.class);
-                intent.putExtra(Constant.KEY_STRING_1, mVideoPath);
-                startActivity(intent);
-            }
+            Intent intent = new Intent(mContext, VideoPreviewActivity.class);
+            intent.putExtra(Constant.KEY_STRING_1, mVideoPath);
+            startActivity(intent);
         });
 
         mRvPic.setLayoutManager(new GridLayoutManager(this, 4));

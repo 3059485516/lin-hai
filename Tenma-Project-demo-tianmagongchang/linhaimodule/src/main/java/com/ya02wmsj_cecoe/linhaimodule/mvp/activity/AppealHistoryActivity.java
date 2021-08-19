@@ -10,6 +10,7 @@ import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
  * Created by BenyChan on 2019-07-30.
  */
 public class AppealHistoryActivity extends BaseListActivity<AppealHistoryContract.Presenter> implements AppealHistoryContract.View {
+
     @Override
     protected MultiItemTypeAdapter getAdapter() {
         return new AppealHistoryAdapter(this, mPresenter.getDataList());

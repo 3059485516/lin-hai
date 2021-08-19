@@ -10,8 +10,6 @@ import com.luck.picture.lib.permissions.RxPermissions;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.tenma.ventures.share.event.TablayoutEvent;
 import com.tenma.ventures.tools.change_activity.BackPressListener;
-import com.tenma.ventures.tools.change_activity.TablayoutChange;
-import com.tenma.ventures.tools.change_activity.TitleChange;
 import com.ya02wmsj_cecoe.linhaimodule.App;
 import com.ya02wmsj_cecoe.linhaimodule.Config;
 import com.ya02wmsj_cecoe.linhaimodule.R;
@@ -21,20 +19,15 @@ import com.ya02wmsj_cecoe.linhaimodule.widget.MainTabView;
 
 import org.greenrobot.eventbus.EventBus;
 
-
 /**
  * Created by BenyChan on 2019-07-17.
  */
 public class FragmentMain extends BaseFragment implements MainTabView.TabClickListener, BackPressListener, MainTabView.ClearUnreadListener {
-    MainTabView mTabOne;
-
-    MainTabView mTabTwo;
-
-    MainTabView mTabThree;
-
-    MainTabView mTabFour;
-
-    MainTabView mTabFive;
+    protected MainTabView mTabOne;
+    protected MainTabView mTabTwo;
+    protected MainTabView mTabThree;
+    protected MainTabView mTabFour;
+    protected MainTabView mTabFive;
 
     private FragmentManager mFragmentManager;
     private MainTabView mCurrentTab;
@@ -46,8 +39,8 @@ public class FragmentMain extends BaseFragment implements MainTabView.TabClickLi
 
     @Override
     protected void initMVP() {
-        App.get().setApplication(mActivity.getApplication());  // Module初始化操作，必须在Module入口处调用
-        App.get().initTMUser();
+       /* App.get().setApplication(mActivity.getApplication());
+        App.get().initTMUser();*/
     }
 
     @Override
@@ -74,18 +67,13 @@ public class FragmentMain extends BaseFragment implements MainTabView.TabClickLi
         super.setUserVisibleHint(isVisibleToUser);
         TablayoutEvent tablayoutEvent = new TablayoutEvent();
         if (isVisibleToUser) {
-//            if (getActivity() instanceof TablayoutChange) {     //隐藏底部Tab栏
-//                ((TablayoutChange) getActivity()).hideTablayout();
-//            }
             tablayoutEvent.setHide(true);
-            EventBus.getDefault().post(tablayoutEvent);
+            App.get().setApplication(mActivity.getApplication());
+            App.get().initTMUser();
         } else {
-//            if (getActivity() instanceof TablayoutChange) {     //显示底部Tab栏
-//                ((TablayoutChange) getActivity()).showTablayout();
-//            }
             tablayoutEvent.setHide(false);
-            EventBus.getDefault().post(tablayoutEvent);
         }
+        EventBus.getDefault().post(tablayoutEvent);
     }
 
     @Override
@@ -94,11 +82,10 @@ public class FragmentMain extends BaseFragment implements MainTabView.TabClickLi
         TablayoutEvent tablayoutEvent = new TablayoutEvent();
         if (hidden) {
             tablayoutEvent.setHide(false);
-            EventBus.getDefault().post(tablayoutEvent);
         } else {
             tablayoutEvent.setHide(true);
-            EventBus.getDefault().post(tablayoutEvent);
         }
+        EventBus.getDefault().post(tablayoutEvent);
     }
 
     @Override
@@ -119,6 +106,7 @@ public class FragmentMain extends BaseFragment implements MainTabView.TabClickLi
     public void tabClick(MainTabView mainTab) {
         showFragment(mainTab);
     }
+
 
     private void showFragment(MainTabView indexTab) {
         GSYVideoManager.releaseAllVideos();
@@ -141,7 +129,6 @@ public class FragmentMain extends BaseFragment implements MainTabView.TabClickLi
 
     @Override
     public void clearUnread() {
-
     }
 
     @Override

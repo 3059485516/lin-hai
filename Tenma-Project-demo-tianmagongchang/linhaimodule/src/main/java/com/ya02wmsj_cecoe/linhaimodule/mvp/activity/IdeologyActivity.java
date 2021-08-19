@@ -14,8 +14,7 @@ import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 /**
  * Created by BenyChan on 2019-07-16.
  */
-public class IdeologyActivity extends BaseListActivity<NodeContentContract.Presenter>
-        implements NodeContentContract.View {
+public class IdeologyActivity extends BaseListActivity<NodeContentContract.Presenter> implements NodeContentContract.View {
     protected RecyclerView mRvNode;
 
     @Override

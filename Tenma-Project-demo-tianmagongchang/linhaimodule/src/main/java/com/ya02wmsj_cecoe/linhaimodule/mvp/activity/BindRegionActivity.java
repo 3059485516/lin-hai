@@ -48,15 +48,12 @@ public class BindRegionActivity extends BaseActivity<BindRegionContract.Presente
             mPresenter.getRegionData3("village", (String) mTvRegionTown.getTag());
         });
 
-        findViewById(R.id.btn_bind).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mTvRegionVillage.getTag() == null) {
-                    toast("请选择完整区域");
-                    return;
-                }
-                mPresenter.bindArea((String) mTvRegionVillage.getTag());
+        findViewById(R.id.btn_bind).setOnClickListener(v -> {
+            if (mTvRegionVillage.getTag() == null) {
+                toast("请选择完整区域");
+                return;
             }
+            mPresenter.bindArea((String) mTvRegionVillage.getTag());
         });
     }
 

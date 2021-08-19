@@ -73,7 +73,6 @@ public class FragmentOne extends BaseListFragment<FragmentOneContract.Presenter>
     @Override
     protected int getLayoutId() {
         return R.layout.ya02wmsj_cecoe_fragment_one;
-
     }
 
     @Override

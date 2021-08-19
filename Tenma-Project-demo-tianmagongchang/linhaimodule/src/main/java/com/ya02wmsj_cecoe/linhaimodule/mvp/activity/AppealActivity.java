@@ -2,7 +2,6 @@ package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
 import android.content.Intent;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.EditText;
 
 import com.luck.picture.lib.PictureSelector;
@@ -20,15 +19,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 /**
  * Created by BenyChan on 2019-07-27.
  */
 public class AppealActivity extends BaseActivity<AppealContract.Presenter> implements AppealContract.View {
     protected YLEditTextGroup mEtTitle;
-
     protected EditText mEtDesc;
-
     protected YLTextViewGroup mTvVideo;
 
     @Override
@@ -50,23 +46,20 @@ public class AppealActivity extends BaseActivity<AppealContract.Presenter> imple
         mTvVideo.setOnClickListener(v -> {
             PictureSelectorUtils.getVideoSingleOption(mContext, PictureConfig.TYPE_VIDEO);
         });
-        findViewById(R.id.btn_commit).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (TextUtils.isEmpty(mEtTitle.getTextRight())) {
-                    toast("请填写标题");
-                    return;
-                }
-                if (TextUtils.isEmpty(mEtDesc.getText())) {
-                    toast("请填写描述");
-                    return;
-                }
-                Map<String, Object> map = new HashMap<>();
-                map.put("show_type", "爆料");
-                map.put("title", mEtTitle.getTextRight());
-                map.put("contents", mEtDesc.getText().toString());
-                mPresenter.addContentAppeal(map);
+        findViewById(R.id.btn_commit).setOnClickListener(v -> {
+            if (TextUtils.isEmpty(mEtTitle.getTextRight())) {
+                toast("请填写标题");
+                return;
             }
+            if (TextUtils.isEmpty(mEtDesc.getText())) {
+                toast("请填写描述");
+                return;
+            }
+            Map<String, Object> map = new HashMap<>();
+            map.put("show_type", "爆料");
+            map.put("title", mEtTitle.getTextRight());
+            map.put("contents", mEtDesc.getText().toString());
+            mPresenter.addContentAppeal(map);
         });
     }
 
@@ -74,10 +67,8 @@ public class AppealActivity extends BaseActivity<AppealContract.Presenter> imple
     protected void initData() {
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //super.onActivityResult(requestCode, resultCode, data);
         if (data == null || resultCode != RESULT_OK) {
             return;
         }

@@ -1,7 +1,6 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -35,7 +34,6 @@ public class DiscussDetailActivity extends BaseWebViewActivity<DiscussDetailCont
     protected TextView mTvTitle;
     protected TextView mTvPublish;
     protected RecyclerView mRvDiscuss;
-
     private Dialog mDiscussDialog;
     private Dialog mReplyComDialog;
     private NodeContent mContent;
@@ -73,13 +71,7 @@ public class DiscussDetailActivity extends BaseWebViewActivity<DiscussDetailCont
         mRvDiscuss.setLayoutManager(new LinearLayoutManager(this));
         mCommentAdapter = new DiscussCommentAdapter(mContext, mPresenter.getComnentList(), this);
         mRvDiscuss.setAdapter(mCommentAdapter);
-        findViewById(R.id.btn_add).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 跟帖
-                showDiscussDialog();
-            }
-        });
+        findViewById(R.id.btn_add).setOnClickListener(v -> showDiscussDialog());
     }
 
     @Override
@@ -118,13 +110,10 @@ public class DiscussDetailActivity extends BaseWebViewActivity<DiscussDetailCont
         mDiscussDialog = new Dialog(this, R.style.BottomDialogStyle);
         mDiscussDialog.setCanceledOnTouchOutside(true);
         mDiscussDialog.setCancelable(true);
-        mDiscussDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-                if (mDiscussDialog != null) {
-                    mDiscussDialog.dismiss();
-                    mDiscussDialog = null;
-                }
+        mDiscussDialog.setOnCancelListener(dialog -> {
+            if (mDiscussDialog != null) {
+                mDiscussDialog.dismiss();
+                mDiscussDialog = null;
             }
         });
         View view = LayoutInflater.from(mContext).inflate(R.layout.ya02wmsj_cecoe_dialog_discuss, null);
@@ -133,31 +122,25 @@ public class DiscussDetailActivity extends BaseWebViewActivity<DiscussDetailCont
         TextView tv_title = view.findViewById(R.id.tv_title);
         TextView tv_publish = view.findViewById(R.id.tv_publish);
         EditText et_content = view.findViewById(R.id.et_content);
-        view.findViewById(R.id.iv_close).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mDiscussDialog.dismiss();
-                mDiscussDialog = null;
-            }
+        view.findViewById(R.id.iv_close).setOnClickListener(v -> {
+            mDiscussDialog.dismiss();
+            mDiscussDialog = null;
         });
         if (!TextUtils.isEmpty(mContent.getIcon_path())) {
             ImageManager.getInstance().loadCircleImage(this, mContent.getIcon_path(), R.mipmap.ya02wmsj_cecoe_head, iv_icon);
         }
         tv_name.setText(mContent.getName());
         tv_title.setText(mContent.getTitle());
-        tv_publish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (TextUtils.isEmpty(et_content.getText())) {
-                    toast("请填写你的看法");
-                    return;
-                }
-                Map<String, Object> map = new HashMap<>();
-                map.put("operate_type", "add");
-                map.put("c_id", mContent.getId());
-                map.put("content", et_content.getText());
-                mPresenter.addDiscuss(map);
+        tv_publish.setOnClickListener(v -> {
+            if (TextUtils.isEmpty(et_content.getText())) {
+                toast("请填写你的看法");
+                return;
             }
+            Map<String, Object> map = new HashMap<>();
+            map.put("operate_type", "add");
+            map.put("c_id", mContent.getId());
+            map.put("content", et_content.getText());
+            mPresenter.addDiscuss(map);
         });
         mDiscussDialog.setContentView(view);
         //获取当前Activity所在的窗体
@@ -181,13 +164,10 @@ public class DiscussDetailActivity extends BaseWebViewActivity<DiscussDetailCont
         mReplyComDialog = new Dialog(this, R.style.BottomDialogStyle);
         mReplyComDialog.setCanceledOnTouchOutside(true);
         mReplyComDialog.setCancelable(true);
-        mReplyComDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-                if (mReplyComDialog != null) {
-                    mReplyComDialog.dismiss();
-                    mReplyComDialog = null;
-                }
+        mReplyComDialog.setOnCancelListener(dialog -> {
+            if (mReplyComDialog != null) {
+                mReplyComDialog.dismiss();
+                mReplyComDialog = null;
             }
         });
         View view = LayoutInflater.from(mContext).inflate(R.layout.ya02wmsj_cecoe_diaolog_reply_comment, null);
@@ -196,12 +176,9 @@ public class DiscussDetailActivity extends BaseWebViewActivity<DiscussDetailCont
         TextView tv_title = view.findViewById(R.id.tv_title);
         TextView tv_publish = view.findViewById(R.id.tv_publish);
         EditText et_content = view.findViewById(R.id.et_content);
-        view.findViewById(R.id.iv_close).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mReplyComDialog.dismiss();
-                mReplyComDialog = null;
-            }
+        view.findViewById(R.id.iv_close).setOnClickListener(v -> {
+            mReplyComDialog.dismiss();
+            mReplyComDialog = null;
         });
         RecyclerView rv_comment = view.findViewById(R.id.rv_comment);
         rv_comment.setLayoutManager(new LinearLayoutManager(mContext));
@@ -212,22 +189,19 @@ public class DiscussDetailActivity extends BaseWebViewActivity<DiscussDetailCont
         }
         tv_name.setText(mReplyComment.getName());
         tv_title.setText(mReplyComment.getContent());
-        tv_publish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (TextUtils.isEmpty(et_content.getText())) {
-                    toast("请填写你的看法");
-                    return;
-                }
-                Map<String, Object> map = new HashMap<>();
-                map.put("operate_type", "add");
-                map.put("c_id", mContent.getId());
-                map.put("content", et_content.getText());
-                map.put("pid", mReplyComment.getId());
-                map.put("puser", mReplyComment.getUuid());
-                map.put("pcontent", mReplyComment.getContent());
-                mPresenter.addDiscuss(map);
+        tv_publish.setOnClickListener(v -> {
+            if (TextUtils.isEmpty(et_content.getText())) {
+                toast("请填写你的看法");
+                return;
             }
+            Map<String, Object> map = new HashMap<>();
+            map.put("operate_type", "add");
+            map.put("c_id", mContent.getId());
+            map.put("content", et_content.getText());
+            map.put("pid", mReplyComment.getId());
+            map.put("puser", mReplyComment.getUuid());
+            map.put("pcontent", mReplyComment.getContent());
+            mPresenter.addDiscuss(map);
         });
 
         mReplyComDialog.setContentView(view);
@@ -247,6 +221,6 @@ public class DiscussDetailActivity extends BaseWebViewActivity<DiscussDetailCont
     public void replyComment(CommentEntity commentEntity) {
         // 回复评论
         mReplyComment = commentEntity;
-        mPresenter.getCommentByCommentId(mContent.getId(), commentEntity.getId());  //请求该评论的回复
+        mPresenter.getCommentByCommentId(mContent.getId(), commentEntity.getId());
     }
 }

@@ -13,6 +13,7 @@ import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.KjcgDetailPresenter;
 import com.ya02wmsj_cecoe.linhaimodule.utils.ImageManager;
 import com.ya02wmsj_cecoe.linhaimodule.widget.RatioImageView;
 
+
 public class KjcgDetailActivity extends BaseWebViewActivity<KjcgDetailPresenter> implements KjcgDetailContract.View {
     private RatioImageView mTopImg;
     private TextView mTvTitle, mTvSource, mTvAuthor, mTvTime;

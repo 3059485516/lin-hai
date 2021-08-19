@@ -45,7 +45,6 @@ public class App {
 
     public void setApplication(Application application) {
         this.application = application;
-//        init();
     }
 
     public Application getApplication() {
