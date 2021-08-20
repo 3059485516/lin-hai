@@ -40,7 +40,7 @@ public class FragmentMain extends BaseFragment implements MainTabView.TabClickLi
     @Override
     protected void initMVP() {
         App.get().setApplication(mActivity.getApplication());
-        /*App.get().initTMUser();*/
+        App.get().initTMUser();
     }
 
     @Override
@@ -68,7 +68,6 @@ public class FragmentMain extends BaseFragment implements MainTabView.TabClickLi
         TablayoutEvent tablayoutEvent = new TablayoutEvent();
         if (isVisibleToUser) {
             tablayoutEvent.setHide(true);
-            App.get().initTMUser();
         } else {
             tablayoutEvent.setHide(false);
         }
