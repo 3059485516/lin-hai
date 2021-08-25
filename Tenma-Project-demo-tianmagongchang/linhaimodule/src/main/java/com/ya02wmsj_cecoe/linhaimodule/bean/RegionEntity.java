@@ -1,5 +1,6 @@
 package com.ya02wmsj_cecoe.linhaimodule.bean;
 
+import com.contrarywind.interfaces.IPickerViewData;
 import com.ya02wmsj_cecoe.linhaimodule.widget.regionpicker.IRegionPickImp;
 
 import java.io.Serializable;
@@ -7,7 +8,7 @@ import java.io.Serializable;
 /**
  * Created by BenyChan on 2019-05-31.
  */
-public class RegionEntity implements Serializable,IRegionPickImp {
+public class RegionEntity implements Serializable,IRegionPickImp,IPickerViewData {
     /**
      * pid : 0
      * code : 330122000000
@@ -45,6 +46,10 @@ public class RegionEntity implements Serializable,IRegionPickImp {
 
     @Override
     public String getText() {
+        return name;
+    }
+
+    public String getPickerViewText() {
         return name;
     }
 
