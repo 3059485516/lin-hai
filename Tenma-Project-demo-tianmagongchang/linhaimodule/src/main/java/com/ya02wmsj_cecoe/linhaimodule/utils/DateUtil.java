@@ -14,6 +14,8 @@ public class DateUtil {
 
     public static final String FORMAT_HMS = "HH:mm:ss";
 
+    public static final String FORMAT_Y = "yyyy";
+
     public static final String FORMAT_YMD = "yyyy-MM-dd";
 
     public static final String FORMAT_YMD_D = "yyyy.MM.dd";

@@ -455,6 +455,7 @@ public class Api {
 
     /**
      * [志愿服务-点单]用户提交“其他服务”点单
+     *
      * @param regionCode
      * @param name
      * @param phone
@@ -812,8 +813,13 @@ public class Api {
         return API_SERVICE.getLtContentDetail(BASE_URL_LT_INTERFACE + "getContentDetail", params).compose(RxSchedulers.io_main());
     }
 
-    public static Observable<List<LtExpoenentEntity>> getCAEvaList(String code) {
-        return API_SERVICE.getCAEvaList(BASE_URL_LT_INTERFACE + "getCAEvaList", code).compose(RxSchedulers.io_main());
+    public static Observable<List<LtExpoenentEntity>> getCAEvaList(String code, String cDate) {
+        Map<String, Object> params = createParamsMap(getLtToken());
+        params.put("code", code);
+        if (!TextUtils.isEmpty(cDate)) {
+            params.put("ctime", cDate);
+        }
+        return API_SERVICE.getCAEvaList(BASE_URL_LT_INTERFACE + "getCAEvaList", params).compose(RxSchedulers.io_main());
     }
 
     public static Observable<Object> addCAAdvance(Map<String, Object> map, List<LocalMedia> imageList) {
@@ -988,6 +994,7 @@ public class Api {
 
     /**
      * 我要秀文明
+     *
      * @param map
      * @param mediaList
      * @return

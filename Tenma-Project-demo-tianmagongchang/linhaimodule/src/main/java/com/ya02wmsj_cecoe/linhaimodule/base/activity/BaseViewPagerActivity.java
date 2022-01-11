@@ -9,18 +9,16 @@ import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.adapter.FragmentWithTitleAdapter;
 import com.ya02wmsj_cecoe.linhaimodule.base.mvp.APresenter;
 import com.ya02wmsj_cecoe.linhaimodule.widget.EmptyView;
-
 import java.util.Arrays;
 import java.util.List;
 
-
-
+/**
+ *
+ * @param <P>
+ */
 public abstract class BaseViewPagerActivity<P extends APresenter> extends BaseActivity<P> {
-
     protected TabLayout mTabLayout;
-
     protected ViewPager mViewPager;
-
     EmptyView mEmptyView;
 
     private FragmentWithTitleAdapter mPagerAdapter;

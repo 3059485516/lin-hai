@@ -1118,12 +1118,12 @@ public interface ApiService {
      * 获取礼堂指数列表
      *
      * @param url
-     * @param code
+     * @param map
      * @return
      */
     @FormUrlEncoded
     @POST
-    Observable<List<LtExpoenentEntity>> getCAEvaList(@Url String url, @Field("code") String code);
+    Observable<List<LtExpoenentEntity>> getCAEvaList(@Url String url,@FieldMap Map<String, Object> map);
 
     /**
      * 新增礼堂建议

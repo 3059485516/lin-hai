@@ -40,7 +40,7 @@ public abstract class BaseListFragment<P extends AListPresenter> extends BaseFra
 
     private static final String TAG = "BaseListFragment";
 
-    SmartRefreshLayout mRefreshLayout;
+    public SmartRefreshLayout mRefreshLayout;
 
     protected RecyclerView mRecyclerView;
 
@@ -50,7 +50,7 @@ public abstract class BaseListFragment<P extends AListPresenter> extends BaseFra
     private TextView mTvEmptyView;
     private MyEmptyWrapper mAdapter;
     private MultiItemTypeAdapter mMultiItemTypeAdapter;
-    private boolean mIsRefresh = false;
+    public boolean mIsRefresh = false;
     private String mNoDataText = "暂无数据";
     private String mLoadErrorText = "加载失败";
     private boolean mEnableLoreMore = true;

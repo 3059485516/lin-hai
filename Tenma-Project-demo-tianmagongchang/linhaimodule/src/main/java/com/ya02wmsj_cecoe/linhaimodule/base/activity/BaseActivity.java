@@ -189,6 +189,13 @@ public abstract class BaseActivity<P extends APresenter> extends TMActivity impl
         }
     }
 
+    public String getMenuText() {
+        if (mToolbarLayout != null) {
+            return mToolbarLayout.getMenuTextView().getText().toString();
+        }
+        return "";
+    }
+
     public void showIconMenu() {
         if (mToolbarLayout != null) {
             mToolbarLayout.showIconMenu();

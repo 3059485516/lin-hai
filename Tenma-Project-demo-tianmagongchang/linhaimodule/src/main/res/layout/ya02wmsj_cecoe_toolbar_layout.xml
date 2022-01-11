@@ -48,6 +48,6 @@
     <TextView
         android:id="@+id/toolbar_tv_menu"
         style="@style/YLAppTitleMenu"
+        android:visibility="visible"
         android:layout_alignParentRight="true" />
-
 </RelativeLayout>

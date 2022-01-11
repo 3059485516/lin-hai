@@ -7,7 +7,6 @@ import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.LtChooseLtContract;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.LtChooseLtPresenter;
 import java.util.List;
 
-
 public class LtChooseLtActivity extends BaseViewPagerActivity<LtChooseLtContract.Presenter> implements LtChooseLtContract.View {
     @Override
     public String[] getTitles() {
