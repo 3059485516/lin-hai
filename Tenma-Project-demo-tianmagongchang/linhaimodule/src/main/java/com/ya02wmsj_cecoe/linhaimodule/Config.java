@@ -243,13 +243,17 @@ public class Config implements TMLoginManager.OnLoginListener {
         addRx2Destroy(new RxSubscriber<String>(Api.loginByOpenId()) {
             @Override
             protected void _onNext(String string) {
-                if (TextUtils.isEmpty(string)) _onError(CODE_40003.getCode());
-                mVolunteerToken = string;
+                if (TextUtils.isEmpty(string)) {
+                    Intent intent = new Intent(mContext, WebBridgeActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mContext.startActivity(intent);
+                } else {
+                    mVolunteerToken = string;
+                }
             }
 
             @Override
             protected void _onError(String code) {
-                super._onError(code);   //失败则手动登录
                 Intent intent = new Intent(mContext, WebBridgeActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);

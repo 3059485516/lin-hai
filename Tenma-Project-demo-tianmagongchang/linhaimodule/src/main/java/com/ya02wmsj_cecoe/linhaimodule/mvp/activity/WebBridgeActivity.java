@@ -1,6 +1,5 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
-
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.net.http.SslError;
@@ -28,11 +27,9 @@ import org.json.JSONObject;
 
 import java.net.URLEncoder;
 
-
 public class WebBridgeActivity extends BaseActivity {
-    protected BridgeWebView mWebView;
-
     public static final String BRIDGE_HANDLE_NAME = "sendToken";
+    protected BridgeWebView mWebView;
 
     @Override
     protected int getLayoutId() {
@@ -41,7 +38,6 @@ public class WebBridgeActivity extends BaseActivity {
 
     @Override
     protected void initMVP() {
-
     }
 
     @Override
@@ -68,8 +64,7 @@ public class WebBridgeActivity extends BaseActivity {
         settings.setBlockNetworkImage(false);
         settings.setPluginState(WebSettings.PluginState.ON);
         settings.setDomStorageEnabled(true);//开启本地DOM存储
-        settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK); //设置缓存
-
+        settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mWebView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         }
@@ -106,23 +101,19 @@ public class WebBridgeActivity extends BaseActivity {
         mWebView.setDefaultHandler(new BridgeHandler() {
             @Override
             public void handler(String data, CallBackFunction function) {
-                //  data
                 Log.i("Handler-result = ", data);
             }
         });
+
         mWebView.registerHandler(BRIDGE_HANDLE_NAME, new BridgeHandler() {
             @Override
             public void handler(String data, CallBackFunction function) {
                 Log.i("Handler-result = ", data);
-                // {"token":"157898447715567300087bec74e6fbb0919e31bc6d997"}
                 try {
                     JSONObject jsonObject = new JSONObject(data);
                     String desc = jsonObject.optString("token");
-                    Config.getInstance().setVolunteerToken(desc);   //保存志愿汇token
-                    //  operate data
-                    /*
-                     *
-                     */
+                    //保存志愿汇token
+                    Config.getInstance().setVolunteerToken(desc);
                     finishActivity();
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -136,23 +127,17 @@ public class WebBridgeActivity extends BaseActivity {
                 + Config.getInstance().getUser().getUuid()
                 + "&callbackurl="
                 + toURLEncoded(Constant.getBaseUrl() + "application/ya02wmsj_cecoe/h5/enter.html");
-
         mWebView.loadUrl(url);
-//        mWebView.loadUrl("http://192.168.1.177:8080/#/map");
-
     }
 
     @Override
     protected void initData() {
-
     }
-
 
     private String toURLEncoded(String paramString) {
         if (paramString == null || paramString.equals("")) {
             return "";
         }
-
         try {
             String str = new String(paramString.getBytes(), "UTF-8");
             str = URLEncoder.encode(str, "UTF-8");
@@ -160,16 +145,13 @@ public class WebBridgeActivity extends BaseActivity {
         } catch (Exception localException) {
             localException.printStackTrace();
         }
-
         return "";
     }
 
     @JavascriptInterface
     public void refreshToken(String str) {
-        Log.i("Handler-result-test = ", str);
-        Config.getInstance().setVolunteerToken(str);   //保存志愿汇token
-
+        //保存志愿汇token
+        Config.getInstance().setVolunteerToken(str);
         finishActivity();
     }
-
 }

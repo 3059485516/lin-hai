@@ -7,8 +7,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 160
-        versionName "1.6.0"
+        versionCode 161
+        versionName "1.6.1"
     }
 
     buildTypes {
@@ -49,7 +49,7 @@ dependencies {
     implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
     implementation 'com.zhy:base-rvadapter:3.0.3'
     implementation 'com.youth.banner:banner:1.4.10'
-    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.0'
+    implementation 'io.github.lucksiege:pictureselector:v2.2.0'
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-7'
     implementation 'com.github.zhaokaiqiang.klog:library:1.6.0'
     implementation 'com.wx.goodview:goodview:1.0.0'
