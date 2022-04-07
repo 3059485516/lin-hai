@@ -1,23 +1,33 @@
 package com.ya02wmsj_cecoe.linhaimodule.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class LtExpoenentEntity implements Serializable {
-
-    /**
-     * level : 3
-     * name : 东湖村文化礼堂
-     * id : 13
-     * pic : http://47.99.86.101:8040//uploads/ya02lhwhlt_wdhaw/pic/20200320/ab8515b1c877244c92f6bb947144b01c.jpg
-     * region_code : 331082001202
-     * points : 0
-     */
     private int level;
     private String name;
     private String id;
     private String pic;
     private String region_code;
     private String points;
+    private List<DoneLtExDetail> done_list;
+    private boolean isExpand = false;
+
+    public boolean isExpand() {
+        return isExpand;
+    }
+
+    public void setExpand(boolean expand) {
+        isExpand = expand;
+    }
+
+    public List<DoneLtExDetail> getDone_list() {
+        return done_list;
+    }
+
+    public void setDone_list(List<DoneLtExDetail> done_list) {
+        this.done_list = done_list;
+    }
 
     public void setLevel(int level) {
         this.level = level;

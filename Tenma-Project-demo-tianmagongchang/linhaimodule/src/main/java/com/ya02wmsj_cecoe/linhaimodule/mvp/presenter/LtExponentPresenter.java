@@ -1,7 +1,6 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.presenter;
 
 import android.support.v4.app.Fragment;
-
 import com.ya02wmsj_cecoe.linhaimodule.bean.LtStreetEntity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.LtChooseLtContract;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.fragment.LtExponentFragment;

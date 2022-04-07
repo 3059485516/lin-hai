@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/yl_space_10">
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#4C4C4C"
+        android:textSize="@dimen/yl_text_size_16"
+        tools:text="5月16日，党和国家领导人习近平、李克强、王沪宁等在北京人民大会堂会见第六次全国自强模范暨助残先进表彰大会代表。 " />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_content"
+        android:layout_marginTop="@dimen/yl_space_10"
+        android:textColor="#999999"
+        android:textSize="@dimen/yl_text_size_13"
+        tools:text="2019-05-30" />
+</RelativeLayout>

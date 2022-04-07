@@ -2,6 +2,7 @@ package com.ya02wmsj_cecoe.linhaimodule.mvp.fragment;
 
 import android.os.Bundle;
 import com.ya02wmsj_cecoe.linhaimodule.Constant;
+import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.adapter.LtExponentAdapter;
 import com.ya02wmsj_cecoe.linhaimodule.base.fragment.BaseListFragment;
 import com.ya02wmsj_cecoe.linhaimodule.event.ExchangeResult;
@@ -28,8 +29,17 @@ public class LtExponentFragment extends BaseListFragment<LtExponentListContract.
     }
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.ya02wmsj_cecoe_fragment_new_base_list;
+    }
+
+    @Override
     protected MultiItemTypeAdapter getAdapter() {
-        return new LtExponentAdapter(mActivity, mPresenter.getDataList());
+        LtExponentAdapter ltExponentAdapter = new LtExponentAdapter(mActivity, mPresenter.getDataList());
+        ltExponentAdapter.setScrollCall(position -> {
+            mRecyclerView.getLayoutManager().scrollToPosition(position);
+        });
+        return ltExponentAdapter;
     }
 
     @Override
