@@ -15,6 +15,7 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 import java.util.List;
 
 public class OrderBetSubAdapter extends CommonAdapter<Node> {
+
     public OrderBetSubAdapter(Context context, List<Node> datas) {
         super(context, R.layout.ya02wmsj_cecoe_order_sub_item, datas);
     }

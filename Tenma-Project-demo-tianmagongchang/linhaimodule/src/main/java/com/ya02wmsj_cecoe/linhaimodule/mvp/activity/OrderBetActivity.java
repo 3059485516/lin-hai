@@ -1,7 +1,6 @@
 package com.ya02wmsj_cecoe.linhaimodule.mvp.activity;
 
 import android.graphics.Color;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.ya02wmsj_cecoe.linhaimodule.adapter.NodeAdapter;
@@ -11,6 +10,7 @@ import com.ya02wmsj_cecoe.linhaimodule.base.mvp.IListView;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.OrderBetPresenter;
 import com.ya02wmsj_cecoe.linhaimodule.widget.StaggeredDividerItemDecoration;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
+
 
 public class OrderBetActivity extends BaseListActivity<AListPresenter> implements IListView {
     @Override

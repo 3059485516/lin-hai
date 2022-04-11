@@ -7,7 +7,6 @@ import com.ya02wmsj_cecoe.linhaimodule.Constant;
 import com.ya02wmsj_cecoe.linhaimodule.R;
 import com.ya02wmsj_cecoe.linhaimodule.base.activity.BaseWebViewActivity;
 import com.ya02wmsj_cecoe.linhaimodule.bean.OrderDetailEntity;
-import com.ya02wmsj_cecoe.linhaimodule.bean.VolunteerOrderEntity;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.contract.OrderDetailContract;
 import com.ya02wmsj_cecoe.linhaimodule.mvp.presenter.OrderDetailPresenter;
 
