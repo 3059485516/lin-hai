@@ -16,7 +16,7 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url "http://47.105.116.110:8081/repository/tenma/" }
+        maven { url "http://nexus.tianma3600.com/repository/tenma/" }
         google()
         jcenter()
         maven { url 'https://maven.aliyun.com/repository/public/' }
