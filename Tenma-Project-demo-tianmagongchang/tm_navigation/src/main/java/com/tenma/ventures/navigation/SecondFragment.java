@@ -12,8 +12,7 @@ import com.tianma.tm_own_find.view.FindThreeFragmentActivity;
 public class SecondFragment extends TMFragment {
     private static String title_name = "测试页面";  //二级页面标题
     private static int type = 1;    //类型，非原生0，原生1
-//    private static String url = "com.tenma.ventures.usercenter.UserCenterNewFragment";  //非原生填写url地址，原生填写Fragment完整路径
-    private static String url = "com.ya02wmsj_cecoe.yl_newtimes.TestFragment";  //非原生填写url地址，原生填写Fragment完整路径
+    private static String url = "com.ya02wmsj_cecoe.linhaimodule.mvp.fragment.FragmentMain";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,9 +28,7 @@ public class SecondFragment extends TMFragment {
                 clickAway();
             }
         });
-
     }
-
 
     private void clickAway() {
         Intent pushIntent = new Intent(getActivity(), FindThreeFragmentActivity.class);
@@ -42,6 +39,4 @@ public class SecondFragment extends TMFragment {
         pushIntent.putExtras(bundle);
         startActivity(pushIntent);
     }
-
-
 }
