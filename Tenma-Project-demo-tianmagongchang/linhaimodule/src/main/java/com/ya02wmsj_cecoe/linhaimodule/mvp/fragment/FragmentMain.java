@@ -132,6 +132,6 @@ public class FragmentMain extends BaseFragment implements MainTabView.TabClickLi
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Config.getInstance().destroy();
+        /*Config.getInstance().destroy();*/
     }
 }
