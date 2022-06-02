@@ -15,17 +15,14 @@ import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.tenma.ventures.bean.utils.TMPayUtil;
 import com.tenma.ventures.bean.utils.TMSharedPUtil;
 
+
 public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
-
     private static final String TAG = "WXPayEntryActivity";
-
     private IWXAPI api;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.pay_result);
-
         api = WXAPIFactory.createWXAPI(this, getId());
         api.handleIntent(getIntent(), this);
     }
@@ -58,34 +55,10 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 
     @Override
     public void onResp(BaseResp resp) {
-        //Log.d(TAG, "onPayFinish, errCode = " + resp.errCode);
-
-        //LogUtil.d(TAG, "Luke = " + resp.toString());
-
         if (resp.getType() == ConstantsAPI.COMMAND_PAY_BY_WX) {
             int code = resp.errCode;
             TMPayUtil.wechatPayResult(code);
             finish();
-           /* switch (code) {
-                case 0:
-                    Toast.makeText(this,"支付成功",Toast.LENGTH_LONG).show();
-                    break;
-                case -1:
-                    Toast.makeText(this,"支付失败",Toast.LENGTH_LONG).show();
-                    finish();
-                    break;
-                case -2:
-                    Toast.makeText(this,"支付取消",Toast.LENGTH_LONG).show();
-                    //ToastUtil.show("支付取消");
-                    finish();
-                    break;
-                default:
-                    Toast.makeText(this,"支付失败",Toast.LENGTH_LONG).show();
-                    //ToastUtil.show("支付失败");
-                    setResult(RESULT_OK);
-                    finish();
-                    break;
-            }*/
         }
     }
 }

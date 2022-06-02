@@ -25,19 +25,6 @@
       "selectedImage": "item1_s",
       "isInterceptScroll": false,
       "isNeedTitleBar": true
-    },
-    {
-      "key": "ct_3",
-      "native": true,
-      "androidSrc": "com.ya02wmsj_cecoe.linhaimodule.mvp.fragment.FragmentMain",
-      "iosSrc": "",
-      "wwwFolderIos": "",
-      "wwwFolderAndroid": "",
-      "title": "测试页面",
-      "image": "item2",
-      "selectedImage": "item2_s",
-      "isInterceptScroll": false,
-      "isNeedTitleBar": false
     }
   ],
   "config": {

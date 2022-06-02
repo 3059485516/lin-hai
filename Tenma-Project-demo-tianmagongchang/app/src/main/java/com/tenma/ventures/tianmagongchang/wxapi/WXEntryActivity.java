@@ -5,21 +5,20 @@
  *
  * Copyright (c) 2013年 mob.com. All rights reserved.
  */
-
 package com.tenma.ventures.tianmagongchang.wxapi;
 
-
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import cn.sharesdk.wechat.utils.WXAppExtendObject;
-import cn.sharesdk.wechat.utils.WXMediaMessage;
-import cn.sharesdk.wechat.utils.WechatHandlerActivity;
+import com.tencent.mm.opensdk.modelmsg.WXAppExtendObject;
+import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
+
 
 /** 微信客户端回调activity示例 */
-public class WXEntryActivity extends WechatHandlerActivity {
+public class WXEntryActivity extends AppCompatActivity {
 
-    /**
+        /**
      * 处理微信发出的向第三方应用请求app message
      * <p>
      * 在微信客户端中的聊天页面有“添加工具”，可以将本应用的图标添加到其中
@@ -44,11 +43,9 @@ public class WXEntryActivity extends WechatHandlerActivity {
      * 本Demo只是将信息展示出来，但你可做点其他的事情，而不仅仅只是Toast
      */
     public void onShowMessageFromWXReq(WXMediaMessage msg) {
-        if (msg != null && msg.mediaObject != null
-                && (msg.mediaObject instanceof WXAppExtendObject)) {
+        if (msg != null && msg.mediaObject != null && (msg.mediaObject instanceof WXAppExtendObject)) {
             WXAppExtendObject obj = (WXAppExtendObject) msg.mediaObject;
             Toast.makeText(this, obj.extInfo, Toast.LENGTH_SHORT).show();
         }
     }
-
 }

@@ -16,7 +16,6 @@ import java.io.InputStream;
  * Application
  * Created by bin on 2017/12/21.
  */
-
 public class TMApp extends TMShareApp {
 
     @Override
@@ -41,7 +40,6 @@ public class TMApp extends TMShareApp {
             // Convert the buffer into a string.
             String baseConfig = new String(buffer, "utf-8");
             // Finally stick the string into the text view.
-
             Gson gson = new Gson();
             TMBaseConfig tmBaseConfig = gson.fromJson(baseConfig, TMBaseConfig.class);
             TMSharedPUtil.saveTMBaseConfig(this, baseConfig);
@@ -54,7 +52,5 @@ public class TMApp extends TMShareApp {
     @Override
     public void onCreate() {
         super.onCreate();
-
-
     }
 }
