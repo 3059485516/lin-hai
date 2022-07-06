@@ -56,7 +56,7 @@ public class LtExponentAdapter extends CommonAdapter<LtExpoenentEntity> {
         holder.setText(R.id.tv_time, entity.getPoints() + "");
         ImageManager.getInstance().loadCircleImage(mContext, entity.getPic(), R.mipmap.ya02wmsj_cecoe_head, holder.getView(R.id.iv_icon));
 
-        RecyclerView recyclerView = holder.getView(R.id.rv_downRv);
+       /* RecyclerView recyclerView = holder.getView(R.id.rv_downRv);
         RelativeLayout relativeLayout = holder.getView(R.id.rl_down);
         ImageView imageView = holder.getView(R.id.iv_downList);
         if (entity.getDone_list() != null && entity.getDone_list().size() > 0) {
@@ -89,6 +89,6 @@ public class LtExponentAdapter extends CommonAdapter<LtExpoenentEntity> {
             });
         } else {
             relativeLayout.setVisibility(View.GONE);
-        }
+        }*/
     }
 }
