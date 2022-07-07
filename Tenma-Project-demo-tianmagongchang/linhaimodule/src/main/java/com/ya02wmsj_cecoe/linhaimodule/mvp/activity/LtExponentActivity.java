@@ -57,7 +57,7 @@ public class LtExponentActivity extends BaseViewPagerActivity<LtExponentPresente
     private void initTimePicker() {
         if (pvTime == null) {
             Calendar startDate = Calendar.getInstance();
-            startDate.add(Calendar.YEAR, -3);
+            startDate.add(Calendar.YEAR, -1);
             Calendar endDate = Calendar.getInstance();
             pvTime = new TimePickerBuilder(this, (date, v) -> {
                 String strDate = DateUtil.date2Str(date, DateUtil.FORMAT_Y);
